@@ -1,0 +1,14 @@
+name = "smspm-frontend"
+compatibility_date = "2024-11-27"
+pages_build_output_dir = "./dist"
+
+[env.production]
+name = "smspm-frontend"
+
+[env.preview]
+name = "smspm-frontend-preview"
+
+# Cloudflare Pages configuration
+# Build command: yarn build
+# Output directory: dist
+# Node.js version: 18+

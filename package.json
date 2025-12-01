@@ -2,13 +2,43 @@
   "name": "smspm-frontend",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "description": "SMSPM Frontend - Global SMS API & Bulk Messaging Platform",
+  "keywords": [
+    "SMS",
+    "API",
+    "messaging",
+    "bulk SMS",
+    "global",
+    "communication"
+  ],
+  "author": "SMSPM",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "clean": "rm -rf dist .astro node_modules/.vite",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "astro": "^5.16.3"
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.16.3",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

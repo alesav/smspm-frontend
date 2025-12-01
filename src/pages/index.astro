@@ -1,16 +1,562 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="SMSPM - Global SMS API & Bulk Messaging Platform">
+  <Navigation />
+
+  <!-- Hero Section -->
+  <section class="hero relative pt-[140px] pb-20 overflow-hidden">
+    <div class="hero-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
+    <div class="container mx-auto px-8">
+      <div class="hero-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="hero-text">
+          <div class="hero-badge inline-flex items-center gap-2 px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-medium mb-8">
+            <span class="badge-dot w-2 h-2 bg-gradient-1 rounded-full animate-pulse-slow"></span>
+            Trusted by 10,000+ businesses worldwide
+          </div>
+          <h1 class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            Global SMS Messaging
+            <span class="gradient-text block">Made Simple</span>
+          </h1>
+          <p class="hero-subtitle text-xl text-dynamic-secondary leading-relaxed mb-8 max-w-[540px]">
+            Send SMS messages globally with powerful API. Reach customers instantly across 190+ countries with 99.9% delivery rate.
+          </p>
+          <div class="hero-actions flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="#signup" class="btn btn-primary btn-large">
+              Get Started Free
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#demo" class="btn btn-secondary btn-large">
+              View Demo
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 7L13 10L8 13V7Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+          <div class="hero-stats flex flex-wrap gap-8">
+            <div class="stat-item">
+              <div class="stat-value text-3xl lg:text-4xl font-bold gradient-text">99.9%</div>
+              <div class="stat-label text-sm text-dynamic-tertiary">Delivery Rate</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value text-3xl lg:text-4xl font-bold gradient-text">190+</div>
+              <div class="stat-label text-sm text-dynamic-tertiary">Countries</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value text-3xl lg:text-4xl font-bold gradient-text">&lt;200ms</div>
+              <div class="stat-label text-sm text-dynamic-tertiary">Response Time</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual relative h-[500px] hidden lg:block">
+          <div class="floating-card absolute top-5 left-10 w-[280px] bg-dynamic-primary border-dynamic-primary rounded-2xl p-6 shadow-2xl animate-float">
+            <div class="card-header flex justify-between items-center mb-4">
+              <span class="card-icon text-2xl">📱</span>
+              <span class="card-status px-3 py-1 bg-cyan/10 text-cyan rounded-lg text-xs font-semibold">Sent</span>
+            </div>
+            <div class="card-content">
+              <p class="card-message text-[15px] text-dynamic-secondary mb-2">Your order #12345 has been shipped!</p>
+              <span class="card-time text-xs text-dynamic-tertiary">Just now</span>
+            </div>
+          </div>
+          <div class="floating-card absolute top-[180px] right-10 w-[300px] bg-dynamic-primary border-dynamic-primary rounded-2xl p-6 shadow-2xl animate-float" style="animation-delay: 2s;">
+            <div class="card-header flex justify-between items-center mb-4">
+              <span class="card-icon text-2xl">✅</span>
+              <span class="card-status delivered px-3 py-1 bg-green-500/10 text-green-500 rounded-lg text-xs font-semibold">Delivered</span>
+            </div>
+            <div class="card-content">
+              <p class="card-message text-[15px] text-dynamic-secondary mb-2">Your verification code is: 847392</p>
+              <span class="card-time text-xs text-dynamic-tertiary">2 min ago</span>
+            </div>
+          </div>
+          <div class="floating-card absolute bottom-10 left-20 w-[260px] bg-dynamic-primary border-dynamic-primary rounded-2xl p-4 shadow-2xl animate-float" style="animation-delay: 4s;">
+            <div class="chart-card">
+              <div class="chart-header flex justify-between items-center mb-6 text-sm text-dynamic-secondary">
+                <span>Messages Sent</span>
+                <span class="chart-value text-green-500 font-semibold">+47%</span>
+              </div>
+              <div class="chart-bars flex items-end gap-2 h-[100px]">
+                <div class="chart-bar flex-1 rounded-sm opacity-30" style="height: 40%; background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%);"></div>
+                <div class="chart-bar flex-1 rounded-sm opacity-30" style="height: 65%; background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%);"></div>
+                <div class="chart-bar flex-1 rounded-sm opacity-30" style="height: 55%; background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%);"></div>
+                <div class="chart-bar flex-1 rounded-sm opacity-30" style="height: 80%; background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%);"></div>
+                <div class="chart-bar active flex-1 rounded-sm opacity-100" style="height: 95%; background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features py-16 lg:py-24" id="features">
+    <div class="container mx-auto px-8">
+      <div class="section-header text-center mb-16">
+        <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Features</span>
+        <h2 class="section-title text-3xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight text-dynamic-primary">Everything you need for <span class="gradient-text">SMS success</span></h2>
+        <p class="section-subtitle text-lg text-dynamic-secondary max-w-[600px] mx-auto">Powerful features to scale your messaging operations from startup to enterprise</p>
+      </div>
+
+      <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="feature-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white bg-gradient-1">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M28 16C28 22.6274 22.6274 28 16 28C9.37258 28 4 22.6274 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 12L20 20M20 12L12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title text-xl lg:text-2xl font-bold mb-4 text-dynamic-primary">Global SMS API</h3>
+          <p class="feature-description text-dynamic-secondary leading-relaxed mb-6">Send SMS to 190+ countries with a single API. Automatic routing ensures the best delivery rates worldwide.</p>
+          <ul class="feature-list space-y-2">
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              RESTful API
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              35+ SDK languages
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Webhook notifications
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white bg-gradient-2">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M8 4H24C26.2091 4 28 5.79086 28 8V20C28 22.2091 26.2091 24 24 24H12L4 28V8C4 5.79086 5.79086 4 8 4Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 12H22M10 16H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title text-xl lg:text-2xl font-bold mb-4 text-dynamic-primary">Bulk Messaging</h3>
+          <p class="feature-description text-dynamic-secondary leading-relaxed mb-6">Send millions of messages instantly. Advanced scheduling and segmentation for targeted campaigns.</p>
+          <ul class="feature-list space-y-2">
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              CSV upload
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Template management
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Smart scheduling
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white bg-gradient-3">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M4 8L16 16L28 8M4 8V24C4 25.1046 4.89543 26 6 26H26C27.1046 26 28 25.1046 28 24V8M4 8C4 6.89543 4.89543 6 6 6H26C27.1046 6 28 6.89543 28 8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="feature-title text-xl lg:text-2xl font-bold mb-4 text-dynamic-primary">Two-Way SMS</h3>
+          <p class="feature-description text-dynamic-secondary leading-relaxed mb-6">Enable conversations with customers. Receive replies, handle opt-outs, and manage interactions seamlessly.</p>
+          <ul class="feature-list space-y-2">
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Inbound messages
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Keyword routing
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Auto-responses
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white bg-gradient-4">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="8" width="24" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 12H28M10 16H16M10 20H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title text-xl lg:text-2xl font-bold mb-4 text-dynamic-primary">Real-Time Analytics</h3>
+          <p class="feature-description text-dynamic-secondary leading-relaxed mb-6">Track delivery, opens, and engagement. Get actionable insights to optimize your campaigns.</p>
+          <ul class="feature-list space-y-2">
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Live dashboards
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Delivery reports
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Export data
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white bg-gradient-5">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4V16M16 16L22 10M16 16L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 20V24C6 25.1046 6.89543 26 8 26H24C25.1046 26 26 25.1046 26 24V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title text-xl lg:text-2xl font-bold mb-4 text-dynamic-primary">Fast Integration</h3>
+          <p class="feature-description text-dynamic-secondary leading-relaxed mb-6">Get started in minutes with our comprehensive SDKs and detailed documentation.</p>
+          <ul class="feature-list space-y-2">
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Quick start guides
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              Code examples
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              24/7 support
+            </li>
+          </ul>
+        </div>
+
+        <div class="feature-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="feature-icon w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-white bg-gradient-6">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 8C12.6863 8 10 10.6863 10 14C10 17.3137 12.6863 20 16 20C19.3137 20 22 17.3137 22 14C22 10.6863 19.3137 8 16 8ZM16 8V4M10.343 10.343L7.51472 7.51472M21.657 10.343L24.4853 7.51472M16 20V28M10.343 17.657L4 24M21.657 17.657L28 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title text-xl lg:text-2xl font-bold mb-4 text-dynamic-primary">Enterprise Security</h3>
+          <p class="feature-description text-dynamic-secondary leading-relaxed mb-6">Bank-level encryption, GDPR compliance, and SOC 2 certified infrastructure.</p>
+          <ul class="feature-list space-y-2">
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              End-to-end encryption
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              GDPR compliant
+            </li>
+            <li class="flex items-center text-sm text-dynamic-secondary">
+              <span class="w-5 h-5 bg-cyan/10 text-cyan rounded-full flex items-center justify-center text-xs font-bold mr-3">✓</span>
+              SOC 2 certified
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Section -->
+  <section class="code-section py-16 lg:py-24 bg-dynamic-secondary">
+    <div class="container mx-auto px-8">
+      <div class="code-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="code-text">
+          <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Developer Friendly</span>
+          <h2 class="section-title text-3xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight text-dynamic-primary">Start sending SMS in <span class="gradient-text">3 lines of code</span></h2>
+          <p class="section-subtitle text-lg text-dynamic-secondary mb-8">Simple, powerful API that scales with your business. Full documentation and SDK support for all major languages.</p>
+          <div class="code-features grid grid-cols-2 gap-4 mb-8">
+            <div class="code-feature flex items-center gap-3 text-[15px] text-dynamic-secondary font-medium">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="#26c6da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>RESTful API</span>
+            </div>
+            <div class="code-feature flex items-center gap-3 text-[15px] text-dynamic-secondary font-medium">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="#26c6da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>35+ SDKs</span>
+            </div>
+            <div class="code-feature flex items-center gap-3 text-[15px] text-dynamic-secondary font-medium">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="#26c6da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Webhooks</span>
+            </div>
+            <div class="code-feature flex items-center gap-3 text-[15px] text-dynamic-secondary font-medium">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="#26c6da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+          <a href="#docs" class="btn btn-primary">
+            View Documentation
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="code-example rounded-2xl overflow-hidden shadow-2xl border-dynamic-primary">
+          <div class="code-header flex justify-between items-center px-6 py-4 bg-dynamic-secondary border-b border-dynamic-primary">
+            <div class="code-tabs flex gap-2">
+              <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 active bg-dynamic-tertiary text-dynamic-primary" data-lang="javascript">JavaScript</button>
+              <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary" data-lang="python">Python</button>
+              <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary" data-lang="php">PHP</button>
+            </div>
+            <button class="code-copy flex items-center gap-2 px-4 py-2 border border-dynamic-primary text-dynamic-tertiary text-sm rounded-lg cursor-pointer transition-all duration-150 hover:border-cyan hover:text-cyan">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect x="7" y="7" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M4 13H3C2.44772 13 2 12.5523 2 12V3C2 2.44772 2.44772 2 3 2H12C12.5523 2 13 2.44772 13 3V4" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              Copy
+            </button>
+          </div>
+          <div class="code-body p-6 bg-dynamic-primary">
+            <pre><code class="language-javascript text-dynamic-secondary font-mono text-sm leading-loose">import SMSPM from 'smspm-sdk';
+
+const client = new SMSPM(&#123;
+  apiKey: 'your_api_key_here'
+&#125;);
+
+await client.messages.send(&#123;
+  to: '+1234567890',
+  from: 'SMSPM',
+  text: 'Hello from SMSPM! 🚀'
+&#125;);
+
+// That's it! Message sent globally.</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section relative py-16 lg:py-24 overflow-hidden">
+    <div class="stats-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
+    <div class="container mx-auto px-8">
+      <div class="section-header text-center mb-12">
+        <span class="section-badge light inline-flex px-6 py-2 bg-white/10 border border-white/30 rounded-full text-sm text-white font-semibold mb-6">Why SMSPM</span>
+        <h2 class="section-title light text-3xl lg:text-5xl font-extrabold leading-tight text-white">Trusted by businesses <span class="gradient-text">worldwide</span></h2>
+      </div>
+      <div class="stats-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="stat-card text-center p-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/15">
+          <div class="stat-icon text-5xl mb-4">📊</div>
+          <div class="stat-number text-5xl font-extrabold text-white mb-2">10B+</div>
+          <div class="stat-text text-white/80">Messages Delivered</div>
+        </div>
+        <div class="stat-card text-center p-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/15">
+          <div class="stat-icon text-5xl mb-4">🌍</div>
+          <div class="stat-number text-5xl font-extrabold text-white mb-2">190+</div>
+          <div class="stat-text text-white/80">Countries Covered</div>
+        </div>
+        <div class="stat-card text-center p-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/15">
+          <div class="stat-icon text-5xl mb-4">⚡</div>
+          <div class="stat-number text-5xl font-extrabold text-white mb-2">99.9%</div>
+          <div class="stat-text text-white/80">Uptime SLA</div>
+        </div>
+        <div class="stat-card text-center p-8 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/15">
+          <div class="stat-icon text-5xl mb-4">💼</div>
+          <div class="stat-number text-5xl font-extrabold text-white mb-2">10,000+</div>
+          <div class="stat-text text-white/80">Active Customers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials py-16 lg:py-24">
+    <div class="container mx-auto px-8">
+      <div class="section-header text-center mb-16">
+        <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Testimonials</span>
+        <h2 class="section-title text-3xl lg:text-5xl font-extrabold leading-tight text-dynamic-primary">What our <span class="gradient-text">customers say</span></h2>
+      </div>
+      <div class="testimonials-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="testimonial-card p-8 bg-dynamic-primary border-dynamic-primary rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="testimonial-stars text-xl mb-6">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text text-dynamic-secondary leading-relaxed mb-8">"SMSPM has transformed how we communicate with our customers. The API is incredibly easy to use and the delivery rates are outstanding."</p>
+          <div class="testimonial-author flex items-center gap-4">
+            <div class="author-avatar w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center text-white font-bold text-lg">JD</div>
+            <div class="author-info">
+              <div class="author-name font-semibold text-dynamic-primary">John Davis</div>
+              <div class="author-title text-sm text-dynamic-tertiary">CTO, TechStart Inc.</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card p-8 bg-dynamic-primary border-dynamic-primary rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="testimonial-stars text-xl mb-6">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text text-dynamic-secondary leading-relaxed mb-8">"We switched from another provider and saw immediate improvements in delivery rates. The analytics dashboard is exactly what we needed."</p>
+          <div class="testimonial-author flex items-center gap-4">
+            <div class="author-avatar w-12 h-12 rounded-full bg-gradient-2 flex items-center justify-center text-white font-bold text-lg">SM</div>
+            <div class="author-info">
+              <div class="author-name font-semibold text-dynamic-primary">Sarah Miller</div>
+              <div class="author-title text-sm text-dynamic-tertiary">Marketing Director, E-Shop</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card p-8 bg-dynamic-primary border-dynamic-primary rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="testimonial-stars text-xl mb-6">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text text-dynamic-secondary leading-relaxed mb-8">"Global reach with local reliability. SMSPM handles all our international SMS needs with ease. Highly recommended!"</p>
+          <div class="testimonial-author flex items-center gap-4">
+            <div class="author-avatar w-12 h-12 rounded-full bg-gradient-3 flex items-center justify-center text-white font-bold text-lg">RK</div>
+            <div class="author-info">
+              <div class="author-name font-semibold text-dynamic-primary">Rajesh Kumar</div>
+              <div class="author-title text-sm text-dynamic-tertiary">Founder, GlobalConnect</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section relative py-16 lg:py-24 overflow-hidden">
+    <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
+    <div class="container mx-auto px-8">
+      <div class="cta-content text-center max-w-[800px] mx-auto">
+        <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">Ready to get started?</h2>
+        <p class="cta-subtitle text-xl text-white/90 mb-8">Join 10,000+ businesses sending billions of messages with SMSPM</p>
+        <div class="cta-actions flex flex-col sm:flex-row justify-center gap-4 mb-6">
+          <a href="#signup" class="btn btn-primary btn-large">
+            Start Free Trial
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary btn-large light text-white border-white/30 hover:bg-white/10">Contact Sales</a>
+        </div>
+        <p class="cta-note text-sm text-white/70">No credit card required · 14-day free trial · Cancel anytime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-gray-900 text-gray-400 py-16 pt-20">
+    <div class="container mx-auto px-8">
+      <div class="footer-content grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        <div class="footer-column md:col-span-2">
+          <div class="footer-logo mb-4">
+            <img src="/logo.png" alt="SMSPM Logo" class="footer-logo-img h-9 w-auto" width="300" height="97"/>
+          </div>
+          <p class="footer-description text-[15px] leading-relaxed mb-6 max-w-[300px]">Global SMS messaging platform trusted by thousands of businesses worldwide.</p>
+          <div class="footer-social flex gap-4">
+            <a href="#" class="social-link w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:text-cyan hover:bg-gray-700 transition-all duration-150">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:text-cyan hover:bg-gray-700 transition-all duration-150">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:text-cyan hover:bg-gray-700 transition-all duration-150">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title text-white font-semibold mb-4">Product</h4>
+          <ul class="footer-links space-y-3">
+            <li><a href="#features" class="hover:text-cyan transition-colors duration-150">Features</a></li>
+            <li><a href="#pricing" class="hover:text-cyan transition-colors duration-150">Pricing</a></li>
+            <li><a href="#docs" class="hover:text-cyan transition-colors duration-150">API Documentation</a></li>
+            <li><a href="#integrations" class="hover:text-cyan transition-colors duration-150">Integrations</a></li>
+            <li><a href="#changelog" class="hover:text-cyan transition-colors duration-150">Changelog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title text-white font-semibold mb-4">Company</h4>
+          <ul class="footer-links space-y-3">
+            <li><a href="#about" class="hover:text-cyan transition-colors duration-150">About Us</a></li>
+            <li><a href="#blog" class="hover:text-cyan transition-colors duration-150">Blog</a></li>
+            <li><a href="#careers" class="hover:text-cyan transition-colors duration-150">Careers</a></li>
+            <li><a href="#press" class="hover:text-cyan transition-colors duration-150">Press Kit</a></li>
+            <li><a href="#contact" class="hover:text-cyan transition-colors duration-150">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-title text-white font-semibold mb-4">Legal</h4>
+          <ul class="footer-links space-y-3">
+            <li><a href="#privacy" class="hover:text-cyan transition-colors duration-150">Privacy Policy</a></li>
+            <li><a href="#terms" class="hover:text-cyan transition-colors duration-150">Terms of Service</a></li>
+            <li><a href="#security" class="hover:text-cyan transition-colors duration-150">Security</a></li>
+            <li><a href="#compliance" class="hover:text-cyan transition-colors duration-150">Compliance</a></li>
+            <li><a href="#gdpr" class="hover:text-cyan transition-colors duration-150">GDPR</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="mb-4 md:mb-0">&copy; 2025 SMSPM. All rights reserved.</p>
+        <div class="footer-badges flex gap-4">
+          <span class="badge px-3 py-1 bg-gray-800 text-xs rounded-lg">SOC 2 Certified</span>
+          <span class="badge px-3 py-1 bg-gray-800 text-xs rounded-lg">GDPR Compliant</span>
+          <span class="badge px-3 py-1 bg-gray-800 text-xs rounded-lg">ISO 27001</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Import global styles */
+  @import "../styles/global.css";
+
+  /* Additional component-specific styles */
+  .hero-gradient-bg {
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(38, 198, 218, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(13, 71, 161, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(124, 77, 255, 0.1) 0%, transparent 50%);
+  }
+
+  [data-theme="dark"] .hero-gradient-bg {
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(38, 198, 218, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(13, 71, 161, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(124, 77, 255, 0.2) 0%, transparent 50%);
+  }
+
+  /* Ensure animations work properly */
+  .animate-float:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .animate-float:nth-child(2) {
+    animation-delay: 2s;
+  }
+  
+  .animate-float:nth-child(3) {
+    animation-delay: 4s;
+  }
+
+  /* Fix gradients display issue */
+  .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    display: inline-block;
+  }
+
+  [data-theme="dark"] .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+
+  .stats-gradient-bg {
+    background: linear-gradient(135deg, #0d47a1 0%, #1e88e5 50%, #0d47a1 100%);
+  }
+
+  .cta-gradient-bg {
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 50%, #0d47a1 100%);
+  }
+</style>

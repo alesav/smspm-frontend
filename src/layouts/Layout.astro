@@ -1,0 +1,119 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = "Global SMS messaging platform trusted by thousands of businesses worldwide.", image = "/smspm-og.png" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Preconnect to fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Meta tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="SMSPM" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content="SMSPM" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url} />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    
+    <!-- Inline critical CSS for theme -->
+    <style>
+      /* Critical CSS for preventing flash */
+      html {
+        transition: none !important;
+      }
+      
+      html[data-theme="dark"] {
+        background-color: #0a0a0a;
+        color: #ffffff;
+      }
+      
+      html[data-theme="light"] {
+        background-color: #ffffff;
+        color: #212121;
+      }
+      
+      /* Hide content until theme is loaded */
+      .theme-loading {
+        opacity: 0;
+      }
+      
+      .theme-loaded {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    
+    <!-- Theme loading script (inline for performance) -->
+    <script is:inline>
+      // Prevent flash of unstyled content
+      (function() {
+        function getStoredTheme() {
+          if (typeof localStorage !== 'undefined') {
+            return localStorage.getItem('theme');
+          }
+          return null;
+        }
+
+        function getSystemTheme() {
+          if (typeof window !== 'undefined' && window.matchMedia) {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          return 'light';
+        }
+
+        const storedTheme = getStoredTheme();
+        const theme = storedTheme || getSystemTheme();
+        
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.classList.add('theme-loaded');
+        document.documentElement.classList.remove('theme-loading');
+      })();
+    </script>
+  </head>
+  <body class="theme-loading">
+    <slot />
+    
+    <!-- Scripts -->
+    <script src="/src/scripts/theme-toggle.ts"></script>
+    <script src="/src/scripts/main.ts"></script>
+    
+    <!-- Mark as loaded -->
+    <script is:inline>
+      document.body.classList.add('theme-loaded');
+      document.body.classList.remove('theme-loading');
+    </script>
+  </body>
+</html>
