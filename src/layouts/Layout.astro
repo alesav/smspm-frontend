@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   description?: string;
@@ -44,9 +46,6 @@ const { title, description = "Global SMS messaging platform trusted by thousands
     
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url} />
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
     
     <!-- Inline critical CSS for theme -->
     <style>
@@ -106,10 +105,6 @@ const { title, description = "Global SMS messaging platform trusted by thousands
   <body class="theme-loading">
     <slot />
     
-    <!-- Scripts -->
-    <script src="/src/scripts/theme-toggle.ts"></script>
-    <script src="/src/scripts/main.ts"></script>
-    
     <!-- Mark as loaded -->
     <script is:inline>
       document.body.classList.add('theme-loaded');
@@ -117,3 +112,6 @@ const { title, description = "Global SMS messaging platform trusted by thousands
     </script>
   </body>
 </html>
+
+<script src="../scripts/theme-toggle.ts"></script>
+<script src="../scripts/main.ts"></script>
