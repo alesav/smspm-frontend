@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle language selection
     langOptions.forEach(option => {
-        option.addEventListener('click', function(e) {
+        option.addEventListener('click', function(this: HTMLElement, e) {
             e.preventDefault();
             const selectedLang = this.getAttribute('data-lang');
             const langData = selectedLang ? languages[selectedLang] : null;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     
     if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(this: HTMLElement) {
             navLinks.classList.toggle('active');
             this.classList.toggle('active');
         });
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function(this: HTMLAnchorElement, e) {
             const href = this.getAttribute('href');
             if (href && href !== '#' && !href.includes('signup') && !href.includes('login') && !href.includes('demo') && !href.includes('contact')) {
                 e.preventDefault();
@@ -185,7 +185,7 @@ $client->messages->send([
     };
 
     codeTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
+        tab.addEventListener('click', function(this: HTMLElement) {
             // Remove active class from all tabs
             codeTabs.forEach(t => t.classList.remove('active'));
             // Add active class to clicked tab
