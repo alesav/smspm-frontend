@@ -1,0 +1,62 @@
+---
+import type { CountryData } from '../../utils/kv-pricing';
+
+export interface Props {
+  country: CountryData;
+}
+
+const { country } = Astro.props;
+---
+
+<!-- Use Cases Section -->
+<section class="use-cases py-16 lg:py-24">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Use Cases</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
+        Popular Use Cases in <span class="gradient-text">{country.name}</span>
+      </h2>
+      <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
+        How businesses use SMS to <span class="gradient-text">connect with customers</span> in {country.name}
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {country.useCases.map((useCase) => (
+        <div class="use-case-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="use-case-icon w-16 h-16 bg-gradient-to-br from-cyan to-blue rounded-xl mx-auto mb-6 flex items-center justify-center text-white text-2xl">
+            <i class={useCase.icon}></i>
+          </div>
+          
+          <h3 class="text-xl font-bold text-dynamic-primary mb-4 text-center">
+            {useCase.title}
+          </h3>
+          
+          <p class="text-dynamic-secondary mb-6 text-center">
+            {useCase.description}
+          </p>
+          
+          <ul class="space-y-2">
+            {useCase.examples.map(example => (
+              <li class="flex items-center gap-3 text-sm text-dynamic-secondary">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-green-500 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>{example}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-16 text-center">
+      <a href="/signup" class="btn btn-primary btn-large">
+        Start Building Your SMS Campaign
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

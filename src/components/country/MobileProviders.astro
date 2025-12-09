@@ -1,0 +1,133 @@
+---
+import type { CountryData } from '../../utils/kv-pricing';
+
+export interface Props {
+  country: CountryData;
+}
+
+const { country } = Astro.props;
+---
+
+<!-- Mobile Providers Section -->
+<section class="mobile-providers py-16 lg:py-24 bg-dynamic-secondary">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Network Operators</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
+        Local <span class="gradient-text">Mobile Networks</span>
+      </h2>
+      <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
+        Direct connections with all <span class="gradient-text">major mobile operators</span> in {country.name}
+      </p>
+    </div>
+    
+    <div class={`grid gap-8 ${country.providers.length <= 3 ? 'grid-cols-1 lg:grid-cols-3' : country.providers.length <= 4 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
+      {country.providers.map((provider) => (
+        <div class="provider-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="provider-header mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan/10 to-blue/10 border border-cyan/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+              {provider.logo ? (
+                <img 
+                  src={provider.logo} 
+                  alt={`${provider.name} logo`} 
+                  class="w-full h-full object-contain rounded-lg"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+              ) : null}
+              <div class="w-full h-full flex items-center justify-center text-cyan text-xl font-bold" style="display: none;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M8 12H24M8 16H20M8 20H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-dynamic-primary text-center mb-2">{provider.name}</h3>
+            <div class="text-center">
+              <span class="text-2xl font-bold text-cyan">
+                {country.currency === 'EUR' ? '€' : country.currency === 'GBP' ? '£' : '$'}{provider.price.toFixed(3)}
+              </span>
+              <span class="text-dynamic-secondary text-sm ml-1">per SMS</span>
+            </div>
+          </div>
+          
+          {provider.marketShare && (
+            <div class="provider-stats grid grid-cols-3 gap-4 mb-6 text-center">
+              <div>
+                <div class="text-lg font-bold text-dynamic-primary">{provider.marketShare}%</div>
+                <div class="text-xs text-dynamic-tertiary">Market Share</div>
+              </div>
+              <div>
+                <div class="text-lg font-bold text-dynamic-primary">{provider.coverage?.toFixed(1)}%</div>
+                <div class="text-xs text-dynamic-tertiary">Coverage</div>
+              </div>
+              <div>
+                <div class="text-lg font-bold text-dynamic-primary">{provider.deliveryRate?.toFixed(1)}%</div>
+                <div class="text-xs text-dynamic-tertiary">Delivery Rate</div>
+              </div>
+            </div>
+          )}
+          
+          <div class="provider-features mb-6">
+            <div class="flex flex-wrap gap-2">
+              {provider.features.slice(0, 3).map(feature => (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan/10 text-cyan border border-cyan/30">
+                  {feature}
+                </span>
+              ))}
+              {provider.features.length > 3 && (
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 border border-gray-200">
+                  +{provider.features.length - 3} more
+                </span>
+              )}
+            </div>
+          </div>
+          
+          <div class="provider-description">
+            <p class="text-sm text-dynamic-secondary leading-relaxed">
+              {provider.description}
+            </p>
+          </div>
+          
+          <div class="mt-6">
+            <a href="/signup" class="btn btn-outline w-full justify-center">
+              Get Started
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-16 text-center">
+      <div class="inline-flex flex-col lg:flex-row gap-8 bg-dynamic-primary rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-dynamic-primary mb-4 lg:mb-0 lg:mr-8">Network Features</h3>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="flex items-center gap-2 text-sm text-dynamic-secondary">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-green-500">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>5G Network Support</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-dynamic-secondary">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-green-500">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Unicode Support</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-dynamic-secondary">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-green-500">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Delivery Receipts</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-dynamic-secondary">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="text-green-500">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Priority Routing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

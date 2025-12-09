@@ -21,7 +21,9 @@
     "astro": "astro",
     "check": "astro check",
     "clean": "rm -rf dist .astro node_modules/.vite",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "generate-countries": "node scripts/generate-country-pages.mjs",
+    "build-with-countries": "npm run generate-countries && npm run build"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",

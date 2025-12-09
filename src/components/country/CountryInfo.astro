@@ -1,0 +1,74 @@
+---
+import type { CountryData } from '../../utils/kv-pricing';
+
+export interface Props {
+  country: CountryData;
+}
+
+const { country } = Astro.props;
+---
+
+<!-- Country Info Section -->
+<section class="country-info py-16 lg:py-24">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Market Overview</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
+        Mobile Market in <span class="gradient-text">{country.name}</span>
+      </h2>
+      <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
+        Understanding the local mobile landscape for <span class="gradient-text">effective SMS campaigns</span>
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div class="info-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 bg-gradient-to-br from-cyan to-blue rounded-xl mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+          <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-dynamic-primary mb-2">{country.population}</h3>
+        <p class="text-dynamic-secondary">Total Population</p>
+      </div>
+      
+      <div class="info-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue to-purple rounded-xl mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+          <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-dynamic-primary mb-2">{country.mobilePenetration}</h3>
+        <p class="text-dynamic-secondary">Mobile Penetration</p>
+      </div>
+      
+      <div class="info-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 bg-gradient-to-br from-purple to-pink rounded-xl mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+          <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012-2v-1a2 2 0 012-2h1.945M11.5 8.5a2.5 2.5 0 11-3 0m3 0V7a1 1 0 10-2 0v1.5m3 0H11m.5 0l2-2m0 0l2 2"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-dynamic-primary mb-2">{country.networkCoverage}</h3>
+        <p class="text-dynamic-secondary">Network Coverage</p>
+      </div>
+      
+      <div class="info-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 bg-gradient-to-br from-cyan to-purple rounded-xl mx-auto mb-4 flex items-center justify-center text-white text-2xl">
+          <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 6V4a2 2 0 00-2-2H4a2 2 0 00-2 2v2a2 2 0 002 2h4a2 2 0 002-2zM10 12V10a2 2 0 00-2-2H4a2 2 0 00-2 2v2a2 2 0 002 2h4a2 2 0 002-2zM16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2a2 2 0 002 2h4a2 2 0 002-2zM16 12V10a2 2 0 00-2-2h-4a2 2 0 00-2 2v2a2 2 0 002 2h4a2 2 0 002-2z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-dynamic-primary mb-2">{country.timezone}</h3>
+        <p class="text-dynamic-secondary">Timezone</p>
+      </div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="bg-dynamic-secondary rounded-2xl p-8 lg:p-12">
+        <p class="text-lg text-dynamic-secondary leading-relaxed">
+          {country.marketDescription}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

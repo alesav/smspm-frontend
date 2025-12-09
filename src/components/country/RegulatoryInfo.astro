@@ -1,0 +1,62 @@
+---
+import type { CountryData } from '../../utils/kv-pricing';
+
+export interface Props {
+  country: CountryData;
+}
+
+const { country } = Astro.props;
+---
+
+<!-- Regulatory Section -->
+<section class="regulatory-section py-16 lg:py-24 bg-dynamic-secondary">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Compliance</span>
+      <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
+        SMS Regulations in <span class="gradient-text">{country.name}</span>
+      </h2>
+      <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
+        Stay compliant with <span class="gradient-text">local regulations</span> and best practices
+      </p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto space-y-8">
+      {country.regulations.map((regulation) => (
+        <div class="regulatory-item bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-cyan to-blue rounded-xl flex items-center justify-center text-white text-2xl">
+              <i class={regulation.icon}></i>
+            </div>
+            
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-dynamic-primary mb-4">
+                {regulation.title}
+              </h3>
+              <p class="text-dynamic-secondary leading-relaxed">
+                {regulation.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-16 text-center">
+      <div class="bg-dynamic-primary rounded-2xl p-8 max-w-2xl mx-auto">
+        <h3 class="text-xl font-bold text-dynamic-primary mb-4">
+          Need Compliance Guidance?
+        </h3>
+        <p class="text-dynamic-secondary mb-6">
+          Our compliance experts can help you navigate local regulations and ensure your SMS campaigns meet all requirements.
+        </p>
+        <a href="/contact" class="btn btn-outline">
+          Contact Compliance Team
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
