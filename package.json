@@ -23,7 +23,12 @@
     "clean": "rm -rf dist .astro node_modules/.vite",
     "type-check": "tsc --noEmit",
     "generate-countries": "node scripts/generate-country-pages.mjs",
-    "build-with-countries": "npm run generate-countries && npm run build"
+    "build-with-countries": "npm run generate-countries && npm run build",
+    "countries": "node scripts/manage-countries.mjs",
+    "countries:extract": "node scripts/extract-countries.mjs",
+    "countries:generate": "node scripts/generate-country-pages-smart.mjs",
+    "countries:regenerate": "node scripts/generate-country-pages-smart.mjs --force",
+    "countries:test": "node scripts/generate-country-pages-smart.mjs --dry-run"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",

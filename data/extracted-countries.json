@@ -1,0 +1,5670 @@
+{
+  "totalCountries": 184,
+  "generatedAt": "2026-01-13T08:48:41.930Z",
+  "countries": [
+    {
+      "name": "Afghanistan",
+      "providers": [
+        {
+          "name": "AWCC",
+          "price": 0.356
+        },
+        {
+          "name": "Afghan Telecom",
+          "price": 0.396
+        },
+        {
+          "name": "Etisalat",
+          "price": 0.396
+        },
+        {
+          "name": "Roshan",
+          "price": 0.396
+        },
+        {
+          "name": "MTN",
+          "price": 0.406
+        }
+      ],
+      "minPrice": 0.356,
+      "maxPrice": 0.406
+    },
+    {
+      "name": "Albania",
+      "providers": [
+        {
+          "name": "Telekom",
+          "price": 0.092
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.092
+        },
+        {
+          "name": "ALBtelecom",
+          "price": 0.152
+        }
+      ],
+      "minPrice": 0.092,
+      "maxPrice": 0.152
+    },
+    {
+      "name": "Algeria",
+      "providers": [
+        {
+          "name": "Djezzy",
+          "price": 0.294
+        },
+        {
+          "name": "Mobilis",
+          "price": 0.294
+        },
+        {
+          "name": "Ooredoo",
+          "price": 0.294
+        }
+      ],
+      "minPrice": 0.294,
+      "maxPrice": 0.294
+    },
+    {
+      "name": "Angola",
+      "providers": [
+        {
+          "name": "Movicel",
+          "price": 0.174
+        },
+        {
+          "name": "UNITEL",
+          "price": 0.174
+        }
+      ],
+      "minPrice": 0.174,
+      "maxPrice": 0.174
+    },
+    {
+      "name": "Antarctica",
+      "providers": [
+        {
+          "name": "Norfolk Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "REACH",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Armenia",
+      "providers": [
+        {
+          "name": "Ucom",
+          "price": 0.272
+        },
+        {
+          "name": "Beeline",
+          "price": 0.312
+        },
+        {
+          "name": "VivaCell-MTS",
+          "price": 0.312
+        }
+      ],
+      "minPrice": 0.272,
+      "maxPrice": 0.312
+    },
+    {
+      "name": "Aruba",
+      "providers": [
+        {
+          "name": "MIO Wireless",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel",
+          "price": 0.324
+        },
+        {
+          "name": "SETAR",
+          "price": 0.324
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.324
+    },
+    {
+      "name": "Australia",
+      "providers": [
+        {
+          "name": "Lycamobile",
+          "price": 0.09
+        },
+        {
+          "name": "Optus",
+          "price": 0.09
+        },
+        {
+          "name": "Telstra",
+          "price": 0.09
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.09
+        },
+        {
+          "name": "Aazad distribution discretionary trust",
+          "price": 0.1
+        },
+        {
+          "name": "Compatel Limited",
+          "price": 0.1
+        },
+        {
+          "name": "Dialogue Communications",
+          "price": 0.1
+        },
+        {
+          "name": "MessageBird",
+          "price": 0.1
+        },
+        {
+          "name": "My Number",
+          "price": 0.1
+        },
+        {
+          "name": "Pivotel Satellite",
+          "price": 0.1
+        },
+        {
+          "name": "Rail Corporation NSW",
+          "price": 0.1
+        },
+        {
+          "name": "Soul Pattinson",
+          "price": 0.1
+        },
+        {
+          "name": "Symbio Networks",
+          "price": 0.1
+        },
+        {
+          "name": "TravelSIM",
+          "price": 0.1
+        },
+        {
+          "name": "Victorian Rail Track",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.09,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Austria",
+      "providers": [
+        {
+          "name": "Orange AT",
+          "price": 0.062
+        },
+        {
+          "name": "A1 TA",
+          "price": 0.102
+        },
+        {
+          "name": "Hutchison Drei Austria",
+          "price": 0.102
+        },
+        {
+          "name": "T-Mobile AT",
+          "price": 0.102
+        },
+        {
+          "name": "tele.ring",
+          "price": 0.102
+        }
+      ],
+      "minPrice": 0.062,
+      "maxPrice": 0.102
+    },
+    {
+      "name": "Azerbaijan",
+      "providers": [
+        {
+          "name": "Aztelekom",
+          "price": 0.1
+        },
+        {
+          "name": "FONEX",
+          "price": 0.1
+        },
+        {
+          "name": "Naxtel",
+          "price": 0.1
+        },
+        {
+          "name": "Nar Mobile",
+          "price": 0.376
+        },
+        {
+          "name": "Azercell",
+          "price": 0.416
+        },
+        {
+          "name": "Bakcell",
+          "price": 0.416
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.416
+    },
+    {
+      "name": "Bahrain",
+      "providers": [
+        {
+          "name": "VIVA",
+          "price": 0.044
+        },
+        {
+          "name": "zain BH",
+          "price": 0.044
+        },
+        {
+          "name": "Batelco",
+          "price": 0.084
+        },
+        {
+          "name": "Royal Court",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.044,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Bangladesh",
+      "providers": [
+        {
+          "name": "Grameenphone",
+          "price": 0.353
+        },
+        {
+          "name": "Airtel",
+          "price": 0.393
+        },
+        {
+          "name": "Banglalink",
+          "price": 0.393
+        },
+        {
+          "name": "Citycell",
+          "price": 0.393
+        },
+        {
+          "name": "Robi",
+          "price": 0.393
+        },
+        {
+          "name": "TeleTalk",
+          "price": 0.393
+        }
+      ],
+      "minPrice": 0.353,
+      "maxPrice": 0.393
+    },
+    {
+      "name": "Belarus",
+      "providers": [
+        {
+          "name": "Belcel",
+          "price": 0.1
+        },
+        {
+          "name": "MTS",
+          "price": 0.1
+        },
+        {
+          "name": "Velcom",
+          "price": 0.192
+        },
+        {
+          "name": "life:)",
+          "price": 0.192
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.192
+    },
+    {
+      "name": "Belgium",
+      "providers": [
+        {
+          "name": "Proximus",
+          "price": 0.084
+        },
+        {
+          "name": "Vectone",
+          "price": 0.084
+        },
+        {
+          "name": "Ericsson NV",
+          "price": 0.1
+        },
+        {
+          "name": "Febo Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Gateway Communications",
+          "price": 0.1
+        },
+        {
+          "name": "Interactive Digital Media GmbH",
+          "price": 0.1
+        },
+        {
+          "name": "Join Experience Belgium",
+          "price": 0.1
+        },
+        {
+          "name": "MessageBird BV",
+          "price": 0.1
+        },
+        {
+          "name": "Mobile Vikings/JIM Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "N.M.B.S.",
+          "price": 0.1
+        },
+        {
+          "name": "OnOff Télécom SASU",
+          "price": 0.1
+        },
+        {
+          "name": "Premium Routing GmbH",
+          "price": 0.1
+        },
+        {
+          "name": "TISMI BV",
+          "price": 0.1
+        },
+        {
+          "name": "VOO",
+          "price": 0.1
+        },
+        {
+          "name": "Voxbone SA",
+          "price": 0.1
+        },
+        {
+          "name": "Voyacom SPRL",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.124
+        },
+        {
+          "name": "Orange",
+          "price": 0.124
+        },
+        {
+          "name": "Telenet",
+          "price": 0.124
+        }
+      ],
+      "minPrice": 0.084,
+      "maxPrice": 0.124
+    },
+    {
+      "name": "Belize",
+      "providers": [
+        {
+          "name": "Speednet (Smart)",
+          "price": 0.1
+        },
+        {
+          "name": "Belize Telemedia Ltd (Digi)",
+          "price": 0.292
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.292
+    },
+    {
+      "name": "Bhutan",
+      "providers": [
+        {
+          "name": "B-Mobile of Bhutan Telecom",
+          "price": 0.332
+        },
+        {
+          "name": "TashiCell of Tashi InfoComm",
+          "price": 0.332
+        }
+      ],
+      "minPrice": 0.332,
+      "maxPrice": 0.332
+    },
+    {
+      "name": "Bolivia, Plurinational State of Bolivia",
+      "providers": [
+        {
+          "name": "Entel",
+          "price": 0.238
+        },
+        {
+          "name": "Nuevatel",
+          "price": 0.238
+        },
+        {
+          "name": "Tigo",
+          "price": 0.238
+        }
+      ],
+      "minPrice": 0.238,
+      "maxPrice": 0.238
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "providers": [
+        {
+          "name": "BH Telecom",
+          "price": 0.398
+        },
+        {
+          "name": "HT ERONET",
+          "price": 0.398
+        },
+        {
+          "name": "m:tel",
+          "price": 0.398
+        }
+      ],
+      "minPrice": 0.398,
+      "maxPrice": 0.398
+    },
+    {
+      "name": "Botswana",
+      "providers": [
+        {
+          "name": "BTC Mobile",
+          "price": 0.148
+        },
+        {
+          "name": "Mascom",
+          "price": 0.148
+        },
+        {
+          "name": "Orange",
+          "price": 0.148
+        }
+      ],
+      "minPrice": 0.148,
+      "maxPrice": 0.148
+    },
+    {
+      "name": "Brazil",
+      "providers": [
+        {
+          "name": "Claro",
+          "price": 0.026
+        },
+        {
+          "name": "Oi",
+          "price": 0.026
+        },
+        {
+          "name": "TIM",
+          "price": 0.026
+        },
+        {
+          "name": "Vivo",
+          "price": 0.026
+        }
+      ],
+      "minPrice": 0.026,
+      "maxPrice": 0.026
+    },
+    {
+      "name": "British Indian Ocean Territory",
+      "providers": [
+        {
+          "name": "Sure Ltd",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Brunei Darussalam",
+      "providers": [
+        {
+          "name": "Progresif Cellular",
+          "price": 0.1
+        },
+        {
+          "name": "DSTCom",
+          "price": 0.128
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.128
+    },
+    {
+      "name": "Bulgaria",
+      "providers": [
+        {
+          "name": "Bob",
+          "price": 0.1
+        },
+        {
+          "name": "Bulsatcom",
+          "price": 0.1
+        },
+        {
+          "name": "MAX",
+          "price": 0.1
+        },
+        {
+          "name": "Telenor",
+          "price": 0.118
+        },
+        {
+          "name": "Vivacom",
+          "price": 0.118
+        },
+        {
+          "name": "A1",
+          "price": 0.158
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.158
+    },
+    {
+      "name": "Burkina Faso",
+      "providers": [
+        {
+          "name": "Onatel",
+          "price": 0.282
+        },
+        {
+          "name": "Orange",
+          "price": 0.282
+        },
+        {
+          "name": "Telecel Faso",
+          "price": 0.282
+        }
+      ],
+      "minPrice": 0.282,
+      "maxPrice": 0.282
+    },
+    {
+      "name": "Burundi",
+      "providers": [
+        {
+          "name": "Leo",
+          "price": 0.388
+        },
+        {
+          "name": "Onatel",
+          "price": 0.388
+        },
+        {
+          "name": "Smart Mobile",
+          "price": 0.388
+        },
+        {
+          "name": "Viettel",
+          "price": 0.388
+        }
+      ],
+      "minPrice": 0.388,
+      "maxPrice": 0.388
+    },
+    {
+      "name": "Cambodia",
+      "providers": [
+        {
+          "name": "Telecom Cambodia",
+          "price": 0.1
+        },
+        {
+          "name": "Metfone",
+          "price": 0.254
+        },
+        {
+          "name": "Seatel",
+          "price": 0.254
+        },
+        {
+          "name": "qbmore/Cadcomms",
+          "price": 0.254
+        },
+        {
+          "name": "Cellcard",
+          "price": 0.294
+        },
+        {
+          "name": "Smart",
+          "price": 0.294
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.294
+    },
+    {
+      "name": "Cameroon",
+      "providers": [
+        {
+          "name": "MTN Cameroon",
+          "price": 0.308
+        },
+        {
+          "name": "NEXTTEL",
+          "price": 0.308
+        },
+        {
+          "name": "Orange",
+          "price": 0.348
+        }
+      ],
+      "minPrice": 0.308,
+      "maxPrice": 0.348
+    },
+    {
+      "name": "Cape Verde",
+      "providers": [
+        {
+          "name": "CVMOVEL",
+          "price": 0.204
+        },
+        {
+          "name": "T+",
+          "price": 0.204
+        }
+      ],
+      "minPrice": 0.204,
+      "maxPrice": 0.204
+    },
+    {
+      "name": "Central African Republic",
+      "providers": [
+        {
+          "name": "A-Cell",
+          "price": 0.331
+        },
+        {
+          "name": "Telecel",
+          "price": 0.331
+        },
+        {
+          "name": "Nationlink",
+          "price": 0.371
+        },
+        {
+          "name": "Orange",
+          "price": 0.371
+        }
+      ],
+      "minPrice": 0.331,
+      "maxPrice": 0.371
+    },
+    {
+      "name": "Chad",
+      "providers": [
+        {
+          "name": "Sotel",
+          "price": 0.1
+        },
+        {
+          "name": "Tigo",
+          "price": 0.262
+        },
+        {
+          "name": "Airtel",
+          "price": 0.302
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.302
+    },
+    {
+      "name": "China",
+      "providers": [
+        {
+          "name": "China Mobile",
+          "price": 0.06
+        },
+        {
+          "name": "China Telecom",
+          "price": 0.06
+        },
+        {
+          "name": "China Unicom",
+          "price": 0.06
+        }
+      ],
+      "minPrice": 0.06,
+      "maxPrice": 0.06
+    },
+    {
+      "name": "Colombia",
+      "providers": [
+        {
+          "name": "Avantel",
+          "price": 0.023
+        },
+        {
+          "name": "Claro",
+          "price": 0.023
+        },
+        {
+          "name": "Movistar",
+          "price": 0.023
+        },
+        {
+          "name": "Tigo",
+          "price": 0.023
+        },
+        {
+          "name": "Comunicaciones Dime",
+          "price": 0.1
+        },
+        {
+          "name": "GoMobile",
+          "price": 0.1
+        },
+        {
+          "name": "Libre Tecnologias",
+          "price": 0.1
+        },
+        {
+          "name": "Movil Exito",
+          "price": 0.1
+        },
+        {
+          "name": "Partners Telecom Colombia",
+          "price": 0.1
+        },
+        {
+          "name": "Setroc Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Suma Movil",
+          "price": 0.1
+        },
+        {
+          "name": "Uff!",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.023,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Comoros",
+      "providers": [
+        {
+          "name": "Comores Telecom",
+          "price": 0.434
+        },
+        {
+          "name": "TELCO",
+          "price": 0.434
+        }
+      ],
+      "minPrice": 0.434,
+      "maxPrice": 0.434
+    },
+    {
+      "name": "Congo",
+      "providers": [
+        {
+          "name": "Congo telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Equateur Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Warid",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.272
+        },
+        {
+          "name": "MTN",
+          "price": 0.272
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.272
+    },
+    {
+      "name": "Congo, The Democratic Republic of the Congo",
+      "providers": [
+        {
+          "name": "Africell",
+          "price": 0.1
+        },
+        {
+          "name": "Yozma Timeturns sprl -YTT",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.272
+        },
+        {
+          "name": "Orange",
+          "price": 0.272
+        },
+        {
+          "name": "Vodacom",
+          "price": 0.272
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.272
+    },
+    {
+      "name": "Costa Rica",
+      "providers": [
+        {
+          "name": "Claro",
+          "price": 0.064
+        },
+        {
+          "name": "Kolbi ICE",
+          "price": 0.064
+        },
+        {
+          "name": "Movistar",
+          "price": 0.064
+        }
+      ],
+      "minPrice": 0.064,
+      "maxPrice": 0.064
+    },
+    {
+      "name": "Cote d'Ivoire",
+      "providers": [
+        {
+          "name": "MTN",
+          "price": 0.1
+        },
+        {
+          "name": "Moov",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Croatia",
+      "providers": [
+        {
+          "name": "Telefocus",
+          "price": 0.1
+        },
+        {
+          "name": "A1 Telekom",
+          "price": 0.104
+        },
+        {
+          "name": "Hrvatski Telekom",
+          "price": 0.104
+        },
+        {
+          "name": "Tele2",
+          "price": 0.144
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.144
+    },
+    {
+      "name": "Cuba",
+      "providers": [
+        {
+          "name": "etecsa",
+          "price": 0.096
+        }
+      ],
+      "minPrice": 0.096,
+      "maxPrice": 0.096
+    },
+    {
+      "name": "Cyprus",
+      "providers": [
+        {
+          "name": "Cytamobile-Vodafone",
+          "price": 0.031
+        },
+        {
+          "name": "MTN",
+          "price": 0.031
+        },
+        {
+          "name": "PrimeTel",
+          "price": 0.031
+        },
+        {
+          "name": "Lemontel",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.031,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Czech Republic",
+      "providers": [
+        {
+          "name": "O2",
+          "price": 0.098
+        },
+        {
+          "name": "T-Mobile",
+          "price": 0.098
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.098
+        },
+        {
+          "name": "3ton s.r.o.",
+          "price": 0.1
+        },
+        {
+          "name": "ASTELNET",
+          "price": 0.1
+        },
+        {
+          "name": "Amcatel",
+          "price": 0.1
+        },
+        {
+          "name": "Axfone",
+          "price": 0.1
+        },
+        {
+          "name": "COMA",
+          "price": 0.1
+        },
+        {
+          "name": "Cesky bezdrat",
+          "price": 0.1
+        },
+        {
+          "name": "Compatel",
+          "price": 0.1
+        },
+        {
+          "name": "Dial Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Dragon Internet",
+          "price": 0.1
+        },
+        {
+          "name": "FAYN Telecommunications",
+          "price": 0.1
+        },
+        {
+          "name": "GOPE Systems a.s.",
+          "price": 0.1
+        },
+        {
+          "name": "IPEX",
+          "price": 0.1
+        },
+        {
+          "name": "MATERNA Communications",
+          "price": 0.1
+        },
+        {
+          "name": "MAXPROGRES",
+          "price": 0.1
+        },
+        {
+          "name": "METRONET",
+          "price": 0.1
+        },
+        {
+          "name": "MONTYHO TECHNOLOGY s.r.o. (CANISTEC)",
+          "price": 0.1
+        },
+        {
+          "name": "New Telekom",
+          "price": 0.1
+        },
+        {
+          "name": "Nordic Telecom s.r.o.(Air Telecom - MobilKom)",
+          "price": 0.1
+        },
+        {
+          "name": "PODA a.s. (SkyNet)",
+          "price": 0.1
+        },
+        {
+          "name": "Plus4U Mobile s.r.o.",
+          "price": 0.1
+        },
+        {
+          "name": "SAZKA sazkova kancelar, a.s",
+          "price": 0.1
+        },
+        {
+          "name": "SIA Net Balt",
+          "price": 0.1
+        },
+        {
+          "name": "SMART Comp",
+          "price": 0.1
+        },
+        {
+          "name": "TERMS",
+          "price": 0.1
+        },
+        {
+          "name": "TRAVEL TELEKOMMUNIKATION",
+          "price": 0.1
+        },
+        {
+          "name": "TT Quality s.r.o.",
+          "price": 0.1
+        },
+        {
+          "name": "Tesco Mobile CR",
+          "price": 0.1
+        },
+        {
+          "name": "Vectone Distribution Czech Republic s.r.o(Mundio)",
+          "price": 0.1
+        },
+        {
+          "name": "ha-vel internet",
+          "price": 0.1
+        },
+        {
+          "name": "miniTEL",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.098,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Denmark",
+      "providers": [
+        {
+          "name": "3",
+          "price": 0.054
+        },
+        {
+          "name": "lycamobile denmark ltd",
+          "price": 0.054
+        },
+        {
+          "name": "telenor",
+          "price": 0.054
+        },
+        {
+          "name": "telia",
+          "price": 0.054
+        },
+        {
+          "name": "42 telecom ab",
+          "price": 0.1
+        },
+        {
+          "name": "compatel limited",
+          "price": 0.1
+        },
+        {
+          "name": "firmafon",
+          "price": 0.1
+        },
+        {
+          "name": "ipnordic",
+          "price": 0.1
+        },
+        {
+          "name": "jay.net",
+          "price": 0.1
+        },
+        {
+          "name": "link mobile",
+          "price": 0.1
+        },
+        {
+          "name": "mi carrier services",
+          "price": 0.1
+        },
+        {
+          "name": "mobiweb limited",
+          "price": 0.1
+        },
+        {
+          "name": "netfors unified messaging",
+          "price": 0.1
+        },
+        {
+          "name": "tdc",
+          "price": 0.1
+        },
+        {
+          "name": "uni-tel",
+          "price": 0.1
+        },
+        {
+          "name": "viptel",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.054,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Djibouti",
+      "providers": [
+        {
+          "name": "Evatis",
+          "price": 0.096
+        }
+      ],
+      "minPrice": 0.096,
+      "maxPrice": 0.096
+    },
+    {
+      "name": "Ecuador",
+      "providers": [
+        {
+          "name": "CNT",
+          "price": 0.408
+        },
+        {
+          "name": "Claro",
+          "price": 0.408
+        },
+        {
+          "name": "Movistar",
+          "price": 0.408
+        }
+      ],
+      "minPrice": 0.408,
+      "maxPrice": 0.408
+    },
+    {
+      "name": "Egypt",
+      "providers": [
+        {
+          "name": "TE",
+          "price": 0.396
+        },
+        {
+          "name": "Etisalat",
+          "price": 0.436
+        },
+        {
+          "name": "Orange",
+          "price": 0.436
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.436
+        }
+      ],
+      "minPrice": 0.396,
+      "maxPrice": 0.436
+    },
+    {
+      "name": "El Salvador",
+      "providers": [
+        {
+          "name": "Intelfon",
+          "price": 0.1
+        },
+        {
+          "name": "Claro",
+          "price": 0.286
+        },
+        {
+          "name": "Digicel",
+          "price": 0.286
+        },
+        {
+          "name": "Movistar",
+          "price": 0.286
+        },
+        {
+          "name": "Tigo",
+          "price": 0.286
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.286
+    },
+    {
+      "name": "Equatorial Guinea",
+      "providers": [
+        {
+          "name": "GETESA",
+          "price": 0.208
+        },
+        {
+          "name": "Muni",
+          "price": 0.208
+        }
+      ],
+      "minPrice": 0.208,
+      "maxPrice": 0.208
+    },
+    {
+      "name": "Eritrea",
+      "providers": [
+        {
+          "name": "EriTel",
+          "price": 0.108
+        }
+      ],
+      "minPrice": 0.108,
+      "maxPrice": 0.108
+    },
+    {
+      "name": "Estonia",
+      "providers": [
+        {
+          "name": "Elisa",
+          "price": 0.04
+        },
+        {
+          "name": "N/A",
+          "price": 0.04
+        },
+        {
+          "name": "Tele2",
+          "price": 0.04
+        },
+        {
+          "name": "Telia",
+          "price": 0.04
+        },
+        {
+          "name": "Unknown",
+          "price": 0.04
+        }
+      ],
+      "minPrice": 0.04,
+      "maxPrice": 0.04
+    },
+    {
+      "name": "Eswatini",
+      "providers": [
+        {
+          "name": "SPTC",
+          "price": 0.1
+        },
+        {
+          "name": "Swazi MTN",
+          "price": 0.208
+        },
+        {
+          "name": "Swazi Mobile Ltd",
+          "price": 0.208
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.208
+    },
+    {
+      "name": "Ethiopia",
+      "providers": [
+        {
+          "name": "Ethio Telecom",
+          "price": 0.288
+        }
+      ],
+      "minPrice": 0.288,
+      "maxPrice": 0.288
+    },
+    {
+      "name": "Falkland Islands (Malvinas)",
+      "providers": [
+        {
+          "name": "Sure South Atlantic Limited",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Faroe Islands",
+      "providers": [
+        {
+          "name": "Faroese Telecom",
+          "price": 0.098
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.098
+        },
+        {
+          "name": "Tosa",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.098,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Finland",
+      "providers": [
+        {
+          "name": "AMT",
+          "price": 0.072
+        },
+        {
+          "name": "AinaCom",
+          "price": 0.072
+        },
+        {
+          "name": "Beepsend",
+          "price": 0.072
+        },
+        {
+          "name": "Benemen Oy",
+          "price": 0.072
+        },
+        {
+          "name": "Compatel",
+          "price": 0.072
+        },
+        {
+          "name": "Cuuma",
+          "price": 0.072
+        },
+        {
+          "name": "DNA",
+          "price": 0.072
+        },
+        {
+          "name": "Elisa",
+          "price": 0.072
+        },
+        {
+          "name": "Interactive Digital Media",
+          "price": 0.072
+        },
+        {
+          "name": "Liikennevirasto",
+          "price": 0.072
+        },
+        {
+          "name": "MI",
+          "price": 0.072
+        },
+        {
+          "name": "MobiWeb",
+          "price": 0.072
+        },
+        {
+          "name": "NETTIA",
+          "price": 0.072
+        },
+        {
+          "name": "NextGen Mobile / CardBoardFish",
+          "price": 0.072
+        },
+        {
+          "name": "Nokia",
+          "price": 0.072
+        },
+        {
+          "name": "Nokia Solutions and Networks",
+          "price": 0.072
+        },
+        {
+          "name": "Nord Connect SIA",
+          "price": 0.072
+        },
+        {
+          "name": "SMS Provider Corp",
+          "price": 0.072
+        },
+        {
+          "name": "Telia",
+          "price": 0.073
+        },
+        {
+          "name": "Suomen Virveverkko",
+          "price": 0.1
+        },
+        {
+          "name": "Telavox AB",
+          "price": 0.1
+        },
+        {
+          "name": "Tismi",
+          "price": 0.1
+        },
+        {
+          "name": "Top Connect OU",
+          "price": 0.1
+        },
+        {
+          "name": "Voxbone",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.072,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "France",
+      "providers": [
+        {
+          "name": "ACN Communications",
+          "price": 0.1
+        },
+        {
+          "name": "Afone",
+          "price": 0.1
+        },
+        {
+          "name": "Airbus Defence and Space",
+          "price": 0.1
+        },
+        {
+          "name": "Alphalink",
+          "price": 0.1
+        },
+        {
+          "name": "Axialys",
+          "price": 0.1
+        },
+        {
+          "name": "BJT",
+          "price": 0.1
+        },
+        {
+          "name": "Bouygues",
+          "price": 0.1
+        },
+        {
+          "name": "China Telecom (France) Limited",
+          "price": 0.1
+        },
+        {
+          "name": "Completel",
+          "price": 0.1
+        },
+        {
+          "name": "Coriolis Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Dauphin Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel Antilles Francaises Guyane",
+          "price": 0.1
+        },
+        {
+          "name": "Euroinformation Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Free Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Globalstar Europe",
+          "price": 0.1
+        },
+        {
+          "name": "Halys",
+          "price": 0.1
+        },
+        {
+          "name": "IP Directions",
+          "price": 0.1
+        },
+        {
+          "name": "Intercall",
+          "price": 0.1
+        },
+        {
+          "name": "Keyyo",
+          "price": 0.1
+        },
+        {
+          "name": "La poste telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Lebara France Limited",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.1
+        },
+        {
+          "name": "Mobiquithings",
+          "price": 0.1
+        },
+        {
+          "name": "Mobiweb telecom limited",
+          "price": 0.1
+        },
+        {
+          "name": "Netcom Group",
+          "price": 0.1
+        },
+        {
+          "name": "Nordnet",
+          "price": 0.1
+        },
+        {
+          "name": "OUTREMER TELECOM",
+          "price": 0.1
+        },
+        {
+          "name": "Only (Telco OI)",
+          "price": 0.1
+        },
+        {
+          "name": "Onoff telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Orange France",
+          "price": 0.1
+        },
+        {
+          "name": "Prixtel",
+          "price": 0.1
+        },
+        {
+          "name": "SCT",
+          "price": 0.1
+        },
+        {
+          "name": "Sewan communications",
+          "price": 0.1
+        },
+        {
+          "name": "Syma mobile",
+          "price": 0.1
+        },
+        {
+          "name": "TDF",
+          "price": 0.1
+        },
+        {
+          "name": "Twilio Ireland Limited",
+          "price": 0.1
+        },
+        {
+          "name": "UTS CARAIBES",
+          "price": 0.1
+        },
+        {
+          "name": "Vectone mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Zeop",
+          "price": 0.1
+        },
+        {
+          "name": "e*Message",
+          "price": 0.1
+        },
+        {
+          "name": "Legos",
+          "price": 0.105
+        },
+        {
+          "name": "SFR",
+          "price": 0.105
+        },
+        {
+          "name": "Transatel",
+          "price": 0.105
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.105
+    },
+    {
+      "name": "French Guiana",
+      "providers": [
+        {
+          "name": "Digicel",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        },
+        {
+          "name": "SFR",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "French Polynesia",
+      "providers": [
+        {
+          "name": "Vini",
+          "price": 0.096
+        },
+        {
+          "name": "Viti",
+          "price": 0.1
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.136
+        }
+      ],
+      "minPrice": 0.096,
+      "maxPrice": 0.136
+    },
+    {
+      "name": "Gabon",
+      "providers": [
+        {
+          "name": "Airtel",
+          "price": 0.294
+        },
+        {
+          "name": "Libertis",
+          "price": 0.294
+        },
+        {
+          "name": "Moov",
+          "price": 0.294
+        }
+      ],
+      "minPrice": 0.294,
+      "maxPrice": 0.294
+    },
+    {
+      "name": "Gambia",
+      "providers": [
+        {
+          "name": "Africell",
+          "price": 0.252
+        },
+        {
+          "name": "Comium",
+          "price": 0.252
+        },
+        {
+          "name": "Gamcel",
+          "price": 0.252
+        },
+        {
+          "name": "QCell",
+          "price": 0.252
+        }
+      ],
+      "minPrice": 0.252,
+      "maxPrice": 0.252
+    },
+    {
+      "name": "Georgia",
+      "providers": [
+        {
+          "name": "Asanet",
+          "price": 0.1
+        },
+        {
+          "name": "DataHouse Global",
+          "price": 0.1
+        },
+        {
+          "name": "Datacom",
+          "price": 0.1
+        },
+        {
+          "name": "Globalcell",
+          "price": 0.1
+        },
+        {
+          "name": "Mobilaive",
+          "price": 0.1
+        },
+        {
+          "name": "MyPhone",
+          "price": 0.1
+        },
+        {
+          "name": "Premium Net International SRL",
+          "price": 0.1
+        },
+        {
+          "name": "Silknet",
+          "price": 0.1
+        },
+        {
+          "name": "Geocell",
+          "price": 0.162
+        },
+        {
+          "name": "MagtiCom",
+          "price": 0.162
+        },
+        {
+          "name": "Veon",
+          "price": 0.162
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.162
+    },
+    {
+      "name": "Germany",
+      "providers": [
+        {
+          "name": "O2",
+          "price": 0.087
+        },
+        {
+          "name": "T-Mobile",
+          "price": 0.087
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.087
+        },
+        {
+          "name": "Vodafone/Lycamobile",
+          "price": 0.087
+        },
+        {
+          "name": "Argon Networks",
+          "price": 0.1
+        },
+        {
+          "name": "Drillisch Online",
+          "price": 0.1
+        },
+        {
+          "name": "Easy World",
+          "price": 0.1
+        },
+        {
+          "name": "Eplus",
+          "price": 0.1
+        },
+        {
+          "name": "Eplus/Sipgate",
+          "price": 0.1
+        },
+        {
+          "name": "Eplus/Telogic",
+          "price": 0.1
+        },
+        {
+          "name": "Interactive digital media",
+          "price": 0.1
+        },
+        {
+          "name": "Multiconnect",
+          "price": 0.1
+        },
+        {
+          "name": "NAKA AG",
+          "price": 0.1
+        },
+        {
+          "name": "TelcoVillage",
+          "price": 0.1
+        },
+        {
+          "name": "Tismi BV",
+          "price": 0.1
+        },
+        {
+          "name": "Vodafone/Truphone",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.087,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Ghana",
+      "providers": [
+        {
+          "name": "tiGO",
+          "price": 0.1
+        },
+        {
+          "name": "Globacom (Zain)",
+          "price": 0.342
+        },
+        {
+          "name": "Airtel",
+          "price": 0.382
+        },
+        {
+          "name": "Expresso",
+          "price": 0.382
+        },
+        {
+          "name": "MTN",
+          "price": 0.382
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.382
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.382
+    },
+    {
+      "name": "Greece",
+      "providers": [
+        {
+          "name": "Cosmote",
+          "price": 0.096
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.096
+        },
+        {
+          "name": "AMD Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Apifon",
+          "price": 0.1
+        },
+        {
+          "name": "BWS",
+          "price": 0.1
+        },
+        {
+          "name": "Compatel",
+          "price": 0.1
+        },
+        {
+          "name": "Cyta",
+          "price": 0.1
+        },
+        {
+          "name": "Forthnet",
+          "price": 0.1
+        },
+        {
+          "name": "Inter Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "M-STAT",
+          "price": 0.1
+        },
+        {
+          "name": "MI Carrier Services",
+          "price": 0.1
+        },
+        {
+          "name": "OSE",
+          "price": 0.1
+        },
+        {
+          "name": "OTE",
+          "price": 0.1
+        },
+        {
+          "name": "OTEGlobe",
+          "price": 0.1
+        },
+        {
+          "name": "Premium Net International",
+          "price": 0.1
+        },
+        {
+          "name": "SIA NETBALT",
+          "price": 0.1
+        },
+        {
+          "name": "Wind",
+          "price": 0.1
+        },
+        {
+          "name": "Yuboto",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.096,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Greenland",
+      "providers": [
+        {
+          "name": "TELE Greenland A/S",
+          "price": 0.04
+        }
+      ],
+      "minPrice": 0.04,
+      "maxPrice": 0.04
+    },
+    {
+      "name": "Guadeloupe",
+      "providers": [
+        {
+          "name": "SFR/Rife",
+          "price": 0.1
+        },
+        {
+          "name": "UTS",
+          "price": 0.1
+        },
+        {
+          "name": "Dauphin Telecom",
+          "price": 0.278
+        },
+        {
+          "name": "Digicel",
+          "price": 0.278
+        },
+        {
+          "name": "Free Caraïbe",
+          "price": 0.278
+        },
+        {
+          "name": "Orange",
+          "price": 0.278
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.278
+    },
+    {
+      "name": "Guatemala",
+      "providers": [
+        {
+          "name": "Telgua",
+          "price": 0.1
+        },
+        {
+          "name": "Movistar",
+          "price": 0.238
+        },
+        {
+          "name": "Tigo",
+          "price": 0.238
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.238
+    },
+    {
+      "name": "Guernsey",
+      "providers": [
+        {
+          "name": "Manx Telecom",
+          "price": 0.05
+        },
+        {
+          "name": "Sure",
+          "price": 0.05
+        },
+        {
+          "name": "08Direct",
+          "price": 0.1
+        },
+        {
+          "name": "09 Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "24 Seven",
+          "price": 0.1
+        },
+        {
+          "name": "AMSUK",
+          "price": 0.1
+        },
+        {
+          "name": "Ace Call",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.1
+        },
+        {
+          "name": "Airwave",
+          "price": 0.1
+        },
+        {
+          "name": "Alliance",
+          "price": 0.1
+        },
+        {
+          "name": "Andrews & Arnold",
+          "price": 0.1
+        },
+        {
+          "name": "Anywhere Sim",
+          "price": 0.1
+        },
+        {
+          "name": "BT OnePhone",
+          "price": 0.1
+        },
+        {
+          "name": "Bellingham",
+          "price": 0.1
+        },
+        {
+          "name": "BlueWave Communications",
+          "price": 0.1
+        },
+        {
+          "name": "CESG",
+          "price": 0.1
+        },
+        {
+          "name": "CFL",
+          "price": 0.1
+        },
+        {
+          "name": "CardBoardFish",
+          "price": 0.1
+        },
+        {
+          "name": "Cheers",
+          "price": 0.1
+        },
+        {
+          "name": "Citrus",
+          "price": 0.1
+        },
+        {
+          "name": "Cloud9",
+          "price": 0.1
+        },
+        {
+          "name": "Compatel",
+          "price": 0.1
+        },
+        {
+          "name": "Confabulate",
+          "price": 0.1
+        },
+        {
+          "name": "Core Communication",
+          "price": 0.1
+        },
+        {
+          "name": "Core Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "EE",
+          "price": 0.1
+        },
+        {
+          "name": "Esendex",
+          "price": 0.1
+        },
+        {
+          "name": "FleXtel",
+          "price": 0.1
+        },
+        {
+          "name": "Fogg",
+          "price": 0.1
+        },
+        {
+          "name": "Gamma Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "GlobalReach",
+          "price": 0.1
+        },
+        {
+          "name": "Globecom",
+          "price": 0.1
+        },
+        {
+          "name": "HSL",
+          "price": 0.1
+        },
+        {
+          "name": "Hanhaa",
+          "price": 0.1
+        },
+        {
+          "name": "Home Office",
+          "price": 0.1
+        },
+        {
+          "name": "IPV6",
+          "price": 0.1
+        },
+        {
+          "name": "IV Response",
+          "price": 0.1
+        },
+        {
+          "name": "Icron Network",
+          "price": 0.1
+        },
+        {
+          "name": "JT",
+          "price": 0.1
+        },
+        {
+          "name": "Lanonyx",
+          "price": 0.1
+        },
+        {
+          "name": "LegendTel",
+          "price": 0.1
+        },
+        {
+          "name": "Limitless",
+          "price": 0.1
+        },
+        {
+          "name": "Lleida.net",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.1
+        },
+        {
+          "name": "Magrathea",
+          "price": 0.1
+        },
+        {
+          "name": "Marathon Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Mars",
+          "price": 0.1
+        },
+        {
+          "name": "Mediatel",
+          "price": 0.1
+        },
+        {
+          "name": "Mobile FX Services Ltd",
+          "price": 0.1
+        },
+        {
+          "name": "Mobiweb",
+          "price": 0.1
+        },
+        {
+          "name": "Nationwide Telephone",
+          "price": 0.1
+        },
+        {
+          "name": "Nodemax",
+          "price": 0.1
+        },
+        {
+          "name": "O2",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        },
+        {
+          "name": "Oxygen8",
+          "price": 0.1
+        },
+        {
+          "name": "Premium O",
+          "price": 0.1
+        },
+        {
+          "name": "Premium Routing",
+          "price": 0.1
+        },
+        {
+          "name": "QX Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Resilient",
+          "price": 0.1
+        },
+        {
+          "name": "SMSRelay AG",
+          "price": 0.1
+        },
+        {
+          "name": "Simwood",
+          "price": 0.1
+        },
+        {
+          "name": "Sky",
+          "price": 0.1
+        },
+        {
+          "name": "Spacetel",
+          "price": 0.1
+        },
+        {
+          "name": "Stour Marine",
+          "price": 0.1
+        },
+        {
+          "name": "Swiftnet",
+          "price": 0.1
+        },
+        {
+          "name": "Synectiv",
+          "price": 0.1
+        },
+        {
+          "name": "TGL",
+          "price": 0.1
+        },
+        {
+          "name": "TalkTalk",
+          "price": 0.1
+        },
+        {
+          "name": "TeleWare",
+          "price": 0.1
+        },
+        {
+          "name": "Telecom 10",
+          "price": 0.1
+        },
+        {
+          "name": "Telecom2",
+          "price": 0.1
+        },
+        {
+          "name": "Telecoms Cloud",
+          "price": 0.1
+        },
+        {
+          "name": "Teleena",
+          "price": 0.1
+        },
+        {
+          "name": "Telesign",
+          "price": 0.1
+        },
+        {
+          "name": "Telna",
+          "price": 0.1
+        },
+        {
+          "name": "Test2date",
+          "price": 0.1
+        },
+        {
+          "name": "Three",
+          "price": 0.1
+        },
+        {
+          "name": "Tismi",
+          "price": 0.1
+        },
+        {
+          "name": "Truphone",
+          "price": 0.1
+        },
+        {
+          "name": "UK Broadband",
+          "price": 0.1
+        },
+        {
+          "name": "Vectone Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Virgin Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.1
+        },
+        {
+          "name": "Voicetec",
+          "price": 0.1
+        },
+        {
+          "name": "Voxbone",
+          "price": 0.1
+        },
+        {
+          "name": "Wavecrest",
+          "price": 0.1
+        },
+        {
+          "name": "Yim Siam",
+          "price": 0.1
+        },
+        {
+          "name": "Ziron",
+          "price": 0.1
+        },
+        {
+          "name": "aql",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.05,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Guinea",
+      "providers": [
+        {
+          "name": "Sotelgui",
+          "price": 0.1
+        },
+        {
+          "name": "Areeba",
+          "price": 0.296
+        },
+        {
+          "name": "Cellcom",
+          "price": 0.336
+        },
+        {
+          "name": "Intercel",
+          "price": 0.336
+        },
+        {
+          "name": "Orange",
+          "price": 0.336
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.336
+    },
+    {
+      "name": "Guinea-Bissau",
+      "providers": [
+        {
+          "name": "Guinetel",
+          "price": 0.1
+        },
+        {
+          "name": "Spacetel",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.266
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.266
+    },
+    {
+      "name": "Guyana",
+      "providers": [
+        {
+          "name": "Digicel Guyana",
+          "price": 0.274
+        },
+        {
+          "name": "Guyana Telephone and Telegraph Company",
+          "price": 0.274
+        }
+      ],
+      "minPrice": 0.274,
+      "maxPrice": 0.274
+    },
+    {
+      "name": "Haiti",
+      "providers": [
+        {
+          "name": "Digicel",
+          "price": 0.316
+        },
+        {
+          "name": "Natcom",
+          "price": 0.316
+        }
+      ],
+      "minPrice": 0.316,
+      "maxPrice": 0.316
+    },
+    {
+      "name": "Honduras",
+      "providers": [
+        {
+          "name": "Digicel Honduras",
+          "price": 0.1
+        },
+        {
+          "name": "HONDUTEL",
+          "price": 0.1
+        },
+        {
+          "name": "Celtel (Tigo)",
+          "price": 0.246
+        },
+        {
+          "name": "Sercom (Claro)",
+          "price": 0.246
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.246
+    },
+    {
+      "name": "Hong Kong",
+      "providers": [
+        {
+          "name": "3",
+          "price": 0.074
+        },
+        {
+          "name": "CITIC",
+          "price": 0.074
+        },
+        {
+          "name": "China Mobile",
+          "price": 0.074
+        },
+        {
+          "name": "China Unicom",
+          "price": 0.074
+        },
+        {
+          "name": "China-Hongkong Telecom",
+          "price": 0.074
+        },
+        {
+          "name": "HKT",
+          "price": 0.074
+        },
+        {
+          "name": "21Vianet",
+          "price": 0.1
+        },
+        {
+          "name": "China Telecom Global Limited (CTG)",
+          "price": 0.1
+        },
+        {
+          "name": "Handy",
+          "price": 0.1
+        },
+        {
+          "name": "Hong Kong Broadband Network",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.1
+        },
+        {
+          "name": "Multibyte",
+          "price": 0.1
+        },
+        {
+          "name": "Sun Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Truphone",
+          "price": 0.1
+        },
+        {
+          "name": "Webbing",
+          "price": 0.1
+        },
+        {
+          "name": "SmarTone",
+          "price": 0.114
+        }
+      ],
+      "minPrice": 0.074,
+      "maxPrice": 0.114
+    },
+    {
+      "name": "Hungary",
+      "providers": [
+        {
+          "name": "Magyar Telekom",
+          "price": 0.066
+        },
+        {
+          "name": "Telenor",
+          "price": 0.066
+        },
+        {
+          "name": "MVM Net",
+          "price": 0.1
+        },
+        {
+          "name": "Netfone Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "TARR",
+          "price": 0.1
+        },
+        {
+          "name": "UPC",
+          "price": 0.1
+        },
+        {
+          "name": "Vidanet",
+          "price": 0.1
+        },
+        {
+          "name": "DIGI",
+          "price": 0.106
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.106
+        }
+      ],
+      "minPrice": 0.066,
+      "maxPrice": 0.106
+    },
+    {
+      "name": "Iceland",
+      "providers": [
+        {
+          "name": "Nova",
+          "price": 0.078
+        },
+        {
+          "name": "Síminn",
+          "price": 0.078
+        },
+        {
+          "name": "IMC",
+          "price": 0.1
+        },
+        {
+          "name": "Tismi",
+          "price": 0.1
+        },
+        {
+          "name": "Öryggisfjarskipti",
+          "price": 0.1
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.118
+        }
+      ],
+      "minPrice": 0.078,
+      "maxPrice": 0.118
+    },
+    {
+      "name": "India",
+      "providers": [
+        {
+          "name": "Aircel",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.1
+        },
+        {
+          "name": "BSNL MOBILE",
+          "price": 0.1
+        },
+        {
+          "name": "Idea",
+          "price": 0.1
+        },
+        {
+          "name": "Reliance Jio",
+          "price": 0.1
+        },
+        {
+          "name": "Tata Docomo",
+          "price": 0.1
+        },
+        {
+          "name": "Telenor",
+          "price": 0.1
+        },
+        {
+          "name": "Telewings",
+          "price": 0.1
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Indonesia",
+      "providers": [
+        {
+          "name": "Hutchison",
+          "price": 0.1
+        },
+        {
+          "name": "3",
+          "price": 0.374
+        },
+        {
+          "name": "IM3",
+          "price": 0.374
+        },
+        {
+          "name": "Smartfren",
+          "price": 0.374
+        },
+        {
+          "name": "AXIS",
+          "price": 0.414
+        },
+        {
+          "name": "Telkomsel",
+          "price": 0.414
+        },
+        {
+          "name": "XL",
+          "price": 0.414
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.414
+    },
+    {
+      "name": "Iran, Islamic Republic of Persian Gulf",
+      "providers": [
+        {
+          "name": "LOTUSTEL",
+          "price": 0.1
+        },
+        {
+          "name": "Shatel Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "IR-MCI",
+          "price": 0.352
+        },
+        {
+          "name": "Irancell",
+          "price": 0.352
+        },
+        {
+          "name": "MTCE",
+          "price": 0.352
+        },
+        {
+          "name": "Rightel",
+          "price": 0.352
+        },
+        {
+          "name": "Taliya",
+          "price": 0.352
+        },
+        {
+          "name": "TeleKish",
+          "price": 0.352
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.352
+    },
+    {
+      "name": "Iraq",
+      "providers": [
+        {
+          "name": "ITC Fanoos",
+          "price": 0.1
+        },
+        {
+          "name": "ITPC",
+          "price": 0.1
+        },
+        {
+          "name": "Imam Hussien Holy Shrine",
+          "price": 0.1
+        },
+        {
+          "name": "IraqTel",
+          "price": 0.1
+        },
+        {
+          "name": "Itisaluna",
+          "price": 0.1
+        },
+        {
+          "name": "Kalimat",
+          "price": 0.1
+        },
+        {
+          "name": "Omnnea",
+          "price": 0.1
+        },
+        {
+          "name": "Asiacell",
+          "price": 0.352
+        },
+        {
+          "name": "Korek",
+          "price": 0.352
+        },
+        {
+          "name": "Mobitel",
+          "price": 0.352
+        },
+        {
+          "name": "Zain",
+          "price": 0.352
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.352
+    },
+    {
+      "name": "Ireland",
+      "providers": [
+        {
+          "name": "3",
+          "price": 0.057
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.057
+        },
+        {
+          "name": "Meteor",
+          "price": 0.057
+        },
+        {
+          "name": "Tesco Mobile",
+          "price": 0.057
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.097
+        },
+        {
+          "name": "Carphone Warehouse Ireland Mobile Limited",
+          "price": 0.1
+        },
+        {
+          "name": "Eircom",
+          "price": 0.1
+        },
+        {
+          "name": "Liffey Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "O2",
+          "price": 0.1
+        },
+        {
+          "name": "Virgin Media",
+          "price": 0.1
+        },
+        {
+          "name": "eMobile",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.057,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Israel",
+      "providers": [
+        {
+          "name": "Annatel",
+          "price": 0.1
+        },
+        {
+          "name": "Beezz",
+          "price": 0.1
+        },
+        {
+          "name": "Cellact",
+          "price": 0.1
+        },
+        {
+          "name": "Cellran Cellular Communications",
+          "price": 0.1
+        },
+        {
+          "name": "Free Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Maskyoo",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        },
+        {
+          "name": "Rami Levy",
+          "price": 0.1
+        },
+        {
+          "name": "Telzar",
+          "price": 0.1
+        },
+        {
+          "name": "Cellcom",
+          "price": 0.258
+        },
+        {
+          "name": "Home Cellular",
+          "price": 0.258
+        },
+        {
+          "name": "Jawwal",
+          "price": 0.258
+        },
+        {
+          "name": "Wataniya",
+          "price": 0.258
+        },
+        {
+          "name": "Xphone",
+          "price": 0.258
+        },
+        {
+          "name": "Golan Telecom",
+          "price": 0.298
+        },
+        {
+          "name": "Hot Mobile",
+          "price": 0.298
+        },
+        {
+          "name": "Pelephone",
+          "price": 0.298
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.298
+    },
+    {
+      "name": "Italy",
+      "providers": [
+        {
+          "name": "3 Italia",
+          "price": 0.056
+        },
+        {
+          "name": "TIM",
+          "price": 0.056
+        },
+        {
+          "name": "WIND",
+          "price": 0.056
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.096
+        },
+        {
+          "name": "Intermatica",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.056,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Japan",
+      "providers": [
+        {
+          "name": "KDDI",
+          "price": 0.062
+        },
+        {
+          "name": "NTT Docomo",
+          "price": 0.062
+        },
+        {
+          "name": "Rakuten Communications",
+          "price": 0.062
+        },
+        {
+          "name": "Softbank",
+          "price": 0.062
+        }
+      ],
+      "minPrice": 0.062,
+      "maxPrice": 0.062
+    },
+    {
+      "name": "Jordan",
+      "providers": [
+        {
+          "name": "Umniah",
+          "price": 0.333
+        },
+        {
+          "name": "Zain JO",
+          "price": 0.333
+        },
+        {
+          "name": "Orange",
+          "price": 0.373
+        }
+      ],
+      "minPrice": 0.333,
+      "maxPrice": 0.373
+    },
+    {
+      "name": "Kenya",
+      "providers": [
+        {
+          "name": "Finserve",
+          "price": 0.1
+        },
+        {
+          "name": "Homeland Media",
+          "price": 0.1
+        },
+        {
+          "name": "Infura",
+          "price": 0.1
+        },
+        {
+          "name": "JTL",
+          "price": 0.1
+        },
+        {
+          "name": "Mobile Pay",
+          "price": 0.1
+        },
+        {
+          "name": "Sema Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "WiAfrica",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.274
+        },
+        {
+          "name": "Safaricom",
+          "price": 0.274
+        },
+        {
+          "name": "Telkom",
+          "price": 0.274
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.274
+    },
+    {
+      "name": "Korea, Democratic People's Republic of Korea",
+      "providers": [
+        {
+          "name": "KPTC",
+          "price": 0.1
+        },
+        {
+          "name": "Koryolink",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Korea, Republic of South Korea",
+      "providers": [
+        {
+          "name": "KT",
+          "price": 0.028
+        },
+        {
+          "name": "LG U+",
+          "price": 0.028
+        },
+        {
+          "name": "SKTellink",
+          "price": 0.028
+        }
+      ],
+      "minPrice": 0.028,
+      "maxPrice": 0.028
+    },
+    {
+      "name": "Kosovo",
+      "providers": [
+        {
+          "name": "Z Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "mts d.o.o.",
+          "price": 0.1
+        },
+        {
+          "name": "vala",
+          "price": 0.208
+        },
+        {
+          "name": "IPKO",
+          "price": 0.248
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.248
+    },
+    {
+      "name": "Kuwait",
+      "providers": [
+        {
+          "name": "Virgin mobile",
+          "price": 0.1
+        },
+        {
+          "name": "VIVA",
+          "price": 0.278
+        },
+        {
+          "name": "Ooredoo",
+          "price": 0.318
+        },
+        {
+          "name": "Zain",
+          "price": 0.318
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.318
+    },
+    {
+      "name": "Kyrgyzstan",
+      "providers": [
+        {
+          "name": "ALFA Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Katel",
+          "price": 0.1
+        },
+        {
+          "name": "Sky mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Sotel",
+          "price": 0.1
+        },
+        {
+          "name": "Winline",
+          "price": 0.1
+        },
+        {
+          "name": "Aktel",
+          "price": 0.308
+        },
+        {
+          "name": "Nur Telecom",
+          "price": 0.308
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.308
+    },
+    {
+      "name": "Laos",
+      "providers": [
+        {
+          "name": "Best Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Beeline",
+          "price": 0.294
+        },
+        {
+          "name": "ETL",
+          "price": 0.294
+        },
+        {
+          "name": "Unitel",
+          "price": 0.294
+        },
+        {
+          "name": "Lao Telecom",
+          "price": 0.334
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.334
+    },
+    {
+      "name": "Latvia",
+      "providers": [
+        {
+          "name": "Bite",
+          "price": 0.05
+        },
+        {
+          "name": "LMT",
+          "price": 0.05
+        },
+        {
+          "name": "Tele2",
+          "price": 0.05
+        }
+      ],
+      "minPrice": 0.05,
+      "maxPrice": 0.05
+    },
+    {
+      "name": "Lebanon",
+      "providers": [
+        {
+          "name": "Alfa",
+          "price": 0.332
+        },
+        {
+          "name": "Touch",
+          "price": 0.332
+        }
+      ],
+      "minPrice": 0.332,
+      "maxPrice": 0.332
+    },
+    {
+      "name": "Lesotho",
+      "providers": [
+        {
+          "name": "Econet Ezi-Cel Lesotho",
+          "price": 0.1
+        },
+        {
+          "name": "Vodacom Lesotho (Pty) Ltd",
+          "price": 0.246
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.246
+    },
+    {
+      "name": "Liberia",
+      "providers": [
+        {
+          "name": "West Africa Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.236
+        },
+        {
+          "name": "Lonestar Cell",
+          "price": 0.276
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.276
+    },
+    {
+      "name": "Libyan Arab Jamahiriya",
+      "providers": [
+        {
+          "name": "Libya Telecom & Technology",
+          "price": 0.1
+        },
+        {
+          "name": "Libyana",
+          "price": 0.287
+        },
+        {
+          "name": "Al-Madar",
+          "price": 0.9
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.9
+    },
+    {
+      "name": "Liechtenstein",
+      "providers": [
+        {
+          "name": "First Mobile",
+          "price": 0.032
+        },
+        {
+          "name": "Salt",
+          "price": 0.032
+        },
+        {
+          "name": "Swisscom",
+          "price": 0.032
+        },
+        {
+          "name": "Telecom Liechtenstein",
+          "price": 0.032
+        },
+        {
+          "name": "Cubic",
+          "price": 0.1
+        },
+        {
+          "name": "Dimoco",
+          "price": 0.1
+        },
+        {
+          "name": "Soracom",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.032,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Lithuania",
+      "providers": [
+        {
+          "name": "BITÄ",
+          "price": 0.058
+        },
+        {
+          "name": "Omnitel",
+          "price": 0.058
+        },
+        {
+          "name": "Tele 2",
+          "price": 0.058
+        }
+      ],
+      "minPrice": 0.058,
+      "maxPrice": 0.058
+    },
+    {
+      "name": "Luxembourg",
+      "providers": [
+        {
+          "name": "Orange",
+          "price": 0.088
+        },
+        {
+          "name": "POST",
+          "price": 0.088
+        },
+        {
+          "name": "JOIN",
+          "price": 0.1
+        },
+        {
+          "name": "Tango",
+          "price": 0.128
+        }
+      ],
+      "minPrice": 0.088,
+      "maxPrice": 0.128
+    },
+    {
+      "name": "Macao",
+      "providers": [
+        {
+          "name": "3",
+          "price": 0.1
+        },
+        {
+          "name": "CTM",
+          "price": 0.1
+        },
+        {
+          "name": "China Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Guangxing Communication Co",
+          "price": 0.1
+        },
+        {
+          "name": "SmarTone",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Macedonia",
+      "providers": [
+        {
+          "name": "Mobik",
+          "price": 0.1
+        },
+        {
+          "name": "A1",
+          "price": 0.104
+        },
+        {
+          "name": "T-Mobile",
+          "price": 0.104
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.104
+    },
+    {
+      "name": "Madagascar",
+      "providers": [
+        {
+          "name": "Blueline",
+          "price": 0.1
+        },
+        {
+          "name": "Telma",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.404
+        },
+        {
+          "name": "Orange",
+          "price": 0.404
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.404
+    },
+    {
+      "name": "Malawi",
+      "providers": [
+        {
+          "name": "Globally Advanced Integrated Networks Ltd",
+          "price": 0.1
+        },
+        {
+          "name": "Malawi Telecom-munications Ltd (MTL)",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.276
+        },
+        {
+          "name": "TNM",
+          "price": 0.276
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.276
+    },
+    {
+      "name": "Malaysia",
+      "providers": [
+        {
+          "name": "Altel",
+          "price": 0.1
+        },
+        {
+          "name": "Baraka",
+          "price": 0.1
+        },
+        {
+          "name": "Celecom",
+          "price": 0.1
+        },
+        {
+          "name": "Enabling Asia",
+          "price": 0.1
+        },
+        {
+          "name": "Packcet One",
+          "price": 0.1
+        },
+        {
+          "name": "Telekom",
+          "price": 0.1
+        },
+        {
+          "name": "Tune Talk",
+          "price": 0.1
+        },
+        {
+          "name": "U Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Webe",
+          "price": 0.1
+        },
+        {
+          "name": "XOX",
+          "price": 0.1
+        },
+        {
+          "name": "YTL",
+          "price": 0.1
+        },
+        {
+          "name": "red ONE",
+          "price": 0.1
+        },
+        {
+          "name": "Celcom",
+          "price": 0.238
+        },
+        {
+          "name": "DiGi",
+          "price": 0.238
+        },
+        {
+          "name": "Maxis",
+          "price": 0.238
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.238
+    },
+    {
+      "name": "Maldives",
+      "providers": [
+        {
+          "name": "Dhiraagu",
+          "price": 0.254
+        },
+        {
+          "name": "Ooredoo",
+          "price": 0.294
+        }
+      ],
+      "minPrice": 0.254,
+      "maxPrice": 0.294
+    },
+    {
+      "name": "Mali",
+      "providers": [
+        {
+          "name": "Atel",
+          "price": 0.1
+        },
+        {
+          "name": "Sotelma",
+          "price": 0.296
+        },
+        {
+          "name": "Orange",
+          "price": 0.336
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.336
+    },
+    {
+      "name": "Malta",
+      "providers": [
+        {
+          "name": "GO Mobile",
+          "price": 0.068
+        },
+        {
+          "name": "epic",
+          "price": 0.1
+        },
+        {
+          "name": "Melita Mobile",
+          "price": 0.108
+        }
+      ],
+      "minPrice": 0.068,
+      "maxPrice": 0.108
+    },
+    {
+      "name": "Marshall Islands",
+      "providers": [
+        {
+          "name": "National Telecommunications Authority",
+          "price": 0.071
+        }
+      ],
+      "minPrice": 0.071,
+      "maxPrice": 0.071
+    },
+    {
+      "name": "Martinique",
+      "providers": [
+        {
+          "name": "Digicel",
+          "price": 0.1
+        },
+        {
+          "name": "Free Caraïbe",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        },
+        {
+          "name": "SFR/Rife",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Mauritania",
+      "providers": [
+        {
+          "name": "Mauritel",
+          "price": 0.258
+        },
+        {
+          "name": "Chinguitel",
+          "price": 0.298
+        },
+        {
+          "name": "Mattel",
+          "price": 0.298
+        }
+      ],
+      "minPrice": 0.258,
+      "maxPrice": 0.298
+    },
+    {
+      "name": "Mauritius",
+      "providers": [
+        {
+          "name": "Cellplus",
+          "price": 0.1
+        },
+        {
+          "name": "Emtel",
+          "price": 0.194
+        },
+        {
+          "name": "MTML",
+          "price": 0.194
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.194
+    },
+    {
+      "name": "Mayotte",
+      "providers": [
+        {
+          "name": "BJT",
+          "price": 0.1
+        },
+        {
+          "name": "Only",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        },
+        {
+          "name": "SFR",
+          "price": 0.1
+        },
+        {
+          "name": "ZEOP Mobile",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Micronesia, Federated States of Micronesia",
+      "providers": [
+        {
+          "name": "FSMTC",
+          "price": 0.122
+        }
+      ],
+      "minPrice": 0.122,
+      "maxPrice": 0.122
+    },
+    {
+      "name": "Moldova",
+      "providers": [
+        {
+          "name": "IDC",
+          "price": 0.158
+        },
+        {
+          "name": "Moldtelecom",
+          "price": 0.158
+        },
+        {
+          "name": "Moldcell",
+          "price": 0.198
+        },
+        {
+          "name": "Orange",
+          "price": 0.198
+        }
+      ],
+      "minPrice": 0.158,
+      "maxPrice": 0.198
+    },
+    {
+      "name": "Mongolia",
+      "providers": [
+        {
+          "name": "G-Mobile",
+          "price": 0.302
+        },
+        {
+          "name": "Mobicom",
+          "price": 0.302
+        },
+        {
+          "name": "Skytel",
+          "price": 0.302
+        },
+        {
+          "name": "Unitel",
+          "price": 0.302
+        }
+      ],
+      "minPrice": 0.302,
+      "maxPrice": 0.302
+    },
+    {
+      "name": "Montenegro",
+      "providers": [
+        {
+          "name": "Telekom",
+          "price": 0.148
+        },
+        {
+          "name": "Telenor",
+          "price": 0.148
+        },
+        {
+          "name": "m:tel",
+          "price": 0.148
+        }
+      ],
+      "minPrice": 0.148,
+      "maxPrice": 0.148
+    },
+    {
+      "name": "Morocco",
+      "providers": [
+        {
+          "name": "Al Hourria Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Inwi",
+          "price": 0.186
+        },
+        {
+          "name": "Maroc Telecom",
+          "price": 0.186
+        },
+        {
+          "name": "Méditel",
+          "price": 0.186
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.186
+    },
+    {
+      "name": "Mozambique",
+      "providers": [
+        {
+          "name": "GMPCS",
+          "price": 0.1
+        },
+        {
+          "name": "Movitel",
+          "price": 0.334
+        },
+        {
+          "name": "Vodacom",
+          "price": 0.334
+        },
+        {
+          "name": "mcel",
+          "price": 0.334
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.334
+    },
+    {
+      "name": "Myanmar",
+      "providers": [
+        {
+          "name": "MPT",
+          "price": 0.1
+        },
+        {
+          "name": "Telenor",
+          "price": 0.1
+        },
+        {
+          "name": "Mytel",
+          "price": 0.368
+        },
+        {
+          "name": "Ooredoo",
+          "price": 0.408
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.408
+    },
+    {
+      "name": "Namibia",
+      "providers": [
+        {
+          "name": "MTC",
+          "price": 0.054
+        },
+        {
+          "name": "TN Mobile",
+          "price": 0.054
+        },
+        {
+          "name": "MTN",
+          "price": 0.1
+        },
+        {
+          "name": "Telecom Namibia",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.054,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Nauru",
+      "providers": [
+        {
+          "name": "FSM Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel",
+          "price": 0.202
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.202
+    },
+    {
+      "name": "Nepal",
+      "providers": [
+        {
+          "name": "NDCL",
+          "price": 0.1
+        },
+        {
+          "name": "NSTPL",
+          "price": 0.1
+        },
+        {
+          "name": "STM Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Smart Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "UTL",
+          "price": 0.1
+        },
+        {
+          "name": "NCell",
+          "price": 0.304
+        },
+        {
+          "name": "Nepal Telecom",
+          "price": 0.304
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.304
+    },
+    {
+      "name": "Netherlands",
+      "providers": [
+        {
+          "name": "KPN",
+          "price": 0.086
+        },
+        {
+          "name": "Vodafone Libertel B.V.",
+          "price": 0.086
+        },
+        {
+          "name": "ASPIDER Solutions Nederland B.V.",
+          "price": 0.1
+        },
+        {
+          "name": "Glotell B.V (V-Tell NL)",
+          "price": 0.1
+        },
+        {
+          "name": "Lancelot",
+          "price": 0.1
+        },
+        {
+          "name": "Motto",
+          "price": 0.1
+        },
+        {
+          "name": "Private Mobility Nederland",
+          "price": 0.1
+        },
+        {
+          "name": "T-Mobile Thuis",
+          "price": 0.1
+        },
+        {
+          "name": "Teleena (MVNE)",
+          "price": 0.1
+        },
+        {
+          "name": "Telfort",
+          "price": 0.1
+        },
+        {
+          "name": "Vectone Mobile/Delight Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.126
+        },
+        {
+          "name": "T-Mobile",
+          "price": 0.126
+        },
+        {
+          "name": "Tele2",
+          "price": 0.126
+        }
+      ],
+      "minPrice": 0.086,
+      "maxPrice": 0.126
+    },
+    {
+      "name": "Netherlands Antilles",
+      "providers": [
+        {
+          "name": "Antelecom",
+          "price": 0.1
+        },
+        {
+          "name": "Chippie",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel",
+          "price": 0.1
+        },
+        {
+          "name": "Kla",
+          "price": 0.1
+        },
+        {
+          "name": "Satel",
+          "price": 0.1
+        },
+        {
+          "name": "Telcell",
+          "price": 0.1
+        },
+        {
+          "name": "WIC",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "New Zealand",
+      "providers": [
+        {
+          "name": "Spark",
+          "price": 0.076
+        },
+        {
+          "name": "Airnet New Zealand NOW",
+          "price": 0.1
+        },
+        {
+          "name": "Callplus",
+          "price": 0.1
+        },
+        {
+          "name": "Devoli",
+          "price": 0.1
+        },
+        {
+          "name": "Link Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Sure (Guernsey) New Zealand Limited",
+          "price": 0.1
+        },
+        {
+          "name": "Symbio Networks PTY",
+          "price": 0.1
+        },
+        {
+          "name": "Voxbone",
+          "price": 0.1
+        },
+        {
+          "name": "Voyager Internet Limted",
+          "price": 0.1
+        },
+        {
+          "name": "2degrees",
+          "price": 0.116
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.116
+        }
+      ],
+      "minPrice": 0.076,
+      "maxPrice": 0.116
+    },
+    {
+      "name": "Nicaragua",
+      "providers": [
+        {
+          "name": "CooTel",
+          "price": 0.1
+        },
+        {
+          "name": "Claro",
+          "price": 0.166
+        },
+        {
+          "name": "Movistar",
+          "price": 0.166
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.166
+    },
+    {
+      "name": "Niger",
+      "providers": [
+        {
+          "name": "Niger Telecoms",
+          "price": 0.306
+        },
+        {
+          "name": "Airtel",
+          "price": 0.346
+        },
+        {
+          "name": "Moov",
+          "price": 0.346
+        },
+        {
+          "name": "Orange",
+          "price": 0.346
+        }
+      ],
+      "minPrice": 0.306,
+      "maxPrice": 0.346
+    },
+    {
+      "name": "Nigeria",
+      "providers": [
+        {
+          "name": "Megatech",
+          "price": 0.1
+        },
+        {
+          "name": "Multilinks",
+          "price": 0.1
+        },
+        {
+          "name": "Ntel",
+          "price": 0.1
+        },
+        {
+          "name": "Prestel",
+          "price": 0.1
+        },
+        {
+          "name": "Smile",
+          "price": 0.1
+        },
+        {
+          "name": "9mobile",
+          "price": 0.404
+        },
+        {
+          "name": "Glo",
+          "price": 0.404
+        },
+        {
+          "name": "Starcomms",
+          "price": 0.404
+        },
+        {
+          "name": "Airtel",
+          "price": 0.444
+        },
+        {
+          "name": "MTN",
+          "price": 0.444
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.444
+    },
+    {
+      "name": "Oman",
+      "providers": [
+        {
+          "name": "Vodafone Oman",
+          "price": 0.214
+        },
+        {
+          "name": "Omantel",
+          "price": 0.254
+        },
+        {
+          "name": "Ooredoo",
+          "price": 0.254
+        }
+      ],
+      "minPrice": 0.214,
+      "maxPrice": 0.254
+    },
+    {
+      "name": "Pakistan",
+      "providers": [
+        {
+          "name": "Instaphone",
+          "price": 0.1
+        },
+        {
+          "name": "Special Communications Organization",
+          "price": 0.1
+        },
+        {
+          "name": "Mobilink",
+          "price": 0.408
+        },
+        {
+          "name": "Telenor",
+          "price": 0.408
+        },
+        {
+          "name": "Ufone",
+          "price": 0.408
+        },
+        {
+          "name": "Warid",
+          "price": 0.408
+        },
+        {
+          "name": "Zong",
+          "price": 0.408
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.408
+    },
+    {
+      "name": "Palestinian Territory, Occupied",
+      "providers": [
+        {
+          "name": "Ooredoo Group",
+          "price": 0.1
+        },
+        {
+          "name": "Palestine Cellular Communications",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Panama",
+      "providers": [
+        {
+          "name": "Mobilphone",
+          "price": 0.1
+        },
+        {
+          "name": "Cable & Wireless",
+          "price": 0.14
+        },
+        {
+          "name": "Claro",
+          "price": 0.14
+        },
+        {
+          "name": "Digicel",
+          "price": 0.14
+        },
+        {
+          "name": "Telefónica Móviles",
+          "price": 0.14
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.14
+    },
+    {
+      "name": "Papua New Guinea",
+      "providers": [
+        {
+          "name": "DIGIVOIP",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel",
+          "price": 0.206
+        },
+        {
+          "name": "bmobile",
+          "price": 0.206
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.206
+    },
+    {
+      "name": "Paraguay",
+      "providers": [
+        {
+          "name": "Claro",
+          "price": 0.122
+        },
+        {
+          "name": "Personal",
+          "price": 0.122
+        },
+        {
+          "name": "Tigo",
+          "price": 0.122
+        },
+        {
+          "name": "VOX",
+          "price": 0.122
+        }
+      ],
+      "minPrice": 0.122,
+      "maxPrice": 0.122
+    },
+    {
+      "name": "Peru",
+      "providers": [
+        {
+          "name": "Claro",
+          "price": 0.274
+        },
+        {
+          "name": "Entel",
+          "price": 0.274
+        },
+        {
+          "name": "Movistar",
+          "price": 0.274
+        }
+      ],
+      "minPrice": 0.274,
+      "maxPrice": 0.274
+    },
+    {
+      "name": "Philippines",
+      "providers": [
+        {
+          "name": "Dito",
+          "price": 0.1
+        },
+        {
+          "name": "Globe",
+          "price": 0.196
+        },
+        {
+          "name": "Smart",
+          "price": 0.236
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.236
+    },
+    {
+      "name": "Poland",
+      "providers": [
+        {
+          "name": "Orange",
+          "price": 0.046
+        },
+        {
+          "name": "Play",
+          "price": 0.046
+        },
+        {
+          "name": "Plus",
+          "price": 0.046
+        },
+        {
+          "name": "T-Mobile",
+          "price": 0.046
+        },
+        {
+          "name": "Move Telecom S.A.",
+          "price": 0.086
+        },
+        {
+          "name": "PKP Polskie Linie Kolejowe S.A.",
+          "price": 0.086
+        },
+        {
+          "name": "SIA NetBalt",
+          "price": 0.086
+        },
+        {
+          "name": "SIA Ntel Solutions",
+          "price": 0.086
+        },
+        {
+          "name": "TELCO LEADERS LTD",
+          "price": 0.086
+        },
+        {
+          "name": "Twilio Ireland Limited",
+          "price": 0.086
+        },
+        {
+          "name": "VOXBONE SA",
+          "price": 0.086
+        },
+        {
+          "name": "AGILE TELECOM POLAND",
+          "price": 0.1
+        },
+        {
+          "name": "AMD Telecom S.A.",
+          "price": 0.1
+        },
+        {
+          "name": "BSG ESTONIA OU",
+          "price": 0.1
+        },
+        {
+          "name": "CARITAS",
+          "price": 0.1
+        },
+        {
+          "name": "Compatel Limited",
+          "price": 0.1
+        },
+        {
+          "name": "EZ PHONE MOBILE",
+          "price": 0.1
+        },
+        {
+          "name": "IM Consulting Izabela",
+          "price": 0.1
+        },
+        {
+          "name": "Interactive Digital Media GmbH",
+          "price": 0.1
+        },
+        {
+          "name": "JMDI",
+          "price": 0.1
+        },
+        {
+          "name": "Messagebird B.V.",
+          "price": 0.1
+        },
+        {
+          "name": "MobiWeb Telecom Limited",
+          "price": 0.1
+        },
+        {
+          "name": "Mobiledata Sp. z o.o.",
+          "price": 0.1
+        },
+        {
+          "name": "NIMBUSFIVE GmbH",
+          "price": 0.1
+        },
+        {
+          "name": "Polska Spoka Gazownictwa Sp",
+          "price": 0.1
+        },
+        {
+          "name": "SMSHIGHWAY LIMITED",
+          "price": 0.1
+        },
+        {
+          "name": "Softelnet S.A. Sp. k.",
+          "price": 0.1
+        },
+        {
+          "name": "TELENABLER",
+          "price": 0.1
+        },
+        {
+          "name": "TELESTRADA S.A.",
+          "price": 0.1
+        },
+        {
+          "name": "UPC Polska",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.046,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Qatar",
+      "providers": [
+        {
+          "name": "ooredoo",
+          "price": 0.204
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.244
+        }
+      ],
+      "minPrice": 0.204,
+      "maxPrice": 0.244
+    },
+    {
+      "name": "Romania",
+      "providers": [
+        {
+          "name": "Digi Mobil",
+          "price": 0.054
+        },
+        {
+          "name": "Telekom",
+          "price": 0.054
+        },
+        {
+          "name": "Orange",
+          "price": 0.094
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.094
+        },
+        {
+          "name": "Enigma-System",
+          "price": 0.1
+        },
+        {
+          "name": "Iristel",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.054,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Rwanda",
+      "providers": [
+        {
+          "name": "Airtel",
+          "price": 0.248
+        },
+        {
+          "name": "MTN",
+          "price": 0.248
+        },
+        {
+          "name": "TIGO",
+          "price": 0.248
+        }
+      ],
+      "minPrice": 0.248,
+      "maxPrice": 0.248
+    },
+    {
+      "name": "Saint Helena, Ascension and Tristan Da Cunha",
+      "providers": [
+        {
+          "name": "Sure South Atlantic Ltd",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Saint Pierre and Miquelon",
+      "providers": [
+        {
+          "name": "Diabolocom",
+          "price": 0.1
+        },
+        {
+          "name": "Globaltel",
+          "price": 0.1
+        },
+        {
+          "name": "Kav El International",
+          "price": 0.1
+        },
+        {
+          "name": "Keyyo",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.1
+        },
+        {
+          "name": "SPM Telecom",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Sao Tome and Principe",
+      "providers": [
+        {
+          "name": "CSTmovel",
+          "price": 0.078
+        },
+        {
+          "name": "Unitel",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.078,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Saudi Arabia",
+      "providers": [
+        {
+          "name": "Lebara",
+          "price": 0.1
+        },
+        {
+          "name": "Salam",
+          "price": 0.1
+        },
+        {
+          "name": "STC",
+          "price": 0.234
+        },
+        {
+          "name": "Virgin",
+          "price": 0.234
+        },
+        {
+          "name": "Zain",
+          "price": 0.234
+        },
+        {
+          "name": "Mobily",
+          "price": 0.274
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.274
+    },
+    {
+      "name": "Senegal",
+      "providers": [
+        {
+          "name": "ADIE",
+          "price": 0.1
+        },
+        {
+          "name": "Expresso",
+          "price": 0.1
+        },
+        {
+          "name": "HAYO",
+          "price": 0.1
+        },
+        {
+          "name": "Origines",
+          "price": 0.1
+        },
+        {
+          "name": "Promobile",
+          "price": 0.1
+        },
+        {
+          "name": "Orange",
+          "price": 0.338
+        },
+        {
+          "name": "Tigo",
+          "price": 0.338
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.338
+    },
+    {
+      "name": "Serbia",
+      "providers": [
+        {
+          "name": "GLOBALTEL",
+          "price": 0.1
+        },
+        {
+          "name": "Vectone Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Telekom Srbija a.d.",
+          "price": 0.406
+        },
+        {
+          "name": "Telenor",
+          "price": 0.406
+        },
+        {
+          "name": "VIP",
+          "price": 0.406
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.406
+    },
+    {
+      "name": "Seychelles",
+      "providers": [
+        {
+          "name": "Airtel",
+          "price": 0.294
+        },
+        {
+          "name": "CWS",
+          "price": 0.294
+        }
+      ],
+      "minPrice": 0.294,
+      "maxPrice": 0.294
+    },
+    {
+      "name": "Sierra Leone",
+      "providers": [
+        {
+          "name": "IPTEL",
+          "price": 0.1
+        },
+        {
+          "name": "Onlime",
+          "price": 0.1
+        },
+        {
+          "name": "Africell",
+          "price": 0.368
+        },
+        {
+          "name": "Orange",
+          "price": 0.368
+        },
+        {
+          "name": "QCELL",
+          "price": 0.368
+        },
+        {
+          "name": "Sierratel",
+          "price": 0.368
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.368
+    },
+    {
+      "name": "Singapore",
+      "providers": [
+        {
+          "name": "M1",
+          "price": 0.068
+        },
+        {
+          "name": "Changi Travel Services Pte Ltd",
+          "price": 0.1
+        },
+        {
+          "name": "TPG",
+          "price": 0.1
+        },
+        {
+          "name": "myrepublic",
+          "price": 0.1
+        },
+        {
+          "name": "red one",
+          "price": 0.1
+        },
+        {
+          "name": "vivohub",
+          "price": 0.1
+        },
+        {
+          "name": "SingTel",
+          "price": 0.108
+        },
+        {
+          "name": "StarHub",
+          "price": 0.108
+        }
+      ],
+      "minPrice": 0.068,
+      "maxPrice": 0.108
+    },
+    {
+      "name": "Slovakia",
+      "providers": [
+        {
+          "name": "4ka of SWAN",
+          "price": 0.049
+        },
+        {
+          "name": "Orange",
+          "price": 0.049
+        },
+        {
+          "name": "T-Mobile (Slovak Telekom)",
+          "price": 0.049
+        },
+        {
+          "name": "Telefonica O2",
+          "price": 0.049
+        },
+        {
+          "name": "Alternet, s.r.o.",
+          "price": 0.1
+        },
+        {
+          "name": "BSG Estonia",
+          "price": 0.1
+        },
+        {
+          "name": "IPfon, s.r.o.",
+          "price": 0.1
+        },
+        {
+          "name": "Slovak Republic Railways (GSM-R)",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.049,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Slovenia",
+      "providers": [
+        {
+          "name": "Compatel",
+          "price": 0.1
+        },
+        {
+          "name": "Novatel",
+          "price": 0.1
+        },
+        {
+          "name": "SŽ - Infrastruktura",
+          "price": 0.1
+        },
+        {
+          "name": "A1",
+          "price": 0.168
+        },
+        {
+          "name": "Telekom Slovenije",
+          "price": 0.168
+        },
+        {
+          "name": "Telemach",
+          "price": 0.168
+        },
+        {
+          "name": "T-2",
+          "price": 0.208
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.208
+    },
+    {
+      "name": "Solomon Islands",
+      "providers": [
+        {
+          "name": "BMobile",
+          "price": 0.1
+        },
+        {
+          "name": "Satsol",
+          "price": 0.1
+        },
+        {
+          "name": "Smile",
+          "price": 0.1
+        },
+        {
+          "name": "Solomon Telekom",
+          "price": 0.104
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.104
+    },
+    {
+      "name": "Somalia",
+      "providers": [
+        {
+          "name": "AirSom",
+          "price": 0.1
+        },
+        {
+          "name": "Amtel",
+          "price": 0.1
+        },
+        {
+          "name": "STG",
+          "price": 0.1
+        },
+        {
+          "name": "SomNet",
+          "price": 0.1
+        },
+        {
+          "name": "Somali Networks",
+          "price": 0.1
+        },
+        {
+          "name": "Golis Telecom",
+          "price": 0.356
+        },
+        {
+          "name": "Hormuud",
+          "price": 0.356
+        },
+        {
+          "name": "Nationlink",
+          "price": 0.356
+        },
+        {
+          "name": "Somtel",
+          "price": 0.356
+        },
+        {
+          "name": "Telesom",
+          "price": 0.356
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.356
+    },
+    {
+      "name": "South Africa",
+      "providers": [
+        {
+          "name": "TelAfrica (Wirles Connect)",
+          "price": 0.1
+        },
+        {
+          "name": "Virgin Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "WBS Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Cell C",
+          "price": 0.132
+        },
+        {
+          "name": "MTN",
+          "price": 0.132
+        },
+        {
+          "name": "Telkom Mobile",
+          "price": 0.132
+        },
+        {
+          "name": "Vodacom",
+          "price": 0.132
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.132
+    },
+    {
+      "name": "South Sudan",
+      "providers": [
+        {
+          "name": "Digitel",
+          "price": 0.1
+        },
+        {
+          "name": "MTN",
+          "price": 0.1
+        },
+        {
+          "name": "Sudatel Group",
+          "price": 0.1
+        },
+        {
+          "name": "Gemtel",
+          "price": 0.298
+        },
+        {
+          "name": "Network of the World",
+          "price": 0.298
+        },
+        {
+          "name": "Zain",
+          "price": 0.298
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.298
+    },
+    {
+      "name": "Sri Lanka",
+      "providers": [
+        {
+          "name": "Etisalat",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.378
+        },
+        {
+          "name": "Dialog",
+          "price": 0.378
+        },
+        {
+          "name": "Hutch",
+          "price": 0.378
+        },
+        {
+          "name": "Mobitel",
+          "price": 0.378
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.378
+    },
+    {
+      "name": "Sudan",
+      "providers": [
+        {
+          "name": "Network of The World Ltd",
+          "price": 0.1
+        },
+        {
+          "name": "MTN",
+          "price": 0.302
+        },
+        {
+          "name": "Sudatel",
+          "price": 0.302
+        },
+        {
+          "name": "Zain",
+          "price": 0.302
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.302
+    },
+    {
+      "name": "Suriname",
+      "providers": [
+        {
+          "name": "Digicel",
+          "price": 0.274
+        },
+        {
+          "name": "Telesur",
+          "price": 0.274
+        }
+      ],
+      "minPrice": 0.274,
+      "maxPrice": 0.274
+    },
+    {
+      "name": "Switzerland",
+      "providers": [
+        {
+          "name": "BeeOne Communications",
+          "price": 0.1
+        },
+        {
+          "name": "Comfone AG",
+          "price": 0.1
+        },
+        {
+          "name": "In&Phone",
+          "price": 0.1
+        },
+        {
+          "name": "Nexphone",
+          "price": 0.1
+        },
+        {
+          "name": "Relario AG (Bebbicell)",
+          "price": 0.1
+        },
+        {
+          "name": "Telecom26 AG",
+          "price": 0.1
+        },
+        {
+          "name": "UPC Switzerland",
+          "price": 0.1
+        },
+        {
+          "name": "Vectone Mobile Limited (Mundio)",
+          "price": 0.1
+        },
+        {
+          "name": "Lycamobile",
+          "price": 0.109
+        },
+        {
+          "name": "Salt",
+          "price": 0.109
+        },
+        {
+          "name": "Sunrise",
+          "price": 0.109
+        },
+        {
+          "name": "Swisscom",
+          "price": 0.109
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.109
+    },
+    {
+      "name": "Syrian Arab Republic",
+      "providers": [
+        {
+          "name": "MTN",
+          "price": 0.1
+        },
+        {
+          "name": "Syriatel",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Taiwan",
+      "providers": [
+        {
+          "name": "Asia-Pacific Telecom",
+          "price": 0.072
+        },
+        {
+          "name": "T Star",
+          "price": 0.072
+        },
+        {
+          "name": "Chunghwa Telecom",
+          "price": 0.112
+        },
+        {
+          "name": "FarEasTone",
+          "price": 0.112
+        },
+        {
+          "name": "Taiwan Mobile",
+          "price": 0.112
+        }
+      ],
+      "minPrice": 0.072,
+      "maxPrice": 0.112
+    },
+    {
+      "name": "Tajikistan",
+      "providers": [
+        {
+          "name": "Megafon",
+          "price": 0.322
+        },
+        {
+          "name": "O-Mobile",
+          "price": 0.322
+        },
+        {
+          "name": "Tacom",
+          "price": 0.322
+        },
+        {
+          "name": "Babilon-M",
+          "price": 0.362
+        },
+        {
+          "name": "Tcell",
+          "price": 0.362
+        }
+      ],
+      "minPrice": 0.322,
+      "maxPrice": 0.362
+    },
+    {
+      "name": "Tanzania, United Republic of Tanzania",
+      "providers": [
+        {
+          "name": "Airtel",
+          "price": 0.1
+        },
+        {
+          "name": "Benson Informatics",
+          "price": 0.1
+        },
+        {
+          "name": "Cootel",
+          "price": 0.1
+        },
+        {
+          "name": "MO Mobile Holding Limited",
+          "price": 0.1
+        },
+        {
+          "name": "MTC",
+          "price": 0.1
+        },
+        {
+          "name": "SMILE",
+          "price": 0.1
+        },
+        {
+          "name": "Tanzania Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Zantel",
+          "price": 0.1
+        },
+        {
+          "name": "Viettel",
+          "price": 0.346
+        },
+        {
+          "name": "Vodacom",
+          "price": 0.346
+        },
+        {
+          "name": "tiGO",
+          "price": 0.346
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.346
+    },
+    {
+      "name": "Thailand",
+      "providers": [
+        {
+          "name": "AIS",
+          "price": 0.072
+        },
+        {
+          "name": "DTAC",
+          "price": 0.072
+        },
+        {
+          "name": "True Move",
+          "price": 0.072
+        },
+        {
+          "name": "Penguin SIM",
+          "price": 0.1
+        },
+        {
+          "name": "TOT Mobile",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.072,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Timor-Leste",
+      "providers": [
+        {
+          "name": "Telkomcel",
+          "price": 0.284
+        },
+        {
+          "name": "Timor Telecom",
+          "price": 0.284
+        },
+        {
+          "name": "Viettel (Telemor brand)",
+          "price": 0.284
+        }
+      ],
+      "minPrice": 0.284,
+      "maxPrice": 0.284
+    },
+    {
+      "name": "Togo",
+      "providers": [
+        {
+          "name": "Moov",
+          "price": 0.348
+        },
+        {
+          "name": "TOGOCEL",
+          "price": 0.348
+        }
+      ],
+      "minPrice": 0.348,
+      "maxPrice": 0.348
+    },
+    {
+      "name": "Tokelau",
+      "providers": [
+        {
+          "name": "Teletok telecommunications",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Tonga",
+      "providers": [
+        {
+          "name": "Toko Wireless",
+          "price": 0.1
+        },
+        {
+          "name": "U-Call Tonga",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel",
+          "price": 0.196
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.196
+    },
+    {
+      "name": "Tunisia",
+      "providers": [
+        {
+          "name": "Lyca Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Watany Ettisalat",
+          "price": 0.1
+        },
+        {
+          "name": "Ooredoo",
+          "price": 0.462
+        },
+        {
+          "name": "Orange",
+          "price": 0.462
+        },
+        {
+          "name": "Tunisie Telecom",
+          "price": 0.462
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.462
+    },
+    {
+      "name": "Turkey",
+      "providers": [
+        {
+          "name": "Turk Telekom",
+          "price": 0.027
+        },
+        {
+          "name": "Turkcell",
+          "price": 0.067
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.067
+        },
+        {
+          "name": "Kuzey Kibris Turkcell",
+          "price": 0.07
+        },
+        {
+          "name": "KKTC Telsim",
+          "price": 0.12
+        }
+      ],
+      "minPrice": 0.027,
+      "maxPrice": 0.12
+    },
+    {
+      "name": "Turkmenistan",
+      "providers": [
+        {
+          "name": "MTS (BARASH Communication)",
+          "price": 0.232
+        },
+        {
+          "name": "TM-Cell",
+          "price": 0.232
+        }
+      ],
+      "minPrice": 0.232,
+      "maxPrice": 0.232
+    },
+    {
+      "name": "Tuvalu",
+      "providers": [
+        {
+          "name": "Tuvalu Telecom",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Uganda",
+      "providers": [
+        {
+          "name": "Africell",
+          "price": 0.1
+        },
+        {
+          "name": "Hamilton Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Smile",
+          "price": 0.1
+        },
+        {
+          "name": "Tangerine",
+          "price": 0.1
+        },
+        {
+          "name": "Airtel",
+          "price": 0.264
+        },
+        {
+          "name": "MTN",
+          "price": 0.264
+        },
+        {
+          "name": "Sure Telecom",
+          "price": 0.264
+        },
+        {
+          "name": "UTL",
+          "price": 0.264
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.264
+    },
+    {
+      "name": "Ukraine",
+      "providers": [
+        {
+          "name": "Intertelecom",
+          "price": 0.156
+        },
+        {
+          "name": "PEOPLEnet",
+          "price": 0.156
+        },
+        {
+          "name": "TriMob",
+          "price": 0.156
+        },
+        {
+          "name": "lifecell",
+          "price": 0.156
+        },
+        {
+          "name": "Kyivstar",
+          "price": 0.196
+        },
+        {
+          "name": "Vodafone",
+          "price": 0.196
+        }
+      ],
+      "minPrice": 0.156,
+      "maxPrice": 0.196
+    },
+    {
+      "name": "United Arab Emirates",
+      "providers": [
+        {
+          "name": "Etisalat",
+          "price": 0.106
+        },
+        {
+          "name": "du",
+          "price": 0.106
+        }
+      ],
+      "minPrice": 0.106,
+      "maxPrice": 0.106
+    },
+    {
+      "name": "Unknown",
+      "providers": [
+        {
+          "name": "AT&T Cingular Wireless Network",
+          "price": 0.1
+        },
+        {
+          "name": "BebbiCell AG",
+          "price": 0.1
+        },
+        {
+          "name": "Maritime Communications Partner (MCP)",
+          "price": 0.1
+        },
+        {
+          "name": "Monaco Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Oration Technologies",
+          "price": 0.1
+        },
+        {
+          "name": "Sure South Atlantic",
+          "price": 0.1
+        },
+        {
+          "name": "ellipso satellite",
+          "price": 0.1
+        },
+        {
+          "name": "globalstar",
+          "price": 0.1
+        },
+        {
+          "name": "ico satellite",
+          "price": 0.1
+        },
+        {
+          "name": "iridium satellite",
+          "price": 0.1
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.1
+    },
+    {
+      "name": "Uruguay",
+      "providers": [
+        {
+          "name": "Antel",
+          "price": 0.088
+        },
+        {
+          "name": "Claro",
+          "price": 0.088
+        },
+        {
+          "name": "Movistar",
+          "price": 0.088
+        }
+      ],
+      "minPrice": 0.088,
+      "maxPrice": 0.088
+    },
+    {
+      "name": "Uzbekistan",
+      "providers": [
+        {
+          "name": "Beeline",
+          "price": 0.394
+        },
+        {
+          "name": "MobiUZ",
+          "price": 0.394
+        },
+        {
+          "name": "Perfectum",
+          "price": 0.394
+        },
+        {
+          "name": "Uzbektelecom",
+          "price": 0.394
+        },
+        {
+          "name": "Ucell",
+          "price": 0.434
+        }
+      ],
+      "minPrice": 0.394,
+      "maxPrice": 0.434
+    },
+    {
+      "name": "Vanuatu",
+      "providers": [
+        {
+          "name": "Telecom Vanuatu Ltd",
+          "price": 0.1
+        },
+        {
+          "name": "Digicel",
+          "price": 0.206
+        },
+        {
+          "name": "Wan Tok",
+          "price": 0.206
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.206
+    },
+    {
+      "name": "Venezuela, Bolivarian Republic of Venezuela",
+      "providers": [
+        {
+          "name": "Digitel GSM",
+          "price": 0.258
+        },
+        {
+          "name": "Movilnet",
+          "price": 0.258
+        },
+        {
+          "name": "movistar",
+          "price": 0.258
+        }
+      ],
+      "minPrice": 0.258,
+      "maxPrice": 0.258
+    },
+    {
+      "name": "Vietnam",
+      "providers": [
+        {
+          "name": "G-Mobile",
+          "price": 0.1
+        },
+        {
+          "name": "Indochina Telecom",
+          "price": 0.1
+        },
+        {
+          "name": "Reddi",
+          "price": 0.1
+        },
+        {
+          "name": "Vietnamobile",
+          "price": 0.232
+        },
+        {
+          "name": "Viettel",
+          "price": 0.232
+        },
+        {
+          "name": "Vinaphone",
+          "price": 0.232
+        },
+        {
+          "name": "MobiFone",
+          "price": 0.272
+        },
+        {
+          "name": "Viettel Mobile",
+          "price": 0.272
+        }
+      ],
+      "minPrice": 0.1,
+      "maxPrice": 0.272
+    },
+    {
+      "name": "Yemen",
+      "providers": [
+        {
+          "name": "MTN",
+          "price": 0.188
+        },
+        {
+          "name": "Y",
+          "price": 0.188
+        },
+        {
+          "name": "Yemen Mobile",
+          "price": 0.188
+        },
+        {
+          "name": "SabaFon",
+          "price": 0.228
+        }
+      ],
+      "minPrice": 0.188,
+      "maxPrice": 0.228
+    },
+    {
+      "name": "Zambia",
+      "providers": [
+        {
+          "name": "Airtel",
+          "price": 0.306
+        },
+        {
+          "name": "MTN",
+          "price": 0.306
+        },
+        {
+          "name": "ZAMTEL",
+          "price": 0.306
+        }
+      ],
+      "minPrice": 0.306,
+      "maxPrice": 0.306
+    },
+    {
+      "name": "Zimbabwe",
+      "providers": [
+        {
+          "name": "Econet",
+          "price": 0.256
+        },
+        {
+          "name": "Net*One",
+          "price": 0.256
+        },
+        {
+          "name": "Telecel",
+          "price": 0.256
+        }
+      ],
+      "minPrice": 0.256,
+      "maxPrice": 0.256
+    }
+  ]
+}

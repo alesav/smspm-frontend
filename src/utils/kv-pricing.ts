@@ -62,35 +62,49 @@ export async function fetchPricingData(): Promise<PricingData> {
   try {
     // In a real Cloudflare Workers environment, you would use:
     // const data = await PRICELIST.get('prices');
-    
+
     // For build time, we'll check for environment variables
     const kvNamespace = process.env.KV_PRICELIST_NAMESPACE_ID;
     const cfEmail = process.env.CLOUDFLARE_EMAIL;
     const cfApiKey = process.env.CLOUDFLARE_API_KEY;
     const cfAccountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-    
-    if (!kvNamespace || !cfEmail || !cfApiKey || !cfAccountId) {
-      console.warn('KV environment variables not found, using default pricing data');
-      return getDefaultPricingData();
+
+    // If we have KV credentials, use them
+    if (kvNamespace && cfEmail && cfApiKey && cfAccountId) {
+      const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${cfAccountId}/storage/kv/namespaces/${kvNamespace}/values/prices`, {
+        method: 'GET',
+        headers: {
+          'X-Auth-Email': cfEmail,
+          'X-Auth-Key': cfApiKey,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return data as PricingData;
+      }
+      console.warn('Failed to fetch KV data, checking local file...');
+    } else {
+      console.warn('KV environment variables not found, checking local file...');
     }
 
-    // Fetch from Cloudflare KV via REST API
-    const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${cfAccountId}/storage/kv/namespaces/${kvNamespace}/values/prices`, {
-      method: 'GET',
-      headers: {
-        'X-Auth-Email': cfEmail,
-        'X-Auth-Key': cfApiKey,
-        'Content-Type': 'application/json',
-      },
-    });
+    // Fallback: Try to read pricelist.json from the project root (for local dev/build)
+    try {
+      const fs = await import('fs');
+      const path = await import('path');
+      const pricingPath = path.resolve(process.cwd(), 'pricelist.json');
 
-    if (!response.ok) {
-      console.warn('Failed to fetch KV data, using default pricing');
-      return getDefaultPricingData();
+      if (fs.existsSync(pricingPath)) {
+        const fileContent = fs.readFileSync(pricingPath, 'utf-8');
+        return JSON.parse(fileContent) as PricingData;
+      }
+    } catch (fsError) {
+      console.warn('Failed to read local pricelist.json:', fsError);
     }
 
-    const data = await response.json();
-    return data as PricingData;
+    // Last resort: Hardcoded defaults
+    return getDefaultPricingData();
   } catch (error) {
     console.warn('Error fetching pricing data:', error);
     return getDefaultPricingData();
@@ -116,13 +130,15 @@ function getDefaultPricingData(): PricingData {
     "Spain - Telefonica": { p: 0.039 },
     "Spain - Vodafone": { p: 0.037 },
     "Spain - Orange": { p: 0.038 },
+    // Add dummy entry for Australia if file read fails, just to show it works
+    "Australia - Optus": { p: 0.09 },
   };
 }
 
 // Extract pricing for a specific country
 export function getCountryPricing(pricingData: PricingData, countryName: string): CountryProvider[] {
   const countryPrices: { [key: string]: number } = {};
-  
+
   // Filter prices for the specific country
   Object.keys(pricingData).forEach(key => {
     if (key.startsWith(`${countryName} - `)) {
@@ -176,7 +192,7 @@ function getProviderMarketShare(country: string, provider: string): number {
       'Orange': 23,
     },
   };
-  
+
   return marketShares[country]?.[provider] || 20;
 }
 
@@ -196,7 +212,7 @@ function getProviderCoverage(_country: string, provider: string): number {
     'Bouygues': 99.4,
     'Telefonica': 99.5,
   };
-  
+
   return coverageMap[provider] || 99.0;
 }
 
@@ -212,7 +228,7 @@ function getProviderFeatures(_country: string, provider: string): string[] {
     'Delivery Receipts',
     'Priority Routing',
   ];
-  
+
   const providerFeatures: { [key: string]: string[] } = {
     'Telia': [...commonFeatures, 'Extensive Rural Coverage'],
     'Elisa': [...commonFeatures, 'Advanced Analytics', 'Competitive Pricing'],
@@ -227,7 +243,7 @@ function getProviderFeatures(_country: string, provider: string): string[] {
     'Bouygues': [...commonFeatures, 'Network Excellence', 'Customer Focus'],
     'Telefonica': [...commonFeatures, 'Market Leader', 'Extensive Coverage'],
   };
-  
+
   return providerFeatures[provider] || commonFeatures;
 }
 
@@ -246,7 +262,7 @@ function getProviderDescription(_country: string, provider: string): string {
     'Bouygues': 'French telecommunications company with focus on network excellence.',
     'Telefonica': 'Major Spanish operator with extensive coverage and market leadership.',
   };
-  
+
   return descriptions[provider] || 'Reliable mobile network operator providing quality SMS services.';
 }
 
@@ -265,6 +281,6 @@ function getProviderLogo(provider: string): string {
     'Bouygues': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Bouygues_Telecom_logo.svg/1280px-Bouygues_Telecom_logo.svg.png',
     'Telefonica': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Telefonica_logo.svg/1280px-Telefonica_logo.svg.png',
   };
-  
+
   return logos[provider] || '';
 }

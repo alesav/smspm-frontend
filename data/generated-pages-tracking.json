@@ -1,0 +1,1274 @@
+{
+  "version": "1.0.0",
+  "templateHash": "94f6a10d7b26355dff7ba50b7692b7a4",
+  "lastGenerated": "2026-01-13T09:00:41.860Z",
+  "pages": {
+    "send-sms-afghanistan.astro": {
+      "type": "template",
+      "contentHash": "42cd7274d05db868012c12afdf6e5a00",
+      "generatedAt": "2026-01-13T09:00:41.830Z",
+      "country": "Afghanistan",
+      "providerCount": 5
+    },
+    "send-sms-albania.astro": {
+      "type": "template",
+      "contentHash": "d3950460ffd968f0b59fe7182c0a437c",
+      "generatedAt": "2026-01-13T09:00:41.830Z",
+      "country": "Albania",
+      "providerCount": 3
+    },
+    "send-sms-algeria.astro": {
+      "type": "template",
+      "contentHash": "26d3bf16b838033f6e5e5a8e968b8c53",
+      "generatedAt": "2026-01-13T09:00:41.831Z",
+      "country": "Algeria",
+      "providerCount": 3
+    },
+    "send-sms-angola.astro": {
+      "type": "template",
+      "contentHash": "ddd1b6b97c62ad9bf33ca9334a9ad067",
+      "generatedAt": "2026-01-13T09:00:41.831Z",
+      "country": "Angola",
+      "providerCount": 2
+    },
+    "send-sms-antarctica.astro": {
+      "type": "template",
+      "contentHash": "03cd587997e2354f369ffdb7537ffa4a",
+      "generatedAt": "2026-01-13T09:00:41.831Z",
+      "country": "Antarctica",
+      "providerCount": 2
+    },
+    "send-sms-armenia.astro": {
+      "type": "template",
+      "contentHash": "58275eea8b2a1f93115e2c8384b75e1f",
+      "generatedAt": "2026-01-13T09:00:41.831Z",
+      "country": "Armenia",
+      "providerCount": 3
+    },
+    "send-sms-aruba.astro": {
+      "type": "template",
+      "contentHash": "0a50c9d841b370f8615f00cb6b8ff4e2",
+      "generatedAt": "2026-01-13T09:00:41.831Z",
+      "country": "Aruba",
+      "providerCount": 3
+    },
+    "send-sms-australia.astro": {
+      "type": "template",
+      "contentHash": "fc76da07a81727426b1508122fa1156a",
+      "generatedAt": "2026-01-13T09:00:41.832Z",
+      "country": "Australia",
+      "providerCount": 15
+    },
+    "send-sms-austria.astro": {
+      "type": "template",
+      "contentHash": "ce5a42f5f0f1447601cad865b890d03f",
+      "generatedAt": "2026-01-13T09:00:41.832Z",
+      "country": "Austria",
+      "providerCount": 5
+    },
+    "send-sms-azerbaijan.astro": {
+      "type": "template",
+      "contentHash": "d52c82ee509a1e4eae20f4098ae771b6",
+      "generatedAt": "2026-01-13T09:00:41.832Z",
+      "country": "Azerbaijan",
+      "providerCount": 6
+    },
+    "send-sms-bahrain.astro": {
+      "type": "template",
+      "contentHash": "20313ea7dbb1c681d37908ba4cba2107",
+      "generatedAt": "2026-01-13T09:00:41.832Z",
+      "country": "Bahrain",
+      "providerCount": 4
+    },
+    "send-sms-bangladesh.astro": {
+      "type": "template",
+      "contentHash": "69cc4d4f5f4922213beb5c98a89023fd",
+      "generatedAt": "2026-01-13T09:00:41.832Z",
+      "country": "Bangladesh",
+      "providerCount": 6
+    },
+    "send-sms-belarus.astro": {
+      "type": "template",
+      "contentHash": "18a65be5c0b75f928eb12dda6e374d1c",
+      "generatedAt": "2026-01-13T09:00:41.833Z",
+      "country": "Belarus",
+      "providerCount": 4
+    },
+    "send-sms-belgium.astro": {
+      "type": "template",
+      "contentHash": "12a01c6388bd49fbf301294b8bdea867",
+      "generatedAt": "2026-01-13T09:00:41.833Z",
+      "country": "Belgium",
+      "providerCount": 19
+    },
+    "send-sms-belize.astro": {
+      "type": "template",
+      "contentHash": "3d635634d14d5cf82470dd9f01426a44",
+      "generatedAt": "2026-01-13T09:00:41.833Z",
+      "country": "Belize",
+      "providerCount": 2
+    },
+    "send-sms-bhutan.astro": {
+      "type": "template",
+      "contentHash": "46da26904b7570772ef8b56eeb724d81",
+      "generatedAt": "2026-01-13T09:00:41.833Z",
+      "country": "Bhutan",
+      "providerCount": 2
+    },
+    "send-sms-bolivia-plurinational-state-of-bolivia.astro": {
+      "type": "template",
+      "contentHash": "ae4f04d8132ffe11aa9393339a83f4a7",
+      "generatedAt": "2026-01-13T09:00:41.833Z",
+      "country": "Bolivia, Plurinational State of Bolivia",
+      "providerCount": 3
+    },
+    "send-sms-bosnia-and-herzegovina.astro": {
+      "type": "template",
+      "contentHash": "3e3704dc6110747339566b5b64c738b5",
+      "generatedAt": "2026-01-13T09:00:41.833Z",
+      "country": "Bosnia and Herzegovina",
+      "providerCount": 3
+    },
+    "send-sms-botswana.astro": {
+      "type": "template",
+      "contentHash": "75b96677820340d85544b3d52824f905",
+      "generatedAt": "2026-01-13T09:00:41.834Z",
+      "country": "Botswana",
+      "providerCount": 3
+    },
+    "send-sms-brazil.astro": {
+      "type": "template",
+      "contentHash": "d72ac603b8aae8056f4e2b2139751fe6",
+      "generatedAt": "2026-01-13T09:00:41.834Z",
+      "country": "Brazil",
+      "providerCount": 4
+    },
+    "send-sms-british-indian-ocean-territory.astro": {
+      "type": "template",
+      "contentHash": "7a7a3d43305ce53fc716f421fc63714a",
+      "generatedAt": "2026-01-13T09:00:41.834Z",
+      "country": "British Indian Ocean Territory",
+      "providerCount": 1
+    },
+    "send-sms-brunei-darussalam.astro": {
+      "type": "template",
+      "contentHash": "edb7107eb20236595e7c0283fead9d06",
+      "generatedAt": "2026-01-13T09:00:41.834Z",
+      "country": "Brunei Darussalam",
+      "providerCount": 2
+    },
+    "send-sms-bulgaria.astro": {
+      "type": "template",
+      "contentHash": "98ee87912da5435b3fe789b4afab691f",
+      "generatedAt": "2026-01-13T09:00:41.834Z",
+      "country": "Bulgaria",
+      "providerCount": 6
+    },
+    "send-sms-burkina-faso.astro": {
+      "type": "template",
+      "contentHash": "f2fffca34a27176b1c6f4c6aa8b1450d",
+      "generatedAt": "2026-01-13T09:00:41.834Z",
+      "country": "Burkina Faso",
+      "providerCount": 3
+    },
+    "send-sms-burundi.astro": {
+      "type": "template",
+      "contentHash": "6e323d3ad09fe7fbb2d81eec666e7e35",
+      "generatedAt": "2026-01-13T09:00:41.835Z",
+      "country": "Burundi",
+      "providerCount": 4
+    },
+    "send-sms-cambodia.astro": {
+      "type": "template",
+      "contentHash": "c13b3dbe938af1a105aa8a7f323af341",
+      "generatedAt": "2026-01-13T09:00:41.835Z",
+      "country": "Cambodia",
+      "providerCount": 6
+    },
+    "send-sms-cameroon.astro": {
+      "type": "template",
+      "contentHash": "ac81353abfa2e81704b2143154ba7d18",
+      "generatedAt": "2026-01-13T09:00:41.835Z",
+      "country": "Cameroon",
+      "providerCount": 3
+    },
+    "send-sms-cape-verde.astro": {
+      "type": "template",
+      "contentHash": "011a3a26f4e4c64d776986bffc2c1d29",
+      "generatedAt": "2026-01-13T09:00:41.835Z",
+      "country": "Cape Verde",
+      "providerCount": 2
+    },
+    "send-sms-central-african-republic.astro": {
+      "type": "template",
+      "contentHash": "87c250b016e61d7aeed2b9039f59c377",
+      "generatedAt": "2026-01-13T09:00:41.835Z",
+      "country": "Central African Republic",
+      "providerCount": 4
+    },
+    "send-sms-chad.astro": {
+      "type": "template",
+      "contentHash": "1b6d897bcb1b71b41576579bddcd4033",
+      "generatedAt": "2026-01-13T09:00:41.835Z",
+      "country": "Chad",
+      "providerCount": 3
+    },
+    "send-sms-china.astro": {
+      "type": "template",
+      "contentHash": "d84cd41d89cd7572ff81892336c13a2a",
+      "generatedAt": "2026-01-13T09:00:41.836Z",
+      "country": "China",
+      "providerCount": 3
+    },
+    "send-sms-colombia.astro": {
+      "type": "template",
+      "contentHash": "e33da5dc3dae7d5ba3bd01590eb0f853",
+      "generatedAt": "2026-01-13T09:00:41.836Z",
+      "country": "Colombia",
+      "providerCount": 12
+    },
+    "send-sms-comoros.astro": {
+      "type": "template",
+      "contentHash": "57f6d06e6e1ef162403a4202c903b867",
+      "generatedAt": "2026-01-13T09:00:41.836Z",
+      "country": "Comoros",
+      "providerCount": 2
+    },
+    "send-sms-congo.astro": {
+      "type": "template",
+      "contentHash": "f4936d6ced0f2cee116c197c52416f12",
+      "generatedAt": "2026-01-13T09:00:41.836Z",
+      "country": "Congo",
+      "providerCount": 5
+    },
+    "send-sms-congo-the-democratic-republic-of-the-congo.astro": {
+      "type": "template",
+      "contentHash": "8ed85e548746964371099a57378f8725",
+      "generatedAt": "2026-01-13T09:00:41.836Z",
+      "country": "Congo, The Democratic Republic of the Congo",
+      "providerCount": 5
+    },
+    "send-sms-costa-rica.astro": {
+      "type": "template",
+      "contentHash": "3010915dcc57693f33cb9a5716fdf8fe",
+      "generatedAt": "2026-01-13T09:00:41.836Z",
+      "country": "Costa Rica",
+      "providerCount": 3
+    },
+    "send-sms-cote-d-ivoire.astro": {
+      "type": "template",
+      "contentHash": "984a968e69d7d8b61ab5cb9ad3c5b271",
+      "generatedAt": "2026-01-13T09:00:41.837Z",
+      "country": "Cote d'Ivoire",
+      "providerCount": 3
+    },
+    "send-sms-croatia.astro": {
+      "type": "template",
+      "contentHash": "21bbc70cb24a9d5acaa2be57dc6000df",
+      "generatedAt": "2026-01-13T09:00:41.837Z",
+      "country": "Croatia",
+      "providerCount": 4
+    },
+    "send-sms-cuba.astro": {
+      "type": "template",
+      "contentHash": "92010c165086c636d80465f35e033a62",
+      "generatedAt": "2026-01-13T09:00:41.837Z",
+      "country": "Cuba",
+      "providerCount": 1
+    },
+    "send-sms-cyprus.astro": {
+      "type": "template",
+      "contentHash": "435dc6fe50c730c7db1619720114b08d",
+      "generatedAt": "2026-01-13T09:00:41.837Z",
+      "country": "Cyprus",
+      "providerCount": 4
+    },
+    "send-sms-czech-republic.astro": {
+      "type": "template",
+      "contentHash": "7e764574fa159e9ca968cf066cee517d",
+      "generatedAt": "2026-01-13T09:00:41.837Z",
+      "country": "Czech Republic",
+      "providerCount": 33
+    },
+    "send-sms-denmark.astro": {
+      "type": "template",
+      "contentHash": "b1dfac368b873e53869b69d7f977d978",
+      "generatedAt": "2026-01-13T09:00:41.837Z",
+      "country": "Denmark",
+      "providerCount": 16
+    },
+    "send-sms-djibouti.astro": {
+      "type": "template",
+      "contentHash": "e716994c2568ee4cb03380f4e560f086",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "Djibouti",
+      "providerCount": 1
+    },
+    "send-sms-ecuador.astro": {
+      "type": "template",
+      "contentHash": "fb72f8db0befa997b5e62078462b9094",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "Ecuador",
+      "providerCount": 3
+    },
+    "send-sms-egypt.astro": {
+      "type": "template",
+      "contentHash": "cfef64286600815af15b88952311bf15",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "Egypt",
+      "providerCount": 4
+    },
+    "send-sms-el-salvador.astro": {
+      "type": "template",
+      "contentHash": "0ed6d30047a24b545ea123dea43f0fb0",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "El Salvador",
+      "providerCount": 5
+    },
+    "send-sms-equatorial-guinea.astro": {
+      "type": "template",
+      "contentHash": "fb072402aed6ea0da4e37eb74366ffdc",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "Equatorial Guinea",
+      "providerCount": 2
+    },
+    "send-sms-eritrea.astro": {
+      "type": "template",
+      "contentHash": "271d9d48594be01971d9d8ff98041c8f",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "Eritrea",
+      "providerCount": 1
+    },
+    "send-sms-eswatini.astro": {
+      "type": "template",
+      "contentHash": "ccc4c23ca66965d43611d6e4651bda35",
+      "generatedAt": "2026-01-13T09:00:41.838Z",
+      "country": "Eswatini",
+      "providerCount": 3
+    },
+    "send-sms-ethiopia.astro": {
+      "type": "template",
+      "contentHash": "b10b97908bb575dd1471a7f2fa7feb53",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "Ethiopia",
+      "providerCount": 1
+    },
+    "send-sms-falkland-islands-malvinas-.astro": {
+      "type": "template",
+      "contentHash": "94798c3e0ccfc46155126fdfc9ed27fc",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "Falkland Islands (Malvinas)",
+      "providerCount": 1
+    },
+    "send-sms-faroe-islands.astro": {
+      "type": "template",
+      "contentHash": "5e30198911d75538fef971284f1cea14",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "Faroe Islands",
+      "providerCount": 3
+    },
+    "send-sms-finland.astro": {
+      "type": "template",
+      "contentHash": "3a6c0dc846af5127f54e2dd8796c7491",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "Finland",
+      "providerCount": 24
+    },
+    "send-sms-french-guiana.astro": {
+      "type": "template",
+      "contentHash": "1eb0e83c0baadda93e0e11183f4ed4ad",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "French Guiana",
+      "providerCount": 3
+    },
+    "send-sms-french-polynesia.astro": {
+      "type": "template",
+      "contentHash": "e603c4a847d0910e2cfd43e1365524ac",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "French Polynesia",
+      "providerCount": 3
+    },
+    "send-sms-gabon.astro": {
+      "type": "template",
+      "contentHash": "f4e4e4943f0a486f64352405131527a1",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "Gabon",
+      "providerCount": 3
+    },
+    "send-sms-gambia.astro": {
+      "type": "template",
+      "contentHash": "c8cbc924368775070cd13280133401ba",
+      "generatedAt": "2026-01-13T09:00:41.839Z",
+      "country": "Gambia",
+      "providerCount": 4
+    },
+    "send-sms-georgia.astro": {
+      "type": "template",
+      "contentHash": "07f7cdd078f96db3aa2c476f63a557ea",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Georgia",
+      "providerCount": 11
+    },
+    "send-sms-ghana.astro": {
+      "type": "template",
+      "contentHash": "2d447fed96b2c343f9e90d4da59fef2a",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Ghana",
+      "providerCount": 6
+    },
+    "send-sms-greece.astro": {
+      "type": "template",
+      "contentHash": "839ad13ca1a3fdc225ab41ca9f9f5669",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Greece",
+      "providerCount": 18
+    },
+    "send-sms-greenland.astro": {
+      "type": "template",
+      "contentHash": "6eb4cbe1899e639fec073ec43f27c2b1",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Greenland",
+      "providerCount": 1
+    },
+    "send-sms-guadeloupe.astro": {
+      "type": "template",
+      "contentHash": "79326cf73abcad260c6d83397e2df6a2",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Guadeloupe",
+      "providerCount": 6
+    },
+    "send-sms-guatemala.astro": {
+      "type": "template",
+      "contentHash": "d1d9401f6859b7f75209890d1ec027d4",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Guatemala",
+      "providerCount": 3
+    },
+    "send-sms-guernsey.astro": {
+      "type": "template",
+      "contentHash": "7df1d5039ac2a9b91f128dccd26d4fee",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Guernsey",
+      "providerCount": 89
+    },
+    "send-sms-guinea.astro": {
+      "type": "template",
+      "contentHash": "82a6ed1869d7b0fc14084d709e2bfa20",
+      "generatedAt": "2026-01-13T09:00:41.840Z",
+      "country": "Guinea",
+      "providerCount": 5
+    },
+    "send-sms-guinea-bissau.astro": {
+      "type": "template",
+      "contentHash": "dde176b6df32369bd721ecd0cf1712b8",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Guinea-Bissau",
+      "providerCount": 3
+    },
+    "send-sms-guyana.astro": {
+      "type": "template",
+      "contentHash": "7909041d85b12f72486b65ddc860bb5e",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Guyana",
+      "providerCount": 2
+    },
+    "send-sms-haiti.astro": {
+      "type": "template",
+      "contentHash": "4e356677a7929fe5e6d13f73389a1f54",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Haiti",
+      "providerCount": 2
+    },
+    "send-sms-honduras.astro": {
+      "type": "template",
+      "contentHash": "8dc1c2011f7c50a9d08cdee4cd3710d4",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Honduras",
+      "providerCount": 4
+    },
+    "send-sms-hong-kong.astro": {
+      "type": "template",
+      "contentHash": "2d2b6f7e3a1dfb5efa204b336dd69e9c",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Hong Kong",
+      "providerCount": 16
+    },
+    "send-sms-hungary.astro": {
+      "type": "template",
+      "contentHash": "ebdd71b6e52977b4ce216237d5a70023",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Hungary",
+      "providerCount": 9
+    },
+    "send-sms-iceland.astro": {
+      "type": "template",
+      "contentHash": "d112f28f61810742ad8604e8377ca548",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "Iceland",
+      "providerCount": 6
+    },
+    "send-sms-india.astro": {
+      "type": "template",
+      "contentHash": "bf29effb45b113d3ebc1e81bdd7b04ba",
+      "generatedAt": "2026-01-13T09:00:41.841Z",
+      "country": "India",
+      "providerCount": 9
+    },
+    "send-sms-indonesia.astro": {
+      "type": "template",
+      "contentHash": "664977734c4e316e4e8369d69861c289",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Indonesia",
+      "providerCount": 7
+    },
+    "send-sms-iran-islamic-republic-of-persian-gulf.astro": {
+      "type": "template",
+      "contentHash": "1771a4945a91d43e7f7dd25f2232b303",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Iran, Islamic Republic of Persian Gulf",
+      "providerCount": 8
+    },
+    "send-sms-iraq.astro": {
+      "type": "template",
+      "contentHash": "811d0077c150c4b4eff77dbb587ea4da",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Iraq",
+      "providerCount": 11
+    },
+    "send-sms-ireland.astro": {
+      "type": "template",
+      "contentHash": "4c33e890afd7b9f24887385ad917081c",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Ireland",
+      "providerCount": 11
+    },
+    "send-sms-israel.astro": {
+      "type": "template",
+      "contentHash": "ce292dffbcf8f5d33d7f213ab55355a1",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Israel",
+      "providerCount": 17
+    },
+    "send-sms-italy.astro": {
+      "type": "template",
+      "contentHash": "1242ddb5f51737d9f450f107db9fc1bc",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Italy",
+      "providerCount": 5
+    },
+    "send-sms-japan.astro": {
+      "type": "template",
+      "contentHash": "0e063fb142378b7b27980bfc2eb3dcdb",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Japan",
+      "providerCount": 4
+    },
+    "send-sms-jordan.astro": {
+      "type": "template",
+      "contentHash": "04ae5f2129fd1710ff35db3bc89f1faa",
+      "generatedAt": "2026-01-13T09:00:41.842Z",
+      "country": "Jordan",
+      "providerCount": 3
+    },
+    "send-sms-kenya.astro": {
+      "type": "template",
+      "contentHash": "977c3e46accaaa6963ddb2433c9ef043",
+      "generatedAt": "2026-01-13T09:00:41.843Z",
+      "country": "Kenya",
+      "providerCount": 10
+    },
+    "send-sms-korea-democratic-people-s-republic-of-korea.astro": {
+      "type": "template",
+      "contentHash": "ff95322dfdb12060837f72da38f11778",
+      "generatedAt": "2026-01-13T09:00:41.843Z",
+      "country": "Korea, Democratic People's Republic of Korea",
+      "providerCount": 2
+    },
+    "send-sms-south-korea.astro": {
+      "type": "template",
+      "contentHash": "07d24d2225f6351dd8c80612de508d20",
+      "generatedAt": "2026-01-13T09:00:41.843Z",
+      "country": "Korea, Republic of South Korea",
+      "providerCount": 3
+    },
+    "send-sms-kosovo.astro": {
+      "type": "template",
+      "contentHash": "9f0c9fa81b528212b5e1ed23a913266f",
+      "generatedAt": "2026-01-13T09:00:41.843Z",
+      "country": "Kosovo",
+      "providerCount": 4
+    },
+    "send-sms-kuwait.astro": {
+      "type": "template",
+      "contentHash": "5a1b2bc1903cbdd92cd78346645ff03b",
+      "generatedAt": "2026-01-13T09:00:41.843Z",
+      "country": "Kuwait",
+      "providerCount": 4
+    },
+    "send-sms-kyrgyzstan.astro": {
+      "type": "template",
+      "contentHash": "3a5d8c04736e2d1167a11d58e297d654",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Kyrgyzstan",
+      "providerCount": 7
+    },
+    "send-sms-laos.astro": {
+      "type": "template",
+      "contentHash": "79d0e1596d30b9a787d1ba0b4a852def",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Laos",
+      "providerCount": 5
+    },
+    "send-sms-latvia.astro": {
+      "type": "template",
+      "contentHash": "cb7ed79c724213ea1dd298d914990918",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Latvia",
+      "providerCount": 3
+    },
+    "send-sms-lebanon.astro": {
+      "type": "template",
+      "contentHash": "0a1888f88ad294553402d7c9f445881a",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Lebanon",
+      "providerCount": 2
+    },
+    "send-sms-lesotho.astro": {
+      "type": "template",
+      "contentHash": "8b047c38091819ca1856117f39506ec9",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Lesotho",
+      "providerCount": 2
+    },
+    "send-sms-liberia.astro": {
+      "type": "template",
+      "contentHash": "82b142a86904f16307f24a3c1988d207",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Liberia",
+      "providerCount": 3
+    },
+    "send-sms-libyan-arab-jamahiriya.astro": {
+      "type": "template",
+      "contentHash": "e93eecfd870d6b487c39f27af510b740",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Libyan Arab Jamahiriya",
+      "providerCount": 3
+    },
+    "send-sms-liechtenstein.astro": {
+      "type": "template",
+      "contentHash": "326c61e073b4c6807c319896805da5ab",
+      "generatedAt": "2026-01-13T09:00:41.844Z",
+      "country": "Liechtenstein",
+      "providerCount": 7
+    },
+    "send-sms-lithuania.astro": {
+      "type": "template",
+      "contentHash": "5a2c4aff59b9f379060777ccd799fa1d",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Lithuania",
+      "providerCount": 3
+    },
+    "send-sms-luxembourg.astro": {
+      "type": "template",
+      "contentHash": "da9e3340bdd7b380f2a32201ffc417a5",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Luxembourg",
+      "providerCount": 4
+    },
+    "send-sms-macao.astro": {
+      "type": "template",
+      "contentHash": "092faa0cbffd9774150aca216ee19d2b",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Macao",
+      "providerCount": 5
+    },
+    "send-sms-macedonia.astro": {
+      "type": "template",
+      "contentHash": "1a9bb48f8aaa3865293c018a0e232ae6",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Macedonia",
+      "providerCount": 3
+    },
+    "send-sms-madagascar.astro": {
+      "type": "template",
+      "contentHash": "a942adc1ed4dcd462d052a9686a93818",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Madagascar",
+      "providerCount": 4
+    },
+    "send-sms-malawi.astro": {
+      "type": "template",
+      "contentHash": "cd7445ee745fcd45ec5c81f774f20b2f",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Malawi",
+      "providerCount": 4
+    },
+    "send-sms-malaysia.astro": {
+      "type": "template",
+      "contentHash": "399bded8039652411d5ba0b3933814fb",
+      "generatedAt": "2026-01-13T09:00:41.845Z",
+      "country": "Malaysia",
+      "providerCount": 15
+    },
+    "send-sms-maldives.astro": {
+      "type": "template",
+      "contentHash": "c2a7d7f444a0a8dc9f71327ef877222b",
+      "generatedAt": "2026-01-13T09:00:41.846Z",
+      "country": "Maldives",
+      "providerCount": 2
+    },
+    "send-sms-mali.astro": {
+      "type": "template",
+      "contentHash": "b06a141365b4798b4317b81a77b3e14e",
+      "generatedAt": "2026-01-13T09:00:41.846Z",
+      "country": "Mali",
+      "providerCount": 3
+    },
+    "send-sms-malta.astro": {
+      "type": "template",
+      "contentHash": "bc01f79186364351d087bf6b92a7563a",
+      "generatedAt": "2026-01-13T09:00:41.846Z",
+      "country": "Malta",
+      "providerCount": 3
+    },
+    "send-sms-marshall-islands.astro": {
+      "type": "template",
+      "contentHash": "e9bfe81d543356d10398732554391147",
+      "generatedAt": "2026-01-13T09:00:41.846Z",
+      "country": "Marshall Islands",
+      "providerCount": 1
+    },
+    "send-sms-martinique.astro": {
+      "type": "template",
+      "contentHash": "688c8c3dbac214e3d92fca2d964c3add",
+      "generatedAt": "2026-01-13T09:00:41.846Z",
+      "country": "Martinique",
+      "providerCount": 4
+    },
+    "send-sms-mauritania.astro": {
+      "type": "template",
+      "contentHash": "d6a207a17293e0082836bfc86daa1e78",
+      "generatedAt": "2026-01-13T09:00:41.846Z",
+      "country": "Mauritania",
+      "providerCount": 3
+    },
+    "send-sms-mauritius.astro": {
+      "type": "template",
+      "contentHash": "3aa5492ff66501f0bafe59581207bb06",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Mauritius",
+      "providerCount": 3
+    },
+    "send-sms-mayotte.astro": {
+      "type": "template",
+      "contentHash": "e8ef7c464800ba978c794dbbb4879e54",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Mayotte",
+      "providerCount": 5
+    },
+    "send-sms-micronesia-federated-states-of-micronesia.astro": {
+      "type": "template",
+      "contentHash": "9827217ad13fc871572ca0e380ec0b90",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Micronesia, Federated States of Micronesia",
+      "providerCount": 1
+    },
+    "send-sms-moldova.astro": {
+      "type": "template",
+      "contentHash": "42a2395178a134cd5cafdd40c3704ade",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Moldova",
+      "providerCount": 4
+    },
+    "send-sms-mongolia.astro": {
+      "type": "template",
+      "contentHash": "531996855ca2db3f6a87c9f4897ee655",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Mongolia",
+      "providerCount": 4
+    },
+    "send-sms-montenegro.astro": {
+      "type": "template",
+      "contentHash": "d9838b230058064933b855288af25f07",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Montenegro",
+      "providerCount": 3
+    },
+    "send-sms-morocco.astro": {
+      "type": "template",
+      "contentHash": "3a5562adfe9f6387d6d685600676999a",
+      "generatedAt": "2026-01-13T09:00:41.847Z",
+      "country": "Morocco",
+      "providerCount": 4
+    },
+    "send-sms-mozambique.astro": {
+      "type": "template",
+      "contentHash": "5a123c45623663db8e85e30c5697c977",
+      "generatedAt": "2026-01-13T09:00:41.848Z",
+      "country": "Mozambique",
+      "providerCount": 4
+    },
+    "send-sms-myanmar.astro": {
+      "type": "template",
+      "contentHash": "6dd66120287dc755fa52fb9b38817d7b",
+      "generatedAt": "2026-01-13T09:00:41.848Z",
+      "country": "Myanmar",
+      "providerCount": 4
+    },
+    "send-sms-namibia.astro": {
+      "type": "template",
+      "contentHash": "7e4993b0c775c0a5b0b6739bd9b788d3",
+      "generatedAt": "2026-01-13T09:00:41.849Z",
+      "country": "Namibia",
+      "providerCount": 4
+    },
+    "send-sms-nauru.astro": {
+      "type": "template",
+      "contentHash": "d745d10ed9ba02ffa593c84a74d814e5",
+      "generatedAt": "2026-01-13T09:00:41.849Z",
+      "country": "Nauru",
+      "providerCount": 2
+    },
+    "send-sms-nepal.astro": {
+      "type": "template",
+      "contentHash": "00832109d9257025c67e3d9d0f56c357",
+      "generatedAt": "2026-01-13T09:00:41.849Z",
+      "country": "Nepal",
+      "providerCount": 7
+    },
+    "send-sms-netherlands.astro": {
+      "type": "template",
+      "contentHash": "adc3fe1545176aba5ac875350622851f",
+      "generatedAt": "2026-01-13T09:00:41.850Z",
+      "country": "Netherlands",
+      "providerCount": 14
+    },
+    "send-sms-netherlands-antilles.astro": {
+      "type": "template",
+      "contentHash": "95816fd0307e31cdaa561d437a958959",
+      "generatedAt": "2026-01-13T09:00:41.850Z",
+      "country": "Netherlands Antilles",
+      "providerCount": 7
+    },
+    "send-sms-new-zealand.astro": {
+      "type": "template",
+      "contentHash": "06ab94ef908ffa9e085e403acf78fce6",
+      "generatedAt": "2026-01-13T09:00:41.850Z",
+      "country": "New Zealand",
+      "providerCount": 11
+    },
+    "send-sms-nicaragua.astro": {
+      "type": "template",
+      "contentHash": "71fa6c315717f126c452f7eab573eb6d",
+      "generatedAt": "2026-01-13T09:00:41.850Z",
+      "country": "Nicaragua",
+      "providerCount": 3
+    },
+    "send-sms-niger.astro": {
+      "type": "template",
+      "contentHash": "388bb9711e1b1ef405f86996187ecdb3",
+      "generatedAt": "2026-01-13T09:00:41.850Z",
+      "country": "Niger",
+      "providerCount": 4
+    },
+    "send-sms-nigeria.astro": {
+      "type": "template",
+      "contentHash": "52f1b5b748bbbbd79c3ae107bc794062",
+      "generatedAt": "2026-01-13T09:00:41.851Z",
+      "country": "Nigeria",
+      "providerCount": 10
+    },
+    "send-sms-oman.astro": {
+      "type": "template",
+      "contentHash": "f886d25dbbdea6aad58f643ddf66f9dc",
+      "generatedAt": "2026-01-13T09:00:41.851Z",
+      "country": "Oman",
+      "providerCount": 3
+    },
+    "send-sms-pakistan.astro": {
+      "type": "template",
+      "contentHash": "4c91b327c9c7ca4247643cff1d50a6d8",
+      "generatedAt": "2026-01-13T09:00:41.851Z",
+      "country": "Pakistan",
+      "providerCount": 7
+    },
+    "send-sms-palestinian-territory-occupied.astro": {
+      "type": "template",
+      "contentHash": "9552257bbb57259457e5086d831c7e14",
+      "generatedAt": "2026-01-13T09:00:41.851Z",
+      "country": "Palestinian Territory, Occupied",
+      "providerCount": 2
+    },
+    "send-sms-panama.astro": {
+      "type": "template",
+      "contentHash": "b49d7388a91113cbf17613844e44bfe7",
+      "generatedAt": "2026-01-13T09:00:41.851Z",
+      "country": "Panama",
+      "providerCount": 5
+    },
+    "send-sms-papua-new-guinea.astro": {
+      "type": "template",
+      "contentHash": "d97ac88558bc982adedf3bf93c35270e",
+      "generatedAt": "2026-01-13T09:00:41.852Z",
+      "country": "Papua New Guinea",
+      "providerCount": 3
+    },
+    "send-sms-paraguay.astro": {
+      "type": "template",
+      "contentHash": "10cc23ee27abb85e2ac8b327f2f91d21",
+      "generatedAt": "2026-01-13T09:00:41.852Z",
+      "country": "Paraguay",
+      "providerCount": 4
+    },
+    "send-sms-peru.astro": {
+      "type": "template",
+      "contentHash": "8f877956ce5d856915940f5f07905660",
+      "generatedAt": "2026-01-13T09:00:41.852Z",
+      "country": "Peru",
+      "providerCount": 3
+    },
+    "send-sms-philippines.astro": {
+      "type": "template",
+      "contentHash": "2960e75ca5211062e5732d424e686d17",
+      "generatedAt": "2026-01-13T09:00:41.852Z",
+      "country": "Philippines",
+      "providerCount": 3
+    },
+    "send-sms-poland.astro": {
+      "type": "template",
+      "contentHash": "edce3452618b48fa71d78d878d0f75cb",
+      "generatedAt": "2026-01-13T09:00:41.853Z",
+      "country": "Poland",
+      "providerCount": 30
+    },
+    "send-sms-qatar.astro": {
+      "type": "template",
+      "contentHash": "51ddd148c36f215c01ae0d465d059e4c",
+      "generatedAt": "2026-01-13T09:00:41.853Z",
+      "country": "Qatar",
+      "providerCount": 2
+    },
+    "send-sms-romania.astro": {
+      "type": "template",
+      "contentHash": "fcdc8503054b7c2e25285145f76ed93f",
+      "generatedAt": "2026-01-13T09:00:41.853Z",
+      "country": "Romania",
+      "providerCount": 7
+    },
+    "send-sms-rwanda.astro": {
+      "type": "template",
+      "contentHash": "10db664e659aac126fba4dbb0066ea82",
+      "generatedAt": "2026-01-13T09:00:41.853Z",
+      "country": "Rwanda",
+      "providerCount": 3
+    },
+    "send-sms-saint-helena-ascension-and-tristan-da-cunha.astro": {
+      "type": "template",
+      "contentHash": "db7023178b037fc1cb5de4b184e6fc02",
+      "generatedAt": "2026-01-13T09:00:41.853Z",
+      "country": "Saint Helena, Ascension and Tristan Da Cunha",
+      "providerCount": 1
+    },
+    "send-sms-saint-pierre-and-miquelon.astro": {
+      "type": "template",
+      "contentHash": "f871ea4b699dc611d58a9f52b9e49de1",
+      "generatedAt": "2026-01-13T09:00:41.853Z",
+      "country": "Saint Pierre and Miquelon",
+      "providerCount": 6
+    },
+    "send-sms-sao-tome-and-principe.astro": {
+      "type": "template",
+      "contentHash": "1580959f55ddd9afb1baddeeeb6d7e33",
+      "generatedAt": "2026-01-13T09:00:41.854Z",
+      "country": "Sao Tome and Principe",
+      "providerCount": 2
+    },
+    "send-sms-saudi-arabia.astro": {
+      "type": "template",
+      "contentHash": "ce483eeb1ef307b2731cf99830d0a388",
+      "generatedAt": "2026-01-13T09:00:41.854Z",
+      "country": "Saudi Arabia",
+      "providerCount": 6
+    },
+    "send-sms-senegal.astro": {
+      "type": "template",
+      "contentHash": "91e01efd3586bc0808743c6fed8a0436",
+      "generatedAt": "2026-01-13T09:00:41.854Z",
+      "country": "Senegal",
+      "providerCount": 7
+    },
+    "send-sms-serbia.astro": {
+      "type": "template",
+      "contentHash": "d206586564071310ce82a26bbe0863bc",
+      "generatedAt": "2026-01-13T09:00:41.854Z",
+      "country": "Serbia",
+      "providerCount": 5
+    },
+    "send-sms-seychelles.astro": {
+      "type": "template",
+      "contentHash": "3f4e711efec784605cba29f99d7099e2",
+      "generatedAt": "2026-01-13T09:00:41.854Z",
+      "country": "Seychelles",
+      "providerCount": 2
+    },
+    "send-sms-sierra-leone.astro": {
+      "type": "template",
+      "contentHash": "039d2ef952a40826e810cc32e2e8141f",
+      "generatedAt": "2026-01-13T09:00:41.854Z",
+      "country": "Sierra Leone",
+      "providerCount": 6
+    },
+    "send-sms-singapore.astro": {
+      "type": "template",
+      "contentHash": "501621f8c32fcae351d7c57aadadf38f",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "Singapore",
+      "providerCount": 8
+    },
+    "send-sms-slovakia.astro": {
+      "type": "template",
+      "contentHash": "83fa94005d16b7a9c14f42d3f62dfc1e",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "Slovakia",
+      "providerCount": 8
+    },
+    "send-sms-slovenia.astro": {
+      "type": "template",
+      "contentHash": "6c67dbba668f407332fd17d949ba8a39",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "Slovenia",
+      "providerCount": 7
+    },
+    "send-sms-solomon-islands.astro": {
+      "type": "template",
+      "contentHash": "b897938ce5f3ede395d36fb48c46edc5",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "Solomon Islands",
+      "providerCount": 4
+    },
+    "send-sms-somalia.astro": {
+      "type": "template",
+      "contentHash": "7b4d0080a98e3ecbba558fdf5d49fc9e",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "Somalia",
+      "providerCount": 10
+    },
+    "send-sms-south-africa.astro": {
+      "type": "template",
+      "contentHash": "e6387ce496a4d6b2592d171c3c365a7f",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "South Africa",
+      "providerCount": 7
+    },
+    "send-sms-south-sudan.astro": {
+      "type": "template",
+      "contentHash": "e45eedfe5ae1626af54bb10a2a034ffc",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "South Sudan",
+      "providerCount": 6
+    },
+    "send-sms-sri-lanka.astro": {
+      "type": "template",
+      "contentHash": "449589b24793f2cfdb50902397a91deb",
+      "generatedAt": "2026-01-13T09:00:41.855Z",
+      "country": "Sri Lanka",
+      "providerCount": 5
+    },
+    "send-sms-sudan.astro": {
+      "type": "template",
+      "contentHash": "2da8ddff09483e4856923b3c30f8c96a",
+      "generatedAt": "2026-01-13T09:00:41.856Z",
+      "country": "Sudan",
+      "providerCount": 4
+    },
+    "send-sms-suriname.astro": {
+      "type": "template",
+      "contentHash": "d3a41f587b2b10fcc1e9c2aff65009ad",
+      "generatedAt": "2026-01-13T09:00:41.856Z",
+      "country": "Suriname",
+      "providerCount": 2
+    },
+    "send-sms-switzerland.astro": {
+      "type": "template",
+      "contentHash": "7f9399fab084fd1efc46a48ea698cd99",
+      "generatedAt": "2026-01-13T09:00:41.856Z",
+      "country": "Switzerland",
+      "providerCount": 12
+    },
+    "send-sms-syrian-arab-republic.astro": {
+      "type": "template",
+      "contentHash": "f27f7a29f6b0beec44a561149a0cdcae",
+      "generatedAt": "2026-01-13T09:00:41.856Z",
+      "country": "Syrian Arab Republic",
+      "providerCount": 2
+    },
+    "send-sms-taiwan.astro": {
+      "type": "template",
+      "contentHash": "e7950ee39668a7dd558ce7a367781fba",
+      "generatedAt": "2026-01-13T09:00:41.856Z",
+      "country": "Taiwan",
+      "providerCount": 5
+    },
+    "send-sms-tajikistan.astro": {
+      "type": "template",
+      "contentHash": "5be8ef3404a6026dbc9670c25d3afd0d",
+      "generatedAt": "2026-01-13T09:00:41.856Z",
+      "country": "Tajikistan",
+      "providerCount": 5
+    },
+    "send-sms-tanzania-united-republic-of-tanzania.astro": {
+      "type": "template",
+      "contentHash": "66e44f7b700a32203c90ce82ce50a502",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Tanzania, United Republic of Tanzania",
+      "providerCount": 11
+    },
+    "send-sms-thailand.astro": {
+      "type": "template",
+      "contentHash": "a46476fc4f1ee44f647dff5bd25783f2",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Thailand",
+      "providerCount": 5
+    },
+    "send-sms-timor-leste.astro": {
+      "type": "template",
+      "contentHash": "8d4166e6ee4c467c03ccd3db2ede04a0",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Timor-Leste",
+      "providerCount": 3
+    },
+    "send-sms-togo.astro": {
+      "type": "template",
+      "contentHash": "3e8c77eeaf10c219526d008d66cd28e6",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Togo",
+      "providerCount": 2
+    },
+    "send-sms-tokelau.astro": {
+      "type": "template",
+      "contentHash": "a5052a16fa6d6c15e935edba2abdabba",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Tokelau",
+      "providerCount": 1
+    },
+    "send-sms-tonga.astro": {
+      "type": "template",
+      "contentHash": "cd25ac1a403b8c94391d40e389e8650d",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Tonga",
+      "providerCount": 3
+    },
+    "send-sms-tunisia.astro": {
+      "type": "template",
+      "contentHash": "8f0dc6fb3a61fa937558e63ad91debd7",
+      "generatedAt": "2026-01-13T09:00:41.857Z",
+      "country": "Tunisia",
+      "providerCount": 5
+    },
+    "send-sms-turkey.astro": {
+      "type": "template",
+      "contentHash": "ca472867af8f37070158bdf32c837ac4",
+      "generatedAt": "2026-01-13T09:00:41.858Z",
+      "country": "Turkey",
+      "providerCount": 5
+    },
+    "send-sms-turkmenistan.astro": {
+      "type": "template",
+      "contentHash": "e25db7fefbfc725e0421dc5fdc8e0346",
+      "generatedAt": "2026-01-13T09:00:41.858Z",
+      "country": "Turkmenistan",
+      "providerCount": 2
+    },
+    "send-sms-tuvalu.astro": {
+      "type": "template",
+      "contentHash": "e225be1818b1e23e5fac79ffeee9b434",
+      "generatedAt": "2026-01-13T09:00:41.858Z",
+      "country": "Tuvalu",
+      "providerCount": 1
+    },
+    "send-sms-uganda.astro": {
+      "type": "template",
+      "contentHash": "89ea18c4b94607eb492efbc4c39a942c",
+      "generatedAt": "2026-01-13T09:00:41.858Z",
+      "country": "Uganda",
+      "providerCount": 8
+    },
+    "send-sms-ukraine.astro": {
+      "type": "template",
+      "contentHash": "8d3352b05e0eed4503b849bc1f9e8310",
+      "generatedAt": "2026-01-13T09:00:41.858Z",
+      "country": "Ukraine",
+      "providerCount": 6
+    },
+    "send-sms-united-arab-emirates.astro": {
+      "type": "template",
+      "contentHash": "57720f07364bbfc3bf3f0986bd21dc26",
+      "generatedAt": "2026-01-13T09:00:41.858Z",
+      "country": "United Arab Emirates",
+      "providerCount": 2
+    },
+    "send-sms-unknown.astro": {
+      "type": "template",
+      "contentHash": "2fb1c265ee584eba8f79ba865a91161e",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Unknown",
+      "providerCount": 10
+    },
+    "send-sms-uruguay.astro": {
+      "type": "template",
+      "contentHash": "ca8f422e6c6026a663d0fa54bf2eb44c",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Uruguay",
+      "providerCount": 3
+    },
+    "send-sms-uzbekistan.astro": {
+      "type": "template",
+      "contentHash": "ec938b476d05157f0595e1f5f93db4a2",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Uzbekistan",
+      "providerCount": 5
+    },
+    "send-sms-vanuatu.astro": {
+      "type": "template",
+      "contentHash": "eb3cb78c2b9a8d7612aaa64accf37ca2",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Vanuatu",
+      "providerCount": 3
+    },
+    "send-sms-venezuela-bolivarian-republic-of-venezuela.astro": {
+      "type": "template",
+      "contentHash": "880d6e7c48f005f4fcef23c7e0cb934c",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Venezuela, Bolivarian Republic of Venezuela",
+      "providerCount": 3
+    },
+    "send-sms-vietnam.astro": {
+      "type": "template",
+      "contentHash": "5e6d17aea216126c803d23d842462266",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Vietnam",
+      "providerCount": 8
+    },
+    "send-sms-yemen.astro": {
+      "type": "template",
+      "contentHash": "ee6b62ee7573fe0b57b1cc34926203ac",
+      "generatedAt": "2026-01-13T09:00:41.859Z",
+      "country": "Yemen",
+      "providerCount": 4
+    },
+    "send-sms-zambia.astro": {
+      "type": "template",
+      "contentHash": "be42ea1a3ba11d026ecf4e019bc120e7",
+      "generatedAt": "2026-01-13T09:00:41.860Z",
+      "country": "Zambia",
+      "providerCount": 3
+    },
+    "send-sms-zimbabwe.astro": {
+      "type": "template",
+      "contentHash": "58b1b7b336a360679cd0b71c93169ed0",
+      "generatedAt": "2026-01-13T09:00:41.860Z",
+      "country": "Zimbabwe",
+      "providerCount": 3
+    }
+  }
+}
