@@ -1,0 +1,120 @@
+---
+import type { CountryData } from "../../utils/kv-pricing";
+
+export interface Props {
+    country: CountryData;
+}
+
+const { country } = Astro.props;
+const startingPrice =
+    country.providers.length > 0
+        ? Math.min(...country.providers.map((p) => p.price)).toFixed(3)
+        : "0.000";
+
+const faqs = [
+    {
+        question: `How much does it cost to send an SMS to ${country.name}?`,
+        answer: `Pricing for sending SMS to ${country.name} starts as low as ${country.currency === "EUR" ? "€" : country.currency === "GBP" ? "£" : "$"}${startingPrice} per message. The final price depends on the volume and the specific network you are sending to.`,
+    },
+    {
+        question: `Which mobile networks are supported in ${country.name}?`,
+        answer: `SMSPM supports all major mobile networks in ${country.name}, including ${country.providers
+            .slice(0, 3)
+            .map((p) => p.name)
+            .join(
+                ", ",
+            )}${country.providers.length > 3 ? " and others" : ""}. We use direct carrier connections to ensure the highest possible delivery rates.`,
+    },
+    {
+        question: `Are there any specific SMS regulations in ${country.name}?`,
+        answer: `${country.name} has specific regulations regarding sender IDs, message content, and opt-out requirements. You can find more details in our Regulatory section above, but generally, we recommend avoiding promotional messages during night hours and ensuring all recipients have explicitly opted in.`,
+    },
+    {
+        question: `Is Alphanumeric Sender ID supported for ${country.name}?`,
+        answer: `Support for Alphanumeric Sender IDs varies by country and provider. In ${country.name}, it is generally supported for transactional messages, but some networks may require pre-registration. Please contact our support team for specific requirements for your use case.`,
+    },
+    {
+        question: `How fast is the SMS delivery to ${country.name}?`,
+        answer: `Messages are typically delivered within 5-10 seconds. Our high-throughput infrastructure and direct routing to ${country.name} ensure minimal latency even during peak hours.`,
+    },
+];
+
+// Generate FAQ Schema
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
+};
+---
+
+<section id="faq" class="py-16 lg:py-24 bg-dynamic-primary">
+    <div class="container mx-auto px-8">
+        <div class="text-center mb-16">
+            <span
+                class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
+                >FAQ</span
+            >
+            <h2
+                class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary"
+            >
+                Frequently Asked <span class="gradient-text">Questions</span>
+            </h2>
+            <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
+                Everything you need to know about sending SMS to <span
+                    class="gradient-text">{country.name}</span
+                >
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+            {
+                faqs.map((faq, index) => (
+                    <details class="group bg-dynamic-secondary border border-dynamic-primary rounded-2xl p-6 transition-all duration-300 hover:shadow-lg">
+                        <summary class="flex justify-between items-center font-bold text-lg text-dynamic-primary cursor-pointer list-none">
+                            {faq.question}
+                            <span class="transition-transform duration-300 group-open:rotate-180">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M5 7L10 12L15 7"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="mt-4 text-dynamic-secondary leading-relaxed space-y-4">
+                            <p>{faq.answer}</p>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Schema -->
+<script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(faqSchema)}
+/>
+
+<style>
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+</style>

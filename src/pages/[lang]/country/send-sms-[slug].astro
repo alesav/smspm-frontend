@@ -8,6 +8,8 @@ import MobileProviders from "../../../components/country/MobileProviders.astro";
 import UseCases from "../../../components/country/UseCases.astro";
 import ApiIntegration from "../../../components/country/ApiIntegration.astro";
 import RegulatoryInfo from "../../../components/country/RegulatoryInfo.astro";
+import CountryFAQ from "../../../components/country/CountryFAQ.astro";
+import Footer from "../../../components/Footer.astro";
 import {
     fetchPricingData,
     getCountryPricing,
@@ -17,6 +19,7 @@ import {
 import {
     getCountryConfig,
     getAvailableCountries,
+    getCountryCodeByName,
 } from "../../../utils/country-data";
 
 export async function getStaticPaths() {
@@ -79,34 +82,30 @@ try {
     console.log(`No manual content for ${slugName}`);
 }
 
-// 3. Try to get Manual Config (TS Object)
-// We try to find a matching config code (e.g. 'ee' for 'Estonia')
-const availableCodes = getAvailableCountries();
-const countryCode = availableCodes.find(
-    (code) => getCountryConfig(code)?.name === countryName,
-);
-const manualConfig = countryCode ? getCountryConfig(countryCode) : null;
+// 3. Try to get Country Config (TS Object or Fallback Metadata)
+const code = getCountryCodeByName(countryName);
+const config = getCountryConfig(code);
 
 // 4. Construct Final Country Data
-// Priority: Markdown Content > Manual Config (TS) > Generic Fallback
+// Priority: Markdown Content > Manual Config (TS) > Metadata Fallback > Generic Fallback
 const country: CountryData = {
-    code: manualConfig?.code || "gl", // Default to 'gl' (Global) if unknown
+    code: config?.code || code,
     name: countryName,
-    flag: manualConfig?.flag || "🌍",
-    population: manualConfig?.population || "Unknown",
-    mobileUsers: manualConfig?.mobileUsers || "Unknown",
-    mobilePenetration: manualConfig?.mobilePenetration || "Unknown",
-    networkCoverage: manualConfig?.networkCoverage || "Unknown",
-    timezone: manualConfig?.timezone || "UTC",
-    currency: manualConfig?.currency || "EUR",
-    callingCode: manualConfig?.callingCode || "Unknown",
+    flag: config?.flag || "🌍",
+    population: config?.population || "Unknown",
+    mobileUsers: config?.mobileUsers || "Unknown",
+    mobilePenetration: config?.mobilePenetration || "Unknown",
+    networkCoverage: config?.networkCoverage || "Unknown",
+    timezone: config?.timezone || "UTC",
+    currency: config?.currency || "EUR",
+    callingCode: config?.callingCode || "Unknown",
     startingPrice,
     providers,
     marketDescription:
         manualContent?.data?.introText ||
-        manualConfig?.marketDescription ||
+        config?.marketDescription ||
         `Send SMS to ${countryName} with reliable delivery and competitive pricing via SMSPM's global gateway.`,
-    useCases: manualConfig?.useCases || [
+    useCases: config?.useCases || [
         {
             title: "Notifications",
             description: `Reliable SMS notifications for ${countryName} customers.`,
@@ -114,8 +113,8 @@ const country: CountryData = {
             icon: "fas fa-bell",
         },
     ],
-    regulations: manualConfig?.regulations || [],
-    stats: manualConfig?.stats || {
+    regulations: config?.regulations || [],
+    stats: config?.stats || {
         deliveryRate: "99.9%",
         responseTime: "<200ms",
         uptime: "99.99%",
@@ -123,15 +122,17 @@ const country: CountryData = {
     seo: {
         title:
             manualContent?.data?.metaTitle ||
-            manualConfig?.seo?.title ||
-            `Send SMS to ${countryName} | SMSPM`,
+            config?.seo?.title ||
+            `Send SMS to ${countryName} - Bulk SMS API with ${startingPrice} Pricing`,
         description:
             manualContent?.data?.metaDescription ||
-            manualConfig?.seo?.description ||
-            `Bulk SMS messaging to ${countryName}. reliable gateway with best prices starting from €${startingPrice}.`,
-        keywords: manualConfig?.seo?.keywords || [
+            config?.seo?.description ||
+            `Connect with ${config?.mobileUsers || "mobile"} users in ${countryName}. 99.9% delivery rate, direct connections, and pricing from ${config?.currency === "EUR" ? "€" : config?.currency === "GBP" ? "£" : "$"}${startingPrice} per message.`,
+        keywords: config?.seo?.keywords || [
             `SMS ${countryName}`,
             `bulk SMS ${countryName}`,
+            `SMS API ${countryName}`,
+            `send messages to ${countryName}`,
         ],
     },
 };
@@ -141,7 +142,10 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `SMS Service to ${countryName}`,
-    description: country.seo.description,
+    description:
+        manualContent?.data?.metaDescription ||
+        config?.seo?.description ||
+        `Send SMS to ${countryName} with 99.9% delivery rate.`,
     provider: {
         "@type": "Organization",
         name: "SMSPM",
@@ -155,7 +159,7 @@ const structuredData = {
         "@type": "Offer",
         name: `SMS via ${provider.name}`,
         price: provider.price,
-        priceCurrency: country.currency,
+        priceCurrency: config?.currency || "EUR",
     })),
 };
 ---
@@ -189,6 +193,7 @@ const structuredData = {
         <MobileProviders country={country} />
         <UseCases country={country} />
         <ApiIntegration country={country} />
+        <CountryFAQ country={country} />
         <RegulatoryInfo country={country} />
 
         <!-- CTA Section -->
@@ -211,7 +216,10 @@ const structuredData = {
                     <div
                         class="cta-actions flex flex-col sm:flex-row justify-center gap-4 mb-6"
                     >
-                        <a href="/signup" class="btn btn-primary btn-large">
+                        <a
+                            href="https://app.smspm.com/app/register"
+                            class="btn btn-primary btn-large"
+                        >
                             Start Free Trial
                             <svg
                                 width="20"
@@ -243,39 +251,7 @@ const structuredData = {
         </section>
     </main>
 
-    <footer class="footer bg-gray-900 text-gray-400 py-16 pt-20">
-        <div class="container mx-auto px-8">
-            <div
-                class="footer-content grid grid-cols-1 md:grid-cols-5 gap-8 mb-12"
-            >
-                <div class="footer-column md:col-span-2">
-                    <div class="footer-logo mb-4">
-                        <img
-                            src="/logo.png"
-                            alt="SMSPM Logo"
-                            class="footer-logo-img h-9 w-auto"
-                            width="300"
-                            height="97"
-                        />
-                    </div>
-                    <p
-                        class="footer-description text-[15px] leading-relaxed mb-6 max-w-[300px]"
-                    >
-                        Global SMS messaging platform trusted by thousands of
-                        businesses worldwide.
-                    </p>
-                </div>
-                <!-- Same footer columns as original -->
-            </div>
-            <div
-                class="footer-bottom border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
-            >
-                <p class="footer-copyright text-gray-400 text-sm mb-4 md:mb-0">
-                    © 2025 SMSPM. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
+    <Footer />
 </Layout>
 
 <script is:inline>

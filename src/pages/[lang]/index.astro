@@ -1,0 +1,34 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HomeContent from "../../components/home/HomeContent.astro";
+
+export async function getStaticPaths() {
+    return [
+        { params: { lang: "et" } },
+        { params: { lang: "ru" } },
+        { params: { lang: "es" } },
+        { params: { lang: "de" } },
+        { params: { lang: "fr" } },
+        { params: { lang: "lv" } },
+        { params: { lang: "lt" } },
+    ];
+}
+
+const { lang } = Astro.params;
+
+const titles: Record<string, string> = {
+    et: "SMSPM - Globaalne SMS API ja mass-SMS platvorm",
+    ru: "SMSPM - Глобальный SMS API и платформа массовых рассылок",
+    es: "SMSPM - API de SMS global y plataforma de mensajería masiva",
+    de: "SMSPM - Globale SMS-API & Massen-Messaging-Plattform",
+    fr: "SMSPM - API SMS mondiale et plateforme de messagerie en masse",
+    lv: "SMSPM - Globāls SMS API un lielapjoma ziņapmaiņas platforma",
+    lt: "SMSPM - Visuotinis SMS API ir masinių pranešimų platforma",
+};
+
+const title = titles[lang] || titles.en;
+---
+
+<Layout title={title}>
+    <HomeContent lang={lang} />
+</Layout>
