@@ -3,9 +3,100 @@ import type { CountryData } from "../../utils/kv-pricing";
 
 export interface Props {
   country: CountryData;
+  lang?: string;
 }
 
-const { country } = Astro.props;
+const { country, lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
+const translations = {
+  en: {
+    badge: "Market Overview",
+    title: "Mobile Market in",
+    subtitle: "Understanding the local mobile landscape for",
+    effectiveCampaigns: "effective SMS campaigns",
+    population: "Population",
+    penetration: "Penetration",
+    countryCode: "Country Code",
+    timezone: "Timezone",
+  },
+  et: {
+    badge: "Turu ülevaade",
+    title: "Mobiiliturg riigis",
+    subtitle: "Kohaliku mobiilse maastiku mõistmine",
+    effectiveCampaigns: "tõhusate SMS-kampaaniate jaoks",
+    population: "Rahvastik",
+    penetration: "Levik",
+    countryCode: "Riigi kood",
+    timezone: "Ajavöönd",
+  },
+  ru: {
+    badge: "Обзор рынка",
+    title: "Мобильный рынок в",
+    subtitle: "Понимание местного мобильного ландшафта для",
+    effectiveCampaigns: "эффективных SMS-кампаний",
+    population: "Население",
+    penetration: "Проникновение",
+    countryCode: "Код страны",
+    timezone: "Часовой пояс",
+  },
+  es: {
+    badge: "Visión del Mercado",
+    title: "Mercado Móvil en",
+    subtitle: "Comprendiendo el panorama móvil local para",
+    effectiveCampaigns: "campañas SMS efectivas",
+    population: "Población",
+    penetration: "Penetración",
+    countryCode: "Código de País",
+    timezone: "Zona Horaria",
+  },
+  de: {
+    badge: "Marktübersicht",
+    title: "Mobilfunkmarkt in",
+    subtitle: "Verständnis der lokalen Mobilfunklandschaft für",
+    effectiveCampaigns: "effektive SMS-Kampagnen",
+    population: "Bevölkerung",
+    penetration: "Durchdringung",
+    countryCode: "Ländercode",
+    timezone: "Zeitzone",
+  },
+  fr: {
+    badge: "Aperçu du Marché",
+    title: "Marché Mobile en",
+    subtitle: "Comprendre le paysage mobile local pour",
+    effectiveCampaigns: "des campagnes SMS efficaces",
+    population: "Population",
+    penetration: "Pénétration",
+    countryCode: "Code Pays",
+    timezone: "Fuseau Horaire",
+  },
+  lv: {
+    badge: "Tirgus pārskats",
+    title: "Mobilo sakaru tirgus",
+    subtitle: "Vietējā mobilā ainavas izpratne",
+    effectiveCampaigns: "efektīvām SMS kampaņām",
+    population: "Iedzīvotāji",
+    penetration: "Izplatība",
+    countryCode: "Valsts kods",
+    timezone: "Laika josla",
+  },
+  lt: {
+    badge: "Rinkos apžvalga",
+    title: "Mobilusis rinkoje",
+    subtitle: "Vietinės mobiliosios aplinkos supratimas",
+    effectiveCampaigns: "veiksmingoms SMS kampanijoms",
+    population: "Gyventojai",
+    penetration: "Skvarba",
+    countryCode: "Šalies kodas",
+    timezone: "Laiko juosta",
+  },
+};
+
+const t = translations[lang] || translations.en;
 ---
 
 <!-- Country Info Section -->
@@ -14,14 +105,14 @@ const { country } = Astro.props;
     <div class="text-center mb-16">
       <span
         class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
-        >Market Overview</span
+        >{t.badge}</span
       >
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        Mobile Market in <span class="gradient-text">{country.name}</span>
+        {t.title} <span class="gradient-text">{country.name}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        Understanding the local mobile landscape for <span class="gradient-text"
-          >effective SMS campaigns</span
+        {t.subtitle} <span class="gradient-text"
+          >{t.effectiveCampaigns}</span
         >
       </p>
     </div>
@@ -53,7 +144,7 @@ const { country } = Astro.props;
           {country.population}
         </h3>
         <p class="text-sm uppercase tracking-widest text-dynamic-tertiary">
-          Population
+          {t.population}
         </p>
       </div>
 
@@ -81,7 +172,7 @@ const { country } = Astro.props;
           {country.mobilePenetration}
         </h3>
         <p class="text-sm uppercase tracking-widest text-dynamic-tertiary">
-          Penetration
+          {t.penetration}
         </p>
       </div>
 
@@ -110,7 +201,7 @@ const { country } = Astro.props;
           {country.callingCode}
         </h3>
         <p class="text-sm uppercase tracking-widest text-dynamic-tertiary">
-          Country Code
+          {t.countryCode}
         </p>
       </div>
 
@@ -140,7 +231,7 @@ const { country } = Astro.props;
           {country.timezone.split(" (")[0]}
         </h3>
         <p class="text-sm uppercase tracking-widest text-dynamic-tertiary">
-          Timezone
+          {t.timezone}
         </p>
       </div>
     </div>
@@ -154,3 +245,12 @@ const { country } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #0d47a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

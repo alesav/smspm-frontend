@@ -9,39 +9,9 @@ interface Languages {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Language Selector
-    const langBtn = document.getElementById('langBtn');
-    const langDropdown = document.getElementById('langDropdown');
-    const langOptions = document.querySelectorAll('.lang-option');
-    const langText = document.querySelector('.lang-text');
-
-    // Language data
-    const languages: Languages = {
-        en: { flag: '🇬🇧', name: 'EN' },
-        et: { flag: '🇪🇪', name: 'ET' },
-        ru: { flag: '🇷🇺', name: 'RU' },
-        es: { flag: '🇪🇸', name: 'ES' },
-        de: { flag: '🇩🇪', name: 'DE' },
-        fr: { flag: '🇫🇷', name: 'FR' }
-    };
-
-    // Handle language selection
-    langOptions.forEach(option => {
-        option.addEventListener('click', function(this: HTMLElement, e) {
-            e.preventDefault();
-            const selectedLang = this.getAttribute('data-lang');
-            const langData = selectedLang ? languages[selectedLang] : null;
-            
-            if (langData && langText) {
-                langText.textContent = langData.name;
-                const flagElement = document.querySelector('.lang-btn .flag');
-                if (flagElement) {
-                    flagElement.textContent = langData.flag;
-                }
-            }
-        });
-    });
-
+    // Language Selector - removed duplicate handler
+    // Language selection is now handled in Navigation.astro component
+    
     // Mobile menu
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.querySelector('.nav-links');
@@ -253,7 +223,13 @@ $client->messages->send([
                     const hasPercent = text.includes('%');
                     const hasMs = text.includes('ms');
                     
-                    let number = parseInt(text.replace(/[^0-9]/g, '')) || 0;
+                    // Extract number, preserving decimals for percentages
+                    let number: number;
+                    if (hasPercent) {
+                        number = parseFloat(text.replace(/[^0-9.]/g, '')) || 0;
+                    } else {
+                        number = parseInt(text.replace(/[^0-9]/g, '')) || 0;
+                    }
                     
                     if (hasBillion) {
                         statElement.textContent = '0B+';

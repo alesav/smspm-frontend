@@ -3,9 +3,172 @@ import type { CountryData } from "../../utils/kv-pricing";
 
 export interface Props {
   country: CountryData;
+  lang?: string;
 }
 
-const { country } = Astro.props;
+const { country, lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
+const translations = {
+  en: {
+    badge: "Developer Friendly",
+    title: "Easy Integration",
+    subtitle: "Connect with our API and start",
+    sendingSms: "sending SMS to",
+    inMinutes: "in minutes",
+    featuresTitle: "Features",
+    restApi: "REST API",
+    restApiDesc: "Simple HTTP-based API that works with any programming language",
+    languageSupport: "Language Support",
+    languageSupportDesc: "Full Unicode support for local characters and languages",
+    deliveryReports: "Real-time Delivery Reports",
+    deliveryReportsDesc: "Track message delivery status with detailed analytics",
+    webhooks: "Webhook Notifications",
+    webhooksDesc: "Receive real-time updates on message status changes",
+    viewDocs: "View API Documentation",
+    copy: "Copy",
+    copied: "Copied!",
+  },
+  et: {
+    badge: "Arendajasõbralik",
+    title: "Lihtne integreerimine",
+    subtitle: "Ühenda meie API-ga ja alusta",
+    sendingSms: "SMS-ide saatmist riiki",
+    inMinutes: "minutitega",
+    featuresTitle: "Funktsioonid",
+    restApi: "REST API",
+    restApiDesc: "Lihtne HTTP-põhine API, mis töötab iga programmeerimiskeelega",
+    languageSupport: "Keeletugi",
+    languageSupportDesc: "Täielik Unicode tugi kohalike tähtede ja keelte jaoks",
+    deliveryReports: "Reaalajas kohaletoimetamise aruanded",
+    deliveryReportsDesc: "Jälgi sõnumite kohaletoimetamise olekut üksikasjaliku analüütikaga",
+    webhooks: "Webhook teavitused",
+    webhooksDesc: "Saa reaalajas uuendusi sõnumi oleku muutuste kohta",
+    viewDocs: "Vaata API dokumentatsiooni",
+    copy: "Kopeeri",
+    copied: "Kopeeritud!",
+  },
+  ru: {
+    badge: "Дружественно разработчикам",
+    title: "Простая интеграция",
+    subtitle: "Подключитесь к нашему API и начните",
+    sendingSms: "отправлять SMS в",
+    inMinutes: "за минуты",
+    featuresTitle: "Функции",
+    restApi: "REST API",
+    restApiDesc: "Простой HTTP-основанный API, который работает с любым языком программирования",
+    languageSupport: "Языковая поддержка",
+    languageSupportDesc: "Полная поддержка Unicode для местных символов и языков",
+    deliveryReports: "Отчеты о доставке в реальном времени",
+    deliveryReportsDesc: "Отслеживайте статус доставки сообщений с подробной аналитикой",
+    webhooks: "Webhook уведомления",
+    webhooksDesc: "Получайте обновления в реальном времени об изменениях статуса сообщений",
+    viewDocs: "Посмотреть документацию API",
+    copy: "Копировать",
+    copied: "Скопировано!",
+  },
+  es: {
+    badge: "Amigable para Desarrolladores",
+    title: "Integración Fácil",
+    subtitle: "Conéctate con nuestra API y comienza",
+    sendingSms: "a enviar SMS a",
+    inMinutes: "en minutos",
+    featuresTitle: "Características",
+    restApi: "REST API",
+    restApiDesc: "API simple basada en HTTP que funciona con cualquier lenguaje de programación",
+    languageSupport: "Soporte de Idiomas",
+    languageSupportDesc: "Soporte completo de Unicode para caracteres e idiomas locales",
+    deliveryReports: "Informes de Entrega en Tiempo Real",
+    deliveryReportsDesc: "Rastrea el estado de entrega de mensajes con análisis detallados",
+    webhooks: "Notificaciones Webhook",
+    webhooksDesc: "Recibe actualizaciones en tiempo real sobre cambios en el estado de mensajes",
+    viewDocs: "Ver Documentación API",
+    copy: "Copiar",
+    copied: "¡Copiado!",
+  },
+  de: {
+    badge: "Entwicklerfreundlich",
+    title: "Einfache Integration",
+    subtitle: "Verbinden Sie sich mit unserer API und beginnen Sie",
+    sendingSms: "SMS zu senden nach",
+    inMinutes: "in Minuten",
+    featuresTitle: "Funktionen",
+    restApi: "REST API",
+    restApiDesc: "Einfache HTTP-basierte API, die mit jeder Programmiersprache funktioniert",
+    languageSupport: "Sprachunterstützung",
+    languageSupportDesc: "Vollständige Unicode-Unterstützung für lokale Zeichen und Sprachen",
+    deliveryReports: "Echtzeit-Zustellberichte",
+    deliveryReportsDesc: "Verfolgen Sie den Nachrichtenstatus mit detaillierter Analytik",
+    webhooks: "Webhook-Benachrichtigungen",
+    webhooksDesc: "Erhalten Sie Echtzeit-Updates zu Nachrichtenstatusänderungen",
+    viewDocs: "API-Dokumentation ansehen",
+    copy: "Kopieren",
+    copied: "Kopiert!",
+  },
+  fr: {
+    badge: "Convivial pour les Développeurs",
+    title: "Intégration Facile",
+    subtitle: "Connectez-vous à notre API et commencez",
+    sendingSms: "à envoyer des SMS vers",
+    inMinutes: "en quelques minutes",
+    featuresTitle: "Fonctionnalités",
+    restApi: "REST API",
+    restApiDesc: "API simple basée sur HTTP qui fonctionne avec n'importe quel langage de programmation",
+    languageSupport: "Support Linguistique",
+    languageSupportDesc: "Support Unicode complet pour les caractères et langues locaux",
+    deliveryReports: "Rapports de Livraison en Temps Réel",
+    deliveryReportsDesc: "Suivez l'état de livraison des messages avec des analyses détaillées",
+    webhooks: "Notifications Webhook",
+    webhooksDesc: "Recevez des mises à jour en temps réel sur les changements d'état des messages",
+    viewDocs: "Voir la Documentation API",
+    copy: "Copier",
+    copied: "Copié !",
+  },
+  lv: {
+    badge: "Draudzīgs izstrādātājiem",
+    title: "Vienkārša integrācija",
+    subtitle: "Savienojieties ar mūsu API un sāciet",
+    sendingSms: "sūtīt SMS uz",
+    inMinutes: "dažu minūšu laikā",
+    featuresTitle: "Funkcijas",
+    restApi: "REST API",
+    restApiDesc: "Vienkārša HTTP balstīta API, kas darbojas ar jebkuru programmēšanas valodu",
+    languageSupport: "Valodu atbalsts",
+    languageSupportDesc: "Pilns Unicode atbalsts vietējiem simboliem un valodām",
+    deliveryReports: "Reāllaika piegādes ziņojumi",
+    deliveryReportsDesc: "Izsekojiet ziņojumu piegādes statusu ar detalizētu analītiku",
+    webhooks: "Webhook paziņojumi",
+    webhooksDesc: "Saņemiet reāllaika atjauninājumus par ziņojumu statusa izmaiņām",
+    viewDocs: "Skatīt API dokumentāciju",
+    copy: "Kopēt",
+    copied: "Nokopēts!",
+  },
+  lt: {
+    badge: "Draugiškas kūrėjams",
+    title: "Lengva integracija",
+    subtitle: "Prisijunkite prie mūsų API ir pradėkite",
+    sendingSms: "siųsti SMS į",
+    inMinutes: "per kelias minutes",
+    featuresTitle: "Funkcijos",
+    restApi: "REST API",
+    restApiDesc: "Paprasta HTTP pagrįsta API, kuri veikia su bet kuria programavimo kalba",
+    languageSupport: "Kalbų palaikymas",
+    languageSupportDesc: "Pilnas Unicode palaikymas vietiniams simboliams ir kalboms",
+    deliveryReports: "Pristatymo ataskaitos realiuoju laiku",
+    deliveryReportsDesc: "Stebėkite pranešimų pristatymo būseną su detalia analitika",
+    webhooks: "Webhook pranešimai",
+    webhooksDesc: "Gaukite realiojo laiko atnaujinimus apie pranešimų būsenos pakeitimus",
+    viewDocs: "Žiūrėti API dokumentaciją",
+    copy: "Kopijuoti",
+    copied: "Nukopijuota!",
+  },
+};
+
+const t = translations[lang] || translations.en;
 
 // Generate country-specific example
 const phoneExample =
@@ -39,15 +202,15 @@ const messageExample =
     <div class="text-center mb-16">
       <span
         class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
-        >Developer Friendly</span
+        >{t.badge}</span
       >
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        <span class="gradient-text">Easy Integration</span>
+        <span class="gradient-text">{t.title}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        Connect with our API and start <span class="gradient-text"
-          >sending SMS to {country.name}</span
-        > in minutes
+        {t.subtitle} <span class="gradient-text"
+          >{t.sendingSms} {country.name}</span
+        > {t.inMinutes}
       </p>
     </div>
 
@@ -71,6 +234,10 @@ const messageExample =
               class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
               data-lang="php">PHP</button
             >
+            <button
+              class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
+              data-lang="curl">cURL</button
+            >
           </div>
           <button
             class="code-copy flex items-center gap-2 px-4 py-2 border border-dynamic-primary text-dynamic-tertiary text-sm rounded-lg cursor-pointer transition-all duration-150 hover:border-cyan hover:text-cyan"
@@ -89,79 +256,96 @@ const messageExample =
                 stroke="currentColor"
                 stroke-width="1.5"></path>
             </svg>
-            Copy
+            {t.copy}
           </button>
         </div>
         <div class="code-body p-6 bg-dynamic-primary">
           <!-- JavaScript Code -->
           <div class="code-content" data-lang="javascript">
-            <pre><code class="language-javascript text-dynamic-secondary font-mono text-sm leading-loose">// Send SMS to {country.name}
-const response = await fetch('https://api.smspm.com/v1/send', &#123;
+            <pre><code class="language-javascript text-dynamic-secondary font-mono text-sm leading-loose">// Send SMS to {country.name} - POST Request
+const response = await fetch('https://api.smspm.com', &#123;
   method: 'POST',
   headers: &#123;
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_KEY'
+    'Content-Type': 'application/json'
   &#125;,
   body: JSON.stringify(&#123;
-    to: '{phoneExample}',
-    message: '{messageExample}',
-    sender: 'YourBrand'
+    hash: 'e3dbe013-6f66-4fae-8ae2-96c364cb6b61',
+    toNumber: '{phoneExample}',
+    text: '{messageExample}',
+    fromNumber: 'smspm.com',
+    token: 'YOUR_API_TOKEN'
   &#125;)
 &#125;);
 
 const result = await response.json();
-console.log('Message sent:', result.messageId);</code></pre>
+console.log('Message sent:', result);</code></pre>
           </div>
 
           <!-- Python Code -->
           <div class="code-content hidden" data-lang="python">
             <pre><code class="language-python text-dynamic-secondary font-mono text-sm leading-loose">import requests
 
-# Send SMS to {country.name}
-response = requests.post('https://api.smspm.com/v1/send', 
-    headers=&#123;
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_KEY'
-    &#125;,
+# Send SMS to {country.name} - POST Request
+response = requests.post('https://api.smspm.com', 
     json=&#123;
-        'to': '{phoneExample}',
-        'message': '{messageExample}',
-        'sender': 'YourBrand'
+        'hash': 'e3dbe013-6f66-4fae-8ae2-96c364cb6b61',
+        'toNumber': '{phoneExample}',
+        'text': '{messageExample}',
+        'fromNumber': 'smspm.com',
+        'token': 'YOUR_API_TOKEN'
     &#125;
 )
 
 result = response.json()
-print(f"Message sent: &#123;result['messageId']&#125;")</code></pre>
+print(f"Message sent: &#123;result&#125;")</code></pre>
           </div>
 
           <!-- PHP Code -->
           <div class="code-content hidden" data-lang="php">
             <pre><code class="language-php text-dynamic-secondary font-mono text-sm leading-loose">&lt;?php
-// Send SMS to {country.name}
+// Send SMS to {country.name} - POST Request
 $data = [
-    'to' => '{phoneExample}',
-    'message' => '{messageExample}',
-    'sender' => 'YourBrand'
+    'hash' => 'e3dbe013-6f66-4fae-8ae2-96c364cb6b61',
+    'toNumber' => '{phoneExample}',
+    'text' => '{messageExample}',
+    'fromNumber' => 'smspm.com',
+    'token' => 'YOUR_API_TOKEN'
 ];
 
-$ch = curl_init('https://api.smspm.com/v1/send');
+$ch = curl_init('https://api.smspm.com');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'Authorization: Bearer YOUR_API_KEY'
+    'Content-Type: application/json'
 ]);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $result = curl_exec($ch);
 $response = json_decode($result, true);
-echo "Message sent: " . $response['messageId'];</code></pre>
+echo "Message sent: " . print_r($response, true);</code></pre>
+          </div>
+
+          <!-- cURL Code -->
+          <div class="code-content hidden" data-lang="curl">
+            <pre><code class="language-bash text-dynamic-secondary font-mono text-sm leading-loose"># Send SMS to {country.name} - POST Request
+curl -X POST https://api.smspm.com \
+  -H "Content-Type: application/json" \
+  -d '&#123;
+    "hash": "e3dbe013-6f66-4fae-8ae2-96c364cb6b61",
+    "toNumber": "{phoneExample}",
+    "text": "{messageExample}",
+    "fromNumber": "smspm.com",
+    "token": "YOUR_API_TOKEN"
+  &#125;'
+
+# Alternative GET Request
+curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber={phoneExample.replace("+", "%2B")}&text={messageExample.replace(" ", "+")}&fromNumber=smspm.com&token=YOUR_API_TOKEN"</code></pre>
           </div>
         </div>
       </div>
 
       <div class="integration-features">
-        <h3 class="text-2xl font-bold text-dynamic-primary mb-8">Features</h3>
+        <h3 class="text-2xl font-bold text-dynamic-primary mb-8">{t.featuresTitle}</h3>
 
         <div class="space-y-6 mb-8">
           <div class="feature-item flex items-start gap-4">
@@ -183,9 +367,9 @@ echo "Message sent: " . $response['messageId'];</code></pre>
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-dynamic-primary mb-1">REST API</h4>
+              <h4 class="font-semibold text-dynamic-primary mb-1">{t.restApi}</h4>
               <p class="text-sm text-dynamic-secondary">
-                Simple HTTP-based API that works with any programming language
+                {t.restApiDesc}
               </p>
             </div>
           </div>
@@ -210,10 +394,10 @@ echo "Message sent: " . $response['messageId'];</code></pre>
             </div>
             <div>
               <h4 class="font-semibold text-dynamic-primary mb-1">
-                {country.name} Language Support
+                {country.name} {t.languageSupport}
               </h4>
               <p class="text-sm text-dynamic-secondary">
-                Full Unicode support for local characters and languages
+                {t.languageSupportDesc}
               </p>
             </div>
           </div>
@@ -238,10 +422,10 @@ echo "Message sent: " . $response['messageId'];</code></pre>
             </div>
             <div>
               <h4 class="font-semibold text-dynamic-primary mb-1">
-                Real-time Delivery Reports
+                {t.deliveryReports}
               </h4>
               <p class="text-sm text-dynamic-secondary">
-                Track message delivery status with detailed analytics
+                {t.deliveryReportsDesc}
               </p>
             </div>
           </div>
@@ -266,17 +450,17 @@ echo "Message sent: " . $response['messageId'];</code></pre>
             </div>
             <div>
               <h4 class="font-semibold text-dynamic-primary mb-1">
-                Webhook Notifications
+                {t.webhooks}
               </h4>
               <p class="text-sm text-dynamic-secondary">
-                Receive real-time updates on message status changes
+                {t.webhooksDesc}
               </p>
             </div>
           </div>
         </div>
 
         <a href="https://app.smspm.com/docs" class="btn btn-primary">
-          View API Documentation
+          {t.viewDocs}
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M7 3L15 10L7 17"
@@ -290,3 +474,77 @@ echo "Message sent: " . $response['messageId'];</code></pre>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Code tab functionality for country page
+    const integrationSection = document.querySelector('.integration-section');
+    if (integrationSection) {
+      const codeTabs = integrationSection.querySelectorAll('.code-tab') as NodeListOf<HTMLButtonElement>;
+      const codeContents = integrationSection.querySelectorAll('.code-content') as NodeListOf<HTMLElement>;
+      const copyBtn = integrationSection.querySelector('.code-copy') as HTMLButtonElement | null;
+
+      function switchTab(targetLang: string): void {
+        // Update tab styles
+        codeTabs.forEach((tab: HTMLButtonElement) => {
+          if (tab.dataset.lang === targetLang) {
+            tab.classList.add('active', 'bg-dynamic-tertiary', 'text-dynamic-primary');
+            tab.classList.remove('text-dynamic-tertiary');
+          } else {
+            tab.classList.remove('active', 'bg-dynamic-tertiary', 'text-dynamic-primary');
+            tab.classList.add('text-dynamic-tertiary');
+          }
+        });
+
+        // Update content visibility
+        codeContents.forEach((content: HTMLElement) => {
+          if (content.dataset.lang === targetLang) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+      }
+
+      // Add click handlers to tabs
+      codeTabs.forEach((tab: HTMLButtonElement) => {
+        tab.addEventListener('click', (e: Event) => {
+          e.preventDefault();
+          const targetLang = tab.dataset.lang;
+          if (targetLang) {
+            switchTab(targetLang);
+          }
+        });
+      });
+
+      // Copy functionality
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const activeContent = integrationSection.querySelector('.code-content:not(.hidden)') as HTMLElement | null;
+          if (activeContent) {
+            const codeElement = activeContent.querySelector('code') as HTMLElement | null;
+            if (codeElement) {
+              const codeText = codeElement.textContent || '';
+              navigator.clipboard.writeText(codeText).then(() => {
+                const originalHTML = copyBtn.innerHTML;
+                // Get the lang attribute or default to 'en'
+                const langAttr = document.documentElement.lang || 'en';
+                const copiedText = langAttr === 'et' ? 'Kopeeritud!' :
+                                  langAttr === 'ru' ? 'Скопировано!' :
+                                  langAttr === 'es' ? '¡Copiado!' :
+                                  langAttr === 'de' ? 'Kopiert!' :
+                                  langAttr === 'fr' ? 'Copié !' :
+                                  langAttr === 'lv' ? 'Nokopēts!' :
+                                  langAttr === 'lt' ? 'Nukopijuota!' : 'Copied!';
+                copyBtn.innerHTML = copyBtn.innerHTML.replace(/Copy|Kopeeritud!|Скопировано!|¡Copiado!|Kopiert!|Copié !|Nokopēts!|Nukopijuota!|Copied!/, copiedText);
+                setTimeout(() => {
+                  copyBtn.innerHTML = originalHTML;
+                }, 2000);
+              });
+            }
+          }
+        });
+      }
+    }
+  });
+</script>

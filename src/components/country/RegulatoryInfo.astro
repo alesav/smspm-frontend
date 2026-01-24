@@ -3,21 +3,112 @@ import type { CountryData } from '../../utils/kv-pricing';
 
 export interface Props {
   country: CountryData;
+  lang?: string;
 }
 
-const { country } = Astro.props;
+const { country, lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
+const translations = {
+  en: {
+    badge: "Compliance",
+    title: "SMS Regulations in",
+    subtitle: "Stay compliant with",
+    localRegulations: "local regulations",
+    andBestPractices: "and best practices",
+    needGuidance: "Need Compliance Guidance?",
+    guidanceDesc: "Our compliance experts can help you navigate local regulations and ensure your SMS campaigns meet all requirements.",
+    contactTeam: "Contact Compliance Team",
+  },
+  et: {
+    badge: "Vastavus",
+    title: "SMS regulatsioonid riigis",
+    subtitle: "Järgi",
+    localRegulations: "kohalikke regulatsioone",
+    andBestPractices: "ja parimaid tavasid",
+    needGuidance: "Vajad vastavuse juhiseid?",
+    guidanceDesc: "Meie vastavuse eksperdid saavad aidata teil kohalikke regulatsioone navigeerida ja tagada, et teie SMS-kampaaniad vastavad kõigile nõuetele.",
+    contactTeam: "Võta ühendust vastavuse meeskonnaga",
+  },
+  ru: {
+    badge: "Соответствие",
+    title: "SMS регуляции в",
+    subtitle: "Соблюдайте",
+    localRegulations: "местные регуляции",
+    andBestPractices: "и лучшие практики",
+    needGuidance: "Нужна помощь по соответствию?",
+    guidanceDesc: "Наши эксперты по соответствию могут помочь вам разобраться в местных регуляциях и обеспечить соответствие ваших SMS-кампаний всем требованиям.",
+    contactTeam: "Связаться с командой по соответствию",
+  },
+  es: {
+    badge: "Cumplimiento",
+    title: "Regulaciones SMS en",
+    subtitle: "Mantén el cumplimiento con",
+    localRegulations: "regulaciones locales",
+    andBestPractices: "y mejores prácticas",
+    needGuidance: "¿Necesitas Orientación sobre Cumplimiento?",
+    guidanceDesc: "Nuestros expertos en cumplimiento pueden ayudarte a navegar las regulaciones locales y asegurar que tus campañas SMS cumplan con todos los requisitos.",
+    contactTeam: "Contactar Equipo de Cumplimiento",
+  },
+  de: {
+    badge: "Compliance",
+    title: "SMS-Vorschriften in",
+    subtitle: "Bleiben Sie konform mit",
+    localRegulations: "lokalen Vorschriften",
+    andBestPractices: "und Best Practices",
+    needGuidance: "Benötigen Sie Compliance-Beratung?",
+    guidanceDesc: "Unsere Compliance-Experten können Ihnen helfen, lokale Vorschriften zu navigieren und sicherzustellen, dass Ihre SMS-Kampagnen alle Anforderungen erfüllen.",
+    contactTeam: "Kontaktieren Sie das Compliance-Team",
+  },
+  fr: {
+    badge: "Conformité",
+    title: "Réglementations SMS en",
+    subtitle: "Restez conforme avec",
+    localRegulations: "les réglementations locales",
+    andBestPractices: "et les meilleures pratiques",
+    needGuidance: "Besoin d'Orientation en Conformité ?",
+    guidanceDesc: "Nos experts en conformité peuvent vous aider à naviguer dans les réglementations locales et à garantir que vos campagnes SMS répondent à toutes les exigences.",
+    contactTeam: "Contacter l'Équipe de Conformité",
+  },
+  lv: {
+    badge: "Atbilstība",
+    title: "SMS noteikumi",
+    subtitle: "Ievērojiet",
+    localRegulations: "vietējos noteikumus",
+    andBestPractices: "un labākās prakses",
+    needGuidance: "Nepieciešami atbilstības norādījumi?",
+    guidanceDesc: "Mūsu atbilstības eksperti var palīdzēt jums orientēties vietējos noteikumos un nodrošināt, ka jūsu SMS kampaņas atbilst visām prasībām.",
+    contactTeam: "Sazināties ar atbilstības komandu",
+  },
+  lt: {
+    badge: "Atitiktis",
+    title: "SMS taisyklės",
+    subtitle: "Laikykitės",
+    localRegulations: "vietinių taisyklių",
+    andBestPractices: "ir geriausios praktikos",
+    needGuidance: "Reikia atitikties rekomendacijų?",
+    guidanceDesc: "Mūsų atitikties ekspertai gali padėti jums orientuotis vietinėse taisyklėse ir užtikrinti, kad jūsų SMS kampanijos atitiktų visus reikalavimus.",
+    contactTeam: "Susisiekti su atitikties komanda",
+  },
+};
+
+const t = translations[lang] || translations.en;
 ---
 
 <!-- Regulatory Section -->
 <section class="regulatory-section py-16 lg:py-24 bg-dynamic-secondary">
   <div class="container mx-auto px-8">
     <div class="text-center mb-16">
-      <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Compliance</span>
+      <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">{t.badge}</span>
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        SMS Regulations in <span class="gradient-text">{country.name}</span>
+        {t.title} <span class="gradient-text">{country.name}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        Stay compliant with <span class="gradient-text">local regulations</span> and best practices
+        {t.subtitle} <span class="gradient-text">{t.localRegulations}</span> {t.andBestPractices}
       </p>
     </div>
     
@@ -45,13 +136,13 @@ const { country } = Astro.props;
     <div class="mt-16 text-center">
       <div class="bg-dynamic-primary rounded-2xl p-8 max-w-2xl mx-auto">
         <h3 class="text-xl font-bold text-dynamic-primary mb-4">
-          Need Compliance Guidance?
+          {t.needGuidance}
         </h3>
         <p class="text-dynamic-secondary mb-6">
-          Our compliance experts can help you navigate local regulations and ensure your SMS campaigns meet all requirements.
+          {t.guidanceDesc}
         </p>
-        <a href="/contact" class="btn btn-outline">
-          Contact Compliance Team
+        <a href={`/${lang}/contact`} class="btn btn-outline">
+          {t.contactTeam}
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -60,3 +151,12 @@ const { country } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #0d47a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

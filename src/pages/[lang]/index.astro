@@ -1,4 +1,7 @@
 ---
+// Pre-render these language-specific pages at build time (static)
+export const prerender = true;
+
 import Layout from "../../layouts/Layout.astro";
 import HomeContent from "../../components/home/HomeContent.astro";
 
@@ -27,8 +30,22 @@ const titles: Record<string, string> = {
 };
 
 const title = titles[lang] || titles.en;
+const currentUrl = Astro.url.origin;
 ---
 
-<Layout title={title}>
+<Layout 
+    title={title}
+    lang={lang}
+    alternateUrls={{
+        en: `${currentUrl}/en`,
+        et: `${currentUrl}/et`,
+        ru: `${currentUrl}/ru`,
+        es: `${currentUrl}/es`,
+        de: `${currentUrl}/de`,
+        fr: `${currentUrl}/fr`,
+        lv: `${currentUrl}/lv`,
+        lt: `${currentUrl}/lt`,
+    }}
+>
     <HomeContent lang={lang} />
 </Layout>

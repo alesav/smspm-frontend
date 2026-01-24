@@ -1,5 +1,164 @@
 ---
 // Footer Component
+interface Props {
+    lang?: string;
+}
+
+const { lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+// Detect language from prop (for SSR pages) or path, default to 'en'
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
+// Define localized paths - ALL languages including English get language prefix
+const getLocalizedPath = (path: string) => {
+    return `/${lang}${path}`;
+};
+
+const translations = {
+    en: {
+        description: "Global SMS messaging platform trusted by thousands of businesses worldwide.",
+        productTitle: "Product",
+        pricing: "Pricing",
+        coverage: "Coverage Directory",
+        apiDocs: "API Documentation",
+        companyTitle: "Company",
+        about: "About Us",
+        blog: "Blog",
+        contact: "Contact",
+        legalTitle: "Legal",
+        privacy: "Privacy Policy",
+        terms: "Terms of Service",
+        security: "Security",
+        copyright: "2025 SMSPM. All rights reserved.",
+    },
+    et: {
+        description: "Globaalne SMS-sõnumite platvorm, mida usaldavad tuhanded ettevõtted üle maailma.",
+        productTitle: "Toode",
+        pricing: "Hinnad",
+        coverage: "Katvuse kataloog",
+        apiDocs: "API dokumentatsioon",
+        companyTitle: "Ettevõte",
+        about: "Meist",
+        blog: "Blogi",
+        contact: "Kontakt",
+        legalTitle: "Juriidiline",
+        privacy: "Privaatsuspoliitika",
+        terms: "Kasutustingimused",
+        security: "Turvalisus",
+        copyright: "2025 SMSPM. Kõik õigused kaitstud.",
+    },
+    ru: {
+        description: "Глобальная платформа SMS-сообщений, которой доверяют тысячи компаний по всему миру.",
+        productTitle: "Продукт",
+        pricing: "Цены",
+        coverage: "Справочник покрытия",
+        apiDocs: "Документация API",
+        companyTitle: "Компания",
+        about: "О нас",
+        blog: "Блог",
+        contact: "Контакты",
+        legalTitle: "Правовая информация",
+        privacy: "Политика конфиденциальности",
+        terms: "Условия использования",
+        security: "Безопасность",
+        copyright: "2025 SMSPM. Все права защищены.",
+    },
+    es: {
+        description: "Plataforma global de mensajería SMS de confianza para miles de empresas en todo el mundo.",
+        productTitle: "Producto",
+        pricing: "Precios",
+        coverage: "Directorio de Cobertura",
+        apiDocs: "Documentación API",
+        companyTitle: "Empresa",
+        about: "Acerca de",
+        blog: "Blog",
+        contact: "Contacto",
+        legalTitle: "Legal",
+        privacy: "Política de Privacidad",
+        terms: "Términos de Servicio",
+        security: "Seguridad",
+        copyright: "2025 SMSPM. Todos los derechos reservados.",
+    },
+    de: {
+        description: "Globale SMS-Messaging-Plattform, der Tausende von Unternehmen weltweit vertrauen.",
+        productTitle: "Produkt",
+        pricing: "Preise",
+        coverage: "Abdeckungsverzeichnis",
+        apiDocs: "API-Dokumentation",
+        companyTitle: "Unternehmen",
+        about: "Über uns",
+        blog: "Blog",
+        contact: "Kontakt",
+        legalTitle: "Rechtliches",
+        privacy: "Datenschutz",
+        terms: "Nutzungsbedingungen",
+        security: "Sicherheit",
+        copyright: "2025 SMSPM. Alle Rechte vorbehalten.",
+    },
+    fr: {
+        description: "Plateforme mondiale de messagerie SMS approuvée par des milliers d'entreprises dans le monde.",
+        productTitle: "Produit",
+        pricing: "Tarifs",
+        coverage: "Répertoire de Couverture",
+        apiDocs: "Documentation API",
+        companyTitle: "Entreprise",
+        about: "À propos",
+        blog: "Blog",
+        contact: "Contact",
+        legalTitle: "Légal",
+        privacy: "Politique de Confidentialité",
+        terms: "Conditions d'Utilisation",
+        security: "Sécurité",
+        copyright: "2025 SMSPM. Tous droits réservés.",
+    },
+    lv: {
+        description: "Globāla SMS ziņojumapmaiņas platforma, kurai uzticas tūkstošiem uzņēmumu visā pasaulē.",
+        productTitle: "Produkts",
+        pricing: "Cenas",
+        coverage: "Pārklājuma katalogs",
+        apiDocs: "API dokumentācija",
+        companyTitle: "Uzņēmums",
+        about: "Par mums",
+        blog: "Blogs",
+        contact: "Kontakti",
+        legalTitle: "Juridiskā informācija",
+        privacy: "Privātuma politika",
+        terms: "Lietošanas noteikumi",
+        security: "Drošība",
+        copyright: "2025 SMSPM. Visas tiesības aizsargātas.",
+    },
+    lt: {
+        description: "Pasaulinė SMS pranešimų platforma, kuria pasitiki tūkstančiai įmonių visame pasaulyje.",
+        productTitle: "Produktas",
+        pricing: "Kainos",
+        coverage: "Aprėpties katalogas",
+        apiDocs: "API dokumentacija",
+        companyTitle: "Įmonė",
+        about: "Apie mus",
+        blog: "Tinklaraštis",
+        contact: "Kontaktai",
+        legalTitle: "Teisinė informacija",
+        privacy: "Privatumo politika",
+        terms: "Naudojimo sąlygos",
+        security: "Saugumas",
+        copyright: "2025 SMSPM. Visos teisės saugomos.",
+    },
+};
+
+const t = translations[lang] || translations.en;
+
+// Generate localized links
+const pricingLink = getLocalizedPath("/pricing");
+const countriesLink = getLocalizedPath("/countries");
+const aboutLink = getLocalizedPath("/about");
+const privacyLink = getLocalizedPath("/privacy");
+const termsLink = getLocalizedPath("/terms");
+const securityLink = getLocalizedPath("/security");
+const docsLink = "https://app.smspm.com/docs";
+const supportLink = "https://smspm.freshdesk.com/support/tickets/new";
 ---
 
 <footer class="footer bg-gray-900 text-gray-400 py-16 pt-20">
@@ -18,8 +177,7 @@
                 <p
                     class="footer-description text-[15px] leading-relaxed mb-6 max-w-[300px]"
                 >
-                    Global SMS messaging platform trusted by thousands of
-                    businesses worldwide.
+                    {t.description}
                 </p>
                 <div class="social-links flex gap-4">
                     <a
@@ -61,28 +219,28 @@
                 <h4
                     class="footer-title text-white font-semibold mb-4 text-[15px]"
                 >
-                    Product
+                    {t.productTitle}
                 </h4>
                 <ul class="footer-links space-y-3 text-[14px]">
                     <li>
                         <a
-                            href="/pricing"
+                            href={pricingLink}
                             class="hover:text-cyan transition-colors duration-150 font-semibold text-cyan/90"
-                            >Pricing</a
+                            >{t.pricing}</a
                         >
                     </li>
                     <li>
                         <a
-                            href="/en/countries"
+                            href={countriesLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >Coverage Directory</a
+                            >{t.coverage}</a
                         >
                     </li>
                     <li>
                         <a
-                            href="https://app.smspm.com/docs"
+                            href={docsLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >API Documentation</a
+                            >{t.apiDocs}</a
                         >
                     </li>
                 </ul>
@@ -92,28 +250,28 @@
                 <h4
                     class="footer-title text-white font-semibold mb-4 text-[15px]"
                 >
-                    Company
+                    {t.companyTitle}
                 </h4>
                 <ul class="footer-links space-y-3 text-[14px]">
                     <li>
                         <a
-                            href="/about"
+                            href={aboutLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >About Us</a
+                            >{t.about}</a
                         >
                     </li>
                     <li>
                         <a
                             href="#blog"
                             class="hover:text-cyan transition-colors duration-150"
-                            >Blog</a
+                            >{t.blog}</a
                         >
                     </li>
                     <li>
                         <a
-                            href="https://smspm.freshdesk.com/support/tickets/new"
+                            href={supportLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >Contact</a
+                            >{t.contact}</a
                         >
                     </li>
                 </ul>
@@ -123,28 +281,28 @@
                 <h4
                     class="footer-title text-white font-semibold mb-4 text-[15px]"
                 >
-                    Legal
+                    {t.legalTitle}
                 </h4>
                 <ul class="footer-links space-y-3 text-[14px]">
                     <li>
                         <a
-                            href="/privacy"
+                            href={privacyLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >Privacy Policy</a
+                            >{t.privacy}</a
                         >
                     </li>
                     <li>
                         <a
-                            href="/terms"
+                            href={termsLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >Terms of Service</a
+                            >{t.terms}</a
                         >
                     </li>
                     <li>
                         <a
-                            href="/security"
+                            href={securityLink}
                             class="hover:text-cyan transition-colors duration-150"
-                            >Security</a
+                            >{t.security}</a
                         >
                     </li>
                 </ul>
@@ -154,7 +312,7 @@
         <div
             class="footer-bottom border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm"
         >
-            <p>&copy; 2025 SMSPM. All rights reserved.</p>
+            <p>&copy; {t.copyright}</p>
             <div class="footer-badges flex gap-4 mt-4 md:mt-0"></div>
         </div>
     </div>

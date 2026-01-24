@@ -1,8 +1,64 @@
 ---
+// Enable SSR for this page to detect language at request time
+export const prerender = false;
+
 import Layout from "../layouts/Layout.astro";
 import HomeContent from "../components/home/HomeContent.astro";
+import { getFinalLanguage, SUPPORTED_LANGUAGES } from "../utils/i18n/language-detector";
+
+// Detect user's preferred language
+const acceptLanguage = Astro.request.headers.get('accept-language');
+const cookieHeader = Astro.request.headers.get('cookie');
+const detectedLang = getFinalLanguage(acceptLanguage, cookieHeader);
+
+// Language-specific titles
+const titles: Record<string, string> = {
+  en: "SMSPM - Global SMS API & Bulk Messaging Platform",
+  et: "SMSPM - Globaalne SMS API ja mass-SMS platvorm",
+  ru: "SMSPM - Глобальный SMS API и платформа массовых рассылок",
+  es: "SMSPM - API de SMS global y plataforma de mensajería masiva",
+  de: "SMSPM - Globale SMS-API & Massen-Messaging-Plattform",
+  fr: "SMSPM - API SMS mondiale et plateforme de messagerie en masse",
+  lv: "SMSPM - Globāls SMS API un lielapjoma ziņapmaiņas platforma",
+  lt: "SMSPM - Visuotinis SMS API ir masinių pranešimų platforma",
+};
+
+const title = titles[detectedLang] || titles.en;
+const currentUrl = Astro.url.origin;
 ---
 
-<Layout title="SMSPM - Global SMS API & Bulk Messaging Platform">
-  <HomeContent lang="en" />
+<Layout 
+  title={title} 
+  lang={detectedLang}
+  alternateUrls={{
+    en: `${currentUrl}/en`,
+    et: `${currentUrl}/et`,
+    ru: `${currentUrl}/ru`,
+    es: `${currentUrl}/es`,
+    de: `${currentUrl}/de`,
+    fr: `${currentUrl}/fr`,
+    lv: `${currentUrl}/lv`,
+    lt: `${currentUrl}/lt`,
+  }}
+>
+  <HomeContent lang={detectedLang} />
 </Layout>
+
+<!-- Store language preference in localStorage when user explicitly navigates -->
+<script>
+  // Listen for language selection from language switcher
+  document.addEventListener('DOMContentLoaded', () => {
+    const langLinks = document.querySelectorAll('a[href^="/en"], a[href^="/et"], a[href^="/ru"], a[href^="/es"], a[href^="/de"], a[href^="/fr"], a[href^="/lv"], a[href^="/lt"]');
+    
+    langLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+        if (href) {
+          const lang = href.split('/')[1];
+          // Store preference for 1 year
+          document.cookie = `preferred-language=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+        }
+      });
+    });
+  });
+</script>

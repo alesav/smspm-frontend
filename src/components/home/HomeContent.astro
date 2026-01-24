@@ -69,6 +69,23 @@ const translations: Record<string, any> = {
         ctaStart: "Start Free Trial",
         ctaContact: "Contact Sales",
         ctaNote: "No credit card required · 14-day free trial · Cancel anytime",
+        // Floating cards
+        cardStatusSent: "Sent",
+        cardStatusDelivered: "Delivered",
+        cardMessage1: "Your order #12345 has been shipped!",
+        cardMessage2: "Your verification code is: 847392",
+        cardTimeJustNow: "Just now",
+        cardTime2Min: "2 min ago",
+        // Testimonials
+        testimonial1Text: "SMSPM has transformed how we communicate with our customers. The API is incredibly easy to use and the delivery rates are outstanding.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "CTO, TechStart Inc.",
+        testimonial2Text: "We switched from another provider and saw immediate improvements in delivery rates. The analytics dashboard is exactly what we needed.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Marketing Director, E-Shop",
+        testimonial3Text: "Global reach with local reliability. SMSPM handles all our international SMS needs with ease. Highly recommended!",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Founder, GlobalConnect",
     },
     et: {
         heroBadge: "Usaldatud 10 000+ ettevõtte poolt üle maailma",
@@ -130,6 +147,23 @@ const translations: Record<string, any> = {
         ctaContact: "Võta ühendust müügiga",
         ctaNote:
             "Krediitkaarti pole vaja · 14-päevane tasuta prooviperiood · Tühista igal ajal",
+        // Floating cards
+        cardStatusSent: "Saadetud",
+        cardStatusDelivered: "Kohale toimetatud",
+        cardMessage1: "Teie tellimus #12345 on saadetud!",
+        cardMessage2: "Teie kinnituskood on: 847392",
+        cardTimeJustNow: "Praegu",
+        cardTime2Min: "2 min tagasi",
+        // Testimonials
+        testimonial1Text: "SMSPM on muutnud viisi, kuidas me suhtleme oma klientidega. API on uskumatult lihtne kasutada ja kättetoimetamise määrad on suurepärased.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "Tehnoloogiajuht, TechStart Inc.",
+        testimonial2Text: "Vahetasime teiselt teenusepakkujalt ja nägime koheseid parandusi kättetoimetamise määrades. Analüütika armatuurlaud on täpselt see, mida me vajasime.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Turunduse direktor, E-Shop",
+        testimonial3Text: "Ülemaailmne katvus kohaliku usaldusväärsusega. SMSPM käsitleb kõiki meie rahvusvahelisi SMS-i vajadusi lihtsalt. Soovitan väga!",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Asutaja, GlobalConnect",
     },
     ru: {
         heroBadge: "Нам доверяют более 10 000 компаний по всему миру",
@@ -191,13 +225,415 @@ const translations: Record<string, any> = {
         ctaContact: "Связаться с отделом продаж",
         ctaNote:
             "Карта не требуется · 14 дней бесплатно · Отмена в любое время",
+        // Floating cards
+        cardStatusSent: "Отправлено",
+        cardStatusDelivered: "Доставлено",
+        cardMessage1: "Ваш заказ #12345 отправлен!",
+        cardMessage2: "Ваш код подтверждения: 847392",
+        cardTimeJustNow: "Только что",
+        cardTime2Min: "2 мин назад",
+        // Testimonials
+        testimonial1Text: "SMSPM изменил то, как мы общаемся с нашими клиентами. API невероятно прост в использовании, а показатели доставки превосходны.",
+        testimonial1Name: "Джон Дэвис",
+        testimonial1Title: "Технический директор, TechStart Inc.",
+        testimonial2Text: "Мы перешли от другого провайдера и сразу увидели улучшения в показателях доставки. Панель аналитики - именно то, что нам было нужно.",
+        testimonial2Name: "Сара Миллер",
+        testimonial2Title: "Директор по маркетингу, E-Shop",
+        testimonial3Text: "Глобальный охват с локальной надежностью. SMSPM легко справляется со всеми нашими международными SMS-потребностями. Настоятельно рекомендую!",
+        testimonial3Name: "Раджеш Кумар",
+        testimonial3Title: "Основатель, GlobalConnect",
+    },
+    es: {
+        heroBadge: "Confiado por más de 10,000 empresas en todo el mundo",
+        heroTitle: "Mensajería SMS Global",
+        heroTitleGradient: "Hecha Simple",
+        heroSubtitle:
+            "Envía mensajes SMS globalmente con una API potente. Alcanza clientes instantáneamente en más de 190 países con una tasa de entrega del 99.9%.",
+        getStartedFree: "Comenzar Gratis",
+        viewDemo: "Ver Demo",
+        statsDeliveryRate: "Tasa de Entrega",
+        statsCountries: "Países",
+        statsResponseTime: "Tiempo de Respuesta",
+        featuresBadge: "Características",
+        featuresTitle: "Todo lo que necesitas para el ",
+        featuresTitleGradient: "éxito de SMS",
+        featuresSubtitle:
+            "Funciones potentes para escalar tus operaciones de mensajería desde startup hasta empresa",
+        feature1Title: "API SMS Global",
+        feature1Desc:
+            "Envía SMS a más de 190 países con una sola API. El enrutamiento automático garantiza las mejores tasas de entrega en todo el mundo.",
+        feature2Title: "Mensajería Masiva",
+        feature2Desc:
+            "Envía millones de mensajes instantáneamente. Programación avanzada y segmentación para campañas dirigidas.",
+        feature3Title: "SMS Bidireccional",
+        feature3Desc:
+            "Habilita conversaciones con clientes. Recibe respuestas, gestiona bajas y administra interacciones sin problemas.",
+        feature4Title: "Análisis en Tiempo Real",
+        feature4Desc:
+            "Rastrea entrega, aperturas y participación. Obtén información procesable para optimizar tus campañas.",
+        feature5Title: "Integración Rápida",
+        feature5Desc:
+            "Comienza en minutos con nuestros SDK completos y documentación detallada.",
+        feature6Title: "Seguridad Empresarial",
+        feature6Desc:
+            "Encriptación a nivel bancario, cumplimiento GDPR e infraestructura certificada SOC 2.",
+        codeTitle: "Comienza a enviar SMS en ",
+        codeTitleGradient: "3 líneas de código",
+        codeSubtitle:
+            "API simple y potente que escala con tu negocio. Documentación completa y soporte SDK para todos los lenguajes principales.",
+        viewDocs: "Ver Documentación",
+        whyBadge: "Por Qué SMSPM",
+        whyTitle: "Confiado por empresas ",
+        whyTitleGradient: "en todo el mundo",
+        stat1Label: "Mensajes Entregados",
+        stat1Val: "10B+",
+        stat2Label: "Países Cubiertos",
+        stat2Val: "190+",
+        stat3Label: "SLA de Tiempo Activo",
+        stat3Val: "99.9%",
+        stat4Label: "Clientes Activos",
+        stat4Val: "10,000+",
+        testiBadge: "Testimonios",
+        testiTitle: "Lo que dicen nuestros ",
+        testiTitleGradient: "clientes",
+        ctaTitle: "¿Listo para comenzar?",
+        ctaSubtitle:
+            "Únete a más de 10,000 empresas que envían miles de millones de mensajes con SMSPM",
+        ctaStart: "Comenzar Prueba Gratuita",
+        ctaContact: "Contactar Ventas",
+        ctaNote: "No se requiere tarjeta de crédito · Prueba gratuita de 14 días · Cancela en cualquier momento",
+        // Floating cards
+        cardStatusSent: "Enviado",
+        cardStatusDelivered: "Entregado",
+        cardMessage1: "¡Tu pedido #12345 ha sido enviado!",
+        cardMessage2: "Tu código de verificación es: 847392",
+        cardTimeJustNow: "Justo ahora",
+        cardTime2Min: "Hace 2 min",
+        // Testimonials
+        testimonial1Text: "SMSPM ha transformado cómo nos comunicamos con nuestros clientes. La API es increíblemente fácil de usar y las tasas de entrega son excepcionales.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "CTO, TechStart Inc.",
+        testimonial2Text: "Cambiamos de otro proveedor y vimos mejoras inmediatas en las tasas de entrega. El panel de análisis es exactamente lo que necesitábamos.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Directora de Marketing, E-Shop",
+        testimonial3Text: "Alcance global con fiabilidad local. SMSPM maneja todas nuestras necesidades de SMS internacionales con facilidad. ¡Altamente recomendado!",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Fundador, GlobalConnect",
+    },
+    de: {
+        heroBadge: "Vertraut von über 10.000 Unternehmen weltweit",
+        heroTitle: "Globale SMS-Nachrichten",
+        heroTitleGradient: "Einfach gemacht",
+        heroSubtitle:
+            "Senden Sie SMS-Nachrichten weltweit mit leistungsstarker API. Erreichen Sie Kunden sofort in über 190 Ländern mit 99,9% Zustellrate.",
+        getStartedFree: "Kostenlos Starten",
+        viewDemo: "Demo Ansehen",
+        statsDeliveryRate: "Zustellrate",
+        statsCountries: "Länder",
+        statsResponseTime: "Antwortzeit",
+        featuresBadge: "Funktionen",
+        featuresTitle: "Alles was Sie brauchen für ",
+        featuresTitleGradient: "SMS-Erfolg",
+        featuresSubtitle:
+            "Leistungsstarke Funktionen zur Skalierung Ihrer Messaging-Operationen vom Startup bis zum Unternehmen",
+        feature1Title: "Globale SMS-API",
+        feature1Desc:
+            "Senden Sie SMS in über 190 Länder mit einer einzigen API. Automatisches Routing gewährleistet die besten Zustellraten weltweit.",
+        feature2Title: "Massen-Messaging",
+        feature2Desc:
+            "Senden Sie Millionen von Nachrichten sofort. Erweiterte Planung und Segmentierung für gezielte Kampagnen.",
+        feature3Title: "Bidirektionale SMS",
+        feature3Desc:
+            "Ermöglichen Sie Gespräche mit Kunden. Empfangen Sie Antworten, verwalten Sie Abmeldungen und verwalten Sie Interaktionen nahtlos.",
+        feature4Title: "Echtzeit-Analysen",
+        feature4Desc:
+            "Verfolgen Sie Zustellung, Öffnungen und Engagement. Erhalten Sie umsetzbare Einblicke zur Optimierung Ihrer Kampagnen.",
+        feature5Title: "Schnelle Integration",
+        feature5Desc:
+            "Starten Sie in Minuten mit unseren umfassenden SDKs und detaillierter Dokumentation.",
+        feature6Title: "Unternehmenssicherheit",
+        feature6Desc:
+            "Verschlüsselung auf Bankniveau, DSGVO-Konformität und SOC 2-zertifizierte Infrastruktur.",
+        codeTitle: "Beginnen Sie SMS zu senden in ",
+        codeTitleGradient: "3 Zeilen Code",
+        codeSubtitle:
+            "Einfache, leistungsstarke API, die mit Ihrem Unternehmen skaliert. Vollständige Dokumentation und SDK-Unterstützung für alle wichtigen Sprachen.",
+        viewDocs: "Dokumentation Ansehen",
+        whyBadge: "Warum SMSPM",
+        whyTitle: "Vertraut von Unternehmen ",
+        whyTitleGradient: "weltweit",
+        stat1Label: "Zugestellte Nachrichten",
+        stat1Val: "10Mrd+",
+        stat2Label: "Abgedeckte Länder",
+        stat2Val: "190+",
+        stat3Label: "Verfügbarkeits-SLA",
+        stat3Val: "99.9%",
+        stat4Label: "Aktive Kunden",
+        stat4Val: "10.000+",
+        testiBadge: "Testimonials",
+        testiTitle: "Was unsere ",
+        testiTitleGradient: "Kunden sagen",
+        ctaTitle: "Bereit anzufangen?",
+        ctaSubtitle:
+            "Schließen Sie sich über 10.000 Unternehmen an, die Milliarden von Nachrichten mit SMSPM senden",
+        ctaStart: "Kostenlose Testversion Starten",
+        ctaContact: "Vertrieb Kontaktieren",
+        ctaNote: "Keine Kreditkarte erforderlich · 14-tägige kostenlose Testversion · Jederzeit kündbar",
+        // Floating cards
+        cardStatusSent: "Gesendet",
+        cardStatusDelivered: "Zugestellt",
+        cardMessage1: "Ihre Bestellung #12345 wurde versendet!",
+        cardMessage2: "Ihr Verifizierungscode lautet: 847392",
+        cardTimeJustNow: "Gerade eben",
+        cardTime2Min: "Vor 2 Min",
+        // Testimonials
+        testimonial1Text: "SMSPM hat die Art und Weise verändert, wie wir mit unseren Kunden kommunizieren. Die API ist unglaublich einfach zu verwenden und die Zustellraten sind hervorragend.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "CTO, TechStart Inc.",
+        testimonial2Text: "Wir haben von einem anderen Anbieter gewechselt und sofortige Verbesserungen bei den Zustellraten gesehen. Das Analyse-Dashboard ist genau das, was wir brauchten.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Marketing-Direktorin, E-Shop",
+        testimonial3Text: "Globale Reichweite mit lokaler Zuverlässigkeit. SMSPM erfüllt alle unsere internationalen SMS-Anforderungen mit Leichtigkeit. Sehr empfehlenswert!",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Gründer, GlobalConnect",
+    },
+    fr: {
+        heroBadge: "Approuvé par plus de 10 000 entreprises dans le monde",
+        heroTitle: "Messagerie SMS Mondiale",
+        heroTitleGradient: "Rendue Simple",
+        heroSubtitle:
+            "Envoyez des messages SMS dans le monde entier avec une API puissante. Atteignez les clients instantanément dans plus de 190 pays avec un taux de livraison de 99,9%.",
+        getStartedFree: "Commencer Gratuitement",
+        viewDemo: "Voir la Démo",
+        statsDeliveryRate: "Taux de Livraison",
+        statsCountries: "Pays",
+        statsResponseTime: "Temps de Réponse",
+        featuresBadge: "Fonctionnalités",
+        featuresTitle: "Tout ce dont vous avez besoin pour le ",
+        featuresTitleGradient: "succès SMS",
+        featuresSubtitle:
+            "Des fonctionnalités puissantes pour faire évoluer vos opérations de messagerie de la startup à l'entreprise",
+        feature1Title: "API SMS Mondiale",
+        feature1Desc:
+            "Envoyez des SMS dans plus de 190 pays avec une seule API. Le routage automatique garantit les meilleurs taux de livraison dans le monde entier.",
+        feature2Title: "Messagerie en Masse",
+        feature2Desc:
+            "Envoyez des millions de messages instantanément. Planification avancée et segmentation pour des campagnes ciblées.",
+        feature3Title: "SMS Bidirectionnel",
+        feature3Desc:
+            "Activez les conversations avec les clients. Recevez des réponses, gérez les désinscriptions et gérez les interactions de manière transparente.",
+        feature4Title: "Analyses en Temps Réel",
+        feature4Desc:
+            "Suivez la livraison, les ouvertures et l'engagement. Obtenez des informations exploitables pour optimiser vos campagnes.",
+        feature5Title: "Intégration Rapide",
+        feature5Desc:
+            "Commencez en quelques minutes avec nos SDK complets et notre documentation détaillée.",
+        feature6Title: "Sécurité d'Entreprise",
+        feature6Desc:
+            "Cryptage de niveau bancaire, conformité RGPD et infrastructure certifiée SOC 2.",
+        codeTitle: "Commencez à envoyer des SMS en ",
+        codeTitleGradient: "3 lignes de code",
+        codeSubtitle:
+            "API simple et puissante qui évolue avec votre entreprise. Documentation complète et support SDK pour tous les langages principaux.",
+        viewDocs: "Voir la Documentation",
+        whyBadge: "Pourquoi SMSPM",
+        whyTitle: "Approuvé par des entreprises ",
+        whyTitleGradient: "dans le monde entier",
+        stat1Label: "Messages Livrés",
+        stat1Val: "10Mrd+",
+        stat2Label: "Pays Couverts",
+        stat2Val: "190+",
+        stat3Label: "SLA de Disponibilité",
+        stat3Val: "99.9%",
+        stat4Label: "Clients Actifs",
+        stat4Val: "10 000+",
+        testiBadge: "Témoignages",
+        testiTitle: "Ce que disent nos ",
+        testiTitleGradient: "clients",
+        ctaTitle: "Prêt à commencer ?",
+        ctaSubtitle:
+            "Rejoignez plus de 10 000 entreprises qui envoient des milliards de messages avec SMSPM",
+        ctaStart: "Commencer l'Essai Gratuit",
+        ctaContact: "Contacter les Ventes",
+        ctaNote: "Aucune carte de crédit requise · Essai gratuit de 14 jours · Annulez à tout moment",
+        // Floating cards
+        cardStatusSent: "Envoyé",
+        cardStatusDelivered: "Livré",
+        cardMessage1: "Votre commande #12345 a été expédiée !",
+        cardMessage2: "Votre code de vérification est : 847392",
+        cardTimeJustNow: "À l'instant",
+        cardTime2Min: "Il y a 2 min",
+        // Testimonials
+        testimonial1Text: "SMSPM a transformé notre façon de communiquer avec nos clients. L'API est incroyablement facile à utiliser et les taux de livraison sont exceptionnels.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "CTO, TechStart Inc.",
+        testimonial2Text: "Nous avons changé de fournisseur et avons vu des améliorations immédiates des taux de livraison. Le tableau de bord d'analyse est exactement ce dont nous avions besoin.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Directrice Marketing, E-Shop",
+        testimonial3Text: "Portée mondiale avec fiabilité locale. SMSPM gère tous nos besoins SMS internationaux avec facilité. Hautement recommandé !",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Fondateur, GlobalConnect",
+    },
+    lv: {
+        heroBadge: "Uzticas vairāk nekā 10 000 uzņēmumu visā pasaulē",
+        heroTitle: "Globāls SMS Ziņojumapmaiņa",
+        heroTitleGradient: "Vienkārši Izveidots",
+        heroSubtitle:
+            "Sūtiet SMS ziņas globāli ar jaudīgu API. Sasniedziet klientus nekavējoties vairāk nekā 190 valstīs ar 99,9% piegādes rādītāju.",
+        getStartedFree: "Sākt Bezmaksas",
+        viewDemo: "Skatīt Demo",
+        statsDeliveryRate: "Piegādes Rādītājs",
+        statsCountries: "Valstis",
+        statsResponseTime: "Atbildes Laiks",
+        featuresBadge: "Funkcijas",
+        featuresTitle: "Viss, kas nepieciešams ",
+        featuresTitleGradient: "SMS panākumiem",
+        featuresSubtitle:
+            "Jaudīgas funkcijas, lai mērogotu ziņojumapmaiņas operācijas no jaunuzņēmuma līdz uzņēmumam",
+        feature1Title: "Globāls SMS API",
+        feature1Desc:
+            "Sūtiet SMS vairāk nekā 190 valstīs ar vienu API. Automātiskā maršrutēšana nodrošina labākos piegādes rādītājus visā pasaulē.",
+        feature2Title: "Masveida Ziņojumi",
+        feature2Desc:
+            "Sūtiet miljoniem ziņojumu nekavējoties. Uzlabota plānošana un segmentācija mērķētām kampaņām.",
+        feature3Title: "Divvirzienu SMS",
+        feature3Desc:
+            "Iespējojiet sarunas ar klientiem. Saņemiet atbildes, pārvaldiet atteikšanos un pārvaldiet mijiedarbību bez problēmām.",
+        feature4Title: "Reāllaika Analītika",
+        feature4Desc:
+            "Izsekojiet piegādi, atvēršanas un iesaisti. Iegūstiet praktisku informāciju, lai optimizētu kampaņas.",
+        feature5Title: "Ātra Integrācija",
+        feature5Desc:
+            "Sāciet dažu minūšu laikā ar mūsu visaptverošajiem SDK un detalizēto dokumentāciju.",
+        feature6Title: "Uzņēmuma Drošība",
+        feature6Desc:
+            "Banku līmeņa šifrēšana, VDAR atbilstība un SOC 2 sertificēta infrastruktūra.",
+        codeTitle: "Sāciet sūtīt SMS ar ",
+        codeTitleGradient: "3 koda rindām",
+        codeSubtitle:
+            "Vienkāršs, jaudīgs API, kas aug kopā ar jūsu biznesu. Pilnīga dokumentācija un SDK atbalsts visām galvenajām valodām.",
+        viewDocs: "Skatīt Dokumentāciju",
+        whyBadge: "Kāpēc SMSPM",
+        whyTitle: "Uzticas uzņēmumi ",
+        whyTitleGradient: "visā pasaulē",
+        stat1Label: "Piegādātas Ziņas",
+        stat1Val: "10Mljrd+",
+        stat2Label: "Aptvertās Valstis",
+        stat2Val: "190+",
+        stat3Label: "Darbības Laiks SLA",
+        stat3Val: "99.9%",
+        stat4Label: "Aktīvi Klienti",
+        stat4Val: "10 000+",
+        testiBadge: "Atsauksmes",
+        testiTitle: "Ko saka mūsu ",
+        testiTitleGradient: "klienti",
+        ctaTitle: "Gatavs sākt?",
+        ctaSubtitle:
+            "Pievienojieties vairāk nekā 10 000 uzņēmumiem, kas sūta miljardiem ziņojumu ar SMSPM",
+        ctaStart: "Sākt Bezmaksas Izmēģinājumu",
+        ctaContact: "Sazināties ar Pārdošanu",
+        ctaNote: "Nav nepieciešama kredītkarte · 14 dienu bezmaksas izmēģinājums · Atceliet jebkurā laikā",
+        // Floating cards
+        cardStatusSent: "Nosūtīts",
+        cardStatusDelivered: "Piegādāts",
+        cardMessage1: "Jūsu pasūtījums #12345 ir nosūtīts!",
+        cardMessage2: "Jūsu verifikācijas kods ir: 847392",
+        cardTimeJustNow: "Tikko",
+        cardTime2Min: "Pirms 2 min",
+        // Testimonials
+        testimonial1Text: "SMSPM ir pārveidojis, kā mēs sazināmies ar saviem klientiem. API ir neticami viegli lietojams, un piegādes rādītāji ir izcili.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "Tehnoloģiju direktors, TechStart Inc.",
+        testimonial2Text: "Mēs pārslēdzāmies no cita pakalpojumu sniedzēja un nekavējoties redzējām uzlabojumus piegādes rādītājos. Analītikas panelis ir tieši tas, kas mums bija nepieciešams.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Mārketinga direktore, E-Shop",
+        testimonial3Text: "Globāls pārklājums ar vietējo uzticamību. SMSPM viegli pārvalda visas mūsu starptautiskās SMS vajadzības. Ļoti ieteicams!",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Dibinātājs, GlobalConnect",
+    },
+    lt: {
+        heroBadge: "Pasitiki daugiau nei 10 000 įmonių visame pasaulyje",
+        heroTitle: "Pasauliniai SMS Pranešimai",
+        heroTitleGradient: "Padaryta Paprasta",
+        heroSubtitle:
+            "Siųskite SMS pranešimus visame pasaulyje su galingomis API. Pasiekite klientus akimirksniu daugiau nei 190 šalių su 99,9% pristatymo rodikliu.",
+        getStartedFree: "Pradėti Nemokamai",
+        viewDemo: "Žiūrėti Demo",
+        statsDeliveryRate: "Pristatymo Rodiklis",
+        statsCountries: "Šalys",
+        statsResponseTime: "Atsakymo Laikas",
+        featuresBadge: "Funkcijos",
+        featuresTitle: "Viskas, ko reikia ",
+        featuresTitleGradient: "SMS sėkmei",
+        featuresSubtitle:
+            "Galingos funkcijos, skirtos išplėsti pranešimų operacijas nuo startuolio iki įmonės",
+        feature1Title: "Pasaulinis SMS API",
+        feature1Desc:
+            "Siųskite SMS į daugiau nei 190 šalių su vienu API. Automatinis maršrutizavimas užtikrina geriausius pristatymo rodiklius visame pasaulyje.",
+        feature2Title: "Masinis Pranešimas",
+        feature2Desc:
+            "Siųskite milijonus pranešimų akimirksniu. Išplėstinis planavimas ir segmentavimas tiksliniams kampanijoms.",
+        feature3Title: "Dvikryptis SMS",
+        feature3Desc:
+            "Įgalinkite pokalbius su klientais. Gaukite atsakymus, tvarkykite atsisakymus ir valdykite sąveikas sklandžiai.",
+        feature4Title: "Realiojo Laiko Analitika",
+        feature4Desc:
+            "Stebėkite pristatymą, atidarymą ir įsitraukimą. Gaukite veiksmingų įžvalgų kampanijoms optimizuoti.",
+        feature5Title: "Greita Integracija",
+        feature5Desc:
+            "Pradėkite per kelias minutes su mūsų išsamiais SDK ir išsamia dokumentacija.",
+        feature6Title: "Įmonės Saugumas",
+        feature6Desc:
+            "Banko lygio šifravimas, BDAR atitiktis ir SOC 2 sertifikuota infrastruktūra.",
+        codeTitle: "Pradėkite siųsti SMS su ",
+        codeTitleGradient: "3 kodo eilutėmis",
+        codeSubtitle:
+            "Paprastas, galingas API, kuris auga kartu su jūsų verslu. Visa dokumentacija ir SDK palaikymas visoms pagrindinėms kalboms.",
+        viewDocs: "Žiūrėti Dokumentaciją",
+        whyBadge: "Kodėl SMSPM",
+        whyTitle: "Pasitiki įmonės ",
+        whyTitleGradient: "visame pasaulyje",
+        stat1Label: "Pristatyta Pranešimų",
+        stat1Val: "10mlrd+",
+        stat2Label: "Apimtos Šalys",
+        stat2Val: "190+",
+        stat3Label: "Veikimo Laikas SLA",
+        stat3Val: "99.9%",
+        stat4Label: "Aktyvūs Klientai",
+        stat4Val: "10 000+",
+        testiBadge: "Atsiliepimai",
+        testiTitle: "Ką sako mūsų ",
+        testiTitleGradient: "klientai",
+        ctaTitle: "Pasiruošę pradėti?",
+        ctaSubtitle:
+            "Prisijunkite prie daugiau nei 10 000 įmonių, siunčiančių milijardus pranešimų su SMSPM",
+        ctaStart: "Pradėti Nemokamą Bandomąjį",
+        ctaContact: "Susisiekti su Pardavimais",
+        ctaNote: "Nereikia kredito kortelės · 14 dienų nemokamas bandomasis · Atšaukite bet kada",
+        // Floating cards
+        cardStatusSent: "Išsiųsta",
+        cardStatusDelivered: "Pristatyta",
+        cardMessage1: "Jūsų užsakymas #12345 buvo išsiųstas!",
+        cardMessage2: "Jūsų patvirtinimo kodas yra: 847392",
+        cardTimeJustNow: "Ką tik",
+        cardTime2Min: "Prieš 2 min",
+        // Testimonials
+        testimonial1Text: "SMSPM pakeitė, kaip mes bendraujame su savo klientais. API yra neįtikėtinai lengva naudoti, o pristatymo rodikliai yra puikūs.",
+        testimonial1Name: "John Davis",
+        testimonial1Title: "Technologijų direktorius, TechStart Inc.",
+        testimonial2Text: "Perjungėme iš kito paslaugų teikėjo ir iš karto pamatėme pristatymo rodiklių pagerinimus. Analitikos skydelis yra tiksliai tai, ko mums reikėjo.",
+        testimonial2Name: "Sarah Miller",
+        testimonial2Title: "Rinkodaros direktorė, E-Shop",
+        testimonial3Text: "Pasaulinis pasiekiamumas su vietiniu patikimumu. SMSPM lengvai tvarko visus mūsų tarptautinius SMS poreikius. Labai rekomenduojama!",
+        testimonial3Name: "Rajesh Kumar",
+        testimonial3Title: "Įkūrėjas, GlobalConnect",
     },
 };
 
 const t = translations[lang] || translations.en;
 ---
 
-<Navigation />
+<Navigation lang={lang} />
 
 <!-- Hero Section -->
 <section class="hero relative pt-[140px] pb-20 overflow-hidden">
@@ -309,17 +745,17 @@ const t = translations[lang] || translations.en;
                         <span class="card-icon text-2xl">📱</span>
                         <span
                             class="card-status px-3 py-1 bg-cyan/10 text-cyan rounded-lg text-xs font-semibold"
-                            >Sent</span
+                            >{t.cardStatusSent}</span
                         >
                     </div>
                     <div class="card-content">
                         <p
                             class="card-message text-[15px] text-dynamic-secondary mb-2"
                         >
-                            Your order #12345 has been shipped!
+                            {t.cardMessage1}
                         </p>
                         <span class="card-time text-xs text-dynamic-tertiary"
-                            >Just now</span
+                            >{t.cardTimeJustNow}</span
                         >
                     </div>
                 </div>
@@ -333,17 +769,17 @@ const t = translations[lang] || translations.en;
                         <span class="card-icon text-2xl">✅</span>
                         <span
                             class="card-status delivered px-3 py-1 bg-green-500/10 text-green-500 rounded-lg text-xs font-semibold"
-                            >Delivered</span
+                            >{t.cardStatusDelivered}</span
                         >
                     </div>
                     <div class="card-content">
                         <p
                             class="card-message text-[15px] text-dynamic-secondary mb-2"
                         >
-                            Your verification code is: 847392
+                            {t.cardMessage2}
                         </p>
                         <span class="card-time text-xs text-dynamic-tertiary"
-                            >2 min ago</span
+                            >{t.cardTime2Min}</span
                         >
                     </div>
                 </div>
@@ -464,7 +900,7 @@ const t = translations[lang] || translations.en;
 <section class="code-section py-16 lg:py-24 bg-dynamic-secondary">
     <div class="container mx-auto px-8">
         <div
-            class="code-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            class="code-layout grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
             <div class="code-text">
                 <h2
@@ -481,18 +917,106 @@ const t = translations[lang] || translations.en;
                 >
             </div>
             <div
-                class="code-example rounded-2xl overflow-hidden shadow-2xl border border-dynamic-primary bg-dynamic-primary p-6"
+                class="code-example rounded-2xl overflow-hidden shadow-2xl border border-dynamic-primary bg-dynamic-primary"
             >
-                <pre><code class="language-javascript text-dynamic-secondary font-mono text-sm leading-loose">import SMSPM from 'smspm-sdk';
+                <!-- Code Language Tabs -->
+                <div class="code-header flex justify-between items-center px-6 py-4 bg-dynamic-secondary border-b border-dynamic-primary">
+                    <div class="code-tabs flex gap-2">
+                        <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 active bg-dynamic-tertiary text-dynamic-primary" data-lang="javascript">JavaScript</button>
+                        <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary" data-lang="python">Python</button>
+                        <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary" data-lang="php">PHP</button>
+                        <button class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary" data-lang="curl">cURL</button>
+                    </div>
+                    <button class="code-copy flex items-center gap-2 px-4 py-2 border border-dynamic-primary text-dynamic-tertiary text-sm rounded-lg cursor-pointer transition-all duration-150 hover:border-cyan hover:text-cyan">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                            <rect x="7" y="7" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"></rect>
+                            <path d="M4 13H3C2.44772 13 2 12.5523 2 12V3C2 2.44772 2.44772 2 3 2H12C12.5523 2 13 2.44772 13 3V4" stroke="currentColor" stroke-width="1.5"></path>
+                        </svg>
+                        Copy
+                    </button>
+                </div>
 
-const client = new SMSPM(&#123;
-  apiKey: 'your_api_key_here'
+                <!-- Code Content Container -->
+                <div class="code-body p-6">
+                    <!-- JavaScript Code -->
+                    <div class="code-content" data-lang="javascript">
+                        <pre><code class="language-javascript text-dynamic-secondary font-mono text-sm leading-loose">// POST Request
+const response = await fetch('https://api.smspm.com', &#123;
+  method: 'POST',
+  headers: &#123;
+    'Content-Type': 'application/json'
+  &#125;,
+  body: JSON.stringify(&#123;
+    hash: 'e3dbe013-6f66-4fae-8ae2-96c364cb6b61',
+    toNumber: '37256789045',
+    text: 'Hello from SMSPM',
+    fromNumber: 'smspm.com',
+    token: 'YOUR_API_TOKEN'
+  &#125;)
 &#125;);
 
-await client.messages.send(&#123;
-  to: '+1234567890',
-  text: 'Hello from SMSPM! 🚀'
-&#125;);</code></pre>
+const result = await response.json();</code></pre>
+                    </div>
+
+                    <!-- Python Code -->
+                    <div class="code-content hidden" data-lang="python">
+                        <pre><code class="language-python text-dynamic-secondary font-mono text-sm leading-loose">import requests
+
+# POST Request
+response = requests.post('https://api.smspm.com', 
+    json=&#123;
+        'hash': 'e3dbe013-6f66-4fae-8ae2-96c364cb6b61',
+        'toNumber': '37256789045',
+        'text': 'Hello from SMSPM',
+        'fromNumber': 'smspm.com',
+        'token': 'YOUR_API_TOKEN'
+    &#125;
+)
+
+result = response.json()</code></pre>
+                    </div>
+
+                    <!-- PHP Code -->
+                    <div class="code-content hidden" data-lang="php">
+                        <pre><code class="language-php text-dynamic-secondary font-mono text-sm leading-loose">&lt;?php
+// POST Request
+$data = [
+    'hash' => 'e3dbe013-6f66-4fae-8ae2-96c364cb6b61',
+    'toNumber' => '37256789045',
+    'text' => 'Hello from SMSPM',
+    'fromNumber' => 'smspm.com',
+    'token' => 'YOUR_API_TOKEN'
+];
+
+$ch = curl_init('https://api.smspm.com');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json'
+]);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$result = curl_exec($ch);
+$response = json_decode($result, true);</code></pre>
+                    </div>
+
+                    <!-- cURL Code -->
+                    <div class="code-content hidden" data-lang="curl">
+                        <pre><code class="language-bash text-dynamic-secondary font-mono text-sm leading-loose"># POST Request
+curl -X POST https://api.smspm.com \
+  -H "Content-Type: application/json" \
+  -d '&#123;
+    "hash": "e3dbe013-6f66-4fae-8ae2-96c364cb6b61",
+    "toNumber": "37256789045",
+    "text": "Hello from SMSPM",
+    "fromNumber": "smspm.com",
+    "token": "YOUR_API_TOKEN"
+  &#125;'
+
+# GET Request (alternative)
+curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber=37256789045&text=Hello+from+SMSPM&fromNumber=smspm.com&token=YOUR_API_TOKEN"</code></pre>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -561,7 +1085,43 @@ await client.messages.send(&#123;
                 <span class="gradient-text">{t.testiTitleGradient}</span>
             </h2>
         </div>
-        <!-- Testimonial cards here... shortened for token limit -->
+        <!-- Testimonial cards here... -->
+         <div class="testimonials-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="testimonial-card p-8 bg-dynamic-primary border-dynamic-primary rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="testimonial-stars text-xl mb-6">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text text-dynamic-secondary leading-relaxed mb-8">"{t.testimonial1Text}"</p>
+          <div class="testimonial-author flex items-center gap-4">
+            <div class="author-avatar w-12 h-12 rounded-full bg-gradient-1 flex items-center justify-center text-white font-bold text-lg">JD</div>
+            <div class="author-info">
+              <div class="author-name font-semibold text-dynamic-primary">{t.testimonial1Name}</div>
+              <div class="author-title text-sm text-dynamic-tertiary">{t.testimonial1Title}</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card p-8 bg-dynamic-primary border-dynamic-primary rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="testimonial-stars text-xl mb-6">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text text-dynamic-secondary leading-relaxed mb-8">"{t.testimonial2Text}"</p>
+          <div class="testimonial-author flex items-center gap-4">
+            <div class="author-avatar w-12 h-12 rounded-full bg-gradient-2 flex items-center justify-center text-white font-bold text-lg">SM</div>
+            <div class="author-info">
+              <div class="author-name font-semibold text-dynamic-primary">{t.testimonial2Name}</div>
+              <div class="author-title text-sm text-dynamic-tertiary">{t.testimonial2Title}</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card p-8 bg-dynamic-primary border-dynamic-primary rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div class="testimonial-stars text-xl mb-6">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text text-dynamic-secondary leading-relaxed mb-8">"{t.testimonial3Text}"</p>
+          <div class="testimonial-author flex items-center gap-4">
+            <div class="author-avatar w-12 h-12 rounded-full bg-gradient-3 flex items-center justify-center text-white font-bold text-lg">RK</div>
+            <div class="author-info">
+              <div class="author-name font-semibold text-dynamic-primary">{t.testimonial3Name}</div>
+              <div class="author-title text-sm text-dynamic-tertiary">{t.testimonial3Title}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     </div>
 </section>
 
@@ -593,7 +1153,7 @@ await client.messages.send(&#123;
     </div>
 </section>
 
-<Footer />
+<Footer lang={lang} />
 
 <style>
     .gradient-text {
@@ -620,3 +1180,74 @@ await client.messages.send(&#123;
         }
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Code tab functionality for home page - wait a bit for full DOM
+        setTimeout(() => {
+            const homeCodeSection = document.querySelector('.code-section');
+            
+            if (homeCodeSection) {
+                const codeTabs = homeCodeSection.querySelectorAll('.code-tab') as NodeListOf<HTMLButtonElement>;
+                const codeContents = homeCodeSection.querySelectorAll('.code-content') as NodeListOf<HTMLElement>;
+                const copyBtn = homeCodeSection.querySelector('.code-copy') as HTMLButtonElement | null;
+
+                function switchTab(targetLang: string): void {
+                    // Update tab styles
+                    codeTabs.forEach((tab: HTMLButtonElement) => {
+                        if (tab.dataset.lang === targetLang) {
+                            tab.classList.add('active', 'bg-dynamic-tertiary', 'text-dynamic-primary');
+                            tab.classList.remove('text-dynamic-tertiary');
+                        } else {
+                            tab.classList.remove('active', 'bg-dynamic-tertiary', 'text-dynamic-primary');
+                            tab.classList.add('text-dynamic-tertiary');
+                        }
+                    });
+
+                    // Update content visibility
+                    codeContents.forEach((content: HTMLElement) => {
+                        if (content.dataset.lang === targetLang) {
+                            content.style.display = 'block';
+                            content.classList.remove('hidden');
+                        } else {
+                            content.style.display = 'none';
+                            content.classList.add('hidden');
+                        }
+                    });
+                }
+
+                // Add click handlers to tabs
+                codeTabs.forEach((tab: HTMLButtonElement) => {
+                    tab.addEventListener('click', (e: Event) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const targetLang = tab.dataset.lang;
+                        if (targetLang) {
+                            switchTab(targetLang);
+                        }
+                    });
+                });
+
+                // Copy functionality
+                if (copyBtn) {
+                    copyBtn.addEventListener('click', () => {
+                        const activeContent = homeCodeSection.querySelector('.code-content:not(.hidden)') as HTMLElement | null;
+                        if (activeContent) {
+                            const codeElement = activeContent.querySelector('code') as HTMLElement | null;
+                            if (codeElement) {
+                                const codeText = codeElement.textContent || '';
+                                navigator.clipboard.writeText(codeText).then(() => {
+                                    const originalText = copyBtn.innerHTML;
+                                    copyBtn.innerHTML = copyBtn.innerHTML.replace('Copy', 'Copied!');
+                                    setTimeout(() => {
+                                        copyBtn.innerHTML = originalText;
+                                    }, 2000);
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+        }, 100);
+    });
+</script>

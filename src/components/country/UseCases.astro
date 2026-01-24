@@ -3,9 +3,84 @@ import type { CountryData } from "../../utils/kv-pricing";
 
 export interface Props {
   country: CountryData;
+  lang?: string;
 }
 
-const { country } = Astro.props;
+const { country, lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
+const translations = {
+  en: {
+    badge: "Use Cases",
+    title: "Popular Use Cases in",
+    subtitle: "How businesses use SMS to",
+    connectWithCustomers: "connect with customers",
+    in: "in",
+    startBuilding: "Start Building Your SMS Campaign",
+  },
+  et: {
+    badge: "Kasutusjuhud",
+    title: "Populaarsed kasutusjuhud riigis",
+    subtitle: "Kuidas ettevõtted kasutavad SMS-e",
+    connectWithCustomers: "klientidega suhtlemiseks",
+    in: "riigis",
+    startBuilding: "Alusta oma SMS-kampaania loomist",
+  },
+  ru: {
+    badge: "Варианты использования",
+    title: "Популярные варианты использования в",
+    subtitle: "Как компании используют SMS для",
+    connectWithCustomers: "связи с клиентами",
+    in: "в",
+    startBuilding: "Начните создавать свою SMS-кампанию",
+  },
+  es: {
+    badge: "Casos de Uso",
+    title: "Casos de Uso Populares en",
+    subtitle: "Cómo las empresas usan SMS para",
+    connectWithCustomers: "conectar con clientes",
+    in: "en",
+    startBuilding: "Comienza a Crear tu Campaña SMS",
+  },
+  de: {
+    badge: "Anwendungsfälle",
+    title: "Beliebte Anwendungsfälle in",
+    subtitle: "Wie Unternehmen SMS nutzen, um",
+    connectWithCustomers: "mit Kunden zu kommunizieren",
+    in: "in",
+    startBuilding: "Starten Sie Ihre SMS-Kampagne",
+  },
+  fr: {
+    badge: "Cas d'Usage",
+    title: "Cas d'Usage Populaires en",
+    subtitle: "Comment les entreprises utilisent les SMS pour",
+    connectWithCustomers: "se connecter avec les clients",
+    in: "en",
+    startBuilding: "Commencez à Créer votre Campagne SMS",
+  },
+  lv: {
+    badge: "Lietošanas gadījumi",
+    title: "Populāri lietošanas gadījumi",
+    subtitle: "Kā uzņēmumi izmanto SMS, lai",
+    connectWithCustomers: "sazinātos ar klientiem",
+    in: "valstī",
+    startBuilding: "Sāciet veidot savu SMS kampaņu",
+  },
+  lt: {
+    badge: "Naudojimo atvejai",
+    title: "Populiarūs naudojimo atvejai",
+    subtitle: "Kaip įmonės naudoja SMS, kad",
+    connectWithCustomers: "bendrauti su klientais",
+    in: "šalyje",
+    startBuilding: "Pradėkite kurti savo SMS kampaniją",
+  },
+};
+
+const t = translations[lang] || translations.en;
 ---
 
 <!-- Use Cases Section -->
@@ -14,15 +89,15 @@ const { country } = Astro.props;
     <div class="text-center mb-16">
       <span
         class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
-        >Use Cases</span
+        >{t.badge}</span
       >
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        Popular Use Cases in <span class="gradient-text">{country.name}</span>
+        {t.title} <span class="gradient-text">{country.name}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        How businesses use SMS to <span class="gradient-text"
-          >connect with customers</span
-        > in {country.name}
+        {t.subtitle} <span class="gradient-text"
+          >{t.connectWithCustomers}</span
+        > {t.in} {country.name}
       </p>
     </div>
 
@@ -68,7 +143,7 @@ const { country } = Astro.props;
         href="https://app.smspm.com/app/register"
         class="btn btn-primary btn-large"
       >
-        Start Building Your SMS Campaign
+        {t.startBuilding}
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path
             d="M7 3L15 10L7 17"
@@ -81,3 +156,12 @@ const { country } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #0d47a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

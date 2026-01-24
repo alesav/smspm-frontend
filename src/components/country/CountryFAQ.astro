@@ -3,9 +3,205 @@ import type { CountryData } from "../../utils/kv-pricing";
 
 export interface Props {
     country: CountryData;
+    lang?: string;
 }
 
-const { country } = Astro.props;
+const { country, lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
+const translations = {
+  en: {
+    badge: "FAQ",
+    title: "Frequently Asked",
+    titleGradient: "Questions",
+    subtitle: "Everything you need to know about sending SMS to",
+    q1: "How much does it cost to send an SMS to",
+    a1Start: "Pricing for sending SMS to",
+    a1Mid: "starts as low as",
+    a1End: "per message. The final price depends on the volume and the specific network you are sending to.",
+    q2: "Which mobile networks are supported in",
+    a2Start: "SMSPM supports all major mobile networks in",
+    a2Mid: "including",
+    a2AndOthers: "and others",
+    a2End: "We use direct carrier connections to ensure the highest possible delivery rates.",
+    q3: "Are there any specific SMS regulations in",
+    a3Part1: "has specific regulations regarding sender IDs, message content, and opt-out requirements. You can find more details in our Regulatory section above, but generally, we recommend avoiding promotional messages during night hours and ensuring all recipients have explicitly opted in.",
+    q4: "Is Alphanumeric Sender ID supported for",
+    a4Part1: "Support for Alphanumeric Sender IDs varies by country and provider. In",
+    a4Part2: "it is generally supported for transactional messages, but some networks may require pre-registration. Please contact our support team for specific requirements for your use case.",
+    q5: "How fast is the SMS delivery to",
+    a5Part1: "Messages are typically delivered within 5-10 seconds. Our high-throughput infrastructure and direct routing to",
+    a5Part2: "ensure minimal latency even during peak hours.",
+  },
+  et: {
+    badge: "KKK",
+    title: "Korduma kippuvad",
+    titleGradient: "küsimused",
+    subtitle: "Kõik, mida peate teadma SMS-ide saatmisest riiki",
+    q1: "Kui palju maksab SMS saatmine riiki",
+    a1Start: "Hinnad SMS-ide saatmiseks riiki",
+    a1Mid: "algavad juba",
+    a1End: "sõnumi kohta. Lõplik hind sõltub mahust ja konkreetsest võrgust, kuhu saadate.",
+    q2: "Milliseid mobiilsidevõrke toetatakse riigis",
+    a2Start: "SMSPM toetab kõiki peamisi mobiilsidevõrke riigis",
+    a2Mid: "sealhulgas",
+    a2AndOthers: "ja teised",
+    a2End: "Kasutame otseseid operaatoriühendusi, et tagada kõrgeim võimalik kohaletoimetamise määr.",
+    q3: "Kas riigis on SMS-ide regulatsioone",
+    a3Part1: "on konkreetsed regulatsioonid saatja ID-de, sõnumi sisu ja loobumise nõuete osas. Lisateavet leiate ülaltoodud regulatsioonide jaotisest, kuid üldiselt soovitame vältida reklaamsõnumite saatmist öötundidel ja tagada, et kõik saajad on selgesõnaliselt nõusoleku andnud.",
+    q4: "Kas alfanumeraarset saatja ID-d toetatakse riigis",
+    a4Part1: "Tähtnumberliste saatja ID-de tugi varieerub riigiti ja operaatori kaupa. Riigis",
+    a4Part2: "toetatakse seda üldiselt tehingusõnumite puhul, kuid mõned võrgud võivad nõuda eelregistreerimist. Palun võtke ühendust meie tugimeeskonnaga konkreetsete nõuete osas teie kasutusjuhtumi jaoks.",
+    q5: "Kui kiire on SMS-ide kohaletoimetamine riiki",
+    a5Part1: "Sõnumid toimetatakse tavaliselt kätte 5-10 sekundi jooksul. Meie suure läbilaskevõimega infrastruktuur ja otsene marsruutimine riiki",
+    a5Part2: "tagavad minimaalse latentsuse ka tippkoormusega aegadel.",
+  },
+  ru: {
+    badge: "FAQ",
+    title: "Часто задаваемые",
+    titleGradient: "вопросы",
+    subtitle: "Всё, что вам нужно знать об отправке SMS в",
+    q1: "Сколько стоит отправить SMS в",
+    a1Start: "Цены на отправку SMS в",
+    a1Mid: "начинаются от",
+    a1End: "за сообщение. Окончательная цена зависит от объема и конкретной сети, в которую вы отправляете.",
+    q2: "Какие мобильные сети поддерживаются в",
+    a2Start: "SMSPM поддерживает все основные мобильные сети в",
+    a2Mid: "включая",
+    a2AndOthers: "и другие",
+    a2End: "Мы используем прямые соединения с операторами для обеспечения максимальных показателей доставки.",
+    q3: "Есть ли какие-либо конкретные правила SMS в",
+    a3Part1: "имеет специфические правила относительно идентификаторов отправителя, содержания сообщений и требований к отказу. Подробнее вы можете узнать в разделе Регуляции выше, но в целом мы рекомендуем избегать рекламных сообщений в ночные часы и обеспечивать явное согласие всех получателей.",
+    q4: "Поддерживается ли буквенно-цифровой ID отправителя для",
+    a4Part1: "Поддержка буквенно-цифровых ID отправителя зависит от страны и оператора. В",
+    a4Part2: "он обычно поддерживается для транзакционных сообщений, но некоторым сетям может потребоваться предварительная регистрация. Пожалуйста, свяжитесь с нашей службой поддержки для конкретных требований вашего случая использования.",
+    q5: "Насколько быстрая доставка SMS в",
+    a5Part1: "Сообщения обычно доставляются в течение 5-10 секунд. Наша высокопроизводительная инфраструктура и прямая маршрутизация в",
+    a5Part2: "обеспечивают минимальную задержку даже в часы пик.",
+  },
+  es: {
+    badge: "FAQ",
+    title: "Preguntas",
+    titleGradient: "Frecuentes",
+    subtitle: "Todo lo que necesitas saber sobre enviar SMS a",
+    q1: "¿Cuánto cuesta enviar un SMS a",
+    a1Start: "Los precios para enviar SMS a",
+    a1Mid: "comienzan desde",
+    a1End: "por mensaje. El precio final depende del volumen y la red específica a la que estás enviando.",
+    q2: "¿Qué redes móviles son compatibles en",
+    a2Start: "SMSPM admite todas las principales redes móviles en",
+    a2Mid: "incluyendo",
+    a2AndOthers: "y otros",
+    a2End: "Utilizamos conexiones directas con operadores para garantizar las tasas de entrega más altas posibles.",
+    q3: "¿Hay regulaciones específicas de SMS en",
+    a3Part1: "tiene regulaciones específicas sobre IDs de remitente, contenido de mensajes y requisitos de exclusión. Puede encontrar más detalles en nuestra sección Regulatorio arriba, pero generalmente recomendamos evitar mensajes promocionales durante las horas nocturnas y asegurar que todos los destinatarios hayan dado su consentimiento explícito.",
+    q4: "¿Se admite el ID de remitente alfanumérico para",
+    a4Part1: "El soporte para IDs de remitente alfanuméricos varía según el país y el proveedor. En",
+    a4Part2: "generalmente se admite para mensajes transaccionales, pero algunas redes pueden requerir registro previo. Por favor, contacte a nuestro equipo de soporte para requisitos específicos de su caso de uso.",
+    q5: "¿Qué tan rápida es la entrega de SMS a",
+    a5Part1: "Los mensajes generalmente se entregan en 5-10 segundos. Nuestra infraestructura de alto rendimiento y enrutamiento directo a",
+    a5Part2: "aseguran latencia mínima incluso durante las horas pico.",
+  },
+  de: {
+    badge: "FAQ",
+    title: "Häufig gestellte",
+    titleGradient: "Fragen",
+    subtitle: "Alles, was Sie über das Senden von SMS nach",
+    q1: "Wie viel kostet das Senden einer SMS nach",
+    a1Start: "Die Preise für das Senden von SMS nach",
+    a1Mid: "beginnen bei",
+    a1End: "pro Nachricht. Der endgültige Preis hängt vom Volumen und dem spezifischen Netzwerk ab, an das Sie senden.",
+    q2: "Welche Mobilfunknetze werden in",
+    a2Start: "SMSPM unterstützt alle großen Mobilfunknetze in",
+    a2Mid: "einschließlich",
+    a2AndOthers: "und andere",
+    a2End: "Wir verwenden direkte Anbieterverbindungen, um die höchstmöglichen Zustellraten zu gewährleisten.",
+    q3: "Gibt es spezielle SMS-Vorschriften in",
+    a3Part1: "hat spezifische Vorschriften bezüglich Absender-IDs, Nachrichteninhalten und Opt-out-Anforderungen. Weitere Details finden Sie in unserem Abschnitt Vorschriften oben, aber im Allgemeinen empfehlen wir, Werbebotschaften während der Nachtstunden zu vermeiden und sicherzustellen, dass alle Empfänger ausdrücklich zugestimmt haben.",
+    q4: "Wird die alphanumerische Absender-ID für",
+    a4Part1: "Die Unterstützung für alphanumerische Absender-IDs variiert je nach Land und Anbieter. In",
+    a4Part2: "wird es im Allgemeinen für Transaktionsnachrichten unterstützt, aber einige Netzwerke können eine Vorabregistrierung erfordern. Bitte kontaktieren Sie unser Support-Team für spezifische Anforderungen für Ihren Anwendungsfall.",
+    q5: "Wie schnell ist die SMS-Zustellung nach",
+    a5Part1: "Nachrichten werden normalerweise innerhalb von 5-10 Sekunden zugestellt. Unsere Hochleistungsinfrastruktur und direkte Routing nach",
+    a5Part2: "gewährleisten minimale Latenz auch während der Spitzenzeiten.",
+  },
+  fr: {
+    badge: "FAQ",
+    title: "Questions",
+    titleGradient: "Fréquentes",
+    subtitle: "Tout ce que vous devez savoir sur l'envoi de SMS vers",
+    q1: "Combien coûte l'envoi d'un SMS vers",
+    a1Start: "Les prix pour envoyer des SMS vers",
+    a1Mid: "commencent à partir de",
+    a1End: "par message. Le prix final dépend du volume et du réseau spécifique vers lequel vous envoyez.",
+    q2: "Quels réseaux mobiles sont pris en charge en",
+    a2Start: "SMSPM prend en charge tous les principaux réseaux mobiles en",
+    a2Mid: "y compris",
+    a2AndOthers: "et d'autres",
+    a2End: "Nous utilisons des connexions directes avec les opérateurs pour garantir les taux de livraison les plus élevés possibles.",
+    q3: "Y a-t-il des réglementations SMS spécifiques en",
+    a3Part1: "a des réglementations spécifiques concernant les IDs d'expéditeur, le contenu des messages et les exigences de désabonnement. Vous pouvez trouver plus de détails dans notre section Réglementation ci-dessus, mais en général, nous recommandons d'éviter les messages promotionnels pendant les heures de nuit et de s'assurer que tous les destinataires ont explicitement accepté.",
+    q4: "L'ID d'expéditeur alphanumérique est-il pris en charge pour",
+    a4Part1: "Le support des IDs d'expéditeur alphanumériques varie selon le pays et le fournisseur. En",
+    a4Part2: "il est généralement pris en charge pour les messages transactionnels, mais certains réseaux peuvent nécessiter un pré-enregistrement. Veuillez contacter notre équipe d'assistance pour les exigences spécifiques de votre cas d'utilisation.",
+    q5: "Quelle est la rapidité de livraison des SMS vers",
+    a5Part1: "Les messages sont généralement livrés dans les 5 à 10 secondes. Notre infrastructure haute performance et routage direct vers",
+    a5Part2: "assurent une latence minimale même pendant les heures de pointe.",
+  },
+  lv: {
+    badge: "BUJ",
+    title: "Bieži uzdotie",
+    titleGradient: "jautājumi",
+    subtitle: "Viss, kas jums jāzina par SMS sūtīšanu uz",
+    q1: "Cik maksā nosūtīt SMS uz",
+    a1Start: "Cenas SMS sūtīšanai uz",
+    a1Mid: "sākas no",
+    a1End: "par ziņojumu. Galīgā cena ir atkarīga no apjoma un konkrētā tīkla, uz kuru jūs sūtāt.",
+    q2: "Kādi mobilie tīkli tiek atbalstīti",
+    a2Start: "SMSPM atbalsta visus galvenos mobilos tīklus",
+    a2Mid: "ieskaitot",
+    a2AndOthers: "un citus",
+    a2End: "Mēs izmantojam tiešus operatoru savienojumus, lai nodrošinātu augstākos iespējamos piegādes rādītājus.",
+    q3: "Vai ir kādi specifiski SMS noteikumi",
+    a3Part1: "ir specifiski noteikumi attiecībā uz sūtītāja ID, ziņojuma saturu un atteikšanās prasībām. Vairāk informācijas varat atrast mūsu Noteikumu sadaļā iepriekš, bet parasti mēs iesakām izvairīties no reklāmas ziņojumiem nakts stundās un nodrošināt, ka visi saņēmēji ir skaidri piekrītuši.",
+    q4: "Vai alfanumeriskais sūtītāja ID tiek atbalstīts",
+    a4Part1: "Alfanumerisko sūtītāja ID atbalsts atšķiras atkarībā no valsts un nodrošinātāja.",
+    a4Part2: "tas parasti tiek atbalstīts transakciju ziņojumiem, bet dažiem tīkliem var būt nepieciešama iepriekšēja reģistrācija. Lūdzu, sazinieties ar mūsu atbalsta komandu par konkrētām prasībām jūsu lietošanas gadījumam.",
+    q5: "Cik ātra ir SMS piegāde uz",
+    a5Part1: "Ziņojumi parasti tiek piegādāti 5-10 sekunžu laikā. Mūsu augstas veiktspējas infrastruktūra un tiešais maršrutēšana uz",
+    a5Part2: "nodrošina minimālu latentumu pat maksimālās slodzes laikā.",
+  },
+  lt: {
+    badge: "DUK",
+    title: "Dažniausiai užduodami",
+    titleGradient: "klausimai",
+    subtitle: "Viskas, ką reikia žinoti apie SMS siuntimą į",
+    q1: "Kiek kainuoja išsiųsti SMS į",
+    a1Start: "Kainos už SMS siuntimą į",
+    a1Mid: "prasideda nuo",
+    a1End: "už pranešimą. Galutinė kaina priklauso nuo apimties ir konkretaus tinklo, į kurį siunčiate.",
+    q2: "Kokie mobilieji tinklai palaikomi",
+    a2Start: "SMSPM palaiko visus pagrindinius mobiliuosius tinklus",
+    a2Mid: "įskaitant",
+    a2AndOthers: "ir kitus",
+    a2End: "Naudojame tiesioginius operatorių ryšius, kad užtikrintume didžiausius įmanomus pristatymo rodiklius.",
+    q3: "Ar yra kokių nors konkrečių SMS taisyklių",
+    a3Part1: "turi konkrečias taisykles dėl siuntėjo ID, pranešimo turinio ir atsisakymo reikalavimų. Daugiau informacijos galite rasti mūsų Taisyklių skyriuje aukščiau, bet apskritai rekomenduojame vengti reklaminių pranešimų naktį ir užtikrinti, kad visi gavėjai būtų aiškiai sutikę.",
+    q4: "Ar raidinis skaitinis siuntėjo ID palaikomas",
+    a4Part1: "Raidinių skaitinių siuntėjo ID palaikymas skiriasi priklausomai nuo šalies ir teikėjo.",
+    a4Part2: "jis paprastai palaikomas sandorių pranešimams, bet kai kurie tinklai gali reikalauti išankstinės registracijos. Prašome susisiekti su mūsų palaikymo komanda dėl konkrečių jūsų naudojimo atvejo reikalavimų.",
+    q5: "Kaip greitas SMS pristatymas į",
+    a5Part1: "Pranešimai paprastai pristatomi per 5-10 sekundžių. Mūsų aukšto pralaidumo infrastruktūra ir tiesioginis maršrutizavimas į",
+    a5Part2: "užtikrina minimalų vėlavimą net ir didžiausio krūvio valandomis.",
+  },
+};
+
+const t = translations[lang] || translations.en;
+
 const startingPrice =
     country.providers.length > 0
         ? Math.min(...country.providers.map((p) => p.price)).toFixed(3)
@@ -13,29 +209,27 @@ const startingPrice =
 
 const faqs = [
     {
-        question: `How much does it cost to send an SMS to ${country.name}?`,
-        answer: `Pricing for sending SMS to ${country.name} starts as low as ${country.currency === "EUR" ? "€" : country.currency === "GBP" ? "£" : "$"}${startingPrice} per message. The final price depends on the volume and the specific network you are sending to.`,
+        question: `${t.q1} ${country.name}?`,
+        answer: `${t.a1Start} ${country.name} ${t.a1Mid} ${country.currency === "EUR" ? "€" : country.currency === "GBP" ? "£" : "$"}${startingPrice} ${t.a1End}`,
     },
     {
-        question: `Which mobile networks are supported in ${country.name}?`,
-        answer: `SMSPM supports all major mobile networks in ${country.name}, including ${country.providers
+        question: `${t.q2} ${country.name}?`,
+        answer: `${t.a2Start} ${country.name}, ${t.a2Mid} ${country.providers
             .slice(0, 3)
             .map((p) => p.name)
-            .join(
-                ", ",
-            )}${country.providers.length > 3 ? " and others" : ""}. We use direct carrier connections to ensure the highest possible delivery rates.`,
+            .join(", ")}${country.providers.length > 3 ? ` ${t.a2AndOthers}` : ""}. ${t.a2End}`,
     },
     {
-        question: `Are there any specific SMS regulations in ${country.name}?`,
-        answer: `${country.name} has specific regulations regarding sender IDs, message content, and opt-out requirements. You can find more details in our Regulatory section above, but generally, we recommend avoiding promotional messages during night hours and ensuring all recipients have explicitly opted in.`,
+        question: `${t.q3} ${country.name}?`,
+        answer: `${country.name} ${t.a3Part1}`,
     },
     {
-        question: `Is Alphanumeric Sender ID supported for ${country.name}?`,
-        answer: `Support for Alphanumeric Sender IDs varies by country and provider. In ${country.name}, it is generally supported for transactional messages, but some networks may require pre-registration. Please contact our support team for specific requirements for your use case.`,
+        question: `${t.q4} ${country.name}?`,
+        answer: `${t.a4Part1} ${country.name}, ${t.a4Part2}`,
     },
     {
-        question: `How fast is the SMS delivery to ${country.name}?`,
-        answer: `Messages are typically delivered within 5-10 seconds. Our high-throughput infrastructure and direct routing to ${country.name} ensure minimal latency even during peak hours.`,
+        question: `${t.q5} ${country.name}?`,
+        answer: `${t.a5Part1} ${country.name} ${t.a5Part2}`,
     },
 ];
 
@@ -59,17 +253,15 @@ const faqSchema = {
         <div class="text-center mb-16">
             <span
                 class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
-                >FAQ</span
+                >{t.badge}</span
             >
             <h2
                 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary"
             >
-                Frequently Asked <span class="gradient-text">Questions</span>
+                {t.title} <span class="gradient-text">{t.titleGradient}</span>
             </h2>
             <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-                Everything you need to know about sending SMS to <span
-                    class="gradient-text">{country.name}</span
-                >
+                {t.subtitle} <span class="gradient-text">{country.name}</span>
             </p>
         </div>
 
@@ -116,5 +308,12 @@ const faqSchema = {
 <style>
     details > summary::-webkit-details-marker {
         display: none;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(135deg, #26c6da 0%, #0d47a1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 </style>

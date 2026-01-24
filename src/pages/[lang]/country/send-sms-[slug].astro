@@ -7,8 +7,8 @@ import CountryInfo from "../../../components/country/CountryInfo.astro";
 import MobileProviders from "../../../components/country/MobileProviders.astro";
 import UseCases from "../../../components/country/UseCases.astro";
 import ApiIntegration from "../../../components/country/ApiIntegration.astro";
-import RegulatoryInfo from "../../../components/country/RegulatoryInfo.astro";
 import CountryFAQ from "../../../components/country/CountryFAQ.astro";
+import RegulatoryInfo from "../../../components/country/RegulatoryInfo.astro";
 import Footer from "../../../components/Footer.astro";
 import {
     fetchPricingData,
@@ -185,16 +185,24 @@ const structuredData = {
         <meta name="geo.placename" content={country.name} />
     </head>
 
-    <Navigation />
+    <Navigation lang={lang} />
 
     <main>
-        <CountryHero country={country} />
-        <CountryInfo country={country} />
-        <MobileProviders country={country} />
-        <UseCases country={country} />
-        <ApiIntegration country={country} />
-        <CountryFAQ country={country} />
-        <RegulatoryInfo country={country} />
+        <CountryHero country={country} lang={lang} />
+        <CountryInfo country={country} lang={lang} />
+        <MobileProviders country={country} lang={lang} />
+        <UseCases country={country} lang={lang} />
+        <ApiIntegration country={country} lang={lang} />
+        <!-- DEBUG: Before FAQ -->
+        <div style="background: yellow; padding: 20px; text-align: center;">
+            <h2 style="color: black;">DEBUG: BEFORE CountryFAQ Component</h2>
+        </div>
+        <CountryFAQ country={country} lang={lang} />
+        <!-- DEBUG: After FAQ -->
+        <div style="background: green; padding: 20px; text-align: center;">
+            <h2 style="color: white;">DEBUG: AFTER CountryFAQ Component</h2>
+        </div>
+        <RegulatoryInfo country={country} lang={lang} />
 
         <!-- CTA Section -->
         <section class="cta-section relative py-16 lg:py-24 overflow-hidden">

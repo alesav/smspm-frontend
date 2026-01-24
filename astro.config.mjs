@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  output: 'server', // SSR mode for language detection on root page
   adapter: cloudflare(),
   site: 'https://smspm.com',
   integrations: [

@@ -3,13 +3,194 @@ import type { CountryData } from "../../utils/kv-pricing";
 
 export interface Props {
   country: CountryData;
+  lang?: string;
 }
 
-const { country } = Astro.props;
+const { country, lang: propLang } = Astro.props;
+const { pathname } = Astro.url;
+
+// Detect language from prop or path, default to 'en'
+const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
+const detectedFromPath = langMatch ? langMatch[1] : null;
+const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+
 const startingPrice =
   country.providers.length > 0
     ? Math.min(...country.providers.map((p) => p.price))
     : 0;
+
+const translations = {
+  en: {
+    home: "Home",
+    countries: "Countries",
+    directCarrier: "Direct carrier connections in",
+    sendSmsTo: "Send SMS to",
+    connectWith: "Connect with",
+    mobileUsers: "mobile users through direct carrier connections. Experience",
+    deliveryRates: "delivery rates with pricing from",
+    perMessage: "per message.",
+    startFreeTrial: "Start Free Trial",
+    viewApiDocs: "View API Docs",
+    deliveryRate: "Delivery Rate",
+    responseTime: "Response Time",
+    connected: "Connected",
+    users: "Users",
+    nationalNetwork: "National Network",
+    liveSync: "Live Sync",
+    directRouting: "Direct Routing",
+    averageLatency: "Average latency",
+    reliability: "Reliability",
+  },
+  et: {
+    home: "Avaleht",
+    countries: "Riigid",
+    directCarrier: "Otsesed operaatoriühendused riigis",
+    sendSmsTo: "Saada SMS",
+    connectWith: "Ühenda",
+    mobileUsers: "124 mobiili kasutajaga läbi otseste operaatoriühenduste. Koge",
+    deliveryRates: "kohaletoimetamise määrasid hinnaga alates",
+    perMessage: "sõnumi kohta.",
+    startFreeTrial: "Alusta tasuta prooviperioodi",
+    viewApiDocs: "Vaata API dokumentatsiooni",
+    deliveryRate: "Kohaletoimetamise määr",
+    responseTime: "Vastamisaeg",
+    connected: "Ühendatud",
+    users: "Kasutajat",
+    nationalNetwork: "Riiklik võrk",
+    liveSync: "Reaalajas sünkroniseerimine",
+    directRouting: "Otsene marsruutimine",
+    averageLatency: "Keskmine latentsus",
+    reliability: "Usaldusväärsus",
+  },
+  ru: {
+    home: "Главная",
+    countries: "Страны",
+    directCarrier: "Прямые соединения с операторами в",
+    sendSmsTo: "Отправить SMS в",
+    connectWith: "Свяжитесь с",
+    mobileUsers: "мобильных пользователей через прямые соединения с операторами. Испытайте",
+    deliveryRates: "показатели доставки с ценой от",
+    perMessage: "за сообщение.",
+    startFreeTrial: "Начать бесплатный пробный период",
+    viewApiDocs: "Посмотреть документацию API",
+    deliveryRate: "Показатель доставки",
+    responseTime: "Время ответа",
+    connected: "Подключено",
+    users: "Пользователей",
+    nationalNetwork: "Национальная сеть",
+    liveSync: "Синхронизация в реальном времени",
+    directRouting: "Прямая маршрутизация",
+    averageLatency: "Средняя задержка",
+    reliability: "Надежность",
+  },
+  es: {
+    home: "Inicio",
+    countries: "Países",
+    directCarrier: "Conexiones directas con operadores en",
+    sendSmsTo: "Enviar SMS a",
+    connectWith: "Conecta con",
+    mobileUsers: "usuarios móviles a través de conexiones directas con operadores. Experimenta",
+    deliveryRates: "tasas de entrega con precios desde",
+    perMessage: "por mensaje.",
+    startFreeTrial: "Iniciar prueba gratuita",
+    viewApiDocs: "Ver documentación API",
+    deliveryRate: "Tasa de entrega",
+    responseTime: "Tiempo de respuesta",
+    connected: "Conectado",
+    users: "Usuarios",
+    nationalNetwork: "Red nacional",
+    liveSync: "Sincronización en vivo",
+    directRouting: "Enrutamiento directo",
+    averageLatency: "Latencia promedio",
+    reliability: "Fiabilidad",
+  },
+  de: {
+    home: "Startseite",
+    countries: "Länder",
+    directCarrier: "Direkte Anbieterverbindungen in",
+    sendSmsTo: "SMS senden an",
+    connectWith: "Verbinden Sie sich mit",
+    mobileUsers: "mobilen Nutzern über direkte Anbieterverbindungen. Erleben Sie",
+    deliveryRates: "Zustellraten mit Preisen ab",
+    perMessage: "pro Nachricht.",
+    startFreeTrial: "Kostenlose Testversion starten",
+    viewApiDocs: "API-Dokumentation ansehen",
+    deliveryRate: "Zustellrate",
+    responseTime: "Antwortzeit",
+    connected: "Verbunden",
+    users: "Benutzer",
+    nationalNetwork: "Nationales Netzwerk",
+    liveSync: "Live-Synchronisierung",
+    directRouting: "Direktes Routing",
+    averageLatency: "Durchschnittliche Latenz",
+    reliability: "Zuverlässigkeit",
+  },
+  fr: {
+    home: "Accueil",
+    countries: "Pays",
+    directCarrier: "Connexions directes avec les opérateurs en",
+    sendSmsTo: "Envoyer SMS vers",
+    connectWith: "Connectez-vous avec",
+    mobileUsers: "utilisateurs mobiles via des connexions directes avec les opérateurs. Découvrez",
+    deliveryRates: "taux de livraison avec des prix à partir de",
+    perMessage: "par message.",
+    startFreeTrial: "Commencer l'essai gratuit",
+    viewApiDocs: "Voir la documentation API",
+    deliveryRate: "Taux de livraison",
+    responseTime: "Temps de réponse",
+    connected: "Connecté",
+    users: "Utilisateurs",
+    nationalNetwork: "Réseau national",
+    liveSync: "Synchronisation en direct",
+    directRouting: "Routage direct",
+    averageLatency: "Latence moyenne",
+    reliability: "Fiabilité",
+  },
+  lv: {
+    home: "Sākums",
+    countries: "Valstis",
+    directCarrier: "Tiešie operatoru savienojumi",
+    sendSmsTo: "Sūtīt SMS uz",
+    connectWith: "Savienojieties ar",
+    mobileUsers: "mobilajiem lietotājiem, izmantojot tiešos operatoru savienojumus. Piedzīvojiet",
+    deliveryRates: "piegādes rādītājus ar cenām no",
+    perMessage: "par ziņojumu.",
+    startFreeTrial: "Sākt bezmaksas izmēģinājumu",
+    viewApiDocs: "Skatīt API dokumentāciju",
+    deliveryRate: "Piegādes rādītājs",
+    responseTime: "Atbildes laiks",
+    connected: "Savienots",
+    users: "Lietotāji",
+    nationalNetwork: "Nacionālais tīkls",
+    liveSync: "Tiešraides sinhronizācija",
+    directRouting: "Tiešais maršrutēšana",
+    averageLatency: "Vidējā latentums",
+    reliability: "Uzticamība",
+  },
+  lt: {
+    home: "Pagrindinis",
+    countries: "Šalys",
+    directCarrier: "Tiesioginiai operatorių ryšiai",
+    sendSmsTo: "Siųsti SMS į",
+    connectWith: "Prisijunkite su",
+    mobileUsers: "mobilių vartotojų per tiesioginius operatorių ryšius. Patirkite",
+    deliveryRates: "pristatymo rodiklius su kainomis nuo",
+    perMessage: "už pranešimą.",
+    startFreeTrial: "Pradėti nemokamą bandomąjį",
+    viewApiDocs: "Žiūrėti API dokumentaciją",
+    deliveryRate: "Pristatymo rodiklis",
+    responseTime: "Atsakymo laikas",
+    connected: "Prijungta",
+    users: "Vartotojai",
+    nationalNetwork: "Nacionalinis tinklas",
+    liveSync: "Tiesioginis sinchronizavimas",
+    directRouting: "Tiesioginis maršrutizavimas",
+    averageLatency: "Vidutinis vėlavimas",
+    reliability: "Patikimumas",
+  },
+};
+
+const t = translations[lang] || translations.en;
 ---
 
 <!-- Hero Section -->
@@ -26,7 +207,7 @@ const startingPrice =
         <nav class="flex mb-8 text-sm" aria-label="Breadcrumb">
           <ol class="flex items-center space-x-2 text-dynamic-tertiary">
             <li>
-              <a href="/" class="hover:text-cyan transition-colors">Home</a>
+              <a href={`/${lang}`} class="hover:text-cyan transition-colors">{t.home}</a>
             </li>
             <li>
               <svg
@@ -45,8 +226,8 @@ const startingPrice =
               </svg>
             </li>
             <li>
-              <a href="/en/countries" class="hover:text-cyan transition-colors"
-                >Countries</a
+              <a href={`/${lang}/countries`} class="hover:text-cyan transition-colors"
+                >{t.countries}</a
               >
             </li>
             <li>
@@ -77,24 +258,24 @@ const startingPrice =
           <span
             class="badge-dot w-2 h-2 bg-gradient-1 rounded-full animate-pulse-slow"
           ></span>
-          Direct carrier connections in {country.name}
+          {t.directCarrier} {country.name}
         </div>
 
         <h1
           class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary"
         >
-          Send SMS to
+          {t.sendSmsTo}
           <span class="gradient-text block">{country.name}</span>
         </h1>
 
         <p
           class="hero-subtitle text-xl text-dynamic-secondary leading-relaxed mb-8 max-w-[640px]"
         >
-          Connect with <span class="gradient-text">{country.mobileUsers}</span> mobile
-          users through direct carrier connections. Experience <span
+          {t.connectWith} <span class="gradient-text">{country.mobileUsers}</span> {t.mobileUsers}
+          <span
             class="gradient-text"
-            >{country.stats.deliveryRate} delivery rates</span
-          > with pricing from
+            >{country.stats.deliveryRate} {t.deliveryRates}</span
+          >
           <span class="gradient-text"
             >{
               country.currency === "EUR"
@@ -103,7 +284,7 @@ const startingPrice =
                   ? "£"
                   : "$"
             }{startingPrice.toFixed(3)}</span
-          > per message.
+          > {t.perMessage}
         </p>
 
         <div class="hero-actions flex flex-col sm:flex-row gap-4 mb-8">
@@ -111,7 +292,7 @@ const startingPrice =
             href="https://app.smspm.com/app/register"
             class="btn btn-primary btn-large"
           >
-            Start Free Trial
+            {t.startFreeTrial}
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M7 3L15 10L7 17"
@@ -125,7 +306,7 @@ const startingPrice =
             href="https://app.smspm.com/docs"
             class="btn btn-secondary btn-large"
           >
-            View API Docs
+            {t.viewApiDocs}
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M3 7H21L19 12L21 17H3L5 12L3 7Z"
@@ -147,7 +328,7 @@ const startingPrice =
             <div
               class="stat-label text-sm text-dynamic-tertiary uppercase tracking-wider mt-1"
             >
-              Delivery Rate
+              {t.deliveryRate}
             </div>
           </div>
           <div class="stat-item">
@@ -159,7 +340,7 @@ const startingPrice =
             <div
               class="stat-label text-sm text-dynamic-tertiary uppercase tracking-wider mt-1"
             >
-              Response Time
+              {t.responseTime}
             </div>
           </div>
         </div>
@@ -214,18 +395,18 @@ const startingPrice =
                 ></span>
                 <span
                   class="text-[10px] font-bold uppercase tracking-widest text-green-500"
-                  >Connected</span
+                  >{t.connected}</span
                 >
               </div>
               <span class="card-icon text-lg">📱</span>
             </div>
             <p class="text-[15px] font-bold text-dynamic-primary">
-              {country.mobileUsers} Users
+              {country.mobileUsers} {t.users}
             </p>
             <p
               class="text-[10px] text-dynamic-tertiary uppercase tracking-tight"
             >
-              {country.name} National Network
+              {country.name} {t.nationalNetwork}
             </p>
           </div>
 
@@ -238,18 +419,18 @@ const startingPrice =
                 <span class="w-2 h-2 bg-cyan rounded-full animate-pulse"></span>
                 <span
                   class="text-[10px] font-bold uppercase tracking-widest text-cyan"
-                  >Live Sync</span
+                  >{t.liveSync}</span
                 >
               </div>
               <span class="card-icon text-lg">⚡</span>
             </div>
             <p class="text-[15px] font-bold text-dynamic-primary">
-              Direct Routing
+              {t.directRouting}
             </p>
             <p
               class="text-[10px] text-dynamic-tertiary uppercase tracking-tight"
             >
-              {country.stats.responseTime} Average latency
+              {country.stats.responseTime} {t.averageLatency}
             </p>
           </div>
 
@@ -260,7 +441,7 @@ const startingPrice =
             <div class="chart-header flex justify-between items-center mb-3">
               <span
                 class="text-[10px] font-bold uppercase tracking-widest text-dynamic-tertiary"
-                >Reliability</span
+                >{t.reliability}</span
               >
             </div>
             <div class="chart-bars flex items-end gap-1.5 h-[40px]">

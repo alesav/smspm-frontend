@@ -5,13 +5,21 @@ export interface Props {
   title: string;
   description?: string;
   image?: string;
+  lang?: string;
+  alternateUrls?: Record<string, string>;
 }
 
-const { title, description = "Global SMS messaging platform trusted by thousands of businesses worldwide.", image = "/smspm-og.png" } = Astro.props;
+const { 
+  title, 
+  description = "Global SMS messaging platform trusted by thousands of businesses worldwide.", 
+  image = "/smspm-og.png",
+  lang = "en",
+  alternateUrls = {}
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang={lang} data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -46,6 +54,14 @@ const { title, description = "Global SMS messaging platform trusted by thousands
     
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url} />
+    
+    <!-- Hreflang tags for SEO -->
+    {Object.entries(alternateUrls).map(([langCode, url]) => (
+      <link rel="alternate" hreflang={langCode} href={url} />
+    ))}
+    {Object.keys(alternateUrls).length > 0 && (
+      <link rel="alternate" hreflang="x-default" href={Astro.url.origin + "/"} />
+    )}
     
     <!-- Inline critical CSS for theme -->
     <style>
