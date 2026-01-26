@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'lv';
+---
+
+<Layout title="Drošība - SMSPM | Globālā SMS infrastruktūra" description="Uzziniet par SMSPM visaptverošajiem drošības pasākumiem, ieskaitot šifrēšanu, API drošību un VDAR atbilstību.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Drošība
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-8">
+                    <p class="text-xl">SMSPM drošība nav funkcija — tā ir visu, ko mēs veidojam, pamats. Mēs izmantojam nozares vadošos standartus, lai nodrošinātu, ka jūsu dati un ziņojumi paliek privāti un droši.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose mb-12">
+                        <div class="p-8 rounded-2xl border border-dynamic-primary bg-dynamic-primary">
+                            <div class="w-12 h-12 bg-cyan/10 rounded-xl flex items-center justify-center text-cyan mb-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-dynamic-primary mb-2">Uzlabota šifrēšana</h3>
+                            <p class="text-sm text-dynamic-secondary text-balance">Visi pārraidāmie dati tiek šifrēti, izmantojot TLS 1.3, un sensitīvie uzglabātie dati ir aizsargāti ar AES-256 šifrēšanu.</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border border-dynamic-primary bg-dynamic-primary">
+                            <div class="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center text-purple mb-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-dynamic-primary mb-2">Droša API</h3>
+                            <p class="text-sm text-dynamic-secondary text-balance">API piekļuve tiek pārvaldīta, izmantojot ierobežotas atslēgas un neobligātu IP baltā sarakstu, lai novērstu nesankcionētu izmantošanu.</p>
+                        </div>
+                    </div>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Infrastruktūras drošība</h2>
+                        <p>Mūsu infrastruktūra tiek mitināta ISO 27001 sertificētos datu centros. Mēs izmantojam daudzslāņu drošības pieeju, ieskaitot automatizētu draudu noteikšanu, aizsardzību pret izkliedētiem pakalpojuma atteikuma (DDoS) uzbrukumiem caur Cloudflare un regulāru ievainojamības skenēšanu.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Regulējošā atbilstība</h2>
+                        <p>Kā ES bāzēts operators, mēs pilnībā atbilstam VDAR. Mēs arī ievērojam OWASP drošības labākās prakses tīmekļa lietojumprogrammu drošībai un veicam iekšējās drošības auditus divreiz gadā.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Ievainojamību ziņošana</h2>
+                        <p>
+                            Mēs atzinīgi vērtējam drošības pētniekus. Ja uzskatāt, ka esat atradis drošības ievainojamību mūsu platformā, lūdzu, ziņojiet mums par to <a href="mailto:security@smspm.com" class="text-cyan font-semibold">security@smspm.com</a>. Mēs ātri atbildēsim un strādāsim ar jums, lai atrisinātu problēmu.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

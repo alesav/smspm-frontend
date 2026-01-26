@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'et';
+---
+
+<Layout title="Privaatsuspoliitika - SMSPM" description="Õppige, kuidas SMSPM kaitseb teie privaatsust ja käsitleb isikuandmeid vastavalt GDPR-ile.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Privaatsuspoliitika
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Viimati uuendatud: 21. jaanuar 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Sissejuhatus
+                        </h2>
+                        <p>iSMS Solutions OÜ ("meie") haldab SMSPM platvormi. Oleme pühendunud teie privaatsuse kaitsele ja teie isikuandmete turvalisuse tagamisele. See privaatsuspoliitika selgitab, kuidas me kogume, kasutame ja kaitseme teie teavet, kui kasutate meie teenuseid.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Andmete kogumine
+                        </h2>
+                        <p>Kogume teavet, mille te meile otse esitate, sealhulgas:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Konto teave (nimi, e-post, organisatsioon)</li>
+                            <li>Makse- ja arveldusinfo</li>
+                            <li>Sõnumi sisu ja saajate numbrid</li>
+                            <li>Tehnilised andmed (IP-aadress, brauseri tüüp, seadme info)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Teabe kasutamine
+                        </h2>
+                        <p>Kasutame kogutud teavet järgmiseks:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>SMS-teenuste pakkumine ja haldamine</li>
+                            <li>Tehingute töötlemine ja arvete saatmine</li>
+                            <li>Õiguslike ja regulatiivsete nõuete täitmine</li>
+                            <li>Meie platvormi ja arendajatööriistade täiustamine</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. GDPR vastavus
+                        </h2>
+                        <p>Eesti ettevõttena järgime rangelt Üldist Andmekaitsemäärust (GDPR). Töötleme kõiki isikuandmeid EMP-s või standardlepinguliste klauslite alusel, mis tagavad samaväärse kaitse taseme.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Teie õigused
+                        </h2>
+                        <p>GDPR alusel on teil õigus:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Juurdepääs oma isikuandmetele</li>
+                            <li>Ebatäpsete andmete parandamine</li>
+                            <li>Taotleda oma andmete kustutamist ("õigus olla unustatud")</li>
+                            <li>Eksportida oma andmeid kantavas vormingus</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Võtke ühendust
+                        </h2>
+                        <p>
+                            Kui teil on küsimusi selle privaatsuspoliitika kohta, võtke meiega ühendust aadressil <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

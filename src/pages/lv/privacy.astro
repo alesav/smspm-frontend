@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'lv';
+---
+
+<Layout title="Privātuma politika - SMSPM" description="Uzziniet, kā SMSPM aizsargā jūsu privātumu un apstrādā jūsu personas datus atbilstoši VDAR.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Privātuma politika
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Pēdējo reizi atjaunināts: 2026. gada 21. janvārī</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Ievads
+                        </h2>
+                        <p>iSMS Solutions OÜ ("mēs") darbojas SMSPM platformā. Mēs esam apņēmušies aizsargāt jūsu privātumu un nodrošināt jūsu personas datu drošību. Šī Privātuma politika izskaidro, kā mēs vācam, izmantojam un aizsargājam jūsu informāciju, kad izmantojat mūsu pakalpojumus.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Datu vākšana
+                        </h2>
+                        <p>Mēs vācam informāciju, ko jūs mums tieši sniedzat, tai skaitā:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Konta informācija (vārds, e-pasts, organizācija)</li>
+                            <li>Maksājumu un norēķinu informācija</li>
+                            <li>Ziņojumu saturs un saņēmēju numuri</li>
+                            <li>Tehniskie dati (IP adrese, pārlūkprogrammas veids, ierīces informācija)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Informācijas izmantošana
+                        </h2>
+                        <p>Mēs izmantojam savākto informāciju, lai:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Nodrošinātu un uzturētu mūsu SMS pakalpojumus</li>
+                            <li>Apstrādātu darījumus un nosūtītu rēķinu paziņojumus</li>
+                            <li>Ievērotu juridiskās un regulējošās prasības</li>
+                            <li>Uzlabotu mūsu platformu un izstrādātāju rīkus</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. VDAR atbilstība
+                        </h2>
+                        <p>Kā Igaunijas uzņēmums, mēs stingri ievērojam Vispārīgo datu aizsardzības regulu (VDAR). Mēs apstrādājam visus personas datus EEZ ietvaros vai saskaņā ar standarta līguma klauzulām, kas nodrošina līdzvērtīgu aizsardzības līmeni.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Jūsu tiesības
+                        </h2>
+                        <p>Saskaņā ar VDAR jums ir tiesības:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Piekļūt saviem personas datiem</li>
+                            <li>Labot neprecīzus datus</li>
+                            <li>Pieprasīt savu datu dzēšanu ("tiesības tikt aizmirstam")</li>
+                            <li>Eksportēt savus datus pārnesamā formātā</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Sazinieties ar mums
+                        </h2>
+                        <p>
+                            Ja jums ir kādi jautājumi par šo Privātuma politiku, lūdzu, sazinieties ar mums <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

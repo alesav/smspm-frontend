@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'fr';
+---
+
+<Layout title="Conditions d'Utilisation - SMSPM" description="Lisez les Conditions d'Utilisation de SMSPM pour comprendre vos droits et obligations lors de l'utilisation de notre plateforme de passerelle SMS.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Conditions d'Utilisation
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Dernière mise à jour : 21 janvier 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Acceptation des Conditions
+                        </h2>
+                        <p>En accédant à ou en utilisant la plateforme SMSPM, vous acceptez d'être lié par ces Conditions d'Utilisation et toutes les lois et réglementations applicables de l'Estonie et de l'Union européenne.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Description du Service
+                        </h2>
+                        <p>SMSPM fournit une API et une interface web pour envoyer des messages SMS globaux. Nous nous réservons le droit de modifier, suspendre ou interrompre tout aspect du service à tout moment.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Activités Interdites
+                        </h2>
+                        <p>Il est strictement interdit aux utilisateurs d'utiliser le service pour :</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Envoyer des messages commerciaux non sollicités (SPAM)</li>
+                            <li>Hameçonnage, fraude ou activités visant à tromper</li>
+                            <li>Distribuer du contenu haineux, menaçant ou illégal</li>
+                            <li>Accès non autorisé à d'autres systèmes ou comptes</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            La violation de ces règles entraînera la résiliation immédiate du compte sans remboursement.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Paiements et Remboursements
+                        </h2>
+                        <p>Les services sont fournis sur la base du prépaiement (crédit). Les crédits ne sont pas remboursables sauf si la loi l'exige. Les crédits non utilisés peuvent expirer si le compte reste inactif pendant plus de 12 mois.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Limitation de Responsabilité
+                        </h2>
+                        <p>iSMS Solutions OÜ ne sera pas responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs résultant de votre utilisation ou de votre impossibilité d'utiliser le service.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Loi Applicable
+                        </h2>
+                        <p>Ces conditions sont régies et interprétées conformément aux lois de l'Estonie. Tout litige découlant sera soumis à la juridiction exclusive des tribunaux de Tallinn, Estonie.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

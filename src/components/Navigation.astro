@@ -121,24 +121,24 @@ const t = translations[lang] || translations.en;
 <nav
   class="navbar fixed top-0 left-0 right-0 z-[1000] transition-all duration-300"
 >
-  <div class="container mx-auto px-8">
-    <div class="nav-content flex items-center justify-between h-[72px]">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="nav-content flex items-center justify-between h-16 sm:h-[72px]">
       <div class="logo flex items-center">
         <a href={logoLink} class="flex items-center">
           <img
             src="/logo.png"
             alt="SMSPM Logo"
-            class="logo-img h-10 w-auto transition-all duration-300"
+            class="logo-img h-8 sm:h-10 w-auto transition-all duration-300"
             width="300"
             height="97"
           />
         </a>
       </div>
 
-      <div class="nav-links hidden md:flex gap-8 items-center">
+      <div class="nav-links hidden lg:flex gap-6 xl:gap-8 items-center">
         <a
           href={pricingLink}
-          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-[15px] relative group"
+          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-sm xl:text-[15px] relative group"
         >
           {t.pricing}
           <span
@@ -147,7 +147,7 @@ const t = translations[lang] || translations.en;
         </a>
         <a
           href={docsLink}
-          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-[15px] relative group"
+          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-sm xl:text-[15px] relative group"
         >
           {t.docs}
           <span
@@ -156,7 +156,7 @@ const t = translations[lang] || translations.en;
         </a>
         <a
           href={supportLink}
-          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-[15px] relative group"
+          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-sm xl:text-[15px] relative group"
         >
           {t.support}
           <span
@@ -165,17 +165,17 @@ const t = translations[lang] || translations.en;
         </a>
       </div>
 
-      <div class="nav-actions flex items-center gap-4">
+      <div class="nav-actions flex items-center gap-2 sm:gap-3 md:gap-4">
         <!-- Language Selector -->
         <div class="language-selector relative">
           <button
-            class="lang-btn flex items-center gap-2 px-4 py-2 rounded-lg cursor-pointer text-sm font-medium transition-all duration-150"
+            class="lang-btn flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg cursor-pointer text-xs sm:text-sm font-medium transition-all duration-150"
             id="langBtn"
           >
-            <span class="flag text-xl">🌐</span>
-            <span class="lang-text">{lang.toUpperCase()}</span>
+            <span class="flag text-base sm:text-xl">🌐</span>
+            <span class="lang-text hidden xs:inline">{lang.toUpperCase()}</span>
             <svg
-              class="lang-arrow w-3 h-3 transition-transform duration-150"
+              class="lang-arrow w-2.5 h-2.5 sm:w-3 sm:h-3 transition-transform duration-150"
               viewBox="0 0 12 12"
               fill="none"
             >
@@ -187,7 +187,7 @@ const t = translations[lang] || translations.en;
             </svg>
           </button>
           <div
-            class="lang-dropdown absolute top-[calc(100%+8px)] right-0 min-w-[180px] p-2 rounded-xl shadow-xl opacity-0 invisible transform translate-y-[-8px] transition-all duration-300 z-[1001]"
+            class="lang-dropdown fixed sm:absolute top-16 sm:top-[calc(100%+8px)] right-0 left-0 sm:left-auto sm:right-0 sm:min-w-[180px] max-w-full sm:max-w-none p-2 rounded-none sm:rounded-xl shadow-xl opacity-0 invisible transform translate-y-[-8px] transition-all duration-300 z-[1001] max-h-[calc(100vh-4rem)] overflow-y-auto"
             id="langDropdown"
           >
             <!-- Debug info -->
@@ -262,12 +262,12 @@ const t = translations[lang] || translations.en;
 
         <!-- Dark Mode Toggle -->
         <button
-          class="theme-toggle flex items-center justify-center w-11 h-11 rounded-lg cursor-pointer transition-all duration-300 relative overflow-hidden hover:-translate-y-0.5 hover:shadow-lg"
+          class="theme-toggle flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-lg cursor-pointer transition-all duration-300 relative overflow-hidden hover:-translate-y-0.5 hover:shadow-lg"
           id="themeToggle"
           aria-label="Toggle dark mode"
         >
           <svg
-            class="sun-icon w-5 h-5 absolute transition-all duration-300"
+            class="sun-icon w-4 h-4 sm:w-5 sm:h-5 absolute transition-all duration-300"
             viewBox="0 0 24 24"
             fill="none"
           >
@@ -282,7 +282,7 @@ const t = translations[lang] || translations.en;
               stroke-linecap="round"></path>
           </svg>
           <svg
-            class="moon-icon w-5 h-5 absolute transition-all duration-300 opacity-0 rotate-180"
+            class="moon-icon w-4 h-4 sm:w-5 sm:h-5 absolute transition-all duration-300 opacity-0 rotate-180"
             viewBox="0 0 24 24"
             fill="none"
           >
@@ -295,27 +295,87 @@ const t = translations[lang] || translations.en;
 
         <a
           href={loginLink}
-          class="btn btn-secondary hidden md:inline-flex">{t.login}</a
+          class="btn btn-secondary hidden lg:inline-flex text-sm xl:text-base px-3 xl:px-4 py-2">{t.login}</a
         >
-        <a href={registerLink} class="btn btn-primary"
+        <a href={registerLink} class="btn btn-primary text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-2 md:py-2.5 whitespace-nowrap"
           >{t.startFree}</a
         >
       </div>
 
       <!-- Mobile Menu Button -->
       <button
-        class="mobile-menu-btn md:hidden flex flex-col gap-1 p-2 rounded-lg transition-all duration-150"
+        class="mobile-menu-btn lg:hidden flex flex-col gap-1 p-2 ml-2 rounded-lg transition-all duration-150"
         id="mobileMenuBtn"
+        aria-label="Toggle mobile menu"
       >
-        <span class="w-6 h-0.5 transition-all duration-150"></span>
-        <span class="w-6 h-0.5 transition-all duration-150"></span>
-        <span class="w-6 h-0.5 transition-all duration-150"></span>
+        <span class="w-5 sm:w-6 h-0.5 bg-current transition-all duration-150"></span>
+        <span class="w-5 sm:w-6 h-0.5 bg-current transition-all duration-150"></span>
+        <span class="w-5 sm:w-6 h-0.5 bg-current transition-all duration-150"></span>
       </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      class="mobile-menu fixed inset-0 top-16 sm:top-[72px] opacity-0 invisible transition-all duration-300 lg:hidden z-[999]"
+      id="mobileMenu"
+    >
+      <div class="mobile-menu-content h-full overflow-y-auto">
+        <div class="container mx-auto px-4 py-6">
+          <div class="flex flex-col gap-4">
+            <a
+              href={pricingLink}
+              class="mobile-menu-link text-dynamic-primary hover:text-cyan transition-colors duration-150 font-medium text-lg py-3 border-b border-dynamic-secondary"
+            >
+              {t.pricing}
+            </a>
+            <a
+              href={docsLink}
+              class="mobile-menu-link text-dynamic-primary hover:text-cyan transition-colors duration-150 font-medium text-lg py-3 border-b border-dynamic-secondary"
+            >
+              {t.docs}
+            </a>
+            <a
+              href={supportLink}
+              class="mobile-menu-link text-dynamic-primary hover:text-cyan transition-colors duration-150 font-medium text-lg py-3 border-b border-dynamic-secondary"
+            >
+              {t.support}
+            </a>
+            <a
+              href={loginLink}
+              class="btn btn-secondary mt-4 justify-center">{t.login}</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 
 <style>
+  /* Mobile menu styling */
+  .mobile-menu-content {
+    background: var(--bg-primary);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="dark"] .mobile-menu-content {
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Mobile menu hamburger color */
+  .mobile-menu-btn span {
+    background: var(--text-secondary);
+  }
+
+  /* Mobile menu visible state */
+  .mobile-menu.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
   /* Enhance language selector hover */
   .language-selector:hover .lang-dropdown {
     opacity: 1;
@@ -328,6 +388,13 @@ const t = translations[lang] || translations.en;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+
+  /* Mobile language dropdown full width */
+  @media (max-width: 640px) {
+    .lang-dropdown.show {
+      border-radius: 0;
+    }
   }
 
   .lang-option:hover {
@@ -353,13 +420,28 @@ const t = translations[lang] || translations.en;
   .mobile-menu-btn.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
   }
+
+  /* Prevent body scroll when mobile menu is open */
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+
+  /* Custom breakpoint for xs screens */
+  @media (min-width: 375px) {
+    .xs\:inline {
+      display: inline;
+    }
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const langBtn = document.getElementById('langBtn');
     const langDropdown = document.getElementById('langDropdown');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
     
+    // Language selector functionality
     if (langBtn && langDropdown) {
       // Handle dropdown visibility on click for mobile
       langBtn.addEventListener('click', function(e) {
@@ -367,6 +449,13 @@ const t = translations[lang] || translations.en;
         e.stopPropagation();
         
         const isVisible = langDropdown.classList.contains('show');
+        
+        // Close mobile menu if open
+        if (mobileMenu?.classList.contains('show')) {
+          mobileMenu.classList.remove('show');
+          mobileMenuBtn?.classList.remove('active');
+          document.body.classList.remove('mobile-menu-open');
+        }
         
         if (isVisible) {
           langDropdown.classList.remove('show');
@@ -403,6 +492,53 @@ const t = translations[lang] || translations.en;
           // Close dropdown and let browser navigate
           langDropdown.classList.remove('show');
         });
+      });
+    }
+
+    // Mobile menu functionality
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isVisible = mobileMenu.classList.contains('show');
+        
+        // Close language dropdown if open
+        if (langDropdown?.classList.contains('show')) {
+          langDropdown.classList.remove('show');
+        }
+        
+        if (isVisible) {
+          mobileMenu.classList.remove('show');
+          mobileMenuBtn.classList.remove('active');
+          document.body.classList.remove('mobile-menu-open');
+        } else {
+          mobileMenu.classList.add('show');
+          mobileMenuBtn.classList.add('active');
+          document.body.classList.add('mobile-menu-open');
+        }
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = mobileMenu.querySelectorAll('.mobile-menu-link, .btn');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('show');
+          mobileMenuBtn.classList.remove('active');
+          document.body.classList.remove('mobile-menu-open');
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        const target = e.target as HTMLElement;
+        if (!mobileMenuBtn.contains(target) && !mobileMenu.contains(target)) {
+          if (mobileMenu.classList.contains('show')) {
+            mobileMenu.classList.remove('show');
+            mobileMenuBtn.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+          }
+        }
       });
     }
   });

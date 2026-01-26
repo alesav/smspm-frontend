@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'lt';
+---
+
+<Layout title="Paslaugų teikimo sąlygos - SMSPM" description="Perskaitykite SMSPM paslaugų teikimo sąlygas, kad suprastumėte savo teises ir pareigas naudojantis mūsų SMS šliuzo platforma.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Paslaugų teikimo sąlygos
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Paskutinį kartą atnaujinta: 2026 m. sausio 21 d.</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Sąlygų priėmimas
+                        </h2>
+                        <p>Prisijungdami prie SMSPM platformos arba ją naudodami, jūs sutinkate laikytis šių Paslaugų teikimo sąlygų ir visų taikomų Estijos ir Europos Sąjungos įstatymų bei taisyklių.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Paslaugos aprašymas
+                        </h2>
+                        <p>SMSPM teikia API ir žiniatinklio sąsają globalių SMS pranešimų siuntimui. Pasiliekame teisę bet kuriuo metu keisti, sustabdyti ar nutraukti bet kurį paslaugos aspektą.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Draudžiama veikla
+                        </h2>
+                        <p>Vartotojams griežtai draudžiama naudoti paslaugą:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Nepageidaujamiems komerciniams pranešimams (SPAM) siųsti</li>
+                            <li>Sukčiavimui, apgaulei ar klaidinančiai veiklai</li>
+                            <li>Neapykantos kurstančio, grasinančio ar neteisėto turinio platinimui</li>
+                            <li>Neleistinai prieigai prie kitų sistemų ar paskyrų</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            Šių taisyklių pažeidimas lems nedelsiantį paskyros uždarymą be pinigų grąžinimo.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Mokėjimai ir grąžinimai
+                        </h2>
+                        <p>Paslaugos teikiamos išankstinio mokėjimo (kredito) pagrindu. Kreditai negrąžinami, nebent to reikalauja įstatymas. Nepanaudoti kreditai gali pasibaigti, jei paskyra lieka neaktyvi ilgiau nei 12 mėnesių.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Atsakomybės apribojimas
+                        </h2>
+                        <p>iSMS Solutions OÜ nebus atsakinga už jokią netiesioginę, atsitiktinę, specialią, pasekminę ar baudžiamąją žalą, atsiradusią dėl paslaugos naudojimo ar galimybės jos naudoti.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Taikoma teisė
+                        </h2>
+                        <p>Šios sąlygos reglamentuojamos ir aiškinamos pagal Estijos įstatymus. Visi ginčai bus sprendžiami išimtinėje Talino, Estija, teismų jurisdikcijoje.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

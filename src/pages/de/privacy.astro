@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'de';
+---
+
+<Layout title="Datenschutzrichtlinie - SMSPM" description="Erfahren Sie, wie SMSPM Ihre Privatsphäre schützt und Ihre persönlichen Daten gemäß DSGVO verarbeitet.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Datenschutzrichtlinie
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Zuletzt aktualisiert: 21. Januar 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Einführung
+                        </h2>
+                        <p>iSMS Solutions OÜ ("wir") betreibt die SMSPM-Plattform. Wir verpflichten uns, Ihre Privatsphäre zu schützen und die Sicherheit Ihrer persönlichen Daten zu gewährleisten. Diese Datenschutzrichtlinie erklärt, wie wir Ihre Informationen sammeln, verwenden und schützen, wenn Sie unsere Dienste nutzen.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Datenerfassung
+                        </h2>
+                        <p>Wir sammeln Informationen, die Sie uns direkt zur Verfügung stellen, einschließlich:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Kontoinformationen (Name, E-Mail, Organisation)</li>
+                            <li>Zahlungs- und Rechnungsinformationen</li>
+                            <li>Nachrichteninhalte und Empfängernummern</li>
+                            <li>Technische Daten (IP-Adresse, Browsertyp, Geräteinformationen)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Verwendung von Informationen
+                        </h2>
+                        <p>Wir verwenden die gesammelten Informationen für:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Bereitstellung und Wartung unserer SMS-Dienste</li>
+                            <li>Verarbeitung von Transaktionen und Versand von Rechnungsbenachrichtigungen</li>
+                            <li>Einhaltung gesetzlicher und behördlicher Anforderungen</li>
+                            <li>Verbesserung unserer Plattform und Entwicklertools</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. DSGVO-Konformität
+                        </h2>
+                        <p>Als estnisches Unternehmen halten wir uns strikt an die Datenschutz-Grundverordnung (DSGVO). Wir verarbeiten alle personenbezogenen Daten innerhalb des EWR oder unter Standardvertragsklauseln, die ein gleichwertiges Schutzniveau gewährleisten.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Ihre Rechte
+                        </h2>
+                        <p>Gemäß DSGVO haben Sie das Recht:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Auf Ihre personenbezogenen Daten zuzugreifen</li>
+                            <li>Unrichtige Daten zu berichtigen</li>
+                            <li>Die Löschung Ihrer Daten zu beantragen ("Recht auf Vergessenwerden")</li>
+                            <li>Ihre Daten in einem portablen Format zu exportieren</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Kontaktieren Sie uns
+                        </h2>
+                        <p>
+                            Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns unter <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

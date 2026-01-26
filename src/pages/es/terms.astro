@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'es';
+---
+
+<Layout title="Términos de Servicio - SMSPM" description="Lea los Términos de Servicio de SMSPM para comprender sus derechos y obligaciones al usar nuestra plataforma de pasarela SMS.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Términos de Servicio
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Última actualización: 21 de enero de 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Aceptación de Términos
+                        </h2>
+                        <p>Al acceder o utilizar la plataforma SMSPM, usted acepta estar sujeto a estos Términos de Servicio y todas las leyes y regulaciones aplicables de Estonia y la Unión Europea.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Descripción del Servicio
+                        </h2>
+                        <p>SMSPM proporciona una API y una interfaz web para enviar mensajes SMS globales. Nos reservamos el derecho de modificar, suspender o discontinuar cualquier aspecto del servicio en cualquier momento.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Actividades Prohibidas
+                        </h2>
+                        <p>Los usuarios tienen estrictamente prohibido utilizar el servicio para:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Enviar mensajes comerciales no solicitados (SPAM)</li>
+                            <li>Phishing, fraude o actividades destinadas a engañar</li>
+                            <li>Distribuir contenido odioso, amenazante o ilegal</li>
+                            <li>Acceso no autorizado a otros sistemas o cuentas</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            La violación de estas reglas resultará en la terminación inmediata de la cuenta sin reembolso.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Pagos y Reembolsos
+                        </h2>
+                        <p>Los servicios se proporcionan en base a prepago (crédito). Los créditos no son reembolsables a menos que la ley lo requiera. Los créditos no utilizados pueden expirar si la cuenta permanece inactiva durante más de 12 meses.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Limitación de Responsabilidad
+                        </h2>
+                        <p>iSMS Solutions OÜ no será responsable de ningún daño indirecto, incidental, especial, consecuente o punitivo resultante del uso o la imposibilidad de usar el servicio.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Ley Aplicable
+                        </h2>
+                        <p>Estos términos se rigen e interpretan de acuerdo con las leyes de Estonia. Cualquier disputa que surja estará sujeta a la jurisdicción exclusiva de los tribunales de Tallin, Estonia.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'lt';
+---
+
+<Layout title="Saugumas - SMSPM | Pasaulinė SMS infrastruktūra" description="Sužinokite apie išsamias SMSPM saugumo priemones, įskaitant šifravimą, API saugumą ir BDAR atitiktį.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Saugumas
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-8">
+                    <p class="text-xl">SMSPM saugumas nėra funkcija – tai viso, ką kuriame, pagrindas. Naudojame pirmaujančius pramonės standartus, kad užtikrintume jūsų duomenų ir pranešimų privatumą ir saugumą.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose mb-12">
+                        <div class="p-8 rounded-2xl border border-dynamic-primary bg-dynamic-primary">
+                            <div class="w-12 h-12 bg-cyan/10 rounded-xl flex items-center justify-center text-cyan mb-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-dynamic-primary mb-2">Išplėstinis šifravimas</h3>
+                            <p class="text-sm text-dynamic-secondary text-balance">Visi perduodami duomenys šifruojami naudojant TLS 1.3, o jautrūs saugomi duomenys apsaugoti AES-256 šifravimu.</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border border-dynamic-primary bg-dynamic-primary">
+                            <div class="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center text-purple mb-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-dynamic-primary mb-2">Saugi API</h3>
+                            <p class="text-sm text-dynamic-secondary text-balance">API prieiga valdoma per apribotus raktus ir pasirenkamą IP baltąjį sąrašą, kad būtų užkirstas kelias neleistinam naudojimui.</p>
+                        </div>
+                    </div>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Infrastruktūros saugumas</h2>
+                        <p>Mūsų infrastruktūra talpinama ISO 27001 sertifikuotuose duomenų centruose. Naudojame daugiasluoksnį saugumo požiūrį, įskaitant automatizuotą grėsmių aptikimą, apsaugą nuo paskirstytų atsisakymo aptarnauti (DDoS) atakų per Cloudflare ir reguliarų pažeidžiamumų skenavimą.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Reguliavimo atitiktis</h2>
+                        <p>Kaip ES operatorius, visiškai atitinkame BDAR. Taip pat laikomės OWASP saugumo geriausios praktikos žiniatinklio programų saugumui ir du kartus per metus atliekame vidinius saugumo auditus.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Pažeidžiamumų pranešimas</h2>
+                        <p>
+                            Sveikiname saugumo tyrėjus. Jei manote, kad radote saugumo pažeidžiamumą mūsų platformoje, praneškite mums <a href="mailto:security@smspm.com" class="text-cyan font-semibold">security@smspm.com</a>. Nedelsdami atsakysime ir dirbsime su jumis problemai išspręsti.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

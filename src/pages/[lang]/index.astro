@@ -7,6 +7,7 @@ import HomeContent from "../../components/home/HomeContent.astro";
 
 export async function getStaticPaths() {
     return [
+        { params: { lang: "en" } },
         { params: { lang: "et" } },
         { params: { lang: "ru" } },
         { params: { lang: "es" } },
@@ -20,6 +21,7 @@ export async function getStaticPaths() {
 const { lang } = Astro.params;
 
 const titles: Record<string, string> = {
+    en: "SMSPM - Global SMS API & Bulk Messaging Platform",
     et: "SMSPM - Globaalne SMS API ja mass-SMS platvorm",
     ru: "SMSPM - Глобальный SMS API и платформа массовых рассылок",
     es: "SMSPM - API de SMS global y plataforma de mensajería masiva",

@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+---
+
+<Layout title="Privacy Policy - SMSPM" description="Learn how SMSPM protects your privacy and handles your personal data in compliance with GDPR.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Privacy Policy
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Last Updated: January 21, 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Introduction
+                        </h2>
+                        <p>iSMS Solutions OÜ ("we", "our", or "us") operates the SMSPM platform. We are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and protect your information when you use our services.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Data Collection
+                        </h2>
+                        <p>We collect information you provide directly to us, including:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Account information (name, email, organization)</li>
+                            <li>Payment and billing information</li>
+                            <li>Message content and recipient numbers</li>
+                            <li>Technical data (IP address, browser type, device info)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Use of Information
+                        </h2>
+                        <p>We use the collected information to:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Provide and maintain our SMS services</li>
+                            <li>Process transactions and send billing notifications</li>
+                            <li>Comply with legal and regulatory requirements</li>
+                            <li>Improve our platform and developer tools</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. GDPR Compliance
+                        </h2>
+                        <p>As an Estonian company, we strictly adhere to the General Data Protection Regulation (GDPR). We process all personal data within the EEA or under standard contractual clauses that ensure an equivalent level of protection.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Your Rights
+                        </h2>
+                        <p>Under GDPR, you have the right to:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Access your personal data</li>
+                            <li>Rectify inaccurate data</li>
+                            <li>Request erasure of your data ("right to be forgotten")</li>
+                            <li>Export your data in a portable format</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Contact Us
+                        </h2>
+                        <p>
+                            If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

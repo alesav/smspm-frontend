@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'lv';
+---
+
+<Layout title="Pakalpojuma noteikumi - SMSPM" description="Izlasiet SMSPM pakalpojuma noteikumus, lai saprastu savas tiesības un pienākumus, lietojot mūsu SMS vārtejas platformu.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Pakalpojuma noteikumi
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Pēdējo reizi atjaunināts: 2026. gada 21. janvārī</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Noteikumu pieņemšana
+                        </h2>
+                        <p>Piekļūstot vai izmantojot SMSPM platformu, jūs piekrītat ievērot šos Pakalpojuma noteikumus un visus piemērojamos Igaunijas un Eiropas Savienības likumus un noteikumus.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Pakalpojuma apraksts
+                        </h2>
+                        <p>SMSPM nodrošina API un tīmekļa saskarni globālo SMS ziņojumu sūtīšanai. Mēs paturam tiesības jebkurā laikā modificēt, apturēt vai pārtraukt jebkuru pakalpojuma aspektu.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Aizliegtās darbības
+                        </h2>
+                        <p>Lietotājiem ir stingri aizliegts izmantot pakalpojumu:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Nevēlamu komerciālu ziņojumu (SPAM) sūtīšanai</li>
+                            <li>Pikšķerēšanai, krāpšanai vai maldināšanas nolūkiem</li>
+                            <li>Naida, draudu vai nelikumīga satura izplatīšanai</li>
+                            <li>Nesankcionētai piekļuvei citām sistēmām vai kontiem</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            Šo noteikumu pārkāpšana izraisīs tūlītēju konta izbeigšanu bez atmaksas.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Maksājumi un atmaksas
+                        </h2>
+                        <p>Pakalpojumi tiek sniegti avansa maksājuma (kredīta) veidā. Kredīti nav atmaksājami, ja vien to neprasa likums. Neizmantoti kredīti var beigties, ja konts paliek neaktīvs ilgāk par 12 mēnešiem.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Atbildības ierobežojums
+                        </h2>
+                        <p>iSMS Solutions OÜ nav atbildīgs par jebkādiem netiešiem, nejauši radītiem, īpašiem, izrietošiem vai sodošiem zaudējumiem, kas rodas no pakalpojuma izmantošanas vai neiespējamības to izmantot.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Piemērojamie tiesību akti
+                        </h2>
+                        <p>Šos noteikumus regulē un interpretē saskaņā ar Igaunijas likumiem. Visi strīdi būs Tallinas, Igaunija, tiesu ekskluzīvajā jurisdikcijā.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

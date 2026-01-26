@@ -1,0 +1,116 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'de';
+
+const t = {
+  "badge": "Wer wir sind",
+  "title1": "Globale",
+  "title2": "Kommunikation ermöglichen",
+  "subtitle": "SMSPM bietet hochleistungsfähige SMS-Gateway-Lösungen für Unternehmen, die Zuverlässigkeit, Geschwindigkeit und globale Reichweite fordern. Mit Sitz in Estland, dem digitalen Zentrum Europas, verbinden wir Sie mit Kunden in über 190 Ländern.",
+  "companyTitle": "Firmendetails",
+  "legalEntity": "Rechtsform",
+  "regNumber": "Registrierungsnummer",
+  "regOffice": "Registrierter Sitz",
+  "contactTitle": "Kontaktieren Sie uns",
+  "emailSupport": "E-Mail-Support",
+  "phoneSupport": "Telefon-Support",
+  "submitTicket": "Ticket einreichen",
+  "metaTitle": "Über uns - SMSPM | Globales SMS-Gateway",
+  "metaDescription": "Erfahren Sie mehr über SMSPM, Estlands führenden SMS-Gateway-Anbieter. Verbinden Sie sich mit über 190 Ländern mit zuverlässigen, hochleistungsfähigen Messaging-Lösungen."
+};
+---
+
+<Layout title={t.metaTitle} description={t.metaDescription}>
+    <Navigation lang={lang} />
+    <main class="pt-[120px] pb-20">
+        <section class="hero-section py-16 lg:py-24 overflow-hidden relative">
+            <div class="container mx-auto px-8 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">{t.badge}</span>
+                    <h1 class="text-4xl lg:text-7xl font-extrabold leading-tight mb-8 tracking-tight text-dynamic-primary">
+                        {t.title1} <span class="gradient-text">{t.title2}</span>
+                    </h1>
+                    <p class="text-xl text-dynamic-secondary leading-relaxed mb-12">{t.subtitle}</p>
+                </div>
+            </div>
+        </section>
+        <section class="info-section py-12">
+            <div class="container mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <div class="feature-card p-10 rounded-3xl border border-dynamic-primary bg-dynamic-primary">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-cyan/10 rounded-xl flex items-center justify-center text-cyan">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 21h18"></path>
+                                    <path d="M3 7v1a3 3 0 0 0 6 0V7m6 1V7a3 3 0 0 0-6 0v1m6 0v1a3 3 0 0 0 6 0V7a3 3 0 0 0-6 0 Z"></path>
+                                    <path d="M4 21V10"></path>
+                                    <path d="M20 21V10"></path>
+                                    <path d="M9 21v-4a2 2 0 0 1 4 0v4"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-dynamic-primary">{t.companyTitle}</h2>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-sm uppercase tracking-wider text-dynamic-tertiary font-semibold mb-1">{t.legalEntity}</p>
+                                <p class="text-lg text-dynamic-primary font-medium">iSMS Solutions OÜ</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase tracking-wider text-dynamic-tertiary font-semibold mb-1">{t.regNumber}</p>
+                                <p class="text-lg text-dynamic-primary font-medium">11472498</p>
+                            </div>
+                            <div>
+                                <p class="text-sm uppercase tracking-wider text-dynamic-tertiary font-semibold mb-1">{t.regOffice}</p>
+                                <p class="text-lg text-dynamic-primary leading-relaxed">K. Kärberi tn 34-17,<br />13919, Tallinn,<br />Estonia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-card p-10 rounded-3xl border border-dynamic-primary bg-dynamic-primary">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center text-purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-dynamic-primary">{t.contactTitle}</h2>
+                        </div>
+                        <div class="space-y-8">
+                            <div class="group cursor-pointer">
+                                <p class="text-sm uppercase tracking-wider text-dynamic-tertiary font-semibold mb-1">{t.emailSupport}</p>
+                                <a href="mailto:support@smspm.com" class="text-xl text-dynamic-primary font-bold hover:text-cyan transition-colors">support@smspm.com</a>
+                            </div>
+                            <div class="group cursor-pointer">
+                                <p class="text-sm uppercase tracking-wider text-dynamic-tertiary font-semibold mb-1">{t.phoneSupport}</p>
+                                <a href="tel:+37254515400" class="text-xl text-dynamic-primary font-bold hover:text-cyan transition-colors">+372 5451 5400</a>
+                            </div>
+                            <div class="pt-4">
+                                <a href="https://smspm.freshdesk.com/support/tickets/new" class="btn btn-primary w-full justify-center">
+                                    {t.submitTicket}
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer lang={lang} />
+</Layout>
+
+<style>
+    .hero-section {
+        background: radial-gradient(circle at 50% 100%, rgba(38, 198, 218, 0.08) 0%, transparent 50%);
+    }
+    .gradient-text {
+        background: linear-gradient(135deg, #26c6da 0%, #0d47a1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+</style>

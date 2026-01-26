@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'ru';
+---
+
+<Layout title="Политика конфиденциальности - SMSPM" description="Узнайте, как SMSPM защищает вашу конфиденциальность и обрабатывает персональные данные в соответствии с GDPR.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Политика конфиденциальности
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Последнее обновление: 21 января 2026 г.</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Введение
+                        </h2>
+                        <p>iSMS Solutions OÜ ("мы") управляет платформой SMSPM. Мы стремимся защищать вашу конфиденциальность и обеспечивать безопасность ваших персональных данных. Эта Политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу информацию при использовании наших услуг.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Сбор данных
+                        </h2>
+                        <p>Мы собираем информацию, которую вы предоставляете нам напрямую, включая:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Информация об учетной записи (имя, электронная почта, организация)</li>
+                            <li>Платежная и расчетная информация</li>
+                            <li>Содержание сообщений и номера получателей</li>
+                            <li>Технические данные (IP-адрес, тип браузера, информация об устройстве)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Использование информации
+                        </h2>
+                        <p>Мы используем собранную информацию для:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Предоставления и поддержки наших SMS-услуг</li>
+                            <li>Обработки транзакций и отправки уведомлений о выставлении счетов</li>
+                            <li>Соблюдения юридических и нормативных требований</li>
+                            <li>Улучшения нашей платформы и инструментов разработчика</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Соответствие GDPR
+                        </h2>
+                        <p>Как эстонская компания, мы строго соблюдаем Общий регламент по защите данных (GDPR). Мы обрабатываем все персональные данные в пределах ЕЭЗ или в соответствии со стандартными договорными оговорками, которые обеспечивают эквивалентный уровень защиты.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Ваши права
+                        </h2>
+                        <p>В соответствии с GDPR вы имеете право:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Получить доступ к своим персональным данным</li>
+                            <li>Исправить неточные данные</li>
+                            <li>Запросить удаление своих данных ("право быть забытым")</li>
+                            <li>Экспортировать свои данные в переносимом формате</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Свяжитесь с нами
+                        </h2>
+                        <p>
+                            Если у вас есть вопросы об этой Политике конфиденциальности, свяжитесь с нами по адресу <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'et';
+---
+
+<Layout title="Teenuse tingimused - SMSPM" description="Lugege SMSPM-i teenuse tingimusi, et mõista oma õigusi ja kohustusi meie SMS-lüüsi platvormi kasutamisel.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Teenuse tingimused
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Viimati uuendatud: 21. jaanuar 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Tingimuste vastuvõtmine
+                        </h2>
+                        <p>SMSPM platvormi kasutades nõustute olema seotud nende teenuse tingimustega ja kõigi kohaldatavate Eesti ja Euroopa Liidu seaduste ja määrustega.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Teenuse kirjeldus
+                        </h2>
+                        <p>SMSPM pakub API-d ja veebiliidest globaalsete SMS-sõnumite saatmiseks. Jätame endale õiguse teenuse mis tahes aspekti igal ajal muuta, peatada või lõpetada.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Keelatud tegevused
+                        </h2>
+                        <p>Kasutajatel on rangelt keelatud teenust kasutada:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Soovimatute kaubandusteatiste (SPAM) saatmine</li>
+                            <li>Andmepüük, pettus või pettust soodustavad tegevused</li>
+                            <li>Vihkava, ähvardava või ebaseadusliku sisu levitamine</li>
+                            <li>Volitamata juurdepääs teistele süsteemidele või kontodele</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            Nende reeglite rikkumine toob kaasa konto viivitamatu lõpetamise ilma tagasimakseta.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Maksed ja tagasimaksed
+                        </h2>
+                        <p>Teenuseid pakutakse ettemaksu (krediit) alusel. Krediidid ei ole tagastatavad, välja arvatud juhul, kui seadus nõuab teisiti. Kasutamata krediidid võivad aeguda, kui konto jääb enam kui 12 kuuks mitteaktiivseks.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Vastutuse piiramine
+                        </h2>
+                        <p>iSMS Solutions OÜ ei vastuta mingite kaudsete, juhuslike, eriliste, kaudsete või karistuslike kahjude eest, mis tulenevad teenuse kasutamisest või kasutamise võimatusest.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Kohaldatav õigus
+                        </h2>
+                        <p>Neid tingimusi reguleerib ja tõlgendatakse vastavalt Eesti seadustele. Kõik vaidlused alluvad Tallinna kohtute ainupädevusele.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

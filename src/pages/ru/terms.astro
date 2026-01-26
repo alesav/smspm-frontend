@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'ru';
+---
+
+<Layout title="Условия обслуживания - SMSPM" description="Ознакомьтесь с Условиями обслуживания SMSPM, чтобы понять свои права и обязанности при использовании нашей платформы SMS-шлюза.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Условия обслуживания
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Последнее обновление: 21 января 2026 г.</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Принятие условий
+                        </h2>
+                        <p>Получая доступ к платформе SMSPM или используя ее, вы соглашаетесь соблюдать настоящие Условия обслуживания и все применимые законы и нормативные акты Эстонии и Европейского Союза.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Описание услуги
+                        </h2>
+                        <p>SMSPM предоставляет API и веб-интерфейс для отправки глобальных SMS-сообщений. Мы оставляем за собой право изменять, приостанавливать или прекращать любой аспект услуги в любое время.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Запрещенные действия
+                        </h2>
+                        <p>Пользователям строго запрещено использовать сервис для:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Отправки нежелательных коммерческих сообщений (СПАМ)</li>
+                            <li>Фишинга, мошенничества или действий, направленных на обман</li>
+                            <li>Распространения ненавистного, угрожающего или незаконного контента</li>
+                            <li>Несанкционированного доступа к другим системам или учетным записям</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            Нарушение этих правил приведет к немедленному закрытию учетной записи без возврата средств.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Платежи и возвраты
+                        </h2>
+                        <p>Услуги предоставляются на основе предоплаты (кредита). Кредиты не подлежат возврату, если иное не требуется по закону. Неиспользованные кредиты могут истечь, если учетная запись остается неактивной более 12 месяцев.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Ограничение ответственности
+                        </h2>
+                        <p>iSMS Solutions OÜ не несет ответственности за любые косвенные, случайные, особые, последующие или штрафные убытки, возникшие в результате использования или невозможности использования услуги.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Применимое право
+                        </h2>
+                        <p>Эти условия регулируются и толкуются в соответствии с законодательством Эстонии. Любые споры подлежат исключительной юрисдикции судов Таллинна, Эстония.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

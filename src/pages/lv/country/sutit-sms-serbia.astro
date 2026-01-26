@@ -1,0 +1,198 @@
+---
+/**
+ * AUTO-GENERATED PAGE - Do not edit directly!
+ * Language: lv
+ * Country: Serbia
+ */
+
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import CountryHero from '../../../components/country/CountryHero.astro';
+import CountryInfo from '../../../components/country/CountryInfo.astro';
+import MobileProviders from '../../../components/country/MobileProviders.astro';
+import UseCases from '../../../components/country/UseCases.astro';
+import ApiIntegration from '../../../components/country/ApiIntegration.astro';
+import CountryFAQ from '../../../components/country/CountryFAQ.astro';
+import RegulatoryInfo from '../../../components/country/RegulatoryInfo.astro';
+import Footer from '../../../components/Footer.astro';
+
+// Language and Localization
+const lang = 'lv';
+
+// Country metadata
+const countryCode = 'se';
+const countryName = 'Serbia';
+const countryFlag = '🌍';
+const currency = 'USD';
+const callingCode = '+?';
+const timezone = 'UTC';
+const population = 'N/A';
+const mobileUsers = 'N/A';
+
+// Provider pricing data
+const providers = [
+    { name: 'GLOBALTEL', price: 0.1 },
+    { name: 'Vectone Mobile', price: 0.1 },
+    { name: 'Telekom Srbija a.d.', price: 0.406 },
+    { name: 'Telenor', price: 0.406 },
+    { name: 'VIP', price: 0.406 },
+].sort((a, b) => a.price - b.price);
+
+const startingPrice = 0.100;
+
+// Country configuration
+const country = {
+  code: countryCode,
+  name: countryName,
+  flag: countryFlag,
+  population: population,
+  mobileUsers: mobileUsers,
+  mobilePenetration: 'N/A',
+  networkCoverage: '99%+',
+  timezone: timezone,
+  currency: currency,
+  callingCode: callingCode,
+  startingPrice: startingPrice,
+  providers: providers.map(p => ({
+    name: p.name,
+    price: p.price,
+    marketShare: 20,
+    coverage: 99.0,
+    deliveryRate: 99.5,
+    features: ['5G Network', 'Unicode Support', 'Delivery Receipts', 'Priority Routing'],
+    description: `Reliable mobile operator providing SMS services in ${countryName}.`,
+    logo: '',
+  })),
+  marketDescription: `${countryName} has a modern mobile infrastructure. SMS remains an effective communication channel for businesses.`,
+  useCases: [
+    {
+      title: 'E-commerce & Retail',
+      description: `Order confirmations and promotional campaigns for ${countryName}'s retail market`,
+      examples: ['Order confirmations', 'Shipping notifications', 'Flash sale alerts'],
+      icon: 'fas fa-shopping-cart'
+    },
+    {
+      title: 'Banking & FinTech',
+      description: `OTP verification and transaction alerts for ${countryName}'s financial sector`,
+      examples: ['OTP verification', 'Transaction alerts', 'Security notifications'],
+      icon: 'fas fa-university'
+    },
+    {
+      title: 'Healthcare',
+      description: `Appointment reminders in ${countryName}'s healthcare system`,
+      examples: ['Appointment reminders', 'Test results', 'Health tips'],
+      icon: 'fas fa-heartbeat'
+    },
+    {
+      title: 'Business Services',
+      description: `Customer engagement and notifications for businesses in ${countryName}`,
+      examples: ['Meeting reminders', 'Verification codes', 'Status updates'],
+      icon: 'fas fa-briefcase'
+    }
+  ],
+  regulations: [
+    {
+      title: 'Data Protection',
+      description: `Comply with local data protection regulations when sending SMS to ${countryName}.`,
+      icon: 'fas fa-shield-alt'
+    },
+    {
+      title: 'Opt-out Requirements',
+      description: `Respect user preferences and maintain opt-out lists.`,
+      icon: 'fas fa-user-check'
+    },
+    {
+      title: 'Content Guidelines',
+      description: `Follow local content regulations and cultural norms.`,
+      icon: 'fas fa-gavel'
+    }
+  ],
+  stats: {
+    deliveryRate: '99.5%',
+    responseTime: '<200ms',
+    uptime: '99.9%'
+  },
+  seo: {
+    title: `Sūtīt SMS uz Serbia - Bulk Messaging & API | SMSPM`,
+    description: `Sūtīt SMS uz Serbia with 99.5% delivery rate. Pricing from €${startingPrice} par ziņu.`,
+    keywords: [`SMS ${countryName}`, `bulk SMS ${countryName}`, `SMS API ${countryName}`]
+  }
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `SMS Service to ${country.name}`,
+  "description": country.seo.description,
+  "provider": { "@type": "Organization", "name": "SMSPM", "url": "https://smspm.com" },
+  "areaServed": { "@type": "Country", "name": country.name },
+  "offers": country.providers.slice(0, 5).map(provider => ({
+    "@type": "Offer",
+    "name": `SMS via ${provider.name}`,
+    "price": provider.price,
+    "priceCurrency": country.currency
+  }))
+};
+---
+
+<Layout title={country.seo.title} description={country.seo.description}>
+  <head>
+    <meta name="keywords" content={country.seo.keywords.join(', ')} />
+    <link rel="canonical" href={`https://smspm.com/lv/country/sutit-sms-serbia`} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    <link rel="alternate" hreflang="en" href={`https://smspm.com/en/country/send-sms-serbia`} />
+    <link rel="alternate" hreflang="et" href={`https://smspm.com/et/country/saada-sms-serbia`} />
+    <link rel="alternate" hreflang="ru" href={`https://smspm.com/ru/country/otpravit-sms-serbia`} />
+    <link rel="alternate" hreflang="es" href={`https://smspm.com/es/country/enviar-sms-serbia`} />
+    <link rel="alternate" hreflang="de" href={`https://smspm.com/de/country/sms-senden-serbia`} />
+    <link rel="alternate" hreflang="fr" href={`https://smspm.com/fr/country/envoyer-sms-serbia`} />
+    <link rel="alternate" hreflang="lv" href={`https://smspm.com/lv/country/sutit-sms-serbia`} />
+    <link rel="alternate" hreflang="lt" href={`https://smspm.com/lt/country/siusti-sms-serbia`} />
+    <link rel="alternate" hreflang="x-default" href={`https://smspm.com/en/country/send-sms-serbia`} />
+  </head>
+
+  <Navigation />
+  
+  <main>
+    <CountryHero country={country} lang={lang} />
+    <CountryInfo country={country} lang={lang} />
+    <MobileProviders country={country} lang={lang} />
+    <UseCases country={country} lang={lang} />
+    <ApiIntegration country={country} lang={lang} />
+    <CountryFAQ country={country} lang={lang} />
+    <RegulatoryInfo country={country} lang={lang} />
+    
+    <section class="cta-section relative py-16 lg:py-24 overflow-hidden">
+      <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
+      <div class="container mx-auto px-8 text-center max-w-[800px]">
+        <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
+          Gatavs sūtīt SMS uz {country.name}?
+        </h2>
+        <p class="cta-subtitle text-xl text-white/90 mb-8">
+          Pievienojieties tūkstošiem uzņēmumu, kas izmanto SMSPM drošai ziņojumu piegādei
+        </p>
+        <div class="cta-actions flex flex-col sm:flex-row justify-center gap-4 mb-6">
+          <a href="https://app.smspm.com/app/register" class="btn btn-primary btn-large">
+            Sākt bezmaksas izmēģinājumu
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/demo" class="btn btn-secondary btn-large light text-white border-white/30 hover:bg-white/10">
+            Pieprasīt demo
+          </a>
+        </div>
+        <p class="cta-note text-sm text-white/70">
+          Nav nepieciešama kredītkarte · 50 bezmaksas ziņapmaiņas · Pilna piekļuve API
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .cta-gradient-bg {
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 50%, #0d47a1 100%);
+  }
+</style>

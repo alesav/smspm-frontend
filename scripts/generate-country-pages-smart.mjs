@@ -206,19 +206,32 @@ function generatePageTemplate(lang, countryName, providers, metadata) {
     return `    { name: '${escapedProviderName}', price: ${p.price} },`;
   }).join('\n');
 
-  // Slug logic for canonicals
+  // Slug logic for canonicals with localized URL prefixes
   const slugLocalized = metadata[`slug_${lang}`] || metadata.slug;
-  const urlPrefix = lang === 'et' ? 'saada-sms-' : 'send-sms-';
+  
+  // URL prefix mapping for each language
+  const urlPrefixes = {
+    'en': 'send-sms-',
+    'et': 'saada-sms-',
+    'ru': 'otpravit-sms-',
+    'es': 'enviar-sms-',
+    'de': 'sms-senden-',
+    'fr': 'envoyer-sms-',
+    'lv': 'sutit-sms-',
+    'lt': 'siusti-sms-'
+  };
+  
+  const urlPrefix = urlPrefixes[lang] || 'send-sms-';
 
   const alternateLinks = [
     { lang: 'en', slug: metadata.slug, prefix: 'send-sms-' },
     { lang: 'et', slug: metadata.slug_et || metadata.slug, prefix: 'saada-sms-' },
-    { lang: 'ru', slug: metadata.slug_ru || metadata.slug, prefix: 'send-sms-' },
-    { lang: 'es', slug: metadata.slug_es || metadata.slug, prefix: 'send-sms-' },
-    { lang: 'de', slug: metadata.slug_de || metadata.slug, prefix: 'send-sms-' },
-    { lang: 'fr', slug: metadata.slug_fr || metadata.slug, prefix: 'send-sms-' },
-    { lang: 'lv', slug: metadata.slug_lv || metadata.slug, prefix: 'send-sms-' },
-    { lang: 'lt', slug: metadata.slug_lt || metadata.slug, prefix: 'send-sms-' },
+    { lang: 'ru', slug: metadata.slug_ru || metadata.slug, prefix: 'otpravit-sms-' },
+    { lang: 'es', slug: metadata.slug_es || metadata.slug, prefix: 'enviar-sms-' },
+    { lang: 'de', slug: metadata.slug_de || metadata.slug, prefix: 'sms-senden-' },
+    { lang: 'fr', slug: metadata.slug_fr || metadata.slug, prefix: 'envoyer-sms-' },
+    { lang: 'lv', slug: metadata.slug_lv || metadata.slug, prefix: 'sutit-sms-' },
+    { lang: 'lt', slug: metadata.slug_lt || metadata.slug, prefix: 'siusti-sms-' },
   ].map(alt => `    <link rel="alternate" hreflang="${alt.lang}" href={\`https://smspm.com/${alt.lang}/country/${alt.prefix}${alt.slug}\`} />`).join('\n');
 
   return `---
@@ -437,13 +450,21 @@ async function generatePages(options = {}) {
       const { name, providers } = countryData;
       const metadata = getCountryMetadata(name);
 
-      let filename;
+      // URL prefix mapping for each language
+      const urlPrefixes = {
+        'en': 'send-sms-',
+        'et': 'saada-sms-',
+        'ru': 'otpravit-sms-',
+        'es': 'enviar-sms-',
+        'de': 'sms-senden-',
+        'fr': 'envoyer-sms-',
+        'lv': 'sutit-sms-',
+        'lt': 'siusti-sms-'
+      };
+      
       const slugLocalized = metadata[`slug_${lang}`] || metadata.slug;
-      if (lang === 'et') {
-        filename = `saada-sms-${slugLocalized}.astro`;
-      } else {
-        filename = `send-sms-${slugLocalized}.astro`;
-      }
+      const urlPrefix = urlPrefixes[lang] || 'send-sms-';
+      const filename = `${urlPrefix}${slugLocalized}.astro`;
 
       const relativePath = `${lang}/country/${filename}`;
       const filepath = join(langOutputDir, filename);

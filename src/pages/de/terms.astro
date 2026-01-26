@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'de';
+---
+
+<Layout title="Nutzungsbedingungen - SMSPM" description="Lesen Sie die Nutzungsbedingungen von SMSPM, um Ihre Rechte und Pflichten bei der Nutzung unserer SMS-Gateway-Plattform zu verstehen.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Nutzungsbedingungen
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Zuletzt aktualisiert: 21. Januar 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Annahme der Bedingungen
+                        </h2>
+                        <p>Durch den Zugriff auf oder die Nutzung der SMSPM-Plattform erklären Sie sich mit diesen Nutzungsbedingungen und allen geltenden Gesetzen und Vorschriften Estlands und der Europäischen Union einverstanden.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Dienstbeschreibung
+                        </h2>
+                        <p>SMSPM bietet eine API und eine Weboberfläche zum Versenden globaler SMS-Nachrichten. Wir behalten uns das Recht vor, jeden Aspekt des Dienstes jederzeit zu ändern, auszusetzen oder einzustellen.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Verbotene Aktivitäten
+                        </h2>
+                        <p>Benutzern ist die Nutzung des Dienstes streng untersagt für:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Versenden unerwünschter kommerzieller Nachrichten (SPAM)</li>
+                            <li>Phishing, Betrug oder betrügerische Aktivitäten</li>
+                            <li>Verbreitung hasserfüllter, bedrohlicher oder illegaler Inhalte</li>
+                            <li>Unbefugter Zugriff auf andere Systeme oder Konten</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-dynamic-primary">
+                            Die Verletzung dieser Regeln führt zur sofortigen Kontosperrung ohne Rückerstattung.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Zahlungen und Rückerstattungen
+                        </h2>
+                        <p>Dienste werden auf Vorauszahlungsbasis (Guthaben) bereitgestellt. Guthaben sind nicht erstattungsfähig, es sei denn, dies ist gesetzlich vorgeschrieben. Ungenutztes Guthaben kann verfallen, wenn das Konto länger als 12 Monate inaktiv bleibt.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Haftungsbeschränkung
+                        </h2>
+                        <p>iSMS Solutions OÜ haftet nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden, die aus der Nutzung oder Nichtnutzung des Dienstes resultieren.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Anwendbares Recht
+                        </h2>
+                        <p>Diese Bedingungen unterliegen den Gesetzen Estlands und werden nach diesen ausgelegt. Alle Streitigkeiten unterliegen der ausschließlichen Gerichtsbarkeit der Gerichte in Tallinn, Estland.</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

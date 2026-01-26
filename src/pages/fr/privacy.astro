@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'fr';
+---
+
+<Layout title="Politique de Confidentialité - SMSPM" description="Découvrez comment SMSPM protège votre vie privée et traite vos données personnelles conformément au RGPD.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Politique de Confidentialité
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Dernière mise à jour : 21 janvier 2026</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Introduction
+                        </h2>
+                        <p>iSMS Solutions OÜ ("nous") exploite la plateforme SMSPM. Nous nous engageons à protéger votre vie privée et à garantir la sécurité de vos données personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous utilisez nos services.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Collecte de Données
+                        </h2>
+                        <p>Nous collectons les informations que vous nous fournissez directement, notamment :</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Informations de compte (nom, e-mail, organisation)</li>
+                            <li>Informations de paiement et de facturation</li>
+                            <li>Contenu des messages et numéros des destinataires</li>
+                            <li>Données techniques (adresse IP, type de navigateur, informations sur l'appareil)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Utilisation des Informations
+                        </h2>
+                        <p>Nous utilisons les informations collectées pour :</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Fournir et maintenir nos services SMS</li>
+                            <li>Traiter les transactions et envoyer des notifications de facturation</li>
+                            <li>Respecter les exigences légales et réglementaires</li>
+                            <li>Améliorer notre plateforme et nos outils pour développeurs</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. Conformité au RGPD
+                        </h2>
+                        <p>En tant qu'entreprise estonienne, nous respectons strictement le Règlement Général sur la Protection des Données (RGPD). Nous traitons toutes les données personnelles au sein de l'EEE ou sous des clauses contractuelles types qui garantissent un niveau de protection équivalent.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Vos Droits
+                        </h2>
+                        <p>En vertu du RGPD, vous avez le droit de :</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Accéder à vos données personnelles</li>
+                            <li>Rectifier les données inexactes</li>
+                            <li>Demander l'effacement de vos données ("droit à l'oubli")</li>
+                            <li>Exporter vos données dans un format portable</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Nous Contacter
+                        </h2>
+                        <p>
+                            Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

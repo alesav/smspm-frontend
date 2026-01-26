@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'es';
+---
+
+<Layout title="Seguridad - SMSPM | Infraestructura SMS Global" description="Conozca las medidas de seguridad integrales de SMSPM, incluido el cifrado, la seguridad de API y el cumplimiento de GDPR.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Seguridad
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-8">
+                    <p class="text-xl">En SMSPM, la seguridad no es una característica, es la base de todo lo que construimos. Empleamos estándares líderes en la industria para garantizar que sus datos y mensajes permanezcan privados y seguros.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 not-prose mb-12">
+                        <div class="p-8 rounded-2xl border border-dynamic-primary bg-dynamic-primary">
+                            <div class="w-12 h-12 bg-cyan/10 rounded-xl flex items-center justify-center text-cyan mb-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-dynamic-primary mb-2">Cifrado Avanzado</h3>
+                            <p class="text-sm text-dynamic-secondary text-balance">Todos los datos en tránsito se cifran mediante TLS 1.3, y los datos confidenciales en reposo están protegidos con cifrado AES-256.</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border border-dynamic-primary bg-dynamic-primary">
+                            <div class="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center text-purple mb-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-dynamic-primary mb-2">API Segura</h3>
+                            <p class="text-sm text-dynamic-secondary text-balance">El acceso a la API se gestiona mediante claves de ámbito limitado y listas blancas de IP opcionales para evitar el uso no autorizado.</p>
+                        </div>
+                    </div>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Seguridad de Infraestructura</h2>
+                        <p>Nuestra infraestructura está alojada en centros de datos certificados ISO 27001. Utilizamos un enfoque de seguridad multicapa, que incluye detección automatizada de amenazas, protección contra ataques de denegación de servicio distribuido (DDoS) a través de Cloudflare y análisis de vulnerabilidades regulares.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Cumplimiento Regulatorio</h2>
+                        <p>Como operador con sede en la UE, cumplimos plenamente con GDPR. También seguimos las mejores prácticas de seguridad de OWASP para la seguridad de aplicaciones web y realizamos auditorías de seguridad internas dos veces al año.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Informe de Vulnerabilidades</h2>
+                        <p>
+                            Damos la bienvenida a los investigadores de seguridad. Si cree que ha encontrado una vulnerabilidad de seguridad en nuestra plataforma, infórmenos en <a href="mailto:security@smspm.com" class="text-cyan font-semibold">security@smspm.com</a>. Responderemos con prontitud y trabajaremos con usted para resolver el problema.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>

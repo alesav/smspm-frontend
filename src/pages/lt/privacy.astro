@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'lt';
+---
+
+<Layout title="Privatumo politika - SMSPM" description="Sužinokite, kaip SMSPM apsaugo jūsų privatumą ir tvarko asmens duomenis laikydamasis BDAR.">
+    <Navigation lang={lang} />
+
+    <main class="pt-[120px] pb-20">
+        <section class="py-16">
+            <div class="container mx-auto px-8 max-w-4xl">
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-8 text-dynamic-primary">
+                    Privatumo politika
+                </h1>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-dynamic-secondary space-y-6">
+                    <p class="text-sm text-dynamic-tertiary">Paskutinį kartą atnaujinta: 2026 m. sausio 21 d.</p>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            1. Įvadas
+                        </h2>
+                        <p>iSMS Solutions OÜ ("mes") valdome SMSPM platformą. Esame įsipareigoję apsaugoti jūsų privatumą ir užtikrinti jūsų asmens duomenų saugumą. Ši Privatumo politika paaiškina, kaip renkame, naudojame ir saugome jūsų informaciją, kai naudojatės mūsų paslaugomis.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            2. Duomenų rinkimas
+                        </h2>
+                        <p>Renkame informaciją, kurią mums tiesiogiai pateikiate, įskaitant:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Paskyros informacija (vardas, el. paštas, organizacija)</li>
+                            <li>Mokėjimo ir atsiskaitymo informacija</li>
+                            <li>Pranešimų turinys ir gavėjų numeriai</li>
+                            <li>Techniniai duomenys (IP adresas, naršyklės tipas, įrenginio informacija)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            3. Informacijos naudojimas
+                        </h2>
+                        <p>Surinktą informaciją naudojame, kad:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Teiktume ir palaikytume savo SMS paslaugas</li>
+                            <li>Tvarkytume sandorius ir siųstume atsiskaitymo pranešimus</li>
+                            <li>Laikytumės teisinių ir reguliavimo reikalavimų</li>
+                            <li>Tobulintume savo platformą ir kūrėjų įrankius</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            4. BDAR atitiktis
+                        </h2>
+                        <p>Kaip Estijos įmonė, griežtai laikomės Bendrojo duomenų apsaugos reglamento (BDAR). Visus asmens duomenis tvarkome EEE ribose arba pagal standartines sutarties sąlygas, kurios užtikrina lygiavertį apsaugos lygį.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            5. Jūsų teisės
+                        </h2>
+                        <p>Pagal BDAR turite teisę:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Gauti prieigą prie savo asmens duomenų</li>
+                            <li>Ištaisyti netikslus duomenis</li>
+                            <li>Prašyti ištrinti savo duomenis ("teisė būti pamirštam")</li>
+                            <li>Eksportuoti savo duomenis perkeliamu formatu</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold text-dynamic-primary mb-4">
+                            6. Susisiekite su mumis
+                        </h2>
+                        <p>
+                            Jei turite klausimų apie šią Privatumo politiką, susisiekite su mumis <a href="mailto:support@smspm.com" class="text-cyan font-semibold">support@smspm.com</a>.
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer lang={lang} />
+</Layout>
