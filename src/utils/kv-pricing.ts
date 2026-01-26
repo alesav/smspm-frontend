@@ -84,12 +84,18 @@ export async function fetchPricingData(): Promise<PricingData> {
         const data = await response.json();
         return data as PricingData;
       }
-      console.warn('Failed to fetch KV data, checking local file...');
-    } else {
-      console.warn('KV environment variables not found, checking local file...');
+      console.warn('Failed to fetch KV data, using local pricelist...');
     }
 
-    // Fallback: Try to read pricelist.json from the project root (for local dev/build)
+    // Primary fallback: Import pricelist.json directly (works in all environments)
+    try {
+      const pricelistModule = await import('../../pricelist.json');
+      return pricelistModule.default as PricingData;
+    } catch (importError) {
+      console.warn('Failed to import pricelist.json:', importError);
+    }
+
+    // Secondary fallback: Try to read from filesystem (for local dev)
     try {
       const fs = await import('fs');
       const path = await import('path');
@@ -103,7 +109,8 @@ export async function fetchPricingData(): Promise<PricingData> {
       console.warn('Failed to read local pricelist.json:', fsError);
     }
 
-    // Last resort: Hardcoded defaults
+    // Last resort: Hardcoded defaults (only 6 countries)
+    console.warn('Using hardcoded default pricing data');
     return getDefaultPricingData();
   } catch (error) {
     console.warn('Error fetching pricing data:', error);
