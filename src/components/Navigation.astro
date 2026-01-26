@@ -57,16 +57,17 @@ const COUNTRY_METADATA = metadataModule.COUNTRY_METADATA as any;
 // Helper function to find country by slug in any language
 const findCountryBySlug = (slug: string): string | null => {
   for (const [countryName, metadata] of Object.entries(COUNTRY_METADATA)) {
+    const meta = metadata as any;
     const allSlugs = [
-      metadata.slug,
-      metadata.slug_en,
-      metadata.slug_et,
-      metadata.slug_ru,
-      metadata.slug_es,
-      metadata.slug_de,
-      metadata.slug_fr,
-      metadata.slug_lv,
-      metadata.slug_lt
+      meta.slug,
+      meta.slug_en,
+      meta.slug_et,
+      meta.slug_ru,
+      meta.slug_es,
+      meta.slug_de,
+      meta.slug_fr,
+      meta.slug_lv,
+      meta.slug_lt
     ].filter(Boolean);
     
     if (allSlugs.includes(slug)) {
