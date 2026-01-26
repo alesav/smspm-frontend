@@ -1,92 +1,99 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const LANGUAGES = ['ru', 'es', 'de', 'fr', 'lv', 'lt'];
-const BASE_PAGES_DIR = join(__dirname, '../src/pages');
+const LANGUAGES = ["ru", "es", "de", "fr", "lv", "lt"];
+const BASE_PAGES_DIR = join(__dirname, "../src/pages");
 
 // Translation map for Homepages
 const HOMEPAGE_TRANSLATIONS = {
-    ru: {
-        title: 'SMSPM - Глобальный SMS API и платформа массовых рассылок',
-        heroBadge: 'Нам доверяют 10 000+ компаний по всему миру',
-        heroTitle: 'Глобальные SMS-рассылки',
-        heroTitleGradient: 'Сделано просто',
-        heroSubtitle: 'Отправляйте SMS-сообщения по всему миру с помощью мощного API. Охватите клиентов мгновенно в 190+ странах с вероятностью доставки 99,9%.',
-        getStartedFree: 'Начать бесплатно',
-        viewDemo: 'Смотреть демо',
-        statsDeliveryRate: 'Вероятность доставки',
-        statsCountries: 'Стран',
-        statsResponseTime: 'Время отклика'
-    },
-    es: {
-        title: 'SMSPM - API de SMS global y plataforma de mensajería masiva',
-        heroBadge: 'Con la confianza de más de 10.000 empresas en todo el mundo',
-        heroTitle: 'Mensajería SMS global',
-        heroTitleGradient: 'Hecho simple',
-        heroSubtitle: 'Envíe mensajes SMS a nivel mundial con una potente API. Llegue a los clientes al instante en más de 190 países con una tasa de entrega del 99,9%.',
-        getStartedFree: 'Empieza gratis',
-        viewDemo: 'Ver Demo',
-        statsDeliveryRate: 'Tasa de entrega',
-        statsCountries: 'Países',
-        statsResponseTime: 'Tiempo de respuesta'
-    },
-    de: {
-        title: 'SMSPM - Globale SMS-API & Massen-Messaging-Plattform',
-        heroBadge: 'Mehr als 10.000 Unternehmen weltweit vertrauen uns',
-        heroTitle: 'Globales SMS-Messaging',
-        heroTitleGradient: 'Ganz einfach',
-        heroSubtitle: 'Senden Sie SMS-Nachrichten weltweit mit einer leistungsstarken API. Erreichen Sie Kunden sofort in über 190 Ländern mit einer Zustellrate von 99,9%.',
-        getStartedFree: 'Kostenlos starten',
-        viewDemo: 'Demo ansehen',
-        statsDeliveryRate: 'Zustellrate',
-        statsCountries: 'Länder',
-        statsResponseTime: 'Reaktionszeit'
-    },
-    fr: {
-        title: 'SMSPM - API SMS mondiale et plateforme de messagerie en masse',
-        heroBadge: 'Plus de 10 000 entreprises nous font confiance dans le monde entier',
-        heroTitle: 'Messagerie SMS mondiale',
-        heroTitleGradient: 'Simplifiée',
-        heroSubtitle: 'Envoyez des messages SMS dans le monde entier grâce à une API puissante. Touchez vos clients instantanément dans plus de 190 pays avec un taux de délivrabilité de 99,9%.',
-        getStartedFree: 'Commencer gratuitement',
-        viewDemo: 'Voir la démo',
-        statsDeliveryRate: 'Taux de délivrabilité',
-        statsCountries: 'Pays',
-        statsResponseTime: 'Temps de réponse'
-    },
-    lv: {
-        title: 'SMSPM - Globāls SMS API un lielapjoma ziņapmaiņas platforma',
-        heroBadge: 'Mums uzticas vairāk nekā 10 000 uzņēmumu visā pasaulē',
-        heroTitle: 'Globāla SMS ziņapmaiņa',
-        heroTitleGradient: 'Padarīta vienkārša',
-        heroSubtitle: 'Sūtiet SMS ziņojumus visā pasaulē ar jaudīgu API. Sasniedziet klientus nekavējoties vairāk nekā 190 valstīs ar 99,9% piegādes līmeni.',
-        getStartedFree: 'Sākt bezmaksas',
-        viewDemo: 'Skatīt demo',
-        statsDeliveryRate: 'Piegādes līmenis',
-        statsCountries: 'Valstis',
-        statsResponseTime: 'Reakcijas laiks'
-    },
-    lt: {
-        title: 'SMSPM - Visuotinis SMS API ir masinių pranešimų platforma',
-        heroBadge: 'Mumis pasitiki daugiau nei 10 000 įmonių visame pasaulyje',
-        heroTitle: 'Visuotinis SMS pranešimų siuntimas',
-        heroTitleGradient: 'Paprasta',
-        heroSubtitle: 'Siųskite SMS pranešimus visame pasaulyje naudodami galingą API. Pasiekite klientus akimirksniu daugiau nei 190 šalių, užtikrindami 99,9 % pristatymo lygį.',
-        getStartedFree: 'Pradėti nemokamai',
-        viewDemo: 'Peržiūrėti demo',
-        statsDeliveryRate: 'Pristatymo lygis',
-        statsCountries: 'Šalys',
-        statsResponseTime: 'Reakcijos laikas'
-    }
+  ru: {
+    title: "SMSPM - Глобальный SMS API и платформа массовых рассылок",
+    heroBadge: "Нам доверяют 10 000+ компаний по всему миру",
+    heroTitle: "Глобальные SMS-рассылки",
+    heroTitleGradient: "Сделано просто",
+    heroSubtitle:
+      "Отправляйте SMS-сообщения по всему миру с помощью мощного API. Охватите клиентов мгновенно в 190+ странах с вероятностью доставки 99,9%.",
+    getStartedFree: "Начать бесплатно",
+    viewDemo: "Смотреть демо",
+    statsDeliveryRate: "Вероятность доставки",
+    statsCountries: "Стран",
+    statsResponseTime: "Время отклика",
+  },
+  es: {
+    title: "SMSPM - API de SMS global y plataforma de mensajería masiva",
+    heroBadge: "Con la confianza de más de 10.000 empresas en todo el mundo",
+    heroTitle: "Mensajería SMS global",
+    heroTitleGradient: "Hecho simple",
+    heroSubtitle:
+      "Envíe mensajes SMS a nivel mundial con una potente API. Llegue a los clientes al instante en más de 190 países con una tasa de entrega del 99,9%.",
+    getStartedFree: "Empieza gratis",
+    viewDemo: "Ver Demo",
+    statsDeliveryRate: "Tasa de entrega",
+    statsCountries: "Países",
+    statsResponseTime: "Tiempo de respuesta",
+  },
+  de: {
+    title: "SMSPM - Globale SMS-API & Massen-Messaging-Plattform",
+    heroBadge: "Mehr als 10.000 Unternehmen weltweit vertrauen uns",
+    heroTitle: "Globales SMS-Messaging",
+    heroTitleGradient: "Ganz einfach",
+    heroSubtitle:
+      "Senden Sie SMS-Nachrichten weltweit mit einer leistungsstarken API. Erreichen Sie Kunden sofort in über 190 Ländern mit einer Zustellrate von 99,9%.",
+    getStartedFree: "Kostenlos starten",
+    viewDemo: "Demo ansehen",
+    statsDeliveryRate: "Zustellrate",
+    statsCountries: "Länder",
+    statsResponseTime: "Reaktionszeit",
+  },
+  fr: {
+    title: "SMSPM - API SMS mondiale et plateforme de messagerie en masse",
+    heroBadge:
+      "Plus de 10 000 entreprises nous font confiance dans le monde entier",
+    heroTitle: "Messagerie SMS mondiale",
+    heroTitleGradient: "Simplifiée",
+    heroSubtitle:
+      "Envoyez des messages SMS dans le monde entier grâce à une API puissante. Touchez vos clients instantanément dans plus de 190 pays avec un taux de délivrabilité de 99,9%.",
+    getStartedFree: "Commencer gratuitement",
+    viewDemo: "Voir la démo",
+    statsDeliveryRate: "Taux de délivrabilité",
+    statsCountries: "Pays",
+    statsResponseTime: "Temps de réponse",
+  },
+  lv: {
+    title: "SMSPM - Globāls SMS API un lielapjoma ziņapmaiņas platforma",
+    heroBadge: "Mums uzticas vairāk nekā 10 000 uzņēmumu visā pasaulē",
+    heroTitle: "Globāla SMS ziņapmaiņa",
+    heroTitleGradient: "Padarīta vienkārša",
+    heroSubtitle:
+      "Sūtiet SMS ziņojumus visā pasaulē ar jaudīgu API. Sasniedziet klientus nekavējoties vairāk nekā 190 valstīs ar 99,9% piegādes līmeni.",
+    getStartedFree: "Sākt bezmaksas",
+    viewDemo: "Skatīt demo",
+    statsDeliveryRate: "Piegādes līmenis",
+    statsCountries: "Valstis",
+    statsResponseTime: "Reakcijas laiks",
+  },
+  lt: {
+    title: "SMSPM - Visuotinis SMS API ir masinių pranešimų platforma",
+    heroBadge: "Mumis pasitiki daugiau nei 10 000 įmonių visame pasaulyje",
+    heroTitle: "Visuotinis SMS pranešimų siuntimas",
+    heroTitleGradient: "Paprasta",
+    heroSubtitle:
+      "Siųskite SMS pranešimus visame pasaulyje naudodami galingą API. Pasiekite klientus akimirksniu daugiau nei 190 šalių, užtikrindami 99,9 % pristatymo lygį.",
+    getStartedFree: "Pradėti nemokamai",
+    viewDemo: "Peržiūrėti demo",
+    statsDeliveryRate: "Pristatymo lygis",
+    statsCountries: "Šalys",
+    statsResponseTime: "Reakcijos laikas",
+  },
 };
 
 function generateHomepage(lang) {
-    const t = HOMEPAGE_TRANSLATIONS[lang];
-    const template = `---
+  const t = HOMEPAGE_TRANSLATIONS[lang];
+  const template = `---
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
@@ -96,7 +103,7 @@ import Footer from "../../components/Footer.astro";
   <Navigation />
 
   <!-- Hero Section -->
-  <section class="hero relative pt-[140px] pb-20 overflow-hidden">
+  <section class="hero relative pt-[120px] pb-20 overflow-hidden">
     <div class="hero-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10">
     </div>
     <div class="container mx-auto px-8">
@@ -210,11 +217,11 @@ import Footer from "../../components/Footer.astro";
   <!-- More sections can be added here or linked to original components -->
 </Layout>
 `;
-    return template;
+  return template;
 }
 
 function generatePricingRedirect(lang) {
-    return `---
+  return `---
 export const prerender = true;
 ---
 <meta http-equiv="refresh" content={"0;url=/" + "${lang}" + "/countries"} />
@@ -222,21 +229,21 @@ export const prerender = true;
 }
 
 // Main execution
-LANGUAGES.forEach(lang => {
-    const langDir = join(BASE_PAGES_DIR, lang);
-    if (!existsSync(langDir)) {
-        mkdirSync(langDir, { recursive: true });
-    }
+LANGUAGES.forEach((lang) => {
+  const langDir = join(BASE_PAGES_DIR, lang);
+  if (!existsSync(langDir)) {
+    mkdirSync(langDir, { recursive: true });
+  }
 
-    // Generate index.astro
-    const indexPath = join(langDir, 'index.astro');
-    writeFileSync(indexPath, generateHomepage(lang));
-    console.log('Generated index.astro for ' + lang);
+  // Generate index.astro
+  const indexPath = join(langDir, "index.astro");
+  writeFileSync(indexPath, generateHomepage(lang));
+  console.log("Generated index.astro for " + lang);
 
-    // Generate hinnad.astro (localized pricing redirect)
-    const pricingPath = join(langDir, 'hinnad.astro');
-    writeFileSync(pricingPath, generatePricingRedirect(lang));
-    console.log('Generated hinnad.astro for ' + lang);
+  // Generate hinnad.astro (localized pricing redirect)
+  const pricingPath = join(langDir, "hinnad.astro");
+  writeFileSync(pricingPath, generatePricingRedirect(lang));
+  console.log("Generated hinnad.astro for " + lang);
 });
 
-console.log('Static page generation complete.');
+console.log("Static page generation complete.");
