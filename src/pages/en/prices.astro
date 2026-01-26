@@ -1,0 +1,356 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import {
+    getCountryCodeByName,
+    getCountryConfig,
+} from "../../utils/country-data";
+import { fetchPricingData } from "../../utils/kv-pricing";
+
+const lang = 'en';
+
+// Import localization data
+const metadataRaw = await import("../../../data/country-metadata.js");
+const COUNTRY_METADATA = metadataRaw.COUNTRY_METADATA as any;
+
+const translations = {
+    en: {
+        title: "Global SMS Pricing - Compare Rates for 190+ Countries",
+        description:
+            "View competitive SMS pricing for 190+ countries. Direct carrier connections, high delivery rates, and transparent rates.",
+        heroBadge: "Global Coverage",
+        heroTitle: "SMS Pricing",
+        heroDirectory: "Directory",
+        heroSubtitle: (total: number) =>
+            `Transparent pricing for ${total} countries through direct carrier routes.`,
+        searchPlaceholder: "Search for a country...",
+        ISO: "ISO",
+        startsFrom: "Starts from",
+        noResultsTitle: "No countries found",
+        noResultsText: "Try a different search term or browse the full list.",
+    },
+    et: {
+        title: "Globaalsed SMS hinnad - võrdle hindu 190+ riigis",
+        description:
+            "Vaata rannatuid SMS-hindu 190+ riigis. Otsesed operaatori ühendused, kõrge kättetoimetamise määr ja läbipaistvad hinnad.",
+        heroBadge: "Globaalne katvus",
+        heroTitle: "SMS-ide",
+        heroDirectory: "hinnakiri",
+        heroSubtitle: (total: number) =>
+            `Läbipaistvad hinnad ${total} riigi jaoks läbi otseste operaatorkanalite.`,
+        searchPlaceholder: "Otsi riiki...",
+        ISO: "ISO",
+        startsFrom: "Alates",
+        noResultsTitle: "Riike ei leitud",
+        noResultsText:
+            "Proovige muud otsingusõna või sirvige täielikku loendit.",
+    },
+    ru: {
+        title: "Мировые цены на SMS — сравните тарифы для 190+ стран",
+        description:
+            "Просматривайте конкурентоспособные цены на SMS в 190+ странах. Прямые подключения к операторам, высокая скорость доставки и прозрачные тарифы.",
+        heroBadge: "Глобальный охват",
+        heroTitle: "Цены на",
+        heroDirectory: "SMS",
+        heroSubtitle: (total: number) =>
+            `Прозрачное ценообразование для ${total} стран через прямые каналы операторов.`,
+        searchPlaceholder: "Поиск страны...",
+        ISO: "ISO",
+        startsFrom: "От",
+        noResultsTitle: "Страны не найдены",
+        noResultsText:
+            "Попробуйте другой поисковый запрос или просмотрите весь список.",
+    },
+    es: {
+        title: "Precios globales de SMS: compare tarifas para más de 190 países",
+        description:
+            "Vea precios competitivos de SMS para más de 190 países. Conexiones directas con operadores, altas tasas de entrega y tarifas transparentes.",
+        heroBadge: "Cobertura Global",
+        heroTitle: "Directorio de",
+        heroDirectory: "Precios SMS",
+        heroSubtitle: (total: number) =>
+            `Precios transparentes para ${total} países a través de rutas directas de operadores.`,
+        searchPlaceholder: "Buscar un país...",
+        ISO: "ISO",
+        startsFrom: "Desde",
+        noResultsTitle: "No se encontraron países",
+        noResultsText:
+            "Pruebe con un término de búsqueda diferente o explore la lista completa.",
+    },
+    de: {
+        title: "Globale SMS-Preise – Vergleichen Sie Tarife für über 190 Länder",
+        description:
+            "Sehen Sie sich wettbewerbsfähige SMS-Preise für über 190 Länder an. Direkte Carrier-Verbindungen, hohe Zustellraten und transparente Tarife.",
+        heroBadge: "Globale Abdeckung",
+        heroTitle: "SMS-Preis",
+        heroDirectory: "Verzeichnis",
+        heroSubtitle: (total: number) =>
+            `Transparente Preise für ${total} Länder über direkte Betreiberrouten.`,
+        searchPlaceholder: "Suche nach einem Land...",
+        ISO: "ISO",
+        startsFrom: "Ab",
+        noResultsTitle: "Keine Länder gefunden",
+        noResultsText:
+            "Versuchen Sie es mit einem anderen Suchbegriff oder durchsuchen Sie die vollständige Liste.",
+    },
+    fr: {
+        title: "Tarifs SMS mondiaux - Comparez les tarifs de plus de 190 pays",
+        description:
+            "Consultez des tarifs SMS compétitifs pour plus de 190 pays. Connexions directes aux opérateurs, taux de délivrabilité élevés et tarifs transparents.",
+        heroBadge: "Couverture Mondiale",
+        heroTitle: "Répertoire des",
+        heroDirectory: "Tarifs SMS",
+        heroSubtitle: (total: number) =>
+            `Tarification transparente pour ${total} pays via des routes directes avec les opérateurs.`,
+        searchPlaceholder: "Rechercher un pays...",
+        ISO: "ISO",
+        startsFrom: "À partir de",
+        noResultsTitle: "Aucun pays trouvé",
+        noResultsText:
+            "Essayez un autre terme de recherche ou parcourez la liste complète.",
+    },
+    lv: {
+        title: "Globālās SMS cenas — salīdziniet tarifus vairāk nekā 190 valstīs",
+        description:
+            "Skatiet konkurētspējīgas SMS cenas vairāk nekā 190 valstīs. Tiešie operatoru savienojumi, augsts piegādes līmenis un caurspīdīgi tarifi.",
+        heroBadge: "Globāls pārklājums",
+        heroTitle: "SMS cenu",
+        heroDirectory: "katalogs",
+        heroSubtitle: (total: number) =>
+            `Caurspīdīga cenu noteikšana ${total} valstīm, izmantojot tiešos operatoru maršrutus.`,
+        searchPlaceholder: "Meklēt valsti...",
+        ISO: "ISO",
+        startsFrom: "Mēģiniet",
+        noResultsTitle: "Valstis nav atrastas",
+        noResultsText:
+            "Mēģiniet citu meklēšanas terminu vai pārlūkojiet pilno sarakstu.",
+    },
+    lt: {
+        title: "Pasaulinės SMS kainos – palyginkite įkainius 190+ šalių",
+        description:
+            "Peržiūrėkite konkurencingas SMS kainas 190+ šalių. Tiesioginis ryšys su operatoriais, didelis pristatymo lygis ir skaidrūs tarifai.",
+        heroBadge: "Visuotinis padengimas",
+        heroTitle: "SMS kainų",
+        heroDirectory: "katalogas",
+        heroSubtitle: (total: number) =>
+            `Skaidri kainodara ${total} šalims per tiesioginius operatorių maršrutus.`,
+        searchPlaceholder: "Ieškoti šalies...",
+        ISO: "ISO",
+        startsFrom: "Nuo",
+        noResultsTitle: "Šalių nerasta",
+        noResultsText:
+            "Išbandykite kitą paieškos terminą arba naršykite visą sąrašą.",
+    },
+};
+
+const t = (translations as any)[lang] || translations.en;
+
+// Fetch unique countries and calculate starting prices
+const pricingData = await fetchPricingData();
+const countriesMap = new Map();
+
+Object.keys(pricingData).forEach((key) => {
+    const [countryName] = key.split(" - ");
+    if (countryName) {
+        const price = (pricingData as any)[key].p;
+        if (
+            !countriesMap.has(countryName) ||
+            price < countriesMap.get(countryName)
+        ) {
+            countriesMap.set(countryName, price);
+        }
+    }
+});
+
+const countries = Array.from(countriesMap.entries())
+    .map(([englishName, startingPrice]) => {
+        const code = getCountryCodeByName(englishName);
+        const config = getCountryConfig(code);
+
+        // Find metadata for localization
+        const metadata = COUNTRY_METADATA[englishName] || null;
+        const localizedName = metadata
+            ? metadata[`name_${lang}`] || metadata.name || englishName
+            : englishName;
+        const localizedSlug = metadata
+            ? metadata[`slug_${lang}`] || metadata.slug
+            : englishName.toLowerCase().replace(/ /g, "-");
+        // URL prefix mapping for localized country page URLs
+        const urlPrefixMap: Record<string, string> = {
+            'en': 'send-sms-',
+            'et': 'saada-sms-',
+            'ru': 'otpravit-sms-',
+            'es': 'enviar-sms-',
+            'de': 'sms-senden-',
+            'fr': 'envoyer-sms-',
+            'lv': 'sutit-sms-',
+            'lt': 'siusti-sms-'
+        };
+        const urlPrefix = urlPrefixMap[lang as string] || 'send-sms-';
+
+        return {
+            name: localizedName,
+            englishName,
+            code,
+            startingPrice,
+            flag: config?.flag || metadata?.flag || "🌍",
+            slug: localizedSlug,
+            urlPrefix,
+            currency: config?.currency || metadata?.currency || "EUR",
+        };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+const totalCountries = countries.length;
+---
+
+<Layout title={t.title} description={t.description}>
+    <Navigation />
+
+    <main class="pt-[140px] pb-20">
+        <!-- Hero Section -->
+        <section class="countries-hero mb-16">
+            <div class="container mx-auto px-8 text-center">
+                <span
+                    class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
+                    >{t.heroBadge}</span
+                >
+                <h1
+                    class="text-4xl lg:text-7xl font-extrabold mb-6 tracking-tight text-dynamic-primary"
+                >
+                    {t.heroTitle}
+                    <span class="gradient-text">{t.heroDirectory}</span>
+                </h1>
+                <p
+                    class="text-xl text-dynamic-secondary max-w-2xl mx-auto mb-12"
+                >
+                    {t.heroSubtitle(totalCountries)}
+                </p>
+
+                <!-- Search Input (Client-side handled) -->
+                <div class="max-w-xl mx-auto relative group">
+                    <div
+                        class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-dynamic-tertiary"
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        id="countrySearch"
+                        placeholder={t.searchPlaceholder}
+                        class="w-full bg-dynamic-secondary border-2 border-dynamic-primary focus:border-cyan text-dynamic-primary rounded-2xl py-6 pl-16 pr-6 outline-none transition-all text-lg shadow-xl"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Countries Grid -->
+        <section class="countries-grid section-transition">
+            <div class="container mx-auto px-8">
+                <div
+                    id="countriesList"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                >
+                    {
+                        countries.map((country) => (
+                            <a
+                                href={`/${lang}/country/${country.urlPrefix}${country.slug}`}
+                                class="country-item group bg-dynamic-primary border border-dynamic-primary rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex items-center justify-between"
+                                data-name={country.name.toLowerCase()}
+                                data-english-name={country.englishName.toLowerCase()}
+                            >
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-dynamic-secondary flex items-center justify-center text-2xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                                        {country.flag}
+                                    </div>
+                                    <div class="country-info">
+                                        <h3 class="font-bold text-lg text-dynamic-primary group-hover:text-cyan transition-colors">
+                                            {country.name}
+                                        </h3>
+                                        <p class="text-xs text-dynamic-tertiary uppercase tracking-wider">
+                                            {t.ISO}:{" "}
+                                            {country.code.toUpperCase()}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="block text-sm text-dynamic-tertiary">
+                                        {t.startsFrom}
+                                    </span>
+                                    <span class="text-lg font-bold text-dynamic-primary group-hover:text-cyan transition-colors">
+                                        {country.currency === "EUR"
+                                            ? "€"
+                                            : country.currency === "GBP"
+                                              ? "£"
+                                              : "$"}
+                                        {country.startingPrice.toFixed(3)}
+                                    </span>
+                                </div>
+                            </a>
+                        ))
+                    }
+                </div>
+
+                <!-- No Results State -->
+                <div id="noResults" class="hidden text-center py-20">
+                    <div class="text-6xl mb-6">🔍</div>
+                    <h3 class="text-2xl font-bold text-dynamic-primary mb-2">
+                        {t.noResultsTitle}
+                    </h3>
+                    <p class="text-dynamic-secondary">
+                        {t.noResultsText}
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script>
+    const searchInput = document.getElementById(
+        "countrySearch",
+    ) as HTMLInputElement;
+    const countriesList = document.getElementById("countriesList");
+    const noResults = document.getElementById("noResults");
+    const countryItems = document.querySelectorAll(".country-item");
+
+    if (searchInput && countriesList && noResults) {
+        searchInput.addEventListener("input", (e) => {
+            const query = (e.target as HTMLInputElement).value.toLowerCase();
+            let hasResults = false;
+
+            countryItems.forEach((item) => {
+                const name = item.getAttribute("data-name") || "";
+                const englishName =
+                    item.getAttribute("data-english-name") || "";
+                if (name.includes(query) || englishName.includes(query)) {
+                    (item as HTMLElement).style.display = "flex";
+                    hasResults = true;
+                } else {
+                    (item as HTMLElement).style.display = "none";
+                }
+            });
+
+            if (hasResults) {
+                countriesList.classList.remove("hidden");
+                noResults.classList.add("hidden");
+            } else {
+                countriesList.classList.add("hidden");
+                noResults.classList.remove("hidden");
+            }
+        });
+    }
+</script>

@@ -26,6 +26,56 @@ const getLocalizedPath = (path: string) => {
   return `/${lang}${path}`;
 };
 
+// URL mapping for localized pricing pages
+const pricingUrls: Record<string, string> = {
+  'en': 'prices',
+  'et': 'sms-hinnad',
+  'ru': 'sms-ceny',
+  'es': 'precios-sms',
+  'de': 'sms-preise',
+  'fr': 'prix-sms',
+  'lv': 'sms-cenas',
+  'lt': 'sms-kainos'
+};
+
+// URL prefix mapping for country pages
+const countryUrlPrefixes: Record<string, string> = {
+  'en': 'send-sms-',
+  'et': 'saada-sms-',
+  'ru': 'otpravit-sms-',
+  'es': 'enviar-sms-',
+  'de': 'sms-senden-',
+  'fr': 'envoyer-sms-',
+  'lv': 'sutit-sms-',
+  'lt': 'siusti-sms-'
+};
+
+// Import country metadata for slug conversion
+const metadataModule = await import("../../data/country-metadata.js");
+const COUNTRY_METADATA = metadataModule.COUNTRY_METADATA as any;
+
+// Helper function to find country by slug in any language
+const findCountryBySlug = (slug: string): string | null => {
+  for (const [countryName, metadata] of Object.entries(COUNTRY_METADATA)) {
+    const allSlugs = [
+      metadata.slug,
+      metadata.slug_en,
+      metadata.slug_et,
+      metadata.slug_ru,
+      metadata.slug_es,
+      metadata.slug_de,
+      metadata.slug_fr,
+      metadata.slug_lv,
+      metadata.slug_lt
+    ].filter(Boolean);
+    
+    if (allSlugs.includes(slug)) {
+      return countryName;
+    }
+  }
+  return null;
+};
+
 // Generate language switch URLs that preserve current page
 const getLanguageUrl = (targetLang: string) => {
   // For homepage
@@ -33,12 +83,40 @@ const getLanguageUrl = (targetLang: string) => {
     return `/${targetLang}`;
   }
   
-  if (pathname.includes("/countries") || pathname.includes("/hinnad")) {
-    return `/${targetLang}/countries`;
+  // Check if current page is a pricing page (any of the localized pricing URLs)
+  const isPricingPage = Object.values(pricingUrls).some(url => pathname.includes(`/${url}`)) || 
+                        pathname.includes("/countries") || 
+                        pathname.includes("/hinnad");
+  
+  if (isPricingPage) {
+    return `/${targetLang}/${pricingUrls[targetLang] || 'prices'}`;
   }
   
   if (pathname.includes("/country/")) {
-    // For country pages, preserve the structure
+    // Extract the slug from the current URL (remove language and prefix)
+    const urlParts = pathname.split('/country/')[1];
+    if (urlParts) {
+      // Remove the URL prefix to get just the slug
+      let currentSlug = urlParts;
+      for (const prefix of Object.values(countryUrlPrefixes)) {
+        if (currentSlug.startsWith(prefix)) {
+          currentSlug = currentSlug.substring(prefix.length);
+          break;
+        }
+      }
+      
+      // Find which country this slug belongs to
+      const countryName = findCountryBySlug(currentSlug);
+      
+      if (countryName && COUNTRY_METADATA[countryName]) {
+        const metadata = COUNTRY_METADATA[countryName];
+        const targetSlug = metadata[`slug_${targetLang}`] || metadata.slug;
+        const targetPrefix = countryUrlPrefixes[targetLang] || 'send-sms-';
+        return `/${targetLang}/country/${targetPrefix}${targetSlug}`;
+      }
+    }
+    
+    // Fallback: just change language but keep structure
     const pathWithoutLang = pathname.replace(/^\/[a-z]{2}(\/|$)/, '/');
     return `/${targetLang}${pathWithoutLang}`;
   }
@@ -49,7 +127,7 @@ const getLanguageUrl = (targetLang: string) => {
 };
 
 const logoLink = `/${lang}`;
-const pricingLink = getLocalizedPath("/countries");
+const pricingLink = `/${lang}/${pricingUrls[lang] || 'prices'}`;
 const docsLink = "https://app.smspm.com/docs";
 const supportLink = "https://smspm.freshdesk.com/support/tickets/new";
 const loginLink = `https://app.smspm.com/${lang}/app/login`;

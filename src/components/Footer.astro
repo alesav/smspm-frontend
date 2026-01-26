@@ -150,9 +150,20 @@ const translations = {
 
 const t = translations[lang] || translations.en;
 
+// URL mapping for localized pricing pages
+const pricingUrls: Record<string, string> = {
+  'en': 'prices',
+  'et': 'sms-hinnad',
+  'ru': 'sms-ceny',
+  'es': 'precios-sms',
+  'de': 'sms-preise',
+  'fr': 'prix-sms',
+  'lv': 'sms-cenas',
+  'lt': 'sms-kainos'
+};
+
 // Generate localized links
-const pricingLink = getLocalizedPath("/pricing");
-const countriesLink = getLocalizedPath("/countries");
+const pricingLink = `/${lang}/${pricingUrls[lang] || 'prices'}`;
 const aboutLink = getLocalizedPath("/about");
 const privacyLink = getLocalizedPath("/privacy");
 const termsLink = getLocalizedPath("/terms");
@@ -231,7 +242,7 @@ const supportLink = "https://smspm.freshdesk.com/support/tickets/new";
                     </li>
                     <li>
                         <a
-                            href={countriesLink}
+                            href={pricingLink}
                             class="hover:text-cyan transition-colors duration-150"
                             >{t.coverage}</a
                         >
