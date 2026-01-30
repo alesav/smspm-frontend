@@ -701,7 +701,7 @@ export const COUNTRY_METADATA = {
     name_lt: "Japonija",
     slug_lt: "japonija",
   },
-  "Korea, Republic of South Korea": {
+  "South Korea": {
     code: "kr",
     flag: "🇰🇷",
     currency: "KRW",
@@ -4084,7 +4084,7 @@ export const COUNTRY_METADATA = {
     name_lt: "Didžiosios Britanijos Indijos Vandenyno Teritorija",
     slug_lt: "didziosios-britanijos-indijos-vandenyno-teritorija",
   },
-  "Democratic Republic of the Congo": {
+  "Congo DRC": {
     code: "cd",
     flag: "🇨🇩",
     currency: "CDF",
