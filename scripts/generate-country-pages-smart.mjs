@@ -36,6 +36,44 @@ const TRANSLATIONS = {
     perMessage: "per message",
     pricingFrom: "Pricing from",
     breadcrumbHome: "Home",
+    contactSupport: "Contact Support",
+    marketDescription: "has a modern mobile infrastructure. SMS remains an effective communication channel for businesses.",
+    useCases: {
+      ecommerce: {
+        title: "E-commerce & Retail",
+        description: "Order confirmations and promotional campaigns for {country}'s retail market",
+        examples: ["Order confirmations", "Shipping notifications", "Flash sale alerts"],
+      },
+      banking: {
+        title: "Banking & FinTech",
+        description: "OTP verification and transaction alerts for {country}'s financial sector",
+        examples: ["OTP verification", "Transaction alerts", "Security notifications"],
+      },
+      healthcare: {
+        title: "Healthcare",
+        description: "Appointment reminders in {country}'s healthcare system",
+        examples: ["Appointment reminders", "Test results", "Health tips"],
+      },
+      business: {
+        title: "Business Services",
+        description: "Customer engagement and notifications for businesses in {country}",
+        examples: ["Meeting reminders", "Verification codes", "Status updates"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Data Protection",
+        description: "Comply with local data protection regulations when sending SMS to {country}.",
+      },
+      optOut: {
+        title: "Opt-out Requirements",
+        description: "Respect user preferences and maintain opt-out lists.",
+      },
+      content: {
+        title: "Content Guidelines",
+        description: "Follow local content regulations and cultural norms.",
+      },
+    },
   },
   et: {
     heroBadge: "Globaalne haare",
@@ -51,6 +89,44 @@ const TRANSLATIONS = {
     perMessage: "sõnumi kohta",
     pricingFrom: "Hind alates",
     breadcrumbHome: "Avaleht",
+    contactSupport: "Võta ühendust toega",
+    marketDescription: "omab kaasaegset mobiilsidevõrku. SMS jääb ettevõtetele tõhusaks suhtluskanaliks.",
+    useCases: {
+      ecommerce: {
+        title: "E-kaubandus ja jaemüük",
+        description: "Tellimuste kinnitused ja reklaamikampaaniad {country} jaemüügiturul",
+        examples: ["Tellimuste kinnitused", "Tarneteatised", "Välkmüügi hoiatused"],
+      },
+      banking: {
+        title: "Pangandus ja FinTech",
+        description: "OTP kinnitused ja tehinguteatised {country} finantssektoris",
+        examples: ["OTP kinnitamine", "Tehinguteatised", "Turvalisusteatised"],
+      },
+      healthcare: {
+        title: "Tervishoiuteenused",
+        description: "Vastuvõtu meeldetuletused {country} tervishoiusüsteemis",
+        examples: ["Vastuvõtu meeldetuletused", "Testitulemused", "Tervise nõuanded"],
+      },
+      business: {
+        title: "Äriteenused",
+        description: "Klientide kaasamine ja teavitused ettevõtetele {country}",
+        examples: ["Kohtumiste meeldetuletused", "Kinnituskoodid", "Oleku uuendused"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Andmekaitse",
+        description: "Järgige kohalikke andmekaitsenõudeid SMS-ide saatmisel {country}.",
+      },
+      optOut: {
+        title: "Loobumise nõuded",
+        description: "Austage kasutajate eelistusi ja haldage loobumise nimekirju.",
+      },
+      content: {
+        title: "Sisu juhised",
+        description: "Järgige kohalikke sisu eeskirju ja kultuurilisi norme.",
+      },
+    },
   },
   ru: {
     heroBadge: "Глобальный охват",
@@ -67,6 +143,44 @@ const TRANSLATIONS = {
     perMessage: "за сообщение",
     pricingFrom: "Цена от",
     breadcrumbHome: "Главная",
+    contactSupport: "Связаться с поддержкой",
+    marketDescription: "имеет современную мобильную инфраструктуру. SMS остается эффективным каналом связи для бизнеса.",
+    useCases: {
+      ecommerce: {
+        title: "Электронная коммерция и розничная торговля",
+        description: "Подтверждения заказов и рекламные кампании для розничного рынка {country}",
+        examples: ["Подтверждения заказов", "Уведомления о доставке", "Уведомления о распродажах"],
+      },
+      banking: {
+        title: "Банковские услуги и FinTech",
+        description: "OTP-верификация и уведомления о транзакциях для финансового сектора {country}",
+        examples: ["OTP-верификация", "Уведомления о транзакциях", "Уведомления безопасности"],
+      },
+      healthcare: {
+        title: "Здравоохранение",
+        description: "Напоминания о приемах в системе здравоохранения {country}",
+        examples: ["Напоминания о приемах", "Результаты анализов", "Советы по здоровью"],
+      },
+      business: {
+        title: "Бизнес-услуги",
+        description: "Взаимодействие с клиентами и уведомления для бизнеса в {country}",
+        examples: ["Напоминания о встречах", "Коды подтверждения", "Обновления статуса"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Защита данных",
+        description: "Соблюдайте местные правила защиты данных при отправке SMS в {country}.",
+      },
+      optOut: {
+        title: "Требования отказа",
+        description: "Уважайте предпочтения пользователей и ведите списки отказа.",
+      },
+      content: {
+        title: "Рекомендации по содержанию",
+        description: "Следуйте местным правилам содержания и культурным нормам.",
+      },
+    },
   },
   es: {
     heroBadge: "Cobertura Global",
@@ -83,6 +197,44 @@ const TRANSLATIONS = {
     perMessage: "por mensaje",
     pricingFrom: "Precios desde",
     breadcrumbHome: "Inicio",
+    contactSupport: "Contactar Soporte",
+    marketDescription: "cuenta con una moderna infraestructura móvil. Los SMS siguen siendo un canal de comunicación efectivo para las empresas.",
+    useCases: {
+      ecommerce: {
+        title: "Comercio Electrónico y Retail",
+        description: "Confirmaciones de pedidos y campañas promocionales para el mercado minorista de {country}",
+        examples: ["Confirmaciones de pedidos", "Notificaciones de envío", "Alertas de ofertas flash"],
+      },
+      banking: {
+        title: "Banca y FinTech",
+        description: "Verificación OTP y alertas de transacciones para el sector financiero de {country}",
+        examples: ["Verificación OTP", "Alertas de transacciones", "Notificaciones de seguridad"],
+      },
+      healthcare: {
+        title: "Atención Médica",
+        description: "Recordatorios de citas en el sistema de salud de {country}",
+        examples: ["Recordatorios de citas", "Resultados de pruebas", "Consejos de salud"],
+      },
+      business: {
+        title: "Servicios Empresariales",
+        description: "Interacción con clientes y notificaciones para empresas en {country}",
+        examples: ["Recordatorios de reuniones", "Códigos de verificación", "Actualizaciones de estado"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Protección de Datos",
+        description: "Cumpla con las regulaciones locales de protección de datos al enviar SMS a {country}.",
+      },
+      optOut: {
+        title: "Requisitos de Exclusión",
+        description: "Respete las preferencias de los usuarios y mantenga listas de exclusión.",
+      },
+      content: {
+        title: "Directrices de Contenido",
+        description: "Siga las regulaciones locales de contenido y normas culturales.",
+      },
+    },
   },
   de: {
     heroBadge: "Globale Abdeckung",
@@ -99,6 +251,44 @@ const TRANSLATIONS = {
     perMessage: "pro Nachricht",
     pricingFrom: "Preise ab",
     breadcrumbHome: "Home",
+    contactSupport: "Support kontaktieren",
+    marketDescription: "verfügt über eine moderne mobile Infrastruktur. SMS bleibt ein effektiver Kommunikationskanal für Unternehmen.",
+    useCases: {
+      ecommerce: {
+        title: "E-Commerce & Einzelhandel",
+        description: "Auftragsbestätigungen und Werbekampagnen für den Einzelhandelsmarkt in {country}",
+        examples: ["Auftragsbestätigungen", "Versandbenachrichtigungen", "Blitzangebote"],
+      },
+      banking: {
+        title: "Banking & FinTech",
+        description: "OTP-Verifizierung und Transaktionswarnungen für den Finanzsektor in {country}",
+        examples: ["OTP-Verifizierung", "Transaktionswarnungen", "Sicherheitsbenachrichtigungen"],
+      },
+      healthcare: {
+        title: "Gesundheitswesen",
+        description: "Terminerinnerungen im Gesundheitssystem von {country}",
+        examples: ["Terminerinnerungen", "Testergebnisse", "Gesundheitstipps"],
+      },
+      business: {
+        title: "Unternehmensdienstleistungen",
+        description: "Kundenbindung und Benachrichtigungen für Unternehmen in {country}",
+        examples: ["Besprechungserinnerungen", "Bestätigungscodes", "Statusaktualisierungen"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Datenschutz",
+        description: "Beachten Sie die lokalen Datenschutzbestimmungen beim Versenden von SMS nach {country}.",
+      },
+      optOut: {
+        title: "Opt-out-Anforderungen",
+        description: "Respektieren Sie die Präferenzen der Benutzer und pflegen Sie Opt-out-Listen.",
+      },
+      content: {
+        title: "Inhaltsrichtlinien",
+        description: "Befolgen Sie lokale Inhaltsvorschriften und kulturelle Normen.",
+      },
+    },
   },
   fr: {
     heroBadge: "Couverture Mondiale",
@@ -115,6 +305,44 @@ const TRANSLATIONS = {
     perMessage: "par message",
     pricingFrom: "Tarifs à partir de",
     breadcrumbHome: "Accueil",
+    contactSupport: "Contacter le Support",
+    marketDescription: "dispose d'une infrastructure mobile moderne. Le SMS reste un canal de communication efficace pour les entreprises.",
+    useCases: {
+      ecommerce: {
+        title: "E-commerce et Vente au Détail",
+        description: "Confirmations de commande et campagnes promotionnelles pour le marché de détail de {country}",
+        examples: ["Confirmations de commande", "Notifications d'expédition", "Alertes de ventes flash"],
+      },
+      banking: {
+        title: "Banque et FinTech",
+        description: "Vérification OTP et alertes de transaction pour le secteur financier de {country}",
+        examples: ["Vérification OTP", "Alertes de transaction", "Notifications de sécurité"],
+      },
+      healthcare: {
+        title: "Santé",
+        description: "Rappels de rendez-vous dans le système de santé de {country}",
+        examples: ["Rappels de rendez-vous", "Résultats de tests", "Conseils santé"],
+      },
+      business: {
+        title: "Services Professionnels",
+        description: "Engagement client et notifications pour les entreprises en {country}",
+        examples: ["Rappels de réunion", "Codes de vérification", "Mises à jour de statut"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Protection des Données",
+        description: "Respectez les réglementations locales sur la protection des données lors de l'envoi de SMS vers {country}.",
+      },
+      optOut: {
+        title: "Exigences de Désinscription",
+        description: "Respectez les préférences des utilisateurs et maintenez des listes de désinscription.",
+      },
+      content: {
+        title: "Directives de Contenu",
+        description: "Suivez les réglementations locales sur le contenu et les normes culturelles.",
+      },
+    },
   },
   lv: {
     heroBadge: "Globāls pārklājums",
@@ -130,6 +358,44 @@ const TRANSLATIONS = {
     perMessage: "par ziņu",
     pricingFrom: "Cena no",
     breadcrumbHome: "Sākums",
+    contactSupport: "Sazināties ar atbalstu",
+    marketDescription: "ir moderna mobilo sakaru infrastruktūra. SMS joprojām ir efektīvs komunikācijas kanāls uzņēmumiem.",
+    useCases: {
+      ecommerce: {
+        title: "E-komercija un Mazumtirdzniecība",
+        description: "Pasūtījumu apstiprinājumi un reklāmas kampaņas {country} mazumtirdzniecības tirgum",
+        examples: ["Pasūtījumu apstiprinājumi", "Piegādes paziņojumi", "Zibatlaižu brīdinājumi"],
+      },
+      banking: {
+        title: "Banku un FinTech",
+        description: "OTP verificēšana un darījumu brīdinājumi {country} finanšu sektoram",
+        examples: ["OTP verificēšana", "Darījumu brīdinājumi", "Drošības paziņojumi"],
+      },
+      healthcare: {
+        title: "Veselības aprūpe",
+        description: "Pieraksta atgādinājumi {country} veselības aprūpes sistēmā",
+        examples: ["Pieraksta atgādinājumi", "Testa rezultāti", "Veselības padomi"],
+      },
+      business: {
+        title: "Biznesa pakalpojumi",
+        description: "Klientu iesaiste un paziņojumi uzņēmumiem {country}",
+        examples: ["Sanāksmju atgādinājumi", "Verificēšanas kodi", "Statusa atjauninājumi"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Datu aizsardzība",
+        description: "Ievērojiet vietējos datu aizsardzības noteikumus, sūtot SMS uz {country}.",
+      },
+      optOut: {
+        title: "Atteikšanās prasības",
+        description: "Respektējiet lietotāju preferences un uzturiet atteikšanās sarakstus.",
+      },
+      content: {
+        title: "Satura vadlīnijas",
+        description: "Ievērojiet vietējos satura noteikumus un kultūras normas.",
+      },
+    },
   },
   lt: {
     heroBadge: "Visuotinis padengimas",
@@ -145,6 +411,44 @@ const TRANSLATIONS = {
     perMessage: "už pranešimą",
     pricingFrom: "Kaina nuo",
     breadcrumbHome: "Pradžia",
+    contactSupport: "Susisiekti su palaikymu",
+    marketDescription: "turi modernią mobiliojo ryšio infrastruktūrą. SMS išlieka veiksmingu verslo komunikacijos kanalu.",
+    useCases: {
+      ecommerce: {
+        title: "El. prekyba ir Mažmeninė prekyba",
+        description: "Užsakymų patvirtinimai ir reklaminės kampanijos {country} mažmeninės prekybos rinkai",
+        examples: ["Užsakymų patvirtinimai", "Pristatymo pranešimai", "Žaibo išpardavimų įspėjimai"],
+      },
+      banking: {
+        title: "Bankininkystė ir FinTech",
+        description: "OTP patvirtinimas ir sandorių įspėjimai {country} finansų sektoriui",
+        examples: ["OTP patvirtinimas", "Sandorių įspėjimai", "Saugumo pranešimai"],
+      },
+      healthcare: {
+        title: "Sveikatos priežiūra",
+        description: "Vizitų priminimai {country} sveikatos priežiūros sistemoje",
+        examples: ["Vizitų priminimai", "Tyrimų rezultatai", "Sveikatos patarimai"],
+      },
+      business: {
+        title: "Verslo paslaugos",
+        description: "Klientų įtraukimas ir pranešimai įmonėms {country}",
+        examples: ["Susitikimų priminimai", "Patvirtinimo kodai", "Būsenos atnaujinimai"],
+      },
+    },
+    regulations: {
+      dataProtection: {
+        title: "Duomenų apsauga",
+        description: "Laikykitės vietinių duomenų apsaugos taisyklių siųsdami SMS į {country}.",
+      },
+      optOut: {
+        title: "Atsisakymo reikalavimai",
+        description: "Gerbkite vartotojų pageidavimus ir tvarkykite atsisakymo sąrašus.",
+      },
+      content: {
+        title: "Turinio gairės",
+        description: "Laikykitės vietinių turinio taisyklių ir kultūrinių normų.",
+      },
+    },
   },
 };
 
@@ -342,47 +646,47 @@ const country = {
     description: \`Reliable mobile operator providing SMS services in \${countryName}.\`,
     logo: '',
   })),
-  marketDescription: \`\${countryName} has a modern mobile infrastructure. SMS remains an effective communication channel for businesses.\`,
+  marketDescription: \`\${countryName} ${t.marketDescription}\`,
   useCases: [
     {
-      title: 'E-commerce & Retail',
-      description: \`Order confirmations and promotional campaigns for \${countryName}'s retail market\`,
-      examples: ['Order confirmations', 'Shipping notifications', 'Flash sale alerts'],
+      title: '${t.useCases.ecommerce.title.replace(/'/g, "\\'")}',
+      description: \`${t.useCases.ecommerce.description.replace('{country}', "' + countryName + '")}\`,
+      examples: ['${t.useCases.ecommerce.examples.join("', '")}'],
       icon: 'fas fa-shopping-cart'
     },
     {
-      title: 'Banking & FinTech',
-      description: \`OTP verification and transaction alerts for \${countryName}'s financial sector\`,
-      examples: ['OTP verification', 'Transaction alerts', 'Security notifications'],
+      title: '${t.useCases.banking.title.replace(/'/g, "\\'")}',
+      description: \`${t.useCases.banking.description.replace('{country}', "' + countryName + '")}\`,
+      examples: ['${t.useCases.banking.examples.join("', '")}'],
       icon: 'fas fa-university'
     },
     {
-      title: 'Healthcare',
-      description: \`Appointment reminders in \${countryName}'s healthcare system\`,
-      examples: ['Appointment reminders', 'Test results', 'Health tips'],
+      title: '${t.useCases.healthcare.title.replace(/'/g, "\\'")}',
+      description: \`${t.useCases.healthcare.description.replace('{country}', "' + countryName + '")}\`,
+      examples: ['${t.useCases.healthcare.examples.join("', '")}'],
       icon: 'fas fa-heartbeat'
     },
     {
-      title: 'Business Services',
-      description: \`Customer engagement and notifications for businesses in \${countryName}\`,
-      examples: ['Meeting reminders', 'Verification codes', 'Status updates'],
+      title: '${t.useCases.business.title.replace(/'/g, "\\'")}',
+      description: \`${t.useCases.business.description.replace('{country}', "' + countryName + '")}\`,
+      examples: ['${t.useCases.business.examples.join("', '")}'],
       icon: 'fas fa-briefcase'
     }
   ],
   regulations: [
     {
-      title: 'Data Protection',
-      description: \`Comply with local data protection regulations when sending SMS to \${countryName}.\`,
+      title: '${t.regulations.dataProtection.title.replace(/'/g, "\\'")}',
+      description: \`${t.regulations.dataProtection.description.replace('{country}', "' + countryName + '")}\`,
       icon: 'fas fa-shield-alt'
     },
     {
-      title: 'Opt-out Requirements',
-      description: \`Respect user preferences and maintain opt-out lists.\`,
+      title: '${t.regulations.optOut.title.replace(/'/g, "\\'")}',
+      description: \`${t.regulations.optOut.description.replace(/'/g, "\\'")}.\`,
       icon: 'fas fa-user-check'
     },
     {
-      title: 'Content Guidelines',
-      description: \`Follow local content regulations and cultural norms.\`,
+      title: '${t.regulations.content.title.replace(/'/g, "\\'")}',
+      description: \`${t.regulations.content.description.replace(/'/g, "\\'")}.\`,
       icon: 'fas fa-gavel'
     }
   ],
@@ -451,7 +755,7 @@ ${alternateLinks}
             </svg>
           </a>
           <a href="https://smspm.freshdesk.com/support/tickets/new" class="btn btn-secondary btn-large light text-white border-white/30 hover:bg-white/10">
-            Contact Support
+            ${t.contactSupport}
           </a>
         </div>
         <p class="cta-note text-sm text-white/70">

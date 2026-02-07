@@ -20,7 +20,7 @@ import Footer from '../../../components/Footer.astro';
 const lang = 'en';
 
 // Country metadata
-const countryCode = 'un';
+const countryCode = 'xx';
 const countryName = 'Unknown';
 const countryFlag = '🌍';
 const currency = 'USD';
@@ -72,25 +72,25 @@ const country = {
   useCases: [
     {
       title: 'E-commerce & Retail',
-      description: `Order confirmations and promotional campaigns for ${countryName}'s retail market`,
+      description: `Order confirmations and promotional campaigns for ' + countryName + ''s retail market`,
       examples: ['Order confirmations', 'Shipping notifications', 'Flash sale alerts'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Banking & FinTech',
-      description: `OTP verification and transaction alerts for ${countryName}'s financial sector`,
+      description: `OTP verification and transaction alerts for ' + countryName + ''s financial sector`,
       examples: ['OTP verification', 'Transaction alerts', 'Security notifications'],
       icon: 'fas fa-university'
     },
     {
       title: 'Healthcare',
-      description: `Appointment reminders in ${countryName}'s healthcare system`,
+      description: `Appointment reminders in ' + countryName + ''s healthcare system`,
       examples: ['Appointment reminders', 'Test results', 'Health tips'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Business Services',
-      description: `Customer engagement and notifications for businesses in ${countryName}`,
+      description: `Customer engagement and notifications for businesses in ' + countryName + '`,
       examples: ['Meeting reminders', 'Verification codes', 'Status updates'],
       icon: 'fas fa-briefcase'
     }
@@ -98,17 +98,17 @@ const country = {
   regulations: [
     {
       title: 'Data Protection',
-      description: `Comply with local data protection regulations when sending SMS to ${countryName}.`,
+      description: `Comply with local data protection regulations when sending SMS to ' + countryName + '.`,
       icon: 'fas fa-shield-alt'
     },
     {
       title: 'Opt-out Requirements',
-      description: `Respect user preferences and maintain opt-out lists.`,
+      description: `Respect user preferences and maintain opt-out lists..`,
       icon: 'fas fa-user-check'
     },
     {
       title: 'Content Guidelines',
-      description: `Follow local content regulations and cultural norms.`,
+      description: `Follow local content regulations and cultural norms..`,
       icon: 'fas fa-gavel'
     }
   ],
@@ -146,13 +146,13 @@ const structuredData = {
     <link rel="canonical" href={`https://smspm.com/en/country/send-sms-unknown`} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
     <link rel="alternate" hreflang="en" href={`https://smspm.com/en/country/send-sms-unknown`} />
-    <link rel="alternate" hreflang="et" href={`https://smspm.com/et/country/saada-sms-unknown`} />
-    <link rel="alternate" hreflang="ru" href={`https://smspm.com/ru/country/otpravit-sms-unknown`} />
-    <link rel="alternate" hreflang="es" href={`https://smspm.com/es/country/enviar-sms-unknown`} />
-    <link rel="alternate" hreflang="de" href={`https://smspm.com/de/country/sms-senden-unknown`} />
-    <link rel="alternate" hreflang="fr" href={`https://smspm.com/fr/country/envoyer-sms-unknown`} />
-    <link rel="alternate" hreflang="lv" href={`https://smspm.com/lv/country/sutit-sms-unknown`} />
-    <link rel="alternate" hreflang="lt" href={`https://smspm.com/lt/country/siusti-sms-unknown`} />
+    <link rel="alternate" hreflang="et" href={`https://smspm.com/et/country/saada-sms-tundmatusse`} />
+    <link rel="alternate" hreflang="ru" href={`https://smspm.com/ru/country/otpravit-sms-neizvestnuyu-stranu`} />
+    <link rel="alternate" hreflang="es" href={`https://smspm.com/es/country/enviar-sms-pais-desconocido`} />
+    <link rel="alternate" hreflang="de" href={`https://smspm.com/de/country/sms-senden-unbekanntes-land`} />
+    <link rel="alternate" hreflang="fr" href={`https://smspm.com/fr/country/envoyer-sms-pays-inconnu`} />
+    <link rel="alternate" hreflang="lv" href={`https://smspm.com/lv/country/sutit-sms-nezinamu-valsti`} />
+    <link rel="alternate" hreflang="lt" href={`https://smspm.com/lt/country/siusti-sms-nezinoma-salis`} />
     <link rel="alternate" hreflang="x-default" href={`https://smspm.com/en/country/send-sms-unknown`} />
   </head>
 

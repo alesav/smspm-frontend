@@ -2741,45 +2741,6 @@
       "maxPrice": 0.414
     },
     {
-      "name": "Iran, Islamic Republic of Persian Gulf",
-      "providers": [
-        {
-          "name": "LOTUSTEL",
-          "price": 0.1
-        },
-        {
-          "name": "Shatel Mobile",
-          "price": 0.1
-        },
-        {
-          "name": "IR-MCI",
-          "price": 0.352
-        },
-        {
-          "name": "Irancell",
-          "price": 0.352
-        },
-        {
-          "name": "MTCE",
-          "price": 0.352
-        },
-        {
-          "name": "Rightel",
-          "price": 0.352
-        },
-        {
-          "name": "Taliya",
-          "price": 0.352
-        },
-        {
-          "name": "TeleKish",
-          "price": 0.352
-        }
-      ],
-      "minPrice": 0.1,
-      "maxPrice": 0.352
-    },
-    {
       "name": "Iraq",
       "providers": [
         {
