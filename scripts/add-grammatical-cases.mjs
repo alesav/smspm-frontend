@@ -86,10 +86,10 @@ function getLatvianCases(name) {
 function getLithuanianCases(name) {
   // Countries ending in -ija
   if (name.endsWith('ija')) {
-    const stem = name.slice(0, -2);
+    const stem = name.slice(0, -3); // Remove 'ija'
     return {
-      loc: stem + 'ijoje',
-      acc: stem + 'iją'
+      loc: stem + 'ijoje',  // Estija → Estijoje
+      acc: stem + 'iją'     // Estija → Estiją
     };
   }
   
