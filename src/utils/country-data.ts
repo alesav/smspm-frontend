@@ -5,6 +5,9 @@ export const COUNTRY_CONFIGS: { [key: string]: Omit<CountryData, 'providers' | '
   ee: {
     code: 'ee',
     name: 'Estonia',
+    namePrep: 'Estonia',
+    nameAcc: 'Estonia',
+    nameLoc: 'Estonia',
     flag: '🇪🇪',
     population: '1.33M',
     mobileUsers: '1.9M',
@@ -85,6 +88,9 @@ export const COUNTRY_CONFIGS: { [key: string]: Omit<CountryData, 'providers' | '
   gb: {
     code: 'gb',
     name: 'United Kingdom',
+    namePrep: 'United Kingdom',
+    nameAcc: 'United Kingdom',
+    nameLoc: 'United Kingdom',
     flag: '🇬🇧',
     population: '67.5M',
     mobileUsers: '71.8M',
@@ -167,6 +173,9 @@ export const COUNTRY_CONFIGS: { [key: string]: Omit<CountryData, 'providers' | '
   de: {
     code: 'de',
     name: 'Germany',
+    namePrep: 'Germany',
+    nameAcc: 'Germany',
+    nameLoc: 'Germany',
     flag: '🇩🇪',
     population: '83.2M',
     mobileUsers: '84.3M',
@@ -247,6 +256,9 @@ export const COUNTRY_CONFIGS: { [key: string]: Omit<CountryData, 'providers' | '
   fr: {
     code: 'fr',
     name: 'France',
+    namePrep: 'France',
+    nameAcc: 'France',
+    nameLoc: 'France',
     flag: '🇫🇷',
     population: '68.0M',
     mobileUsers: '69.9M',
@@ -327,6 +339,9 @@ export const COUNTRY_CONFIGS: { [key: string]: Omit<CountryData, 'providers' | '
   es: {
     code: 'es',
     name: 'Spain',
+    namePrep: 'Spain',
+    nameAcc: 'Spain',
+    nameLoc: 'Spain',
     flag: '🇪🇸',
     population: '47.4M',
     mobileUsers: '53.6M',
@@ -420,6 +435,9 @@ export function getCountryConfig(countryCode: string): Omit<CountryData, 'provid
     return {
       code: fallback.code,
       name: name,
+      namePrep: name,
+      nameAcc: name,
+      nameLoc: name,
       flag: fallback.flag || "🌍",
       population: fallback.population || "Unknown",
       mobileUsers: fallback.mobileUsers || "Unknown",

@@ -657,25 +657,25 @@ const country = {
     {
       title: '${t.useCases.ecommerce.title.replace(/'/g, "\\'")}',
       description: \`${t.useCases.ecommerce.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
-      examples: ['${t.useCases.ecommerce.examples.join("', '")}'],
+      examples: [${t.useCases.ecommerce.examples.map(e => `'${e.replace(/'/g, "\\'")}'`).join(', ')}],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: '${t.useCases.banking.title.replace(/'/g, "\\'")}',
       description: \`${t.useCases.banking.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
-      examples: ['${t.useCases.banking.examples.join("', '")}'],
+      examples: [${t.useCases.banking.examples.map(e => `'${e.replace(/'/g, "\\'")}'`).join(', ')}],
       icon: 'fas fa-university'
     },
     {
       title: '${t.useCases.healthcare.title.replace(/'/g, "\\'")}',
       description: \`${t.useCases.healthcare.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
-      examples: ['${t.useCases.healthcare.examples.join("', '")}'],
+      examples: [${t.useCases.healthcare.examples.map(e => `'${e.replace(/'/g, "\\'")}'`).join(', ')}],
       icon: 'fas fa-heartbeat'
     },
     {
       title: '${t.useCases.business.title.replace(/'/g, "\\'")}',
       description: \`${t.useCases.business.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
-      examples: ['${t.useCases.business.examples.join("', '")}'],
+      examples: [${t.useCases.business.examples.map(e => `'${e.replace(/'/g, "\\'")}'`).join(', ')}],
       icon: 'fas fa-briefcase'
     }
   ],
