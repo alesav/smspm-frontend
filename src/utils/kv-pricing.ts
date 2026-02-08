@@ -23,6 +23,9 @@ export interface CountryProvider {
 export interface CountryData {
   code: string;
   name: string;
+  namePrep: string;
+  nameAcc: string;
+  nameLoc: string;
   flag: string;
   population: string;
   mobileUsers: string;

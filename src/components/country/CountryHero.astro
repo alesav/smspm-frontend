@@ -12,7 +12,9 @@ const { pathname } = Astro.url;
 // Detect language from prop or path, default to 'en'
 const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
 const detectedFromPath = langMatch ? langMatch[1] : null;
-const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+const lang = (propLang ||
+  detectedFromPath ||
+  "en") as keyof typeof translations;
 
 const startingPrice =
   country.providers.length > 0
@@ -48,7 +50,8 @@ const translations = {
     directCarrier: "Otsesed operaatoriühendused riigis",
     sendSmsTo: "Saada SMS",
     connectWith: "Ühenda",
-    mobileUsers: "124 mobiili kasutajaga läbi otseste operaatoriühenduste. Koge",
+    mobileUsers:
+      "124 mobiili kasutajaga läbi otseste operaatoriühenduste. Koge",
     deliveryRates: "kohaletoimetamise määrasid hinnaga alates",
     perMessage: "sõnumi kohta.",
     startFreeTrial: "Alusta tasuta prooviperioodi",
@@ -90,7 +93,8 @@ const translations = {
     directCarrier: "Conexiones directas con operadores en",
     sendSmsTo: "Enviar SMS a",
     connectWith: "Conecta con",
-    mobileUsers: "usuarios móviles a través de conexiones directas con operadores. Experimenta",
+    mobileUsers:
+      "usuarios móviles a través de conexiones directas con operadores. Experimenta",
     deliveryRates: "tasas de entrega con precios desde",
     perMessage: "por mensaje.",
     startFreeTrial: "Iniciar prueba gratuita",
@@ -111,7 +115,8 @@ const translations = {
     directCarrier: "Direkte Anbieterverbindungen in",
     sendSmsTo: "SMS senden an",
     connectWith: "Verbinden Sie sich mit",
-    mobileUsers: "mobilen Nutzern über direkte Anbieterverbindungen. Erleben Sie",
+    mobileUsers:
+      "mobilen Nutzern über direkte Anbieterverbindungen. Erleben Sie",
     deliveryRates: "Zustellraten mit Preisen ab",
     perMessage: "pro Nachricht.",
     startFreeTrial: "Kostenlose Testversion starten",
@@ -132,7 +137,8 @@ const translations = {
     directCarrier: "Connexions directes avec les opérateurs en",
     sendSmsTo: "Envoyer SMS vers",
     connectWith: "Connectez-vous avec",
-    mobileUsers: "utilisateurs mobiles via des connexions directes avec les opérateurs. Découvrez",
+    mobileUsers:
+      "utilisateurs mobiles via des connexions directes avec les opérateurs. Découvrez",
     deliveryRates: "taux de livraison avec des prix à partir de",
     perMessage: "par message.",
     startFreeTrial: "Commencer l'essai gratuit",
@@ -153,7 +159,8 @@ const translations = {
     directCarrier: "Tiešie operatoru savienojumi",
     sendSmsTo: "Sūtīt SMS uz",
     connectWith: "Savienojieties ar",
-    mobileUsers: "mobilajiem lietotājiem, izmantojot tiešos operatoru savienojumus. Piedzīvojiet",
+    mobileUsers:
+      "mobilajiem lietotājiem, izmantojot tiešos operatoru savienojumus. Piedzīvojiet",
     deliveryRates: "piegādes rādītājus ar cenām no",
     perMessage: "par ziņojumu.",
     startFreeTrial: "Sākt bezmaksas izmēģinājumu",
@@ -174,7 +181,8 @@ const translations = {
     directCarrier: "Tiesioginiai operatorių ryšiai",
     sendSmsTo: "Siųsti SMS į",
     connectWith: "Prisijunkite su",
-    mobileUsers: "mobilių vartotojų per tiesioginius operatorių ryšius. Patirkite",
+    mobileUsers:
+      "mobilių vartotojų per tiesioginius operatorių ryšius. Patirkite",
     deliveryRates: "pristatymo rodiklius su kainomis nuo",
     perMessage: "už pranešimą.",
     startFreeTrial: "Pradėti nemokamą bandomąjį",
@@ -195,11 +203,13 @@ const t = translations[lang] || translations.en;
 ---
 
 <!-- Hero Section -->
-<section class="hero relative pt-[140px] pb-20 overflow-hidden">
+<section
+  class="hero relative pt-24 lg:pt-[140px] pb-12 lg:pb-20 overflow-hidden"
+>
   <div class="hero-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10">
   </div>
 
-  <div class="container mx-auto px-8">
+  <div class="container mx-auto px-4 lg:px-8">
     <div
       class="hero-content grid grid-cols-1 lg:grid-cols-5 gap-12 items-center"
     >
@@ -208,7 +218,9 @@ const t = translations[lang] || translations.en;
         <nav class="flex mb-8 text-sm" aria-label="Breadcrumb">
           <ol class="flex items-center space-x-2 text-dynamic-tertiary">
             <li>
-              <a href={`/${lang}`} class="hover:text-cyan transition-colors">{t.home}</a>
+              <a href={`/${lang}`} class="hover:text-cyan transition-colors"
+                >{t.home}</a
+              >
             </li>
             <li>
               <svg
@@ -227,8 +239,9 @@ const t = translations[lang] || translations.en;
               </svg>
             </li>
             <li>
-              <a href={`/${lang}/countries`} class="hover:text-cyan transition-colors"
-                >{t.countries}</a
+              <a
+                href={`/${lang}/countries`}
+                class="hover:text-cyan transition-colors">{t.countries}</a
               >
             </li>
             <li>
@@ -259,23 +272,29 @@ const t = translations[lang] || translations.en;
           <span
             class="badge-dot w-2 h-2 bg-gradient-1 rounded-full animate-pulse-slow"
           ></span>
-          {t.directCarrier} {country.nameLoc || country.namePrep || country.name}
+          {t.directCarrier}
+          {country.nameLoc || country.namePrep || country.name}
         </div>
 
         <h1
-          class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary"
+          class="hero-title text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-tight mb-4 lg:mb-6 tracking-tight text-dynamic-primary"
         >
           {t.sendSmsTo}
-          <span class="gradient-text block">{country.nameAcc || country.name}</span>
+          <span class="gradient-text block"
+            >{country.nameAcc || country.name}</span
+          >
         </h1>
 
         <p
-          class="hero-subtitle text-xl text-dynamic-secondary leading-relaxed mb-8 max-w-[640px]"
+          class="hero-subtitle text-lg lg:text-xl text-dynamic-secondary leading-relaxed mb-6 lg:mb-8 max-w-[640px]"
         >
-          {t.connectWith} <span class="gradient-text">{country.mobileUsers}</span> {t.mobileUsers} <span class="gradient-text">{country.nameLoc || country.namePrep || country.name}</span>{t.deliveryRates} <span
-            class="gradient-text"
-            >{country.stats.deliveryRate} </span
-          >
+          {t.connectWith}
+          <span class="gradient-text">{country.mobileUsers}</span>
+          {t.mobileUsers}
+          <span class="gradient-text"
+            >{country.nameLoc || country.namePrep || country.name}</span
+          >{t.deliveryRates}
+          <span class="gradient-text">{country.stats.deliveryRate} </span>
           <span class="gradient-text"
             >{
               country.currency === "EUR"
@@ -284,7 +303,8 @@ const t = translations[lang] || translations.en;
                   ? "£"
                   : "$"
             }{startingPrice.toFixed(3)}</span
-          > {t.perMessage}
+          >
+          {t.perMessage}
         </p>
 
         <div class="hero-actions flex flex-col sm:flex-row gap-4 mb-8">
@@ -318,27 +338,27 @@ const t = translations[lang] || translations.en;
           </a>
         </div>
 
-        <div class="hero-stats flex flex-wrap gap-12">
+        <div class="hero-stats flex flex-wrap gap-8 lg:gap-12">
           <div class="stat-item">
             <div
-              class="stat-value text-3xl lg:text-5xl font-extrabold gradient-text"
+              class="stat-value text-2xl lg:text-5xl font-extrabold gradient-text"
             >
               {country.stats.deliveryRate}
             </div>
             <div
-              class="stat-label text-sm text-dynamic-tertiary uppercase tracking-wider mt-1"
+              class="stat-label text-[10px] lg:text-sm text-dynamic-tertiary uppercase tracking-wider mt-1"
             >
               {t.deliveryRate}
             </div>
           </div>
           <div class="stat-item">
             <div
-              class="stat-value text-3xl lg:text-5xl font-extrabold gradient-text"
+              class="stat-value text-2xl lg:text-5xl font-extrabold gradient-text"
             >
               {country.stats.responseTime}
             </div>
             <div
-              class="stat-label text-sm text-dynamic-tertiary uppercase tracking-wider mt-1"
+              class="stat-label text-[10px] lg:text-sm text-dynamic-tertiary uppercase tracking-wider mt-1"
             >
               {t.responseTime}
             </div>
@@ -401,12 +421,14 @@ const t = translations[lang] || translations.en;
               <span class="card-icon text-lg">📱</span>
             </div>
             <p class="text-[15px] font-bold text-dynamic-primary">
-              {country.mobileUsers} {t.users}
+              {country.mobileUsers}
+              {t.users}
             </p>
             <p
               class="text-[10px] text-dynamic-tertiary uppercase tracking-tight"
             >
-              {country.name} {t.nationalNetwork}
+              {country.name}
+              {t.nationalNetwork}
             </p>
           </div>
 
@@ -430,7 +452,8 @@ const t = translations[lang] || translations.en;
             <p
               class="text-[10px] text-dynamic-tertiary uppercase tracking-tight"
             >
-              {country.stats.responseTime} {t.averageLatency}
+              {country.stats.responseTime}
+              {t.averageLatency}
             </p>
           </div>
 

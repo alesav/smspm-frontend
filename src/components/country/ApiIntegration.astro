@@ -11,7 +11,9 @@ const { pathname } = Astro.url;
 
 const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
 const detectedFromPath = langMatch ? langMatch[1] : null;
-const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+const lang = (propLang ||
+  detectedFromPath ||
+  "en") as keyof typeof translations;
 
 const translations = {
   en: {
@@ -22,11 +24,14 @@ const translations = {
     inMinutes: "in minutes",
     featuresTitle: "Features",
     restApi: "REST API",
-    restApiDesc: "Simple HTTP-based API that works with any programming language",
+    restApiDesc:
+      "Simple HTTP-based API that works with any programming language",
     languageSupport: "Language Support",
-    languageSupportDesc: "Full Unicode support for local characters and languages",
+    languageSupportDesc:
+      "Full Unicode support for local characters and languages",
     deliveryReports: "Real-time Delivery Reports",
-    deliveryReportsDesc: "Track message delivery status with detailed analytics",
+    deliveryReportsDesc:
+      "Track message delivery status with detailed analytics",
     webhooks: "Webhook Notifications",
     webhooksDesc: "Receive real-time updates on message status changes",
     viewDocs: "View API Documentation",
@@ -41,11 +46,14 @@ const translations = {
     inMinutes: "minutitega",
     featuresTitle: "Funktsioonid",
     restApi: "REST API",
-    restApiDesc: "Lihtne HTTP-põhine API, mis töötab iga programmeerimiskeelega",
+    restApiDesc:
+      "Lihtne HTTP-põhine API, mis töötab iga programmeerimiskeelega",
     languageSupport: "Keeletugi",
-    languageSupportDesc: "Täielik Unicode tugi kohalike tähtede ja keelte jaoks",
+    languageSupportDesc:
+      "Täielik Unicode tugi kohalike tähtede ja keelte jaoks",
     deliveryReports: "Reaalajas kohaletoimetamise aruanded",
-    deliveryReportsDesc: "Jälgi sõnumite kohaletoimetamise olekut üksikasjaliku analüütikaga",
+    deliveryReportsDesc:
+      "Jälgi sõnumite kohaletoimetamise olekut üksikasjaliku analüütikaga",
     webhooks: "Webhook teavitused",
     webhooksDesc: "Saa reaalajas uuendusi sõnumi oleku muutuste kohta",
     viewDocs: "Vaata API dokumentatsiooni",
@@ -60,13 +68,17 @@ const translations = {
     inMinutes: "за минуты",
     featuresTitle: "Функции",
     restApi: "REST API",
-    restApiDesc: "Простой HTTP-основанный API, который работает с любым языком программирования",
+    restApiDesc:
+      "Простой HTTP-основанный API, который работает с любым языком программирования",
     languageSupport: "Языковая поддержка",
-    languageSupportDesc: "Полная поддержка Unicode для местных символов и языков",
+    languageSupportDesc:
+      "Полная поддержка Unicode для местных символов и языков",
     deliveryReports: "Отчеты о доставке в реальном времени",
-    deliveryReportsDesc: "Отслеживайте статус доставки сообщений с подробной аналитикой",
+    deliveryReportsDesc:
+      "Отслеживайте статус доставки сообщений с подробной аналитикой",
     webhooks: "Webhook уведомления",
-    webhooksDesc: "Получайте обновления в реальном времени об изменениях статуса сообщений",
+    webhooksDesc:
+      "Получайте обновления в реальном времени об изменениях статуса сообщений",
     viewDocs: "Посмотреть документацию API",
     copy: "Копировать",
     copied: "Скопировано!",
@@ -79,13 +91,17 @@ const translations = {
     inMinutes: "en minutos",
     featuresTitle: "Características",
     restApi: "REST API",
-    restApiDesc: "API simple basada en HTTP que funciona con cualquier lenguaje de programación",
+    restApiDesc:
+      "API simple basada en HTTP que funciona con cualquier lenguaje de programación",
     languageSupport: "Soporte de Idiomas",
-    languageSupportDesc: "Soporte completo de Unicode para caracteres e idiomas locales",
+    languageSupportDesc:
+      "Soporte completo de Unicode para caracteres e idiomas locales",
     deliveryReports: "Informes de Entrega en Tiempo Real",
-    deliveryReportsDesc: "Rastrea el estado de entrega de mensajes con análisis detallados",
+    deliveryReportsDesc:
+      "Rastrea el estado de entrega de mensajes con análisis detallados",
     webhooks: "Notificaciones Webhook",
-    webhooksDesc: "Recibe actualizaciones en tiempo real sobre cambios en el estado de mensajes",
+    webhooksDesc:
+      "Recibe actualizaciones en tiempo real sobre cambios en el estado de mensajes",
     viewDocs: "Ver Documentación API",
     copy: "Copiar",
     copied: "¡Copiado!",
@@ -98,13 +114,17 @@ const translations = {
     inMinutes: "in Minuten",
     featuresTitle: "Funktionen",
     restApi: "REST API",
-    restApiDesc: "Einfache HTTP-basierte API, die mit jeder Programmiersprache funktioniert",
+    restApiDesc:
+      "Einfache HTTP-basierte API, die mit jeder Programmiersprache funktioniert",
     languageSupport: "Sprachunterstützung",
-    languageSupportDesc: "Vollständige Unicode-Unterstützung für lokale Zeichen und Sprachen",
+    languageSupportDesc:
+      "Vollständige Unicode-Unterstützung für lokale Zeichen und Sprachen",
     deliveryReports: "Echtzeit-Zustellberichte",
-    deliveryReportsDesc: "Verfolgen Sie den Nachrichtenstatus mit detaillierter Analytik",
+    deliveryReportsDesc:
+      "Verfolgen Sie den Nachrichtenstatus mit detaillierter Analytik",
     webhooks: "Webhook-Benachrichtigungen",
-    webhooksDesc: "Erhalten Sie Echtzeit-Updates zu Nachrichtenstatusänderungen",
+    webhooksDesc:
+      "Erhalten Sie Echtzeit-Updates zu Nachrichtenstatusänderungen",
     viewDocs: "API-Dokumentation ansehen",
     copy: "Kopieren",
     copied: "Kopiert!",
@@ -117,13 +137,17 @@ const translations = {
     inMinutes: "en quelques minutes",
     featuresTitle: "Fonctionnalités",
     restApi: "REST API",
-    restApiDesc: "API simple basée sur HTTP qui fonctionne avec n'importe quel langage de programmation",
+    restApiDesc:
+      "API simple basée sur HTTP qui fonctionne avec n'importe quel langage de programmation",
     languageSupport: "Support Linguistique",
-    languageSupportDesc: "Support Unicode complet pour les caractères et langues locaux",
+    languageSupportDesc:
+      "Support Unicode complet pour les caractères et langues locaux",
     deliveryReports: "Rapports de Livraison en Temps Réel",
-    deliveryReportsDesc: "Suivez l'état de livraison des messages avec des analyses détaillées",
+    deliveryReportsDesc:
+      "Suivez l'état de livraison des messages avec des analyses détaillées",
     webhooks: "Notifications Webhook",
-    webhooksDesc: "Recevez des mises à jour en temps réel sur les changements d'état des messages",
+    webhooksDesc:
+      "Recevez des mises à jour en temps réel sur les changements d'état des messages",
     viewDocs: "Voir la Documentation API",
     copy: "Copier",
     copied: "Copié !",
@@ -136,13 +160,17 @@ const translations = {
     inMinutes: "dažu minūšu laikā",
     featuresTitle: "Funkcijas",
     restApi: "REST API",
-    restApiDesc: "Vienkārša HTTP balstīta API, kas darbojas ar jebkuru programmēšanas valodu",
+    restApiDesc:
+      "Vienkārša HTTP balstīta API, kas darbojas ar jebkuru programmēšanas valodu",
     languageSupport: "Valodu atbalsts",
-    languageSupportDesc: "Pilns Unicode atbalsts vietējiem simboliem un valodām",
+    languageSupportDesc:
+      "Pilns Unicode atbalsts vietējiem simboliem un valodām",
     deliveryReports: "Reāllaika piegādes ziņojumi",
-    deliveryReportsDesc: "Izsekojiet ziņojumu piegādes statusu ar detalizētu analītiku",
+    deliveryReportsDesc:
+      "Izsekojiet ziņojumu piegādes statusu ar detalizētu analītiku",
     webhooks: "Webhook paziņojumi",
-    webhooksDesc: "Saņemiet reāllaika atjauninājumus par ziņojumu statusa izmaiņām",
+    webhooksDesc:
+      "Saņemiet reāllaika atjauninājumus par ziņojumu statusa izmaiņām",
     viewDocs: "Skatīt API dokumentāciju",
     copy: "Kopēt",
     copied: "Nokopēts!",
@@ -155,13 +183,17 @@ const translations = {
     inMinutes: "per kelias minutes",
     featuresTitle: "Funkcijos",
     restApi: "REST API",
-    restApiDesc: "Paprasta HTTP pagrįsta API, kuri veikia su bet kuria programavimo kalba",
+    restApiDesc:
+      "Paprasta HTTP pagrįsta API, kuri veikia su bet kuria programavimo kalba",
     languageSupport: "Kalbų palaikymas",
-    languageSupportDesc: "Pilnas Unicode palaikymas vietiniams simboliams ir kalboms",
+    languageSupportDesc:
+      "Pilnas Unicode palaikymas vietiniams simboliams ir kalboms",
     deliveryReports: "Pristatymo ataskaitos realiuoju laiku",
-    deliveryReportsDesc: "Stebėkite pranešimų pristatymo būseną su detalia analitika",
+    deliveryReportsDesc:
+      "Stebėkite pranešimų pristatymo būseną su detalia analitika",
     webhooks: "Webhook pranešimai",
-    webhooksDesc: "Gaukite realiojo laiko atnaujinimus apie pranešimų būsenos pakeitimus",
+    webhooksDesc:
+      "Gaukite realiojo laiko atnaujinimus apie pranešimų būsenos pakeitimus",
     viewDocs: "Žiūrėti API dokumentaciją",
     copy: "Kopijuoti",
     copied: "Nukopijuota!",
@@ -197,9 +229,9 @@ const messageExample =
 ---
 
 <!-- Integration Section -->
-<section class="integration-section py-16 lg:py-24">
-  <div class="container mx-auto px-8">
-    <div class="text-center mb-16">
+<section class="integration-section py-10 lg:py-24">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="text-center mb-10 lg:mb-16">
       <span
         class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
         >{t.badge}</span
@@ -208,9 +240,11 @@ const messageExample =
         <span class="gradient-text">{t.title}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        {t.subtitle} <span class="gradient-text"
+        {t.subtitle}
+        <span class="gradient-text"
           >{t.sendingSms} {country.nameAcc || country.name}</span
-        > {t.inMinutes}
+        >
+        {t.inMinutes}
       </p>
     </div>
 
@@ -219,28 +253,28 @@ const messageExample =
         class="code-example rounded-2xl overflow-hidden shadow-2xl border-dynamic-primary"
       >
         <div
-          class="code-header flex justify-between items-center px-6 py-4 bg-dynamic-secondary border-b border-dynamic-primary"
+          class="code-header flex flex-col sm:flex-row justify-between items-center px-4 py-3 bg-dynamic-secondary border-b border-dynamic-primary gap-4"
         >
-          <div class="code-tabs flex gap-2">
+          <div class="code-tabs flex gap-1 sm:gap-2">
             <button
-              class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 active bg-dynamic-tertiary text-dynamic-primary"
-              data-lang="javascript">JavaScript</button
+              class="code-tab px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-150 active bg-dynamic-tertiary text-dynamic-primary"
+              data-lang="javascript">JS</button
             >
             <button
-              class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
+              class="code-tab px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
               data-lang="python">Python</button
             >
             <button
-              class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
+              class="code-tab px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
               data-lang="php">PHP</button
             >
             <button
-              class="code-tab px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
+              class="code-tab px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-150 text-dynamic-tertiary hover:text-dynamic-primary hover:bg-dynamic-tertiary"
               data-lang="curl">cURL</button
             >
           </div>
           <button
-            class="code-copy flex items-center gap-2 px-4 py-2 border border-dynamic-primary text-dynamic-tertiary text-sm rounded-lg cursor-pointer transition-all duration-150 hover:border-cyan hover:text-cyan"
+            class="code-copy flex items-center gap-2 px-3 py-1.5 border border-dynamic-primary text-dynamic-tertiary text-xs sm:text-sm rounded-lg cursor-pointer transition-all duration-150 hover:border-cyan hover:text-cyan"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <rect
@@ -345,7 +379,9 @@ curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber={
       </div>
 
       <div class="integration-features">
-        <h3 class="text-2xl font-bold text-dynamic-primary mb-8">{t.featuresTitle}</h3>
+        <h3 class="text-2xl font-bold text-dynamic-primary mb-8">
+          {t.featuresTitle}
+        </h3>
 
         <div class="space-y-6 mb-8">
           <div class="feature-item flex items-start gap-4">
@@ -367,7 +403,9 @@ curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber={
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-dynamic-primary mb-1">{t.restApi}</h4>
+              <h4 class="font-semibold text-dynamic-primary mb-1">
+                {t.restApi}
+              </h4>
               <p class="text-sm text-dynamic-secondary">
                 {t.restApiDesc}
               </p>
@@ -394,7 +432,8 @@ curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber={
             </div>
             <div>
               <h4 class="font-semibold text-dynamic-primary mb-1">
-                {country.name} {t.languageSupport}
+                {country.name}
+                {t.languageSupport}
               </h4>
               <p class="text-sm text-dynamic-secondary">
                 {t.languageSupportDesc}
@@ -476,39 +515,53 @@ curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber={
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     // Code tab functionality for country page
-    const integrationSection = document.querySelector('.integration-section');
+    const integrationSection = document.querySelector(".integration-section");
     if (integrationSection) {
-      const codeTabs = integrationSection.querySelectorAll('.code-tab') as NodeListOf<HTMLButtonElement>;
-      const codeContents = integrationSection.querySelectorAll('.code-content') as NodeListOf<HTMLElement>;
-      const copyBtn = integrationSection.querySelector('.code-copy') as HTMLButtonElement | null;
+      const codeTabs = integrationSection.querySelectorAll(
+        ".code-tab",
+      ) as NodeListOf<HTMLButtonElement>;
+      const codeContents = integrationSection.querySelectorAll(
+        ".code-content",
+      ) as NodeListOf<HTMLElement>;
+      const copyBtn = integrationSection.querySelector(
+        ".code-copy",
+      ) as HTMLButtonElement | null;
 
       function switchTab(targetLang: string): void {
         // Update tab styles
         codeTabs.forEach((tab: HTMLButtonElement) => {
           if (tab.dataset.lang === targetLang) {
-            tab.classList.add('active', 'bg-dynamic-tertiary', 'text-dynamic-primary');
-            tab.classList.remove('text-dynamic-tertiary');
+            tab.classList.add(
+              "active",
+              "bg-dynamic-tertiary",
+              "text-dynamic-primary",
+            );
+            tab.classList.remove("text-dynamic-tertiary");
           } else {
-            tab.classList.remove('active', 'bg-dynamic-tertiary', 'text-dynamic-primary');
-            tab.classList.add('text-dynamic-tertiary');
+            tab.classList.remove(
+              "active",
+              "bg-dynamic-tertiary",
+              "text-dynamic-primary",
+            );
+            tab.classList.add("text-dynamic-tertiary");
           }
         });
 
         // Update content visibility
         codeContents.forEach((content: HTMLElement) => {
           if (content.dataset.lang === targetLang) {
-            content.classList.remove('hidden');
+            content.classList.remove("hidden");
           } else {
-            content.classList.add('hidden');
+            content.classList.add("hidden");
           }
         });
       }
 
       // Add click handlers to tabs
       codeTabs.forEach((tab: HTMLButtonElement) => {
-        tab.addEventListener('click', (e: Event) => {
+        tab.addEventListener("click", (e: Event) => {
           e.preventDefault();
           const targetLang = tab.dataset.lang;
           if (targetLang) {
@@ -519,24 +572,40 @@ curl "https://api.smspm.com?hash=e3dbe013-6f66-4fae-8ae2-96c364cb6b61&toNumber={
 
       // Copy functionality
       if (copyBtn) {
-        copyBtn.addEventListener('click', () => {
-          const activeContent = integrationSection.querySelector('.code-content:not(.hidden)') as HTMLElement | null;
+        copyBtn.addEventListener("click", () => {
+          const activeContent = integrationSection.querySelector(
+            ".code-content:not(.hidden)",
+          ) as HTMLElement | null;
           if (activeContent) {
-            const codeElement = activeContent.querySelector('code') as HTMLElement | null;
+            const codeElement = activeContent.querySelector(
+              "code",
+            ) as HTMLElement | null;
             if (codeElement) {
-              const codeText = codeElement.textContent || '';
+              const codeText = codeElement.textContent || "";
               navigator.clipboard.writeText(codeText).then(() => {
                 const originalHTML = copyBtn.innerHTML;
                 // Get the lang attribute or default to 'en'
-                const langAttr = document.documentElement.lang || 'en';
-                const copiedText = langAttr === 'et' ? 'Kopeeritud!' :
-                                  langAttr === 'ru' ? 'Скопировано!' :
-                                  langAttr === 'es' ? '¡Copiado!' :
-                                  langAttr === 'de' ? 'Kopiert!' :
-                                  langAttr === 'fr' ? 'Copié !' :
-                                  langAttr === 'lv' ? 'Nokopēts!' :
-                                  langAttr === 'lt' ? 'Nukopijuota!' : 'Copied!';
-                copyBtn.innerHTML = copyBtn.innerHTML.replace(/Copy|Kopeeritud!|Скопировано!|¡Copiado!|Kopiert!|Copié !|Nokopēts!|Nukopijuota!|Copied!/, copiedText);
+                const langAttr = document.documentElement.lang || "en";
+                const copiedText =
+                  langAttr === "et"
+                    ? "Kopeeritud!"
+                    : langAttr === "ru"
+                      ? "Скопировано!"
+                      : langAttr === "es"
+                        ? "¡Copiado!"
+                        : langAttr === "de"
+                          ? "Kopiert!"
+                          : langAttr === "fr"
+                            ? "Copié !"
+                            : langAttr === "lv"
+                              ? "Nokopēts!"
+                              : langAttr === "lt"
+                                ? "Nukopijuota!"
+                                : "Copied!";
+                copyBtn.innerHTML = copyBtn.innerHTML.replace(
+                  /Copy|Kopeeritud!|Скопировано!|¡Copiado!|Kopiert!|Copié !|Nokopēts!|Nukopijuota!|Copied!/,
+                  copiedText,
+                );
                 setTimeout(() => {
                   copyBtn.innerHTML = originalHTML;
                 }, 2000);

@@ -11,7 +11,9 @@ const { pathname } = Astro.url;
 
 const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
 const detectedFromPath = langMatch ? langMatch[1] : null;
-const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+const lang = (propLang ||
+  detectedFromPath ||
+  "en") as keyof typeof translations;
 
 const translations = {
   en: {
@@ -84,27 +86,31 @@ const t = translations[lang] || translations.en;
 ---
 
 <!-- Use Cases Section -->
-<section class="use-cases py-16 lg:py-24">
-  <div class="container mx-auto px-8">
-    <div class="text-center mb-16">
+<section class="use-cases py-10 lg:py-24">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="text-center mb-10 lg:mb-16">
       <span
         class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
         >{t.badge}</span
       >
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        {t.title} <span class="gradient-text">{country.nameLoc || country.namePrep || country.name}</span>
+        {t.title}
+        <span class="gradient-text"
+          >{country.nameLoc || country.namePrep || country.name}</span
+        >
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        {t.subtitle} <span class="gradient-text"
-          >{t.connectWithCustomers}</span
-        > {t.in} {country.nameLoc || country.namePrep || country.name}
+        {t.subtitle}
+        <span class="gradient-text">{t.connectWithCustomers}</span>
+        {t.in}
+        {country.nameLoc || country.namePrep || country.name}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {
         country.useCases.map((useCase) => (
-          <div class="use-case-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="use-case-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-6 lg:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
             <div class="use-case-icon w-16 h-16 bg-gradient-to-br from-cyan to-blue rounded-xl mx-auto mb-6 flex items-center justify-center text-white text-2xl">
               <i class={useCase.icon} />
             </div>
@@ -138,7 +144,7 @@ const t = translations[lang] || translations.en;
       }
     </div>
 
-    <div class="mt-16 text-center">
+    <div class="mt-10 lg:mt-16 text-center">
       <a
         href="https://app.smspm.com/app/register"
         class="btn btn-primary btn-large"

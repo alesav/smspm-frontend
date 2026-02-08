@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Language Selector - removed duplicate handler
     // Language selection is now handled in Navigation.astro component
     
-    // Mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', function(this: HTMLElement) {
-            navLinks.classList.toggle('active');
-            this.classList.toggle('active');
-        });
-    }
+    // Mobile menu - DISABLED - now handled in Navigation.astro component
+    // const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    // const navLinks = document.querySelector('.nav-links');
+    // 
+    // if (mobileMenuBtn && navLinks) {
+    //     mobileMenuBtn.addEventListener('click', function(this: HTMLElement) {
+    //         navLinks.classList.toggle('active');
+    //         this.classList.toggle('active');
+    //     });
+    // }
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

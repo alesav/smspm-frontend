@@ -12,7 +12,9 @@ const { pathname } = Astro.url;
 // Detect language
 const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
 const detectedFromPath = langMatch ? langMatch[1] : null;
-const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+const lang = (propLang ||
+  detectedFromPath ||
+  "en") as keyof typeof translations;
 
 const translations = {
   en: {
@@ -117,20 +119,22 @@ const t = translations[lang] || translations.en;
 ---
 
 <!-- Mobile Providers Section -->
-<section class="mobile-providers py-16 lg:py-24 bg-dynamic-secondary">
-  <div class="container mx-auto px-8">
-    <div class="text-center mb-16">
+<section class="mobile-providers py-10 lg:py-24 bg-dynamic-secondary">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="text-center mb-10 lg:mb-16">
       <span
         class="section-badge inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6"
         >{t.badge}</span
       >
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        {t.title} <span class="gradient-text">{t.titleGradient}</span>
+        {t.title}
+        <span class="gradient-text">{t.titleGradient}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-        {t.subtitle} <span class="gradient-text"
-          >{t.majorOperators}</span
-        > {t.in} {country.nameLoc || country.namePrep || country.name}
+        {t.subtitle}
+        <span class="gradient-text">{t.majorOperators}</span>
+        {t.in}
+        {country.nameLoc || country.namePrep || country.name}
       </p>
     </div>
 
@@ -139,7 +143,7 @@ const t = translations[lang] || translations.en;
     >
       {
         country.providers.map((provider) => (
-          <div class="provider-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="provider-card bg-dynamic-primary border border-dynamic-primary rounded-2xl p-6 lg:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
             <div class="provider-header mb-6">
               <div class="w-16 h-16 bg-gradient-to-br from-cyan/10 to-blue/10 border border-cyan/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
                 {provider.logo ? (
@@ -186,7 +190,9 @@ const t = translations[lang] || translations.en;
                       : "$"}
                   {provider.price.toFixed(3)}
                 </span>
-                <span class="text-dynamic-secondary text-sm ml-1">{t.perSms}</span>
+                <span class="text-dynamic-secondary text-sm ml-1">
+                  {t.perSms}
+                </span>
               </div>
             </div>
 
@@ -207,7 +213,9 @@ const t = translations[lang] || translations.en;
 
             <div class="provider-description">
               <p class="text-sm text-dynamic-secondary leading-relaxed">
-                {t.deliveryOptimized} {country.nameLoc || country.namePrep || country.name}. {t.features}: {provider.features.join(", ")}.
+                {t.deliveryOptimized}{" "}
+                {country.nameLoc || country.namePrep || country.name}.{" "}
+                {t.features}: {provider.features.join(", ")}.
               </p>
             </div>
           </div>
