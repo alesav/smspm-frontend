@@ -22,6 +22,9 @@ const lang = 'de';
 // Country metadata
 const countryCode = 'sk';
 const countryName = 'Slowakei';
+const countryNamePrep = 'Slowakei';
+const countryNameAcc = 'Slowakei';
+const countryNameLoc = 'Slowakei';
 const countryFlag = '🇸🇰';
 const currency = 'EUR';
 const callingCode = '+421';
@@ -47,6 +50,9 @@ const startingPrice = 0.049;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -70,25 +76,25 @@ const country = {
   useCases: [
     {
       title: 'E-Commerce & Einzelhandel',
-      description: `Auftragsbestätigungen und Werbekampagnen für den Einzelhandelsmarkt in ' + countryName + '`,
+      description: `Auftragsbestätigungen und Werbekampagnen für den Einzelhandelsmarkt in ${countryNamePrep || countryName}`,
       examples: ['Auftragsbestätigungen', 'Versandbenachrichtigungen', 'Blitzangebote'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Banking & FinTech',
-      description: `OTP-Verifizierung und Transaktionswarnungen für den Finanzsektor in ' + countryName + '`,
+      description: `OTP-Verifizierung und Transaktionswarnungen für den Finanzsektor in ${countryNamePrep || countryName}`,
       examples: ['OTP-Verifizierung', 'Transaktionswarnungen', 'Sicherheitsbenachrichtigungen'],
       icon: 'fas fa-university'
     },
     {
       title: 'Gesundheitswesen',
-      description: `Terminerinnerungen im Gesundheitssystem von ' + countryName + '`,
+      description: `Terminerinnerungen im Gesundheitssystem von ${countryNamePrep || countryName}`,
       examples: ['Terminerinnerungen', 'Testergebnisse', 'Gesundheitstipps'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Unternehmensdienstleistungen',
-      description: `Kundenbindung und Benachrichtigungen für Unternehmen in ' + countryName + '`,
+      description: `Kundenbindung und Benachrichtigungen für Unternehmen in ${countryNamePrep || countryName}`,
       examples: ['Besprechungserinnerungen', 'Bestätigungscodes', 'Statusaktualisierungen'],
       icon: 'fas fa-briefcase'
     }
@@ -96,7 +102,7 @@ const country = {
   regulations: [
     {
       title: 'Datenschutz',
-      description: `Beachten Sie die lokalen Datenschutzbestimmungen beim Versenden von SMS nach ' + countryName + '.`,
+      description: `Beachten Sie die lokalen Datenschutzbestimmungen beim Versenden von SMS nach ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -169,7 +175,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          Bereit, SMS zu senden an {country.name}?
+          Bereit, SMS zu senden an {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Schließen Sie sich Tausenden von Unternehmen an, die SMSPM für eine zuverlässige Nachrichtenübermittlung nutzen

@@ -209,7 +209,7 @@ const messageExample =
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
         {t.subtitle} <span class="gradient-text"
-          >{t.sendingSms} {country.name}</span
+          >{t.sendingSms} {country.nameAcc || country.name}</span
         > {t.inMinutes}
       </p>
     </div>

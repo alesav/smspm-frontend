@@ -22,6 +22,9 @@ const lang = 'et';
 // Country metadata
 const countryCode = 'tn';
 const countryName = 'Tuneesia';
+const countryNamePrep = 'Tuneesia';
+const countryNameAcc = 'Tuneesia';
+const countryNameLoc = 'Tuneesia';
 const countryFlag = '🇹🇳';
 const currency = 'TND';
 const callingCode = '+216';
@@ -44,6 +47,9 @@ const startingPrice = 0.100;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -67,25 +73,25 @@ const country = {
   useCases: [
     {
       title: 'E-kaubandus ja jaemüük',
-      description: `Tellimuste kinnitused ja reklaamikampaaniad ' + countryName + ' jaemüügiturul`,
+      description: `Tellimuste kinnitused ja reklaamikampaaniad ${countryNamePrep || countryName} jaemüügiturul`,
       examples: ['Tellimuste kinnitused', 'Tarneteatised', 'Välkmüügi hoiatused'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Pangandus ja FinTech',
-      description: `OTP kinnitused ja tehinguteatised ' + countryName + ' finantssektoris`,
+      description: `OTP kinnitused ja tehinguteatised ${countryNamePrep || countryName} finantssektoris`,
       examples: ['OTP kinnitamine', 'Tehinguteatised', 'Turvalisusteatised'],
       icon: 'fas fa-university'
     },
     {
       title: 'Tervishoiuteenused',
-      description: `Vastuvõtu meeldetuletused ' + countryName + ' tervishoiusüsteemis`,
+      description: `Vastuvõtu meeldetuletused ${countryNamePrep || countryName} tervishoiusüsteemis`,
       examples: ['Vastuvõtu meeldetuletused', 'Testitulemused', 'Tervise nõuanded'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Äriteenused',
-      description: `Klientide kaasamine ja teavitused ettevõtetele ' + countryName + '`,
+      description: `Klientide kaasamine ja teavitused ettevõtetele ${countryNamePrep || countryName}`,
       examples: ['Kohtumiste meeldetuletused', 'Kinnituskoodid', 'Oleku uuendused'],
       icon: 'fas fa-briefcase'
     }
@@ -93,7 +99,7 @@ const country = {
   regulations: [
     {
       title: 'Andmekaitse',
-      description: `Järgige kohalikke andmekaitsenõudeid SMS-ide saatmisel ' + countryName + '.`,
+      description: `Järgige kohalikke andmekaitsenõudeid SMS-ide saatmisel ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -166,7 +172,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          Kas oled valmis saatma SMS-e sihtkohta {country.name}?
+          Kas oled valmis saatma SMS-e sihtkohta {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Liitu tuhandete ettevõtetega, kes kasutavad SMSPM-i usaldusväärseks sõnumivahetuseks

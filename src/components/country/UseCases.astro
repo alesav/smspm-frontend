@@ -92,12 +92,12 @@ const t = translations[lang] || translations.en;
         >{t.badge}</span
       >
       <h2 class="text-3xl lg:text-5xl font-extrabold mb-4 text-dynamic-primary">
-        {t.title} <span class="gradient-text">{country.name}</span>
+        {t.title} <span class="gradient-text">{country.nameLoc || country.namePrep || country.name}</span>
       </h2>
       <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
         {t.subtitle} <span class="gradient-text"
           >{t.connectWithCustomers}</span
-        > {t.in} {country.name}
+        > {t.in} {country.nameLoc || country.namePrep || country.name}
       </p>
     </div>
 

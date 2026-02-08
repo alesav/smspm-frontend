@@ -22,6 +22,9 @@ const lang = 'lv';
 // Country metadata
 const countryCode = 'lv';
 const countryName = 'Latvija';
+const countryNamePrep = 'Latvija';
+const countryNameAcc = 'Latvija';
+const countryNameLoc = 'Latvija';
 const countryFlag = '🇱🇻';
 const currency = 'EUR';
 const callingCode = '+371';
@@ -44,6 +47,9 @@ const startingPrice = 0.050;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -67,25 +73,25 @@ const country = {
   useCases: [
     {
       title: 'E-komercija un Mazumtirdzniecība',
-      description: `Pasūtījumu apstiprinājumi un reklāmas kampaņas ' + countryName + ' mazumtirdzniecības tirgum`,
+      description: `Pasūtījumu apstiprinājumi un reklāmas kampaņas ${countryNamePrep || countryName} mazumtirdzniecības tirgum`,
       examples: ['Pasūtījumu apstiprinājumi', 'Piegādes paziņojumi', 'Zibatlaižu brīdinājumi'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Banku un FinTech',
-      description: `OTP verificēšana un darījumu brīdinājumi ' + countryName + ' finanšu sektoram`,
+      description: `OTP verificēšana un darījumu brīdinājumi ${countryNamePrep || countryName} finanšu sektoram`,
       examples: ['OTP verificēšana', 'Darījumu brīdinājumi', 'Drošības paziņojumi'],
       icon: 'fas fa-university'
     },
     {
       title: 'Veselības aprūpe',
-      description: `Pieraksta atgādinājumi ' + countryName + ' veselības aprūpes sistēmā`,
+      description: `Pieraksta atgādinājumi ${countryNamePrep || countryName} veselības aprūpes sistēmā`,
       examples: ['Pieraksta atgādinājumi', 'Testa rezultāti', 'Veselības padomi'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Biznesa pakalpojumi',
-      description: `Klientu iesaiste un paziņojumi uzņēmumiem ' + countryName + '`,
+      description: `Klientu iesaiste un paziņojumi uzņēmumiem ${countryNamePrep || countryName}`,
       examples: ['Sanāksmju atgādinājumi', 'Verificēšanas kodi', 'Statusa atjauninājumi'],
       icon: 'fas fa-briefcase'
     }
@@ -93,7 +99,7 @@ const country = {
   regulations: [
     {
       title: 'Datu aizsardzība',
-      description: `Ievērojiet vietējos datu aizsardzības noteikumus, sūtot SMS uz ' + countryName + '.`,
+      description: `Ievērojiet vietējos datu aizsardzības noteikumus, sūtot SMS uz ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -166,7 +172,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          Gatavs sūtīt SMS uz {country.name}?
+          Gatavs sūtīt SMS uz {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Pievienojieties tūkstošiem uzņēmumu, kas izmanto SMSPM drošai ziņojumu piegādei

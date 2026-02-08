@@ -22,6 +22,9 @@ const lang = 'fr';
 // Country metadata
 const countryCode = 'fk';
 const countryName = 'Îles Malouines';
+const countryNamePrep = 'Îles Malouines';
+const countryNameAcc = 'Îles Malouines';
+const countryNameLoc = 'Îles Malouines';
 const countryFlag = '🇫🇰';
 const currency = 'FKP';
 const callingCode = '+500';
@@ -40,6 +43,9 @@ const startingPrice = 0.100;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -63,25 +69,25 @@ const country = {
   useCases: [
     {
       title: 'E-commerce et Vente au Détail',
-      description: `Confirmations de commande et campagnes promotionnelles pour le marché de détail de ' + countryName + '`,
+      description: `Confirmations de commande et campagnes promotionnelles pour le marché de détail de ${countryNamePrep || countryName}`,
       examples: ['Confirmations de commande', 'Notifications d'expédition', 'Alertes de ventes flash'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Banque et FinTech',
-      description: `Vérification OTP et alertes de transaction pour le secteur financier de ' + countryName + '`,
+      description: `Vérification OTP et alertes de transaction pour le secteur financier de ${countryNamePrep || countryName}`,
       examples: ['Vérification OTP', 'Alertes de transaction', 'Notifications de sécurité'],
       icon: 'fas fa-university'
     },
     {
       title: 'Santé',
-      description: `Rappels de rendez-vous dans le système de santé de ' + countryName + '`,
+      description: `Rappels de rendez-vous dans le système de santé de ${countryNamePrep || countryName}`,
       examples: ['Rappels de rendez-vous', 'Résultats de tests', 'Conseils santé'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Services Professionnels',
-      description: `Engagement client et notifications pour les entreprises en ' + countryName + '`,
+      description: `Engagement client et notifications pour les entreprises en ${countryNamePrep || countryName}`,
       examples: ['Rappels de réunion', 'Codes de vérification', 'Mises à jour de statut'],
       icon: 'fas fa-briefcase'
     }
@@ -89,7 +95,7 @@ const country = {
   regulations: [
     {
       title: 'Protection des Données',
-      description: `Respectez les réglementations locales sur la protection des données lors de l'envoi de SMS vers ' + countryName + '.`,
+      description: `Respectez les réglementations locales sur la protection des données lors de l'envoi de SMS vers ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -162,7 +168,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          Prêt à envoyer des SMS vers {country.name}?
+          Prêt à envoyer des SMS vers {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Rejoignez des milliers d'entreprises qui utilisent SMSPM pour une livraison de messages fiable

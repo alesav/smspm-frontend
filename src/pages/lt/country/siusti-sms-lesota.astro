@@ -22,6 +22,9 @@ const lang = 'lt';
 // Country metadata
 const countryCode = 'ls';
 const countryName = 'Lesotas';
+const countryNamePrep = 'Lesotas';
+const countryNameAcc = 'Lesotą';
+const countryNameLoc = 'Lesote';
 const countryFlag = '🇱🇸';
 const currency = 'LSL';
 const callingCode = '+266';
@@ -41,6 +44,9 @@ const startingPrice = 0.100;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -64,25 +70,25 @@ const country = {
   useCases: [
     {
       title: 'El. prekyba ir Mažmeninė prekyba',
-      description: `Užsakymų patvirtinimai ir reklaminės kampanijos ' + countryName + ' mažmeninės prekybos rinkai`,
+      description: `Užsakymų patvirtinimai ir reklaminės kampanijos ${countryNamePrep || countryName} mažmeninės prekybos rinkai`,
       examples: ['Užsakymų patvirtinimai', 'Pristatymo pranešimai', 'Žaibo išpardavimų įspėjimai'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Bankininkystė ir FinTech',
-      description: `OTP patvirtinimas ir sandorių įspėjimai ' + countryName + ' finansų sektoriui`,
+      description: `OTP patvirtinimas ir sandorių įspėjimai ${countryNamePrep || countryName} finansų sektoriui`,
       examples: ['OTP patvirtinimas', 'Sandorių įspėjimai', 'Saugumo pranešimai'],
       icon: 'fas fa-university'
     },
     {
       title: 'Sveikatos priežiūra',
-      description: `Vizitų priminimai ' + countryName + ' sveikatos priežiūros sistemoje`,
+      description: `Vizitų priminimai ${countryNamePrep || countryName} sveikatos priežiūros sistemoje`,
       examples: ['Vizitų priminimai', 'Tyrimų rezultatai', 'Sveikatos patarimai'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Verslo paslaugos',
-      description: `Klientų įtraukimas ir pranešimai įmonėms ' + countryName + '`,
+      description: `Klientų įtraukimas ir pranešimai įmonėms ${countryNamePrep || countryName}`,
       examples: ['Susitikimų priminimai', 'Patvirtinimo kodai', 'Būsenos atnaujinimai'],
       icon: 'fas fa-briefcase'
     }
@@ -90,7 +96,7 @@ const country = {
   regulations: [
     {
       title: 'Duomenų apsauga',
-      description: `Laikykitės vietinių duomenų apsaugos taisyklių siųsdami SMS į ' + countryName + '.`,
+      description: `Laikykitės vietinių duomenų apsaugos taisyklių siųsdami SMS į ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -163,7 +169,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          Esate pasiruošę siųsti SMS į {country.name}?
+          Esate pasiruošę siųsti SMS į {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Prisijunkite prie tūkstančių įmonių, naudojančių SMSPM patikimam pranešimų pristatymui

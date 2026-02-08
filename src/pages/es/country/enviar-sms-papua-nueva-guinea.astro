@@ -22,6 +22,9 @@ const lang = 'es';
 // Country metadata
 const countryCode = 'pg';
 const countryName = 'Papúa Nueva Guinea';
+const countryNamePrep = 'Papúa Nueva Guinea';
+const countryNameAcc = 'Papúa Nueva Guinea';
+const countryNameLoc = 'Papúa Nueva Guinea';
 const countryFlag = '🇵🇬';
 const currency = 'PGK';
 const callingCode = '+675';
@@ -42,6 +45,9 @@ const startingPrice = 0.100;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -65,25 +71,25 @@ const country = {
   useCases: [
     {
       title: 'Comercio Electrónico y Retail',
-      description: `Confirmaciones de pedidos y campañas promocionales para el mercado minorista de ' + countryName + '`,
+      description: `Confirmaciones de pedidos y campañas promocionales para el mercado minorista de ${countryNamePrep || countryName}`,
       examples: ['Confirmaciones de pedidos', 'Notificaciones de envío', 'Alertas de ofertas flash'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Banca y FinTech',
-      description: `Verificación OTP y alertas de transacciones para el sector financiero de ' + countryName + '`,
+      description: `Verificación OTP y alertas de transacciones para el sector financiero de ${countryNamePrep || countryName}`,
       examples: ['Verificación OTP', 'Alertas de transacciones', 'Notificaciones de seguridad'],
       icon: 'fas fa-university'
     },
     {
       title: 'Atención Médica',
-      description: `Recordatorios de citas en el sistema de salud de ' + countryName + '`,
+      description: `Recordatorios de citas en el sistema de salud de ${countryNamePrep || countryName}`,
       examples: ['Recordatorios de citas', 'Resultados de pruebas', 'Consejos de salud'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Servicios Empresariales',
-      description: `Interacción con clientes y notificaciones para empresas en ' + countryName + '`,
+      description: `Interacción con clientes y notificaciones para empresas en ${countryNamePrep || countryName}`,
       examples: ['Recordatorios de reuniones', 'Códigos de verificación', 'Actualizaciones de estado'],
       icon: 'fas fa-briefcase'
     }
@@ -91,7 +97,7 @@ const country = {
   regulations: [
     {
       title: 'Protección de Datos',
-      description: `Cumpla con las regulaciones locales de protección de datos al enviar SMS a ' + countryName + '.`,
+      description: `Cumpla con las regulaciones locales de protección de datos al enviar SMS a ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -164,7 +170,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          ¿Listo para enviar SMS a {country.name}?
+          ¿Listo para enviar SMS a {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Únase a miles de empresas que utilizan SMSPM para una entrega de mensajes confiable

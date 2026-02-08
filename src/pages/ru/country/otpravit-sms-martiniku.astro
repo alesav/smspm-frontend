@@ -22,6 +22,9 @@ const lang = 'ru';
 // Country metadata
 const countryCode = 'mq';
 const countryName = 'Мартиника';
+const countryNamePrep = 'Мартиника';
+const countryNameAcc = 'Мартиника';
+const countryNameLoc = 'Мартиника';
 const countryFlag = '🇲🇶';
 const currency = 'EUR';
 const callingCode = '+596';
@@ -43,6 +46,9 @@ const startingPrice = 0.100;
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -66,25 +72,25 @@ const country = {
   useCases: [
     {
       title: 'Электронная коммерция и розничная торговля',
-      description: `Подтверждения заказов и рекламные кампании для розничного рынка ' + countryName + '`,
+      description: `Подтверждения заказов и рекламные кампании для розничного рынка ${countryNamePrep || countryName}`,
       examples: ['Подтверждения заказов', 'Уведомления о доставке', 'Уведомления о распродажах'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: 'Банковские услуги и FinTech',
-      description: `OTP-верификация и уведомления о транзакциях для финансового сектора ' + countryName + '`,
+      description: `OTP-верификация и уведомления о транзакциях для финансового сектора ${countryNamePrep || countryName}`,
       examples: ['OTP-верификация', 'Уведомления о транзакциях', 'Уведомления безопасности'],
       icon: 'fas fa-university'
     },
     {
       title: 'Здравоохранение',
-      description: `Напоминания о приемах в системе здравоохранения ' + countryName + '`,
+      description: `Напоминания о приемах в системе здравоохранения ${countryNamePrep || countryName}`,
       examples: ['Напоминания о приемах', 'Результаты анализов', 'Советы по здоровью'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: 'Бизнес-услуги',
-      description: `Взаимодействие с клиентами и уведомления для бизнеса в ' + countryName + '`,
+      description: `Взаимодействие с клиентами и уведомления для бизнеса в ${countryNamePrep || countryName}`,
       examples: ['Напоминания о встречах', 'Коды подтверждения', 'Обновления статуса'],
       icon: 'fas fa-briefcase'
     }
@@ -92,7 +98,7 @@ const country = {
   regulations: [
     {
       title: 'Защита данных',
-      description: `Соблюдайте местные правила защиты данных при отправке SMS в ' + countryName + '.`,
+      description: `Соблюдайте местные правила защиты данных при отправке SMS в ${countryNameAcc || countryName}.`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -165,7 +171,7 @@ const structuredData = {
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          Готовы отправить SMS в {country.name}?
+          Готовы отправить SMS в {countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           Присоединяйтесь к тысячам компаний, использующих SMSPM для надежной доставки сообщений

@@ -69,8 +69,8 @@ const translations = {
     directCarrier: "Прямые соединения с операторами в",
     sendSmsTo: "Отправить SMS в",
     connectWith: "Свяжитесь с",
-    mobileUsers: "мобильных пользователей через прямые соединения с операторами. Испытайте",
-    deliveryRates: "показатели доставки с ценой от",
+    mobileUsers: "мобильных пользователей в",
+    deliveryRates: ". Испытайте показатели доставки",
     perMessage: "за сообщение.",
     startFreeTrial: "Начать бесплатный пробный период",
     viewApiDocs: "Посмотреть документацию API",
@@ -259,21 +259,20 @@ const t = translations[lang] || translations.en;
           <span
             class="badge-dot w-2 h-2 bg-gradient-1 rounded-full animate-pulse-slow"
           ></span>
-          {t.directCarrier} {country.name}
+          {t.directCarrier} {country.nameLoc || country.namePrep || country.name}
         </div>
 
         <h1
           class="hero-title text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary"
         >
           {t.sendSmsTo}
-          <span class="gradient-text block">{country.name}</span>
+          <span class="gradient-text block">{country.nameAcc || country.name}</span>
         </h1>
 
         <p
           class="hero-subtitle text-xl text-dynamic-secondary leading-relaxed mb-8 max-w-[640px]"
         >
-          {t.connectWith} <span class="gradient-text">{country.mobileUsers}</span> {t.mobileUsers} <span class="gradient-text">{country.name}</span>.
-          {t.deliveryRates} <span
+          {t.connectWith} <span class="gradient-text">{country.mobileUsers}</span> {t.mobileUsers} <span class="gradient-text">{country.nameLoc || country.namePrep || country.name}</span>{t.deliveryRates} <span
             class="gradient-text"
             >{country.stats.deliveryRate} </span
           >

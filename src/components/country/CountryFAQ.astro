@@ -217,30 +217,30 @@ const startingPrice =
 
 const faqs = [
     {
-        question: `${t.q1} ${country.name}?`,
-        answer: `${t.a1Start} ${country.name} ${t.a1Mid} ${country.currency === "EUR" ? "€" : country.currency === "GBP" ? "£" : "$"}${startingPrice} ${t.a1End}`,
+        question: `${t.q1} ${country.nameAcc || country.name}?`,
+        answer: `${t.a1Start} ${country.nameAcc || country.name} ${t.a1Mid} ${country.currency === "EUR" ? "€" : country.currency === "GBP" ? "£" : "$"}${startingPrice} ${t.a1End}`,
     },
     {
-        question: `${t.q2} ${country.name}?`,
+        question: `${t.q2} ${country.nameAcc || country.name}?`,
         answer: t.a2,
     },
     {
-        question: `${t.q3} ${country.name}?`,
-        answer: `${t.a3Start} ${country.name}, ${t.a3Mid} ${country.providers
+        question: `${t.q3} ${country.nameLoc || country.namePrep || country.name}?`,
+        answer: `${t.a3Start} ${country.nameLoc || country.namePrep || country.name}, ${t.a3Mid} ${country.providers
             .slice(0, 3)
             .map((p) => p.name)
             .join(", ")}${country.providers.length > 3 ? ` ${t.a3AndOthers}` : ""}. ${t.a3End}`,
     },
     {
-        question: `${t.q4} ${country.name}?`,
+        question: `${t.q4} ${country.nameAcc || country.name}?`,
         answer: t.a4,
     },
     {
-        question: `${t.q5} ${country.name}?`,
+        question: `${t.q5} ${country.nameLoc || country.namePrep || country.name}?`,
         answer: `${t.a5Part1} ${t.a5Part2}`,
     },
     {
-        question: `${t.q6} ${country.name}?`,
+        question: `${t.q6} ${country.nameAcc || country.name}?`,
         answer: t.a6,
     },
 ];
@@ -273,7 +273,7 @@ const faqSchema = {
                 {t.title} <span class="gradient-text">{t.titleGradient}</span>
             </h2>
             <p class="text-lg text-dynamic-secondary max-w-2xl mx-auto">
-                {t.subtitle} <span class="gradient-text">{country.name}</span>
+                {t.subtitle} <span class="gradient-text">{country.nameAcc || country.name}</span>
             </p>
         </div>
 

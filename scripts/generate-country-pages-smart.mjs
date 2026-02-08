@@ -609,6 +609,9 @@ const lang = '${lang}';
 // Country metadata
 const countryCode = '${metadata.code}';
 const countryName = '${escapedCountryName}';
+const countryNamePrep = '${metadata[`name_${lang}_prep`] ? metadata[`name_${lang}_prep`].replace(/'/g, "\\'") : escapedCountryName}';
+const countryNameAcc = '${metadata[`name_${lang}_acc`] ? metadata[`name_${lang}_acc`].replace(/'/g, "\\'") : escapedCountryName}';
+const countryNameLoc = '${metadata[`name_${lang}_loc`] ? metadata[`name_${lang}_loc`].replace(/'/g, "\\'") : escapedCountryName}';
 const countryFlag = '${metadata.flag}';
 const currency = '${metadata.currency}';
 const callingCode = '${metadata.callingCode}';
@@ -627,6 +630,9 @@ const startingPrice = ${startingPrice};
 const country = {
   code: countryCode,
   name: countryName,
+  namePrep: countryNamePrep,
+  nameAcc: countryNameAcc,
+  nameLoc: countryNameLoc,
   flag: countryFlag,
   population: population,
   mobileUsers: mobileUsers,
@@ -650,25 +656,25 @@ const country = {
   useCases: [
     {
       title: '${t.useCases.ecommerce.title.replace(/'/g, "\\'")}',
-      description: \`${t.useCases.ecommerce.description.replace('{country}', "' + countryName + '")}\`,
+      description: \`${t.useCases.ecommerce.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
       examples: ['${t.useCases.ecommerce.examples.join("', '")}'],
       icon: 'fas fa-shopping-cart'
     },
     {
       title: '${t.useCases.banking.title.replace(/'/g, "\\'")}',
-      description: \`${t.useCases.banking.description.replace('{country}', "' + countryName + '")}\`,
+      description: \`${t.useCases.banking.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
       examples: ['${t.useCases.banking.examples.join("', '")}'],
       icon: 'fas fa-university'
     },
     {
       title: '${t.useCases.healthcare.title.replace(/'/g, "\\'")}',
-      description: \`${t.useCases.healthcare.description.replace('{country}', "' + countryName + '")}\`,
+      description: \`${t.useCases.healthcare.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
       examples: ['${t.useCases.healthcare.examples.join("', '")}'],
       icon: 'fas fa-heartbeat'
     },
     {
       title: '${t.useCases.business.title.replace(/'/g, "\\'")}',
-      description: \`${t.useCases.business.description.replace('{country}', "' + countryName + '")}\`,
+      description: \`${t.useCases.business.description.replace('{country}', '${countryNamePrep || countryName}')}\`,
       examples: ['${t.useCases.business.examples.join("', '")}'],
       icon: 'fas fa-briefcase'
     }
@@ -676,7 +682,7 @@ const country = {
   regulations: [
     {
       title: '${t.regulations.dataProtection.title.replace(/'/g, "\\'")}',
-      description: \`${t.regulations.dataProtection.description.replace('{country}', "' + countryName + '")}\`,
+      description: \`${t.regulations.dataProtection.description.replace('{country}', '${countryNameAcc || countryName}')}\`,
       icon: 'fas fa-shield-alt'
     },
     {
@@ -742,7 +748,7 @@ ${alternateLinks}
       <div class="cta-gradient-bg absolute top-0 left-0 right-0 bottom-0 -z-10"></div>
       <div class="container mx-auto px-8 text-center max-w-[800px]">
         <h2 class="cta-title text-4xl lg:text-6xl font-extrabold text-white mb-4">
-          ${t.ctaTitle}{country.name}?
+          ${t.ctaTitle}{countryNameAcc || countryName}?
         </h2>
         <p class="cta-subtitle text-xl text-white/90 mb-8">
           ${t.ctaSubtitle}
