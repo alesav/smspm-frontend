@@ -1,0 +1,357 @@
+---
+/**
+ * SMS Text Optimizer Component
+ * Convert Unicode characters to GSM-7 equivalents
+ */
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const translations: Record<string, any> = {
+  en: {
+    title: "SMS Text Optimizer",
+    subtitle: "Convert Unicode text to GSM-7 encoding and reduce SMS costs",
+    placeholder: "Paste your SMS text here to optimize...\n\nExample: \u201cHello\u201d it\u2019s a test\u2026 cost \u20ac5.00",
+    optimize: "Optimize Text",
+    clear: "Clear",
+    copy: "Copy",
+    copied: "Copied!",
+    original: "Original Text",
+    optimized: "Optimized Text",
+    savings: "Savings",
+    charsBefore: "Characters (Original)",
+    charsAfter: "Characters (Optimized)",
+    smsBefore: "SMS Parts (Original)",
+    smsAfter: "SMS Parts (Optimized)",
+    encoding: "Encoding",
+    unicode: "Unicode",
+    gsm7: "GSM-7",
+    replacements: "Replacements Made",
+    noChanges: "No changes needed - text is already GSM-7 compatible!",
+    tips: "Optimization Tips",
+    tip1: "Smart quotes are replaced with standard ASCII quotes",
+    tip2: "Em dashes and en dashes are replaced with hyphens",
+    tip3: "Ellipsis character is replaced with three dots",
+    tip4: "Euro sign and other symbols are converted where possible",
+  },
+  et: {
+    title: "SMS Teksti Optimeerija",
+    subtitle: "Teisenda Unicode tekst GSM-7 kodeeringuks ja vähenda SMS kulusid",
+    placeholder: "Kleebi oma SMS tekst siia optimeerimiseks...",
+    optimize: "Optimeeri tekst", clear: "Tühjenda", copy: "Kopeeri", copied: "Kopeeritud!",
+    original: "Algne tekst", optimized: "Optimeeritud tekst", savings: "Kokkuhoid",
+    charsBefore: "Tähemärke (algne)", charsAfter: "Tähemärke (optimeeritud)",
+    smsBefore: "SMS osad (algne)", smsAfter: "SMS osad (optimeeritud)",
+    encoding: "Kodeering", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Tehtud asendused", noChanges: "Muudatusi pole vaja - tekst on juba GSM-7 ühilduv!",
+    tips: "Optimeerimise näpunäited",
+    tip1: "Nutikad jutumärgid asendatakse tavaliste ASCII jutumärkidega",
+    tip2: "Pikad kriipsud asendatakse sidekriipsudega",
+    tip3: "Kolmikpunkt asendatakse kolme punktiga",
+    tip4: "Euro märk ja muud sümbolid teisendatakse võimalusel",
+  },
+  ru: {
+    title: "Оптимизатор SMS Текста",
+    subtitle: "Конвертируйте Unicode текст в GSM-7 кодировку и снижайте стоимость SMS",
+    placeholder: "Вставьте ваш SMS текст для оптимизации...",
+    optimize: "Оптимизировать", clear: "Очистить", copy: "Копировать", copied: "Скопировано!",
+    original: "Исходный текст", optimized: "Оптимизированный текст", savings: "Экономия",
+    charsBefore: "Символов (исходный)", charsAfter: "Символов (оптимизированный)",
+    smsBefore: "Частей SMS (исходный)", smsAfter: "Частей SMS (оптимизированный)",
+    encoding: "Кодировка", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Сделанные замены", noChanges: "Изменения не нужны - текст уже совместим с GSM-7!",
+    tips: "Советы по оптимизации",
+    tip1: "Умные кавычки заменяются стандартными ASCII кавычками",
+    tip2: "Длинные тире заменяются дефисами",
+    tip3: "Многоточие заменяется тремя точками",
+    tip4: "Знак евро и другие символы конвертируются там, где возможно",
+  },
+  es: {
+    title: "Optimizador de Texto SMS",
+    subtitle: "Convierte texto Unicode a codificación GSM-7 y reduce costos de SMS",
+    placeholder: "Pega tu texto SMS aquí para optimizarlo...",
+    optimize: "Optimizar texto", clear: "Limpiar", copy: "Copiar", copied: "Copiado!",
+    original: "Texto original", optimized: "Texto optimizado", savings: "Ahorro",
+    charsBefore: "Caracteres (original)", charsAfter: "Caracteres (optimizado)",
+    smsBefore: "Partes SMS (original)", smsAfter: "Partes SMS (optimizado)",
+    encoding: "Codificación", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Reemplazos realizados", noChanges: "No se necesitan cambios - el texto ya es compatible con GSM-7!",
+    tips: "Consejos de optimización",
+    tip1: "Las comillas tipográficas se reemplazan por comillas ASCII estándar",
+    tip2: "Los guiones largos se reemplazan por guiones",
+    tip3: "El carácter de elipsis se reemplaza por tres puntos",
+    tip4: "El signo de euro y otros símbolos se convierten donde es posible",
+  },
+  de: {
+    title: "SMS Text Optimierer",
+    subtitle: "Konvertieren Sie Unicode-Text in GSM-7-Codierung und reduzieren Sie SMS-Kosten",
+    placeholder: "Fügen Sie Ihren SMS-Text zur Optimierung hier ein...",
+    optimize: "Text optimieren", clear: "Löschen", copy: "Kopieren", copied: "Kopiert!",
+    original: "Originaltext", optimized: "Optimierter Text", savings: "Einsparungen",
+    charsBefore: "Zeichen (Original)", charsAfter: "Zeichen (Optimiert)",
+    smsBefore: "SMS-Teile (Original)", smsAfter: "SMS-Teile (Optimiert)",
+    encoding: "Codierung", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Vorgenommene Ersetzungen", noChanges: "Keine Änderungen nötig - Text ist bereits GSM-7-kompatibel!",
+    tips: "Optimierungstipps",
+    tip1: "Typografische Anführungszeichen werden durch Standard-ASCII-Anführungszeichen ersetzt",
+    tip2: "Gedankenstriche werden durch Bindestriche ersetzt",
+    tip3: "Das Auslassungszeichen wird durch drei Punkte ersetzt",
+    tip4: "Das Eurozeichen und andere Symbole werden wenn möglich konvertiert",
+  },
+  fr: {
+    title: "Optimiseur de Texte SMS",
+    subtitle: "Convertissez le texte Unicode en encodage GSM-7 et réduisez les coûts SMS",
+    placeholder: "Collez votre texte SMS ici pour l'optimiser...",
+    optimize: "Optimiser le texte", clear: "Effacer", copy: "Copier", copied: "Copié !",
+    original: "Texte original", optimized: "Texte optimisé", savings: "Économies",
+    charsBefore: "Caractères (original)", charsAfter: "Caractères (optimisé)",
+    smsBefore: "Parties SMS (original)", smsAfter: "Parties SMS (optimisé)",
+    encoding: "Encodage", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Remplacements effectués", noChanges: "Aucune modification nécessaire - le texte est déjà compatible GSM-7 !",
+    tips: "Conseils d'optimisation",
+    tip1: "Les guillemets typographiques sont remplacés par des guillemets ASCII standard",
+    tip2: "Les tirets cadratins sont remplacés par des traits d'union",
+    tip3: "Le caractère de points de suspension est remplacé par trois points",
+    tip4: "Le signe euro et autres symboles sont convertis si possible",
+  },
+  lv: {
+    title: "SMS Teksta Optimizētājs",
+    subtitle: "Pārveidojiet Unicode tekstu GSM-7 kodējumā un samaziniet SMS izmaksas",
+    placeholder: "Ielīmējiet savu SMS tekstu šeit optimizācijai...",
+    optimize: "Optimizēt tekstu", clear: "Notīrīt", copy: "Kopēt", copied: "Nokopēts!",
+    original: "Oriģinālais teksts", optimized: "Optimizētais teksts", savings: "Ietaupījums",
+    charsBefore: "Rakstzīmes (oriģināls)", charsAfter: "Rakstzīmes (optimizēts)",
+    smsBefore: "SMS daļas (oriģināls)", smsAfter: "SMS daļas (optimizēts)",
+    encoding: "Kodējums", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Veiktās aizstāšanas", noChanges: "Izmaiņas nav nepieciešamas - teksts jau ir GSM-7 saderīgs!",
+    tips: "Optimizācijas padomi",
+    tip1: "Viedās pēdiņas tiek aizstātas ar standarta ASCII pēdiņām",
+    tip2: "Garas domuzīmes tiek aizstātas ar defisēm",
+    tip3: "Daudzpunkts tiek aizstāts ar trim punktiem",
+    tip4: "Eiro zīme un citi simboli tiek konvertēti, kur iespējams",
+  },
+  lt: {
+    title: "SMS Teksto Optimizatorius",
+    subtitle: "Konvertuokite Unicode tekstą į GSM-7 kodavimą ir sumažinkite SMS kaštus",
+    placeholder: "Įklijuokite savo SMS tekstą čia optimizavimui...",
+    optimize: "Optimizuoti tekstą", clear: "Išvalyti", copy: "Kopijuoti", copied: "Nukopijuota!",
+    original: "Originalus tekstas", optimized: "Optimizuotas tekstas", savings: "Sutaupymai",
+    charsBefore: "Simboliai (originalus)", charsAfter: "Simboliai (optimizuotas)",
+    smsBefore: "SMS dalys (originalus)", smsAfter: "SMS dalys (optimizuotas)",
+    encoding: "Kodavimas", unicode: "Unicode", gsm7: "GSM-7",
+    replacements: "Atlikti pakeitimai", noChanges: "Pakeitimų nereikia - tekstas jau suderinamas su GSM-7!",
+    tips: "Optimizavimo patarimai",
+    tip1: "Išmaniosios kabutės pakeičiamos standartinėmis ASCII kabutėmis",
+    tip2: "Ilgi brūkšniai pakeičiami brūkšneliais",
+    tip3: "Daugtaškio simbolis pakeičiamas trimis taškais",
+    tip4: "Euro ženklas ir kiti simboliai konvertuojami ten, kur įmanoma",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div class="optimizer-container">
+  <div class="optimizer-header">
+    <h2 class="optimizer-title">{t.title}</h2>
+    <p class="optimizer-subtitle">{t.subtitle}</p>
+  </div>
+
+  <div class="optimizer-body">
+    <div class="input-section">
+      <label class="section-label">{t.original}</label>
+      <textarea id="inputText" class="optimizer-input" placeholder={t.placeholder} rows="8"></textarea>
+      <div class="input-actions">
+        <button id="optimizeBtn" class="btn-optimize">{t.optimize}</button>
+        <button id="clearBtn" class="btn-secondary">{t.clear}</button>
+      </div>
+    </div>
+
+    <div id="resultsSection" class="results-section" style="display: none;">
+      <div class="stats-grid">
+        <div class="stat-card before">
+          <div class="stat-label">{t.charsBefore}</div>
+          <div id="charsBefore" class="stat-value">0</div>
+        </div>
+        <div class="stat-card after">
+          <div class="stat-label">{t.charsAfter}</div>
+          <div id="charsAfter" class="stat-value">0</div>
+        </div>
+        <div class="stat-card before">
+          <div class="stat-label">{t.smsBefore}</div>
+          <div id="smsBefore" class="stat-value">0</div>
+        </div>
+        <div class="stat-card after">
+          <div class="stat-label">{t.smsAfter}</div>
+          <div id="smsAfter" class="stat-value">0</div>
+        </div>
+      </div>
+
+      <div id="noChangesMsg" class="no-changes-msg" style="display: none;">
+        <span>✓</span> {t.noChanges}
+      </div>
+
+      <div id="outputSection" class="output-section">
+        <div class="output-header">
+          <label class="section-label">{t.optimized}</label>
+          <button id="copyBtn" class="btn-copy">{t.copy}</button>
+        </div>
+        <textarea id="outputText" class="optimizer-output" rows="8" readonly></textarea>
+      </div>
+
+      <div id="replacementsSection" class="replacements-section" style="display: none;">
+        <h3>{t.replacements}</h3>
+        <div id="replacementsList" class="replacements-list"></div>
+      </div>
+
+      <div class="tips-section">
+        <h3>{t.tips}</h3>
+        <ul class="tips-list">
+          <li>{t.tip1}</li><li>{t.tip2}</li><li>{t.tip3}</li><li>{t.tip4}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .optimizer-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+  .optimizer-header { text-align: center; margin-bottom: 2rem; }
+  .optimizer-title { font-size: 2rem; font-weight: 700; color: var(--text-primary, #1a1a1a); margin-bottom: 0.5rem; }
+  .optimizer-subtitle { font-size: 1.125rem; color: var(--text-secondary, #666); }
+  .optimizer-body { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+  .section-label { display: block; font-size: 0.875rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem; }
+  .optimizer-input, .optimizer-output { width: 100%; padding: 1rem; font-size: 0.9375rem; line-height: 1.6; border: 2px solid #e5e7eb; border-radius: 12px; font-family: inherit; transition: border-color 0.2s; }
+  .optimizer-input { resize: vertical; }
+  .optimizer-output { background: #f9fafb; resize: vertical; }
+  .optimizer-input:focus { outline: none; border-color: #10b981; }
+  .input-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+  .btn-optimize { flex: 1; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-optimize:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(16,185,129,0.3); }
+  .btn-secondary { padding: 0.875rem 1.5rem; background: #f3f4f6; color: #374151; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-secondary:hover { background: #e5e7eb; }
+  .results-section { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .stat-card { padding: 1.25rem; border-radius: 12px; text-align: center; }
+  .stat-card.before { background: #fef3c7; border: 2px solid #f59e0b; }
+  .stat-card.after { background: #d1fae5; border: 2px solid #10b981; }
+  .stat-label { font-size: 0.875rem; color: #6b7280; margin-bottom: 0.5rem; }
+  .stat-value { font-size: 2rem; font-weight: 700; color: #1f2937; }
+  .no-changes-msg { padding: 1.25rem 1.5rem; background: #d1fae5; border: 2px solid #10b981; border-radius: 12px; color: #065f46; font-weight: 600; font-size: 1rem; }
+  .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  .btn-copy { padding: 0.5rem 1rem; background: #10b981; color: white; font-size: 0.875rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; }
+  .btn-copy:hover { background: #059669; }
+  .replacements-section h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; }
+  .replacements-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .replacement-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 0.875rem; }
+  .replacement-from { font-family: monospace; color: #dc2626; font-weight: 600; }
+  .replacement-arrow { color: #6b7280; }
+  .replacement-to { font-family: monospace; color: #059669; font-weight: 600; }
+  .replacement-count { margin-left: auto; color: #6b7280; }
+  .tips-section { padding: 1.5rem; background: #f0fdf4; border-radius: 12px; }
+  .tips-section h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; color: #14532d; }
+  .tips-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tips-list li { padding-left: 1.5rem; position: relative; color: #166534; font-size: 0.875rem; }
+  .tips-list li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
+  @media (max-width: 768px) {
+    .optimizer-container { padding: 1rem; }
+    .optimizer-body { padding: 1.5rem; }
+    .input-actions { flex-direction: column; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<script define:vars={{ lang, translations }}>
+  const t = translations[lang] || translations.en;
+
+  const REPLACEMENTS = [
+    { from: '\u201C', to: '"', name: 'Left double quote' },
+    { from: '\u201D', to: '"', name: 'Right double quote' },
+    { from: '\u2018', to: "'", name: 'Left single quote' },
+    { from: '\u2019', to: "'", name: 'Right single quote' },
+    { from: '\u2014', to: '-', name: 'Em dash' },
+    { from: '\u2013', to: '-', name: 'En dash' },
+    { from: '\u2026', to: '...', name: 'Ellipsis' },
+    { from: '\u20AC', to: 'EUR', name: 'Euro sign' },
+    { from: '\u00A0', to: ' ', name: 'Non-breaking space' },
+    { from: '\u2022', to: '*', name: 'Bullet' },
+    { from: '\u00B0', to: 'o', name: 'Degree sign' },
+    { from: '\u00D7', to: 'x', name: 'Multiplication sign' },
+    { from: '\u00F7', to: '/', name: 'Division sign' },
+    { from: '\u2122', to: '(TM)', name: 'Trademark' },
+    { from: '\u00A9', to: '(c)', name: 'Copyright' },
+    { from: '\u00AE', to: '(R)', name: 'Registered' },
+  ];
+
+  const GSM7 = '@\u00A3$\u00A5\u00E8\u00E9\u00F9\u00EC\u00F2\u00C7\n\u00D8\u00F8\r\u00C5\u00E5\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039E\u00C6\u00E6\u00DF\u00C9 !"#\u00A4%&\'()*+,-./0123456789:;<=>?\u00A1ABCDEFGHIJKLMNOPQRSTUVWXYZ\u00C4\u00D6\u00D1\u00DC\u00A7\u00BFabcdefghijklmnopqrstuvwxyz\u00E4\u00F6\u00F1\u00FC\u00E0';
+  const GSM7_EXT = '|^{}\u20AC[]~\\';
+
+  function isGsm7(text) { return [...text].every(c => GSM7.includes(c) || GSM7_EXT.includes(c)); }
+  function gsmLength(text) { return [...text].reduce((n, c) => n + (GSM7.includes(c) ? 1 : GSM7_EXT.includes(c) ? 2 : 0), 0); }
+  function smsCount(len, isGsm) { if (len === 0) return 0; const limit = isGsm ? (len <= 160 ? 160 : 153) : (len <= 70 ? 70 : 67); return Math.ceil(len / limit); }
+
+  const inputText = document.getElementById('inputText');
+  const optimizeBtn = document.getElementById('optimizeBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const outputText = document.getElementById('outputText');
+  const resultsSection = document.getElementById('resultsSection');
+  const noChangesMsg = document.getElementById('noChangesMsg');
+  const outputSection = document.getElementById('outputSection');
+  const replacementsSection = document.getElementById('replacementsSection');
+  const replacementsList = document.getElementById('replacementsList');
+
+  optimizeBtn.addEventListener('click', () => {
+    const input = inputText.value;
+    if (!input.trim()) return;
+
+    let output = input;
+    const made = [];
+    for (const r of REPLACEMENTS) {
+      const re = new RegExp(r.from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+      const count = (output.match(re) || []).length;
+      if (count > 0) { output = output.replace(re, r.to); made.push({ ...r, count }); }
+    }
+
+    const origIsGsm = isGsm7(input);
+    const optIsGsm = isGsm7(output);
+    const origLen = origIsGsm ? gsmLength(input) : input.length;
+    const optLen = optIsGsm ? gsmLength(output) : output.length;
+
+    document.getElementById('charsBefore').textContent = origLen;
+    document.getElementById('charsAfter').textContent = optLen;
+    document.getElementById('smsBefore').textContent = smsCount(origLen, origIsGsm);
+    document.getElementById('smsAfter').textContent = smsCount(optLen, optIsGsm);
+
+    outputText.value = output;
+    resultsSection.style.display = 'flex';
+
+    if (made.length === 0) {
+      noChangesMsg.style.display = 'block';
+      replacementsSection.style.display = 'none';
+    } else {
+      noChangesMsg.style.display = 'none';
+      replacementsSection.style.display = 'block';
+      replacementsList.innerHTML = made.map(r => `
+        <div class="replacement-item">
+          <span class="replacement-from">${r.from}</span>
+          <span class="replacement-arrow">→</span>
+          <span class="replacement-to">${r.to}</span>
+          <span class="replacement-count">×${r.count}</span>
+        </div>
+      `).join('');
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    inputText.value = ''; outputText.value = '';
+    resultsSection.style.display = 'none';
+  });
+
+  copyBtn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(outputText.value); copyBtn.textContent = t.copied; setTimeout(() => copyBtn.textContent = t.copy, 2000); } catch(e) {}
+  });
+</script>

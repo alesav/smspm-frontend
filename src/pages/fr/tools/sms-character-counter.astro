@@ -1,0 +1,178 @@
+---
+/**
+ * sms-character-counter Tool Page
+ * SEO-optimized lead magnet page
+ * Language: fr
+ */
+
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import SMSCharacterCounterComponent from '../../../components/tools/SMSCharacterCounter.astro';
+import Footer from '../../../components/Footer.astro';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+// Load pricelist for average price calculation
+let averagePrice = 0.045;
+try {
+  const pricelistPath = join(process.cwd(), 'pricelist.json');
+  const pricelist = JSON.parse(readFileSync(pricelistPath, 'utf-8'));
+  
+  let totalPrice = 0;
+  let count = 0;
+  for (const country of pricelist.countries) {
+    if (country.providers && country.providers.length > 0) {
+      for (const provider of country.providers) {
+        totalPrice += provider.price;
+        count++;
+      }
+    }
+  }
+  averagePrice = count > 0 ? totalPrice / count : 0.045;
+} catch (e) {
+  console.warn('Could not load pricelist, using default price');
+}
+
+const lang = 'fr';
+const title = 'Compteur de Caractères SMS et Calculateur de Coûts Gratuit | SMSPM';
+const description = "Calculez la longueur SMS, les segments de message et le coût instantanément. Outil gratuit prenant en charge l'encodage GSM-7 et Unicode. Vérifiez si votre message tient dans un SMS ou plusieurs parties.";
+const keywords = ["compteur caractères sms","calculateur longueur sms","vérificateur gsm unicode","calculateur coût sms","calculateur segments message"];
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SMS Character Counter",
+  "description": description,
+  "url": "https://smspm.com/fr/tools/sms-character-counter",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "SMSPM",
+    "url": "https://smspm.com"
+  },
+  "featureList": [
+    "GSM-7 and Unicode detection",
+    "Character count with extended characters",
+    "Message segmentation calculation",
+    "Cost estimation",
+    "Real-time analysis"
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <head>
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href="https://smspm.com/fr/tools/sms-character-counter" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
+    <!-- Hreflang tags for all languages -->
+    <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="es" href="https://smspm.com/es/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="de" href="https://smspm.com/de/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools/sms-character-counter" />
+    <link rel="alternate" hreflang="x-default" href="https://smspm.com/en/tools/sms-character-counter" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://smspm.com/fr/tools/sms-character-counter" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+
+  <Navigation />
+  
+  <main class="tool-page">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Compteur de Caractères SMS et <span class="gradient-text">Calculateur de Coûts</span>
+        </h1>
+        
+        <p class="hero-description">
+          Calculez la longueur de votre message SMS, le nombre de parties et le coût estimé en temps réel. Prend en charge l'encodage GSM-7 et Unicode avec détection automatique.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+      <div class="container">
+        <SMSCharacterCounterComponent lang={lang} averagePrice={averagePrice} currency="EUR" />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .tool-page {
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero-section {
+    padding: 6rem 0 4rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .calculator-section {
+    padding: 2rem 0 4rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+  }
+</style>

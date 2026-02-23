@@ -1,0 +1,752 @@
+---
+/**
+ * SMS Character Counter & Billing Calculator Component
+ * Interactive tool for calculating SMS length and cost
+ */
+
+interface Props {
+  lang?: string;
+  averagePrice?: number;
+  currency?: string;
+}
+
+const { 
+  lang = 'en',
+  averagePrice = 0.045,
+  currency = 'EUR'
+} = Astro.props;
+
+// Translations
+const translations: Record<string, any> = {
+  en: {
+    title: "SMS Character Counter",
+    subtitle: "Calculate message length, segments, and cost",
+    placeholder: "Type or paste your SMS message here...",
+    encoding: "Encoding",
+    characters: "Characters",
+    messages: "SMS Parts",
+    remaining: "Remaining",
+    used: "Used",
+    perMessage: "per message",
+    nonGsmWarning: "Text contains Unicode characters",
+    nonGsmChars: "Non-GSM characters found",
+    optimize: "Optimize for GSM",
+    optimized: "Optimized!",
+    costEstimate: "Cost Estimate",
+    total: "Total",
+    priceNote: "Average price across networks",
+    sendCta: "Send this SMS via SMSPM",
+    ctaSubtext: "No credit card required · 50 free messages",
+    infoGsm: "GSM-7 encoding: 160 chars/SMS, 153 chars/part for long messages",
+    infoUnicode: "Unicode encoding: 70 chars/SMS, 67 chars/part for long messages",
+    extended: "Extended character (counts as 2)",
+  },
+  et: {
+    title: "SMS Tähemärkide Loendur",
+    subtitle: "Arvuta sõnumi pikkus, segmendid ja maksumus",
+    placeholder: "Kirjuta või kleebi oma SMS-sõnum siia...",
+    encoding: "Kodeering",
+    characters: "Tähemärgid",
+    messages: "SMS Osad",
+    remaining: "Alles",
+    used: "Kasutatud",
+    perMessage: "sõnumi kohta",
+    nonGsmWarning: "Tekst sisaldab Unicode tähemärke",
+    nonGsmChars: "Leitud mitte-GSM tähemärgid",
+    optimize: "Optimeeri GSM jaoks",
+    optimized: "Optimeeritud!",
+    costEstimate: "Hinnanguline maksumus",
+    total: "Kokku",
+    priceNote: "Keskmine hind võrkude vahel",
+    sendCta: "Saada see SMS SMSPM kaudu",
+    ctaSubtext: "Krediitkaarti pole vaja · 50 tasuta sõnumit",
+    infoGsm: "GSM-7 kodeering: 160 tähemärki/SMS, 153 tähemärki/osa pikkade sõnumite puhul",
+    infoUnicode: "Unicode kodeering: 70 tähemärki/SMS, 67 tähemärki/osa pikkade sõnumite puhul",
+    extended: "Laiendatud tähemärk (loeb 2 tähemärgi eest)",
+  },
+  ru: {
+    title: "Счетчик символов SMS",
+    subtitle: "Рассчитайте длину сообщения, сегменты и стоимость",
+    placeholder: "Введите или вставьте ваше SMS-сообщение здесь...",
+    encoding: "Кодировка",
+    characters: "Символы",
+    messages: "Части SMS",
+    remaining: "Осталось",
+    used: "Использовано",
+    perMessage: "за сообщение",
+    nonGsmWarning: "Текст содержит Unicode символы",
+    nonGsmChars: "Найдены не-GSM символы",
+    optimize: "Оптимизировать для GSM",
+    optimized: "Оптимизировано!",
+    costEstimate: "Расчет стоимости",
+    total: "Итого",
+    priceNote: "Средняя цена по сетям",
+    sendCta: "Отправить это SMS через SMSPM",
+    ctaSubtext: "Без кредитной карты · 50 бесплатных сообщений",
+    infoGsm: "Кодировка GSM-7: 160 символов/SMS, 153 символа/часть для длинных сообщений",
+    infoUnicode: "Кодировка Unicode: 70 символов/SMS, 67 символов/часть для длинных сообщений",
+    extended: "Расширенный символ (считается как 2)",
+  },
+  es: {
+    title: "Contador de Caracteres SMS",
+    subtitle: "Calcula la longitud, segmentos y costo del mensaje",
+    placeholder: "Escribe o pega tu mensaje SMS aquí...",
+    encoding: "Codificación",
+    characters: "Caracteres",
+    messages: "Partes SMS",
+    remaining: "Restantes",
+    used: "Usados",
+    perMessage: "por mensaje",
+    nonGsmWarning: "El texto contiene caracteres Unicode",
+    nonGsmChars: "Caracteres no-GSM encontrados",
+    optimize: "Optimizar para GSM",
+    optimized: "¡Optimizado!",
+    costEstimate: "Estimación de Costo",
+    total: "Total",
+    priceNote: "Precio promedio entre redes",
+    sendCta: "Enviar este SMS a través de SMSPM",
+    ctaSubtext: "Sin tarjeta de crédito · 50 mensajes gratis",
+    infoGsm: "Codificación GSM-7: 160 caracteres/SMS, 153 caracteres/parte para mensajes largos",
+    infoUnicode: "Codificación Unicode: 70 caracteres/SMS, 67 caracteres/parte para mensajes largos",
+    extended: "Carácter extendido (cuenta como 2)",
+  },
+  de: {
+    title: "SMS Zeichenzähler",
+    subtitle: "Berechnen Sie Nachrichtenlänge, Segmente und Kosten",
+    placeholder: "Geben Sie Ihre SMS-Nachricht hier ein oder fügen Sie sie ein...",
+    encoding: "Kodierung",
+    characters: "Zeichen",
+    messages: "SMS-Teile",
+    remaining: "Verbleibend",
+    used: "Verwendet",
+    perMessage: "pro Nachricht",
+    nonGsmWarning: "Text enthält Unicode-Zeichen",
+    nonGsmChars: "Nicht-GSM-Zeichen gefunden",
+    optimize: "Für GSM optimieren",
+    optimized: "Optimiert!",
+    costEstimate: "Kostenschätzung",
+    total: "Gesamt",
+    priceNote: "Durchschnittspreis über Netze",
+    sendCta: "Diese SMS über SMSPM senden",
+    ctaSubtext: "Keine Kreditkarte erforderlich · 50 kostenlose Nachrichten",
+    infoGsm: "GSM-7-Kodierung: 160 Zeichen/SMS, 153 Zeichen/Teil für lange Nachrichten",
+    infoUnicode: "Unicode-Kodierung: 70 Zeichen/SMS, 67 Zeichen/Teil für lange Nachrichten",
+    extended: "Erweitertes Zeichen (zählt als 2)",
+  },
+  fr: {
+    title: "Compteur de Caractères SMS",
+    subtitle: "Calculez la longueur, les segments et le coût du message",
+    placeholder: "Tapez ou collez votre message SMS ici...",
+    encoding: "Encodage",
+    characters: "Caractères",
+    messages: "Parties SMS",
+    remaining: "Restants",
+    used: "Utilisés",
+    perMessage: "par message",
+    nonGsmWarning: "Le texte contient des caractères Unicode",
+    nonGsmChars: "Caractères non-GSM trouvés",
+    optimize: "Optimiser pour GSM",
+    optimized: "Optimisé!",
+    costEstimate: "Estimation du Coût",
+    total: "Total",
+    priceNote: "Prix moyen sur les réseaux",
+    sendCta: "Envoyer ce SMS via SMSPM",
+    ctaSubtext: "Aucune carte de crédit requise · 50 messages gratuits",
+    infoGsm: "Encodage GSM-7: 160 caractères/SMS, 153 caractères/partie pour longs messages",
+    infoUnicode: "Encodage Unicode: 70 caractères/SMS, 67 caractères/partie pour longs messages",
+    extended: "Caractère étendu (compte pour 2)",
+  },
+  lv: {
+    title: "SMS Rakstzīmju Skaitītājs",
+    subtitle: "Aprēķiniet ziņojuma garumu, segmentus un izmaksas",
+    placeholder: "Ierakstiet vai ielīmējiet savu SMS ziņojumu šeit...",
+    encoding: "Kodējums",
+    characters: "Rakstzīmes",
+    messages: "SMS Daļas",
+    remaining: "Atlikušas",
+    used: "Izmantotas",
+    perMessage: "par ziņojumu",
+    nonGsmWarning: "Tekstā ir Unicode rakstzīmes",
+    nonGsmChars: "Atrasti ne-GSM simboli",
+    optimize: "Optimizēt GSM",
+    optimized: "Optimizēts!",
+    costEstimate: "Izmaksu Aprēķins",
+    total: "Kopā",
+    priceNote: "Vidējā cena starp tīkliem",
+    sendCta: "Nosūtīt šo SMS caur SMSPM",
+    ctaSubtext: "Nav nepieciešama kredītkarte · 50 bezmaksas ziņojumi",
+    infoGsm: "GSM-7 kodējums: 160 rakstzīmes/SMS, 153 rakstzīmes/daļa gariem ziņojumiem",
+    infoUnicode: "Unicode kodējums: 70 rakstzīmes/SMS, 67 rakstzīmes/daļa gariem ziņojumiem",
+    extended: "Paplašināta rakstzīme (skaita kā 2)",
+  },
+  lt: {
+    title: "SMS Simbolių Skaitiklis",
+    subtitle: "Apskaičiuokite pranešimo ilgį, segmentus ir kainą",
+    placeholder: "Įveskite arba įklijuokite savo SMS pranešimą čia...",
+    encoding: "Kodavimas",
+    characters: "Simboliai",
+    messages: "SMS Dalys",
+    remaining: "Liko",
+    used: "Panaudota",
+    perMessage: "už pranešimą",
+    nonGsmWarning: "Tekstas turi Unicode simbolių",
+    nonGsmChars: "Rasti ne-GSM simboliai",
+    optimize: "Optimizuoti GSM",
+    optimized: "Optimizuota!",
+    costEstimate: "Kainos Apskaičiavimas",
+    total: "Iš viso",
+    priceNote: "Vidutinė kaina tarp tinklų",
+    sendCta: "Siųsti šį SMS per SMSPM",
+    ctaSubtext: "Nereikia kredito kortelės · 50 nemokamų pranešimų",
+    infoGsm: "GSM-7 kodavimas: 160 simbolių/SMS, 153 simboliai/dalis ilgiems pranešimams",
+    infoUnicode: "Unicode kodavimas: 70 simbolių/SMS, 67 simboliai/dalis ilgiems pranešimams",
+    extended: "Išplėstinis simbolis (skaičiuojamas kaip 2)",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div class="sms-calculator-container">
+  <div class="calculator-header">
+    <h2 class="calculator-title">{t.title}</h2>
+    <p class="calculator-subtitle">{t.subtitle}</p>
+  </div>
+
+  <div class="calculator-body">
+    <!-- Text Input Area -->
+    <div class="input-section">
+      <textarea
+        id="smsTextInput"
+        class="sms-input"
+        placeholder={t.placeholder}
+        rows="6"
+      ></textarea>
+      
+      <!-- Character highlight overlay (for non-GSM chars) -->
+      <div id="charHighlight" class="char-highlight"></div>
+    </div>
+
+    <!-- Stats Display -->
+    <div class="stats-grid">
+      <!-- Encoding Info -->
+      <div class="stat-card encoding-card">
+        <div class="stat-label">{t.encoding}</div>
+        <div id="encodingType" class="stat-value encoding-badge">GSM-7</div>
+        <div id="encodingInfo" class="stat-info">{t.infoGsm}</div>
+      </div>
+
+      <!-- Character Count -->
+      <div class="stat-card">
+        <div class="stat-label">{t.characters}</div>
+        <div id="charCount" class="stat-value">0</div>
+        <div class="stat-progress">
+          <div id="charProgress" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Message Count -->
+      <div class="stat-card">
+        <div class="stat-label">{t.messages}</div>
+        <div id="messageCount" class="stat-value">0</div>
+        <div id="messageDetails" class="stat-info"></div>
+      </div>
+
+      <!-- Remaining Characters -->
+      <div class="stat-card">
+        <div class="stat-label">{t.remaining}</div>
+        <div id="remainingChars" class="stat-value">160</div>
+        <div class="stat-info">{t.used}: <span id="usedChars">0</span></div>
+      </div>
+    </div>
+
+    <!-- Unicode Warning -->
+    <div id="unicodeWarning" class="warning-box" style="display: none;">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 6v4m0 4h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div>
+        <div class="warning-title">{t.nonGsmWarning}</div>
+        <div id="nonGsmList" class="warning-details"></div>
+      </div>
+      <button id="optimizeBtn" class="btn-optimize">{t.optimize}</button>
+    </div>
+
+    <!-- Cost Estimate -->
+    <div class="cost-section">
+      <h3 class="cost-title">{t.costEstimate}</h3>
+      <div class="cost-grid">
+        <div class="cost-item">
+          <span class="cost-label">{t.messages}</span>
+          <span id="costMessages" class="cost-value">0</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-label">{t.perMessage}</span>
+          <span class="cost-value">{currency} {averagePrice.toFixed(3)}</span>
+        </div>
+        <div class="cost-item total">
+          <span class="cost-label">{t.total}</span>
+          <span id="totalCost" class="cost-value total-value">{currency} 0.000</span>
+        </div>
+      </div>
+      <p class="cost-note">{t.priceNote}</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <a href="https://app.smspm.com/app/register" class="btn-cta" id="ctaButton">
+        {t.sendCta}
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <p class="cta-subtext">{t.ctaSubtext}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sms-calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .calculator-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 0.5rem;
+  }
+
+  .calculator-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary, #666);
+  }
+
+  .calculator-body {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-section {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .sms-input {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+
+  .sms-input:focus {
+    outline: none;
+    border-color: #26c6da;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    background: #f9fafb;
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-info {
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+
+  .encoding-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .encoding-badge.gsm {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .encoding-badge.unicode {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  .stat-progress {
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #26c6da, #7c4dff);
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .warning-box {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .warning-box svg {
+    flex-shrink: 0;
+    color: #d97706;
+  }
+
+  .warning-title {
+    font-weight: 600;
+    color: #92400e;
+    margin-bottom: 0.25rem;
+  }
+
+  .warning-details {
+    font-size: 0.875rem;
+    color: #78350f;
+  }
+
+  .btn-optimize {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #fbbf24;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #d97706;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-optimize:hover {
+    background: #fef3c7;
+  }
+
+  .cost-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .cost-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0c4a6e;
+    margin-bottom: 1rem;
+  }
+
+  .cost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .cost-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cost-label {
+    font-size: 0.875rem;
+    color: #0369a1;
+    font-weight: 500;
+  }
+
+  .cost-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0c4a6e;
+  }
+
+  .cost-item.total {
+    grid-column: 1 / -1;
+    padding-top: 1rem;
+    border-top: 2px solid #bae6fd;
+  }
+
+  .total-value {
+    font-size: 2rem;
+    color: #0c4a6e;
+  }
+
+  .cost-note {
+    font-size: 0.75rem;
+    color: #0369a1;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .cta-section {
+    text-align: center;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(38, 198, 218, 0.3);
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(38, 198, 218, 0.4);
+  }
+
+  .cta-subtext {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .sms-calculator-container {
+      padding: 1rem;
+    }
+
+    .calculator-body {
+      padding: 1.5rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+
+<script define:vars={{ lang, averagePrice, currency, translations }}>
+  // Import utilities (will be bundled by Astro)
+  const t = translations[lang] || translations.en;
+  
+  // GSM charset detection
+  const GSM_7BIT_BASIC = '@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞÆæßÉ !"#¤%&\'()*+,-./0123456789:;<=>?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§¿abcdefghijklmnopqrstuvwxyzäöñüà';
+  const GSM_7BIT_EXTENDED = '|^€{}[]~\\';
+  
+  function isGsmChar(char) {
+    return GSM_7BIT_BASIC.includes(char) || GSM_7BIT_EXTENDED.includes(char);
+  }
+  
+  function isGsmText(text) {
+    for (const char of text) {
+      if (!isGsmChar(char)) return false;
+    }
+    return true;
+  }
+  
+  function getGsmCharCount(text) {
+    let count = 0;
+    for (const char of text) {
+      if (GSM_7BIT_EXTENDED.includes(char)) {
+        count += 2;
+      } else if (GSM_7BIT_BASIC.includes(char)) {
+        count += 1;
+      } else {
+        return -1;
+      }
+    }
+    return count;
+  }
+  
+  // Calculator logic
+  const textInput = document.getElementById('smsTextInput');
+  const charCount = document.getElementById('charCount');
+  const messageCount = document.getElementById('messageCount');
+  const messageDetails = document.getElementById('messageDetails');
+  const remainingChars = document.getElementById('remainingChars');
+  const usedChars = document.getElementById('usedChars');
+  const encodingType = document.getElementById('encodingType');
+  const encodingInfo = document.getElementById('encodingInfo');
+  const charProgress = document.getElementById('charProgress');
+  const unicodeWarning = document.getElementById('unicodeWarning');
+  const nonGsmList = document.getElementById('nonGsmList');
+  const optimizeBtn = document.getElementById('optimizeBtn');
+  const costMessages = document.getElementById('costMessages');
+  const totalCost = document.getElementById('totalCost');
+  const ctaButton = document.getElementById('ctaButton');
+  
+  function analyzeSms(text) {
+    const length = text.length;
+    const isGsm = isGsmText(text);
+    
+    let encoding, charCountValue, charsPerMessage;
+    const GSM_SINGLE = 160, GSM_CONCAT = 153;
+    const UNI_SINGLE = 70, UNI_CONCAT = 67;
+    
+    if (isGsm) {
+      encoding = 'GSM-7';
+      charCountValue = getGsmCharCount(text);
+      charsPerMessage = charCountValue <= GSM_SINGLE ? GSM_SINGLE : GSM_CONCAT;
+    } else {
+      encoding = 'Unicode';
+      charCountValue = length;
+      charsPerMessage = charCountValue <= UNI_SINGLE ? UNI_SINGLE : UNI_CONCAT;
+    }
+    
+    const msgCount = charCountValue === 0 ? 0 : Math.ceil(charCountValue / charsPerMessage);
+    const usedInLast = charCountValue === 0 ? 0 : charCountValue % charsPerMessage || charsPerMessage;
+    const remaining = charsPerMessage - usedInLast;
+    
+    return {
+      text, length, encoding, charCountValue, msgCount,
+      charsPerMessage, usedInLast, remaining, isGsm
+    };
+  }
+  
+  function updateCalculator() {
+    const text = textInput.value;
+    const analysis = analyzeSms(text);
+    
+    // Update stats
+    charCount.textContent = analysis.charCountValue;
+    messageCount.textContent = analysis.msgCount;
+    remainingChars.textContent = analysis.remaining;
+    usedChars.textContent = analysis.usedInLast;
+    
+    // Update encoding
+    encodingType.textContent = analysis.encoding;
+    encodingType.className = `stat-value encoding-badge ${analysis.isGsm ? 'gsm' : 'unicode'}`;
+    encodingInfo.textContent = analysis.isGsm ? t.infoGsm : t.infoUnicode;
+    
+    // Progress bar
+    const progress = (analysis.usedInLast / analysis.charsPerMessage) * 100;
+    charProgress.style.width = `${progress}%`;
+    
+    // Unicode warning
+    if (!analysis.isGsm && text.length > 0) {
+      const nonGsm = [];
+      for (let i = 0; i < text.length; i++) {
+        if (!isGsmChar(text[i])) {
+          if (!nonGsm.includes(text[i])) {
+            nonGsm.push(text[i]);
+          }
+        }
+      }
+      nonGsmList.textContent = t.nonGsmChars + ': ' + nonGsm.map(c => `"${c}"`).join(', ');
+      unicodeWarning.style.display = 'flex';
+    } else {
+      unicodeWarning.style.display = 'none';
+    }
+    
+    // Cost calculation
+    const cost = analysis.msgCount * averagePrice;
+    costMessages.textContent = analysis.msgCount;
+    totalCost.textContent = `${currency} ${cost.toFixed(3)}`;
+    
+    // Track event with Umami
+    if (typeof umami !== 'undefined' && text.length > 0) {
+      umami.track('SMS Calculated', {
+        encoding: analysis.encoding,
+        messages: analysis.msgCount,
+        characters: analysis.charCountValue
+      });
+    }
+  }
+  
+  // Optimize button
+  optimizeBtn.addEventListener('click', () => {
+    const text = textInput.value;
+    const replacements = {
+      '\u201C': '"', '\u201D': '"', '\u2018': "'", '\u2019': "'",
+      '—': '-', '–': '-', '…': '...'
+    };
+    
+    let optimized = text;
+    for (const [from, to] of Object.entries(replacements)) {
+      optimized = optimized.replace(new RegExp(from, 'g'), to);
+    }
+    
+    textInput.value = optimized;
+    updateCalculator();
+    
+    optimizeBtn.textContent = t.optimized;
+    setTimeout(() => {
+      optimizeBtn.textContent = t.optimize;
+    }, 2000);
+    
+    // Track optimization with Umami
+    if (typeof umami !== 'undefined') {
+      umami.track('SMS Optimized', {
+        originalLength: text.length,
+        optimizedLength: optimized.length,
+        charactersSaved: text.length - optimized.length
+      });
+    }
+  });
+  
+  // CTA click tracking
+  ctaButton.addEventListener('click', () => {
+    const analysis = analyzeSms(textInput.value);
+    
+    // Track CTA click with Umami
+    if (typeof umami !== 'undefined') {
+      umami.track('CTA Clicked', {
+        source: 'sms-calculator',
+        encoding: analysis.encoding,
+        messages: analysis.msgCount,
+        hasText: textInput.value.length > 0
+      });
+    }
+  });
+  
+  // Event listeners
+  textInput.addEventListener('input', updateCalculator);
+  
+  // Initial calculation
+  updateCalculator();
+</script>

@@ -1,0 +1,446 @@
+---
+/**
+ * Text Case Converter Component
+ * Convert text between different cases
+ */
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const translations: Record<string, any> = {
+  en: {
+    title: "Text Case Converter",
+    subtitle: "Convert text to different cases for SMS messages",
+    placeholder: "Type or paste your text here...",
+    convert: "Convert",
+    clear: "Clear",
+    copy: "Copy",
+    copied: "Copied!",
+    uppercase: "UPPERCASE",
+    lowercase: "lowercase",
+    titleCase: "Title Case",
+    sentenceCase: "Sentence case",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "ALL LETTERS IN CAPITALS",
+    lowercaseDesc: "all letters in small letters",
+    titleCaseDesc: "First Letter Of Each Word Capitalized",
+    sentenceCaseDesc: "First letter of each sentence capitalized.",
+    camelCaseDesc: "firstLetterLowerRestCapitalized",
+    pascalCaseDesc: "FirstLetterOfEachWordCapitalized",
+    snakeCaseDesc: "words_separated_by_underscores",
+    kebabCaseDesc: "words-separated-by-hyphens",
+    charCount: "Characters",
+    wordCount: "Words",
+    tips: "Usage Tips",
+    tip1: "UPPERCASE is good for emphasizing important information in SMS",
+    tip2: "Title Case works well for headings and names",
+    tip3: "camelCase and snake_case are useful for technical content",
+    tip4: "Sentence case is most readable for long SMS messages",
+  },
+  et: {
+    title: "Teksti Registri Teisendaja",
+    subtitle: "Teisenda tekst erinevateks registriteks SMS sõnumite jaoks",
+    placeholder: "Kirjuta või kleebi oma tekst siia...",
+    convert: "Teisenda",
+    clear: "Tühjenda",
+    copy: "Kopeeri",
+    copied: "Kopeeritud!",
+    uppercase: "SUURTÄHED",
+    lowercase: "väiketähed",
+    titleCase: "Pealkirja Stiil",
+    sentenceCase: "Lause stiil",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "KÕIK TÄHED SUURED",
+    lowercaseDesc: "kõik tähed väikesed",
+    titleCaseDesc: "Iga Sõna Esimene Täht Suur",
+    sentenceCaseDesc: "Iga lause esimene täht suur.",
+    camelCaseDesc: "esimeneVäikejärgmisedSuured",
+    pascalCaseDesc: "IgaSõnaEsimeneTähtSuur",
+    snakeCaseDesc: "sõnad_eraldatud_alakriipsuga",
+    kebabCaseDesc: "sõnad-eraldatud-kriipsuga",
+    charCount: "Tähemärke",
+    wordCount: "Sõnu",
+    tips: "Kasutusnäpunäited",
+    tip1: "SUURTÄHED sobivad tähtsa info rõhutamiseks SMS-is",
+    tip2: "Pealkirja Stiil sobib hästi pealkirjadele ja nimedele",
+    tip3: "camelCase ja snake_case on kasulikud tehnilise sisu jaoks",
+    tip4: "Lause stiil on kõige loetavam pikkade SMS sõnumite jaoks",
+  },
+  ru: {
+    title: "Конвертер Регистра Текста",
+    subtitle: "Конвертируйте текст в разные регистры для SMS сообщений",
+    placeholder: "Введите или вставьте текст здесь...",
+    convert: "Конвертировать",
+    clear: "Очистить",
+    copy: "Копировать",
+    copied: "Скопировано!",
+    uppercase: "ВЕРХНИЙ РЕГИСТР",
+    lowercase: "нижний регистр",
+    titleCase: "Заглавные Буквы",
+    sentenceCase: "Регистр предложения",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "ВСЕ БУКВЫ ЗАГЛАВНЫЕ",
+    lowercaseDesc: "все буквы строчные",
+    titleCaseDesc: "Первая Буква Каждого Слова Заглавная",
+    sentenceCaseDesc: "Первая буква каждого предложения заглавная.",
+    camelCaseDesc: "перваяМаленькаяОстальныеЗаглавные",
+    pascalCaseDesc: "КаждоеСловоСЗаглавной",
+    snakeCaseDesc: "слова_разделены_подчеркиванием",
+    kebabCaseDesc: "слова-разделены-дефисами",
+    charCount: "Символов",
+    wordCount: "Слов",
+    tips: "Советы по использованию",
+    tip1: "ВЕРХНИЙ РЕГИСТР хорош для выделения важной информации в SMS",
+    tip2: "Заглавные Буквы хорошо работают для заголовков и имен",
+    tip3: "camelCase и snake_case полезны для технического контента",
+    tip4: "Регистр предложения наиболее читаем для длинных SMS",
+  },
+  es: {
+    title: "Convertidor de Mayúsculas y Minúsculas",
+    subtitle: "Convierte texto a diferentes casos para mensajes SMS",
+    placeholder: "Escribe o pega tu texto aquí...",
+    convert: "Convertir",
+    clear: "Limpiar",
+    copy: "Copiar",
+    copied: "Copiado!",
+    uppercase: "MAYÚSCULAS",
+    lowercase: "minúsculas",
+    titleCase: "Título",
+    sentenceCase: "Oración",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "TODAS LAS LETRAS EN MAYÚSCULAS",
+    lowercaseDesc: "todas las letras en minúsculas",
+    titleCaseDesc: "Primera Letra De Cada Palabra Mayúscula",
+    sentenceCaseDesc: "Primera letra de cada oración mayúscula.",
+    camelCaseDesc: "primeraMinúsculaRestoMayúsculas",
+    pascalCaseDesc: "CadaPalabraConMayúscula",
+    snakeCaseDesc: "palabras_separadas_por_guión_bajo",
+    kebabCaseDesc: "palabras-separadas-por-guiones",
+    charCount: "Caracteres",
+    wordCount: "Palabras",
+    tips: "Consejos de uso",
+    tip1: "MAYÚSCULAS son buenas para enfatizar información importante en SMS",
+    tip2: "Título funciona bien para encabezados y nombres",
+    tip3: "camelCase y snake_case son útiles para contenido técnico",
+    tip4: "Oración es más legible para mensajes SMS largos",
+  },
+  de: {
+    title: "Textfall-Konverter",
+    subtitle: "Konvertiere Text in verschiedene Fälle für SMS-Nachrichten",
+    placeholder: "Text hier eingeben oder einfügen...",
+    convert: "Konvertieren",
+    clear: "Löschen",
+    copy: "Kopieren",
+    copied: "Kopiert!",
+    uppercase: "GROSSBUCHSTABEN",
+    lowercase: "kleinbuchstaben",
+    titleCase: "Titelfall",
+    sentenceCase: "Satzfall",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "ALLE BUCHSTABEN GROSS",
+    lowercaseDesc: "alle buchstaben klein",
+    titleCaseDesc: "Erster Buchstabe Jedes Wortes Gross",
+    sentenceCaseDesc: "Erster buchstabe jedes satzes gross.",
+    camelCaseDesc: "ersterKleinRestGross",
+    pascalCaseDesc: "JedesWortMitGrossbuchstaben",
+    snakeCaseDesc: "wörter_durch_unterstriche_getrennt",
+    kebabCaseDesc: "wörter-durch-bindestriche-getrennt",
+    charCount: "Zeichen",
+    wordCount: "Wörter",
+    tips: "Verwendungstipps",
+    tip1: "GROSSBUCHSTABEN eignen sich gut zur Hervorhebung wichtiger Informationen in SMS",
+    tip2: "Titelfall funktioniert gut für Überschriften und Namen",
+    tip3: "camelCase und snake_case sind nützlich für technische Inhalte",
+    tip4: "Satzfall ist am besten lesbar für lange SMS-Nachrichten",
+  },
+  fr: {
+    title: "Convertisseur de Casse de Texte",
+    subtitle: "Convertissez le texte en différentes casses pour les messages SMS",
+    placeholder: "Tapez ou collez votre texte ici...",
+    convert: "Convertir",
+    clear: "Effacer",
+    copy: "Copier",
+    copied: "Copié !",
+    uppercase: "MAJUSCULES",
+    lowercase: "minuscules",
+    titleCase: "Titre",
+    sentenceCase: "Phrase",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "TOUTES LES LETTRES EN MAJUSCULES",
+    lowercaseDesc: "toutes les lettres en minuscules",
+    titleCaseDesc: "Première Lettre De Chaque Mot Majuscule",
+    sentenceCaseDesc: "Première lettre de chaque phrase majuscule.",
+    camelCaseDesc: "premièreMinusculeResteMajuscule",
+    pascalCaseDesc: "ChaqueMotAvecMajuscule",
+    snakeCaseDesc: "mots_séparés_par_underscores",
+    kebabCaseDesc: "mots-séparés-par-tirets",
+    charCount: "Caractères",
+    wordCount: "Mots",
+    tips: "Conseils d'utilisation",
+    tip1: "MAJUSCULES sont bonnes pour mettre en évidence des informations importantes dans les SMS",
+    tip2: "Titre fonctionne bien pour les en-têtes et les noms",
+    tip3: "camelCase et snake_case sont utiles pour le contenu technique",
+    tip4: "Phrase est plus lisible pour les longs messages SMS",
+  },
+  lv: {
+    title: "Teksta Reģistra Pārveidotājs",
+    subtitle: "Pārveidojiet tekstu dažādos reģistros SMS ziņojumiem",
+    placeholder: "Ierakstiet vai ielīmējiet tekstu šeit...",
+    convert: "Pārveidot",
+    clear: "Notīrīt",
+    copy: "Kopēt",
+    copied: "Nokopēts!",
+    uppercase: "LIELIE BURTI",
+    lowercase: "mazie burti",
+    titleCase: "Virsraksta Stils",
+    sentenceCase: "Teikuma stils",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "VISI BURTI LIELIE",
+    lowercaseDesc: "visi burti mazie",
+    titleCaseDesc: "Katra Vārda Pirmais Burts Liels",
+    sentenceCaseDesc: "Katra teikuma pirmais burts liels.",
+    camelCaseDesc: "pirmaisMazsPārējieSlielie",
+    pascalCaseDesc: "KatrsVārdsSākasSLieloBurtu",
+    snakeCaseDesc: "vārdi_atdalīti_ar_pasvītrojumu",
+    kebabCaseDesc: "vārdi-atdalīti-ar-defisi",
+    charCount: "Rakstzīmes",
+    wordCount: "Vārdi",
+    tips: "Lietošanas padomi",
+    tip1: "LIELIE BURTI ir labi, lai uzsvērtu svarīgu informāciju SMS",
+    tip2: "Virsraksta Stils labi darbojas virsrakstiem un nosaukumiem",
+    tip3: "camelCase un snake_case ir noderīgi tehniskam saturam",
+    tip4: "Teikuma stils ir vislasāmākais gariem SMS ziņojumiem",
+  },
+  lt: {
+    title: "Teksto Raidžių Dydžio Keitiklis",
+    subtitle: "Konvertuokite tekstą į skirtingus raidžių dydžius SMS žinutėms",
+    placeholder: "Įveskite arba įklijuokite tekstą čia...",
+    convert: "Konvertuoti",
+    clear: "Išvalyti",
+    copy: "Kopijuoti",
+    copied: "Nukopijuota!",
+    uppercase: "DIDŽIOSIOS RAIDĖS",
+    lowercase: "mažosios raidės",
+    titleCase: "Pavadinimo Stilius",
+    sentenceCase: "Sakinio stilius",
+    camelCase: "camelCase",
+    pascalCase: "PascalCase",
+    snakeCase: "snake_case",
+    kebabCase: "kebab-case",
+    uppercaseDesc: "VISOS RAIDĖS DIDŽIOSIOS",
+    lowercaseDesc: "visos raidės mažosios",
+    titleCaseDesc: "Kiekvieno Žodžio Pirmoji Raidė Didžioji",
+    sentenceCaseDesc: "Kiekvieno sakinio pirmoji raidė didžioji.",
+    camelCaseDesc: "pirmaMažaLikusiosDidžiosios",
+    pascalCaseDesc: "KiekvienasŽodisSuDidžiąja",
+    snakeCaseDesc: "žodžiai_atskirti_pabraukimu",
+    kebabCaseDesc: "žodžiai-atskirti-brūkšneliais",
+    charCount: "Simbolių",
+    wordCount: "Žodžių",
+    tips: "Naudojimo patarimai",
+    tip1: "DIDŽIOSIOS RAIDĖS tinka svarbios informacijos išskyrimui SMS",
+    tip2: "Pavadinimo Stilius gerai tinka antraštėms ir vardams",
+    tip3: "camelCase ir snake_case naudingi techniniam turiniui",
+    tip4: "Sakinio stilius skaitomiausias ilgoms SMS žinutėms",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div class="converter-container">
+  <div class="converter-header">
+    <h2 class="converter-title">{t.title}</h2>
+    <p class="converter-subtitle">{t.subtitle}</p>
+  </div>
+
+  <div class="converter-body">
+    <div class="input-section">
+      <textarea id="inputText" class="converter-input" placeholder={t.placeholder} rows="6"></textarea>
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">{t.charCount}:</span><span id="charCount" class="stat-value">0</span></div>
+        <div class="stat"><span class="stat-label">{t.wordCount}:</span><span id="wordCount" class="stat-value">0</span></div>
+      </div>
+      <div class="input-actions">
+        <button id="convertBtn" class="btn-convert">{t.convert}</button>
+        <button id="clearBtn" class="btn-secondary">{t.clear}</button>
+      </div>
+    </div>
+
+    <div id="resultsSection" class="results-section" style="display: none;">
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-header"><h3>{t.uppercase}</h3><button class="btn-copy" data-case="uppercase">{t.copy}</button></div>
+          <div id="uppercase" class="result-text">{t.uppercaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.lowercase}</h3><button class="btn-copy" data-case="lowercase">{t.copy}</button></div>
+          <div id="lowercase" class="result-text">{t.lowercaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.titleCase}</h3><button class="btn-copy" data-case="titleCase">{t.copy}</button></div>
+          <div id="titleCase" class="result-text">{t.titleCaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.sentenceCase}</h3><button class="btn-copy" data-case="sentenceCase">{t.copy}</button></div>
+          <div id="sentenceCase" class="result-text">{t.sentenceCaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.camelCase}</h3><button class="btn-copy" data-case="camelCase">{t.copy}</button></div>
+          <div id="camelCase" class="result-text">{t.camelCaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.pascalCase}</h3><button class="btn-copy" data-case="pascalCase">{t.copy}</button></div>
+          <div id="pascalCase" class="result-text">{t.pascalCaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.snakeCase}</h3><button class="btn-copy" data-case="snakeCase">{t.copy}</button></div>
+          <div id="snakeCase" class="result-text">{t.snakeCaseDesc}</div>
+        </div>
+        <div class="result-card">
+          <div class="result-header"><h3>{t.kebabCase}</h3><button class="btn-copy" data-case="kebabCase">{t.copy}</button></div>
+          <div id="kebabCase" class="result-text">{t.kebabCaseDesc}</div>
+        </div>
+      </div>
+      <div class="tips-section">
+        <h3>{t.tips}</h3>
+        <ul class="tips-list">
+          <li>{t.tip1}</li><li>{t.tip2}</li><li>{t.tip3}</li><li>{t.tip4}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .converter-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+  .converter-header { text-align: center; margin-bottom: 2rem; }
+  .converter-title { font-size: 2rem; font-weight: 700; color: var(--text-primary, #1a1a1a); margin-bottom: 0.5rem; }
+  .converter-subtitle { font-size: 1.125rem; color: var(--text-secondary, #666); }
+  .converter-body { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+  .converter-input { width: 100%; min-height: 150px; padding: 1rem; font-size: 1rem; line-height: 1.5; border: 2px solid #e5e7eb; border-radius: 12px; resize: vertical; font-family: inherit; transition: border-color 0.2s; }
+  .converter-input:focus { outline: none; border-color: #7c4dff; }
+  .stats-bar { display: flex; gap: 2rem; margin-top: 0.75rem; padding: 0.5rem 1rem; background: #f9fafb; border-radius: 8px; }
+  .stat { display: flex; gap: 0.5rem; font-size: 0.875rem; }
+  .stat-label { color: #6b7280; font-weight: 500; }
+  .stat-value { color: #1f2937; font-weight: 700; }
+  .input-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+  .btn-convert { flex: 1; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #7c4dff 0%, #536dfe 100%); color: white; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-convert:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(124,77,255,0.3); }
+  .btn-secondary { padding: 0.875rem 1.5rem; background: #f3f4f6; color: #374151; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-secondary:hover { background: #e5e7eb; }
+  .results-section { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .result-card { padding: 1.25rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; transition: border-color 0.2s; }
+  .result-card:hover { border-color: #7c4dff; }
+  .result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+  .result-header h3 { font-size: 0.875rem; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+  .btn-copy { padding: 0.375rem 0.75rem; background: transparent; border: 1px solid #d1d5db; color: #6b7280; font-size: 0.75rem; font-weight: 600; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
+  .btn-copy:hover { background: white; color: #7c4dff; border-color: #7c4dff; }
+  .result-text { font-size: 1rem; line-height: 1.6; color: #1f2937; word-break: break-word; }
+  .tips-section { padding: 1.5rem; background: #f0f9ff; border-radius: 12px; }
+  .tips-section h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; color: #0c4a6e; }
+  .tips-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tips-list li { padding-left: 1.5rem; position: relative; color: #0369a1; font-size: 0.875rem; }
+  .tips-list li::before { content: "✓"; position: absolute; left: 0; color: #0ea5e9; font-weight: 700; }
+  @media (max-width: 768px) {
+    .converter-container { padding: 1rem; }
+    .converter-body { padding: 1.5rem; }
+    .input-actions { flex-direction: column; }
+    .results-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script define:vars={{ lang, translations }}>
+  const t = translations[lang] || translations.en;
+
+  function toUpperCase(text) { return text.toUpperCase(); }
+  function toLowerCase(text) { return text.toLowerCase(); }
+  function toTitleCase(text) { return text.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase()); }
+  function toSentenceCase(text) { return text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); }
+  function toCamelCase(text) { return text.replace(/(?:^\w|[A-Z]|\b\w)/g, (w, i) => i === 0 ? w.toLowerCase() : w.toUpperCase()).replace(/\s+/g, ''); }
+  function toPascalCase(text) { return text.replace(/(?:^\w|[A-Z]|\b\w)/g, w => w.toUpperCase()).replace(/\s+/g, ''); }
+  function toSnakeCase(text) { return text.replace(/\W+/g, ' ').split(/ |\B(?=[A-Z])/).map(w => w.toLowerCase()).join('_'); }
+  function toKebabCase(text) { return text.replace(/\W+/g, ' ').split(/ |\B(?=[A-Z])/).map(w => w.toLowerCase()).join('-'); }
+
+  const inputText = document.getElementById('inputText');
+  const convertBtn = document.getElementById('convertBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const charCount = document.getElementById('charCount');
+  const wordCount = document.getElementById('wordCount');
+  const resultsSection = document.getElementById('resultsSection');
+  const resultEls = {
+    uppercase: document.getElementById('uppercase'),
+    lowercase: document.getElementById('lowercase'),
+    titleCase: document.getElementById('titleCase'),
+    sentenceCase: document.getElementById('sentenceCase'),
+    camelCase: document.getElementById('camelCase'),
+    pascalCase: document.getElementById('pascalCase'),
+    snakeCase: document.getElementById('snakeCase'),
+    kebabCase: document.getElementById('kebabCase'),
+  };
+  let convertedTexts = {};
+
+  inputText.addEventListener('input', () => {
+    const text = inputText.value;
+    charCount.textContent = text.length;
+    wordCount.textContent = text.trim() ? text.trim().split(/\s+/).length : 0;
+  });
+
+  convertBtn.addEventListener('click', () => {
+    const text = inputText.value;
+    if (!text.trim()) return;
+    convertedTexts = {
+      uppercase: toUpperCase(text), lowercase: toLowerCase(text),
+      titleCase: toTitleCase(text), sentenceCase: toSentenceCase(text),
+      camelCase: toCamelCase(text), pascalCase: toPascalCase(text),
+      snakeCase: toSnakeCase(text), kebabCase: toKebabCase(text),
+    };
+    for (const [k, v] of Object.entries(convertedTexts)) { if (resultEls[k]) resultEls[k].textContent = v; }
+    resultsSection.style.display = 'flex';
+  });
+
+  clearBtn.addEventListener('click', () => {
+    inputText.value = '';
+    charCount.textContent = '0'; wordCount.textContent = '0';
+    resultsSection.style.display = 'none';
+  });
+
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = convertedTexts[btn.dataset.case];
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        const orig = btn.textContent;
+        btn.textContent = t.copied;
+        btn.style.color = '#10b981';
+        setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 2000);
+      } catch (e) { console.error(e); }
+    });
+  });
+</script>

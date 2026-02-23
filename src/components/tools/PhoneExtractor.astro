@@ -1,0 +1,319 @@
+---
+/**
+ * Phone Numbers Extractor Component
+ * Extract and format phone numbers from text
+ */
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const translations: Record<string, any> = {
+  en: {
+    title: "Phone Numbers Extractor", subtitle: "Extract and format phone numbers from any text",
+    placeholder: "Paste text containing phone numbers here...\n\nExample:\nCall John at +1 (415) 555-0123\nContact: 44 20 7946 0958",
+    extract: "Extract Numbers", clear: "Clear", results: "Extracted Numbers",
+    found: "Found", numbers: "phone numbers", noNumbers: "No phone numbers found in the text",
+    original: "Original Format", copyAll: "Copy All", exportCsv: "Export CSV", exportTxt: "Export TXT",
+    copied: "Copied!", exported: "Exported!",
+    tips: "Extraction Tips", formats: "Supported Formats",
+    tip1: "Paste text with phone numbers in any format",
+    tip2: "Supports international formats with country codes",
+    tip3: "Recognizes numbers with spaces, dashes, parentheses",
+    tip4: "Export extracted numbers for bulk SMS campaigns",
+    format1: "+1 (415) 555-0123 - US format with country code",
+    format2: "44 20 7946 0958 - UK format",
+    format3: "+372 5123 4567 - Estonian format",
+    format4: "+49 30 12345678 - German format",
+  },
+  et: {
+    title: "Telefoninumbrite Eraldaja", subtitle: "Eralda ja vorminda telefoninumbrid tekstist",
+    placeholder: "Kleebi siia telefoninumbreid sisaldav tekst...",
+    extract: "Eralda numbrid", clear: "Tühjenda", results: "Eraldatud numbrid",
+    found: "Leitud", numbers: "telefoninumbrit", noNumbers: "Tekstist ei leitud ühtegi telefoninumbrit",
+    original: "Algne formaat", copyAll: "Kopeeri kõik", exportCsv: "Ekspordi CSV", exportTxt: "Ekspordi TXT",
+    copied: "Kopeeritud!", exported: "Eksporditud!",
+    tips: "Eraldamise näpunäited", formats: "Toetatud formaadid",
+    tip1: "Kleebi tekst mis sisaldab telefoninumbreid",
+    tip2: "Toetab rahvusvahelisi formaate riigikoodidega",
+    tip3: "Tuvastab numbreid tühikute, kriipsude, sulgudega",
+    tip4: "Ekspordi eraldatud numbrid hulgi SMS kampaaniateks",
+    format1: "+372 5123 4567 - Eesti formaat",
+    format2: "44 20 7946 0958 - UK formaat",
+    format3: "+1 (415) 555-0123 - USA formaat",
+    format4: "+49 30 12345678 - Saksa formaat",
+  },
+  ru: {
+    title: "Извлекатель Телефонных Номеров", subtitle: "Извлекайте и форматируйте номера телефонов из текста",
+    placeholder: "Вставьте текст с телефонными номерами сюда...",
+    extract: "Извлечь номера", clear: "Очистить", results: "Извлеченные номера",
+    found: "Найдено", numbers: "номеров", noNumbers: "В тексте не найдено телефонных номеров",
+    original: "Исходный формат", copyAll: "Копировать все", exportCsv: "Экспорт CSV", exportTxt: "Экспорт TXT",
+    copied: "Скопировано!", exported: "Экспортировано!",
+    tips: "Советы по извлечению", formats: "Поддерживаемые форматы",
+    tip1: "Вставьте текст содержащий телефонные номера",
+    tip2: "Поддерживает международные форматы с кодами стран",
+    tip3: "Распознает номера с пробелами, тире, скобками",
+    tip4: "Экспортируйте номера для массовых SMS кампаний",
+    format1: "+7 495 123-45-67 - российский формат",
+    format2: "44 20 7946 0958 - британский формат",
+    format3: "+1 (415) 555-0123 - американский формат",
+    format4: "+49 30 12345678 - немецкий формат",
+  },
+  es: {
+    title: "Extractor de Números Telefónicos", subtitle: "Extrae y formatea números de teléfono del texto",
+    placeholder: "Pega texto con números telefónicos aquí...",
+    extract: "Extraer números", clear: "Limpiar", results: "Números extraídos",
+    found: "Encontrados", numbers: "números", noNumbers: "No se encontraron números telefónicos en el texto",
+    original: "Formato original", copyAll: "Copiar todos", exportCsv: "Exportar CSV", exportTxt: "Exportar TXT",
+    copied: "Copiado!", exported: "Exportado!",
+    tips: "Consejos de extracción", formats: "Formatos soportados",
+    tip1: "Pega texto que contenga números telefónicos",
+    tip2: "Soporta formatos internacionales con códigos de país",
+    tip3: "Reconoce números con espacios, guiones, paréntesis",
+    tip4: "Exporta números extraídos para campañas SMS masivas",
+    format1: "+34 91 123 4567 - formato español",
+    format2: "44 20 7946 0958 - formato británico",
+    format3: "+1 (415) 555-0123 - formato estadounidense",
+    format4: "+49 30 12345678 - formato alemán",
+  },
+  de: {
+    title: "Telefonnummern-Extraktor", subtitle: "Extrahieren und formatieren Sie Telefonnummern aus Text",
+    placeholder: "Fügen Sie Text mit Telefonnummern hier ein...",
+    extract: "Nummern extrahieren", clear: "Löschen", results: "Extrahierte Nummern",
+    found: "Gefunden", numbers: "Nummern", noNumbers: "Keine Telefonnummern im Text gefunden",
+    original: "Originalformat", copyAll: "Alle kopieren", exportCsv: "CSV exportieren", exportTxt: "TXT exportieren",
+    copied: "Kopiert!", exported: "Exportiert!",
+    tips: "Extraktionstipps", formats: "Unterstützte Formate",
+    tip1: "Fügen Sie Text mit Telefonnummern ein",
+    tip2: "Unterstützt internationale Formate mit Ländervorwahlen",
+    tip3: "Erkennt Nummern mit Leerzeichen, Bindestrichen, Klammern",
+    tip4: "Exportieren Sie Nummern für Massen-SMS-Kampagnen",
+    format1: "+49 30 12345678 - deutsches Format",
+    format2: "44 20 7946 0958 - britisches Format",
+    format3: "+1 (415) 555-0123 - amerikanisches Format",
+    format4: "+34 91 123 4567 - spanisches Format",
+  },
+  fr: {
+    title: "Extracteur de Numéros de Téléphone", subtitle: "Extrayez et formatez les numéros de téléphone du texte",
+    placeholder: "Collez le texte contenant des numéros de téléphone ici...",
+    extract: "Extraire les numéros", clear: "Effacer", results: "Numéros extraits",
+    found: "Trouvé", numbers: "numéros", noNumbers: "Aucun numéro de téléphone trouvé dans le texte",
+    original: "Format original", copyAll: "Tout copier", exportCsv: "Exporter CSV", exportTxt: "Exporter TXT",
+    copied: "Copié !", exported: "Exporté !",
+    tips: "Conseils d'extraction", formats: "Formats pris en charge",
+    tip1: "Collez du texte contenant des numéros de téléphone",
+    tip2: "Prend en charge les formats internationaux avec indicatifs",
+    tip3: "Reconnaît les numéros avec espaces, tirets, parenthèses",
+    tip4: "Exportez les numéros pour des campagnes SMS en masse",
+    format1: "+33 1 42 86 82 00 - format français",
+    format2: "44 20 7946 0958 - format britannique",
+    format3: "+1 (415) 555-0123 - format américain",
+    format4: "+49 30 12345678 - format allemand",
+  },
+  lv: {
+    title: "Tālruņa Numuru Izvilcējs", subtitle: "Izvelciet un formatējiet tālruņa numurus no teksta",
+    placeholder: "Ielīmējiet tekstu ar tālruņa numuriem šeit...",
+    extract: "Izvilkt numurus", clear: "Notīrīt", results: "Izvilktie numuri",
+    found: "Atrasti", numbers: "numuri", noNumbers: "Tekstā nav atrasti tālruņa numuri",
+    original: "Oriģinālais formāts", copyAll: "Kopēt visus", exportCsv: "Eksportēt CSV", exportTxt: "Eksportēt TXT",
+    copied: "Nokopēts!", exported: "Eksportēts!",
+    tips: "Izvilkšanas padomi", formats: "Atbalstītie formāti",
+    tip1: "Ielīmējiet tekstu ar tālruņa numuriem",
+    tip2: "Atbalsta starptautiskos formātus ar valstu kodiem",
+    tip3: "Atpazīst numurus ar atstarpēm, defisēm, iekavām",
+    tip4: "Eksportējiet numurus masveida SMS kampaņām",
+    format1: "+371 2000 0000 - latviešu formāts",
+    format2: "44 20 7946 0958 - britu formāts",
+    format3: "+1 (415) 555-0123 - amerikāņu formāts",
+    format4: "+49 30 12345678 - vācu formāts",
+  },
+  lt: {
+    title: "Telefonų Numerių Ištraukiklis", subtitle: "Ištraukite ir formatuokite telefono numerius iš teksto",
+    placeholder: "Įklijuokite tekstą su telefono numeriais čia...",
+    extract: "Ištraukti numerius", clear: "Išvalyti", results: "Ištraukti numeriai",
+    found: "Rasta", numbers: "numerių", noNumbers: "Tekste nerasta telefono numerių",
+    original: "Originalus formatas", copyAll: "Kopijuoti visus", exportCsv: "Eksportuoti CSV", exportTxt: "Eksportuoti TXT",
+    copied: "Nukopijuota!", exported: "Eksportuota!",
+    tips: "Ištraukimo patarimai", formats: "Palaikomi formatai",
+    tip1: "Įklijuokite tekstą su telefono numeriais",
+    tip2: "Palaiko tarptautinius formatus su šalių kodais",
+    tip3: "Atpažįsta numerius su tarpais, brūkšneliais, skliaustais",
+    tip4: "Eksportuokite numerius masiniams SMS pranešimams",
+    format1: "+370 600 00000 - lietuviškas formatas",
+    format2: "44 20 7946 0958 - britų formatas",
+    format3: "+1 (415) 555-0123 - amerikiečių formatas",
+    format4: "+49 30 12345678 - vokiečių formatas",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div class="extractor-container">
+  <div class="extractor-header">
+    <h2 class="extractor-title">{t.title}</h2>
+    <p class="extractor-subtitle">{t.subtitle}</p>
+  </div>
+
+  <div class="extractor-body">
+    <div class="input-section">
+      <textarea id="textInput" class="extractor-input" placeholder={t.placeholder} rows="10"></textarea>
+      <div class="input-actions">
+        <button id="extractBtn" class="btn-extract">{t.extract}</button>
+        <button id="clearBtn" class="btn-secondary">{t.clear}</button>
+      </div>
+    </div>
+
+    <div id="resultsSection" class="results-section" style="display: none;">
+      <div class="summary-card">
+        <div class="summary-title">{t.found} <span id="countValue">0</span> {t.numbers}</div>
+        <div class="summary-actions">
+          <button id="copyAllBtn" class="btn-action">{t.copyAll}</button>
+          <button id="exportCsvBtn" class="btn-action">CSV</button>
+          <button id="exportTxtBtn" class="btn-action">TXT</button>
+        </div>
+      </div>
+
+      <div class="numbers-section">
+        <h3>{t.results}</h3>
+        <div id="numbersList" class="numbers-list"></div>
+      </div>
+
+      <div id="noResults" class="no-results" style="display: none;">
+        <p>{t.noNumbers}</p>
+      </div>
+
+      <div class="tips-section">
+        <h3>{t.tips}</h3>
+        <ul class="tips-list">
+          <li>{t.tip1}</li><li>{t.tip2}</li><li>{t.tip3}</li><li>{t.tip4}</li>
+        </ul>
+      </div>
+
+      <div class="formats-section">
+        <h3>{t.formats}</h3>
+        <ul class="formats-list">
+          <li>{t.format1}</li><li>{t.format2}</li><li>{t.format3}</li><li>{t.format4}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .extractor-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+  .extractor-header { text-align: center; margin-bottom: 2rem; }
+  .extractor-title { font-size: 2rem; font-weight: 700; color: var(--text-primary, #1a1a1a); margin-bottom: 0.5rem; }
+  .extractor-subtitle { font-size: 1.125rem; color: var(--text-secondary, #666); }
+  .extractor-body { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+  .extractor-input { width: 100%; min-height: 250px; padding: 1rem; font-size: 0.9375rem; line-height: 1.6; border: 2px solid #e5e7eb; border-radius: 12px; resize: vertical; font-family: inherit; transition: border-color 0.2s; }
+  .extractor-input:focus { outline: none; border-color: #26c6da; }
+  .input-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+  .btn-extract { flex: 1; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #7c4dff 0%, #26c6da 100%); color: white; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-extract:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(124,77,255,0.3); }
+  .btn-secondary { padding: 0.875rem 1.5rem; background: #f3f4f6; color: #374151; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
+  .btn-secondary:hover { background: #e5e7eb; }
+  .results-section { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  .summary-card { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem; background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%); border: 2px solid #0ea5e9; border-radius: 12px; flex-wrap: wrap; gap: 1rem; }
+  .summary-title { font-size: 1.5rem; font-weight: 700; color: #0c4a6e; }
+  .summary-title span { color: #0ea5e9; }
+  .summary-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .btn-action { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem 1rem; background: white; color: #0369a1; font-size: 0.875rem; font-weight: 600; border: 1px solid #0ea5e9; border-radius: 6px; cursor: pointer; }
+  .btn-action:hover { background: #f0f9ff; }
+  .numbers-section h3, .tips-section h3, .formats-section h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; }
+  .numbers-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .number-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; }
+  .number-e164 { font-size: 1.125rem; font-weight: 700; font-family: 'Courier New', monospace; color: #1f2937; }
+  .number-original { font-size: 0.875rem; color: #6b7280; }
+  .btn-copy-number { padding: 0.5rem 0.75rem; background: transparent; border: 1px solid #d1d5db; color: #6b7280; font-size: 0.75rem; font-weight: 600; cursor: pointer; border-radius: 4px; }
+  .btn-copy-number:hover { background: white; color: #0ea5e9; border-color: #0ea5e9; }
+  .no-results { display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; text-align: center; color: #9ca3af; font-size: 1.125rem; }
+  .tips-section, .formats-section { padding: 1.5rem; background: #f0f9ff; border-radius: 12px; }
+  .tips-list, .formats-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tips-list li, .formats-list li { padding-left: 1.5rem; position: relative; color: #0369a1; font-size: 0.875rem; }
+  .tips-list li::before, .formats-list li::before { content: "•"; position: absolute; left: 0; color: #0ea5e9; font-weight: 700; }
+  @media (max-width: 768px) {
+    .extractor-container { padding: 1rem; }
+    .extractor-body { padding: 1.5rem; }
+    .input-actions { flex-direction: column; }
+    .summary-card { flex-direction: column; }
+  }
+</style>
+
+<script define:vars={{ lang, translations }}>
+  const t = translations[lang] || translations.en;
+
+  function extractPhoneNumbers(text) {
+    const regex = /(?:\+|00)?[\d][\d\s\-\(\)\.]{6,18}[\d]/g;
+    const matches = text.match(regex) || [];
+    const unique = new Set();
+    const results = [];
+    for (const match of matches) {
+      const cleaned = match.replace(/[\s\-\(\)\.]/g, '');
+      if (cleaned.length >= 7 && cleaned.length <= 15) {
+        const e164 = '+' + (cleaned.startsWith('00') ? cleaned.substring(2) : cleaned.replace(/^\+/, ''));
+        if (!unique.has(e164)) { unique.add(e164); results.push({ original: match.trim(), e164 }); }
+      }
+    }
+    return results;
+  }
+
+  const textInput = document.getElementById('textInput');
+  const extractBtn = document.getElementById('extractBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const resultsSection = document.getElementById('resultsSection');
+  const countValue = document.getElementById('countValue');
+  const numbersList = document.getElementById('numbersList');
+  const noResults = document.getElementById('noResults');
+  const copyAllBtn = document.getElementById('copyAllBtn');
+  const exportCsvBtn = document.getElementById('exportCsvBtn');
+  const exportTxtBtn = document.getElementById('exportTxtBtn');
+  let extractedNumbers = [];
+
+  extractBtn.addEventListener('click', () => {
+    const text = textInput.value;
+    if (!text) return;
+    extractedNumbers = extractPhoneNumbers(text);
+    countValue.textContent = extractedNumbers.length;
+    resultsSection.style.display = 'flex';
+    if (extractedNumbers.length === 0) {
+      numbersList.style.display = 'none';
+      noResults.style.display = 'flex';
+    } else {
+      numbersList.style.display = 'flex';
+      noResults.style.display = 'none';
+      numbersList.innerHTML = extractedNumbers.map((n, i) => `
+        <div class="number-item">
+          <div><div class="number-e164">${n.e164}</div><div class="number-original">${t.original}: ${n.original}</div></div>
+          <button class="btn-copy-number" data-index="${i}">${t.copyAll}</button>
+        </div>
+      `).join('');
+      document.querySelectorAll('.btn-copy-number').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const n = extractedNumbers[parseInt(btn.dataset.index)];
+          try { await navigator.clipboard.writeText(n.e164); btn.textContent = t.copied; setTimeout(() => btn.textContent = t.copyAll, 2000); } catch(e) {}
+        });
+      });
+    }
+  });
+
+  clearBtn.addEventListener('click', () => { textInput.value = ''; resultsSection.style.display = 'none'; extractedNumbers = []; });
+
+  copyAllBtn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(extractedNumbers.map(n => n.e164).join('\n')); copyAllBtn.textContent = t.copied; setTimeout(() => copyAllBtn.textContent = t.copyAll, 2000); } catch(e) {}
+  });
+
+  exportCsvBtn.addEventListener('click', () => {
+    const csv = 'E.164,Original\n' + extractedNumbers.map(n => `${n.e164},"${n.original}"`).join('\n');
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob([csv], {type:'text/csv'})), download: 'phone-numbers.csv' });
+    a.click();
+  });
+
+  exportTxtBtn.addEventListener('click', () => {
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob([extractedNumbers.map(n => n.e164).join('\n')], {type:'text/plain'})), download: 'phone-numbers.txt' });
+    a.click();
+  });
+</script>

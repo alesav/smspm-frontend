@@ -1,0 +1,579 @@
+---
+/**
+ * Phone Number Formatter & Validator Component
+ * Basic phone number validation and E.164 formatting
+ */
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+// Translations
+const translations: Record<string, any> = {
+  en: {
+    title: "Phone Number Formatter & Validator",
+    subtitle: "Format and validate phone numbers for SMS delivery",
+    placeholder: "Enter phone number (with or without country code)...",
+    format: "Format Number",
+    clear: "Clear",
+    result: "Validation Result",
+    valid: "✓ Valid Phone Number",
+    invalid: "✗ Invalid Phone Number",
+    validDesc: "This number is properly formatted and ready for SMS delivery.",
+    invalidDesc: "This number appears to be invalid. Please check the format.",
+    formatted: "Formatted Numbers",
+    e164: "E.164 Format (International)",
+    national: "National Format",
+    international: "International Format",
+    countryDetected: "Country Detected",
+    countryCode: "Country Code",
+    numberLength: "Number Length",
+    numberType: "Number Type",
+    mobile: "Mobile",
+    fixedLine: "Fixed Line",
+    unknown: "Unknown",
+    tips: "Formatting Tips",
+    tip1: "E.164 is the standard format for international SMS: +[country code][number]",
+    tip2: "Always include the country code for international delivery",
+    tip3: "Remove spaces, dashes, and parentheses from numbers",
+    tip4: "Mobile numbers are required for SMS delivery",
+    examples: "Examples",
+    exampleUS: "US: +1 415 555 0123 or 4155550123",
+    exampleUK: "UK: +44 20 7946 0958 or 02079460958",
+    exampleEE: "Estonia: +372 5123 4567 or 51234567",
+    paste: "Paste Number",
+    copy: "Copy",
+    copied: "✓ Copied!",
+  },
+  et: {
+    title: "Telefoninumbri Vormindaja ja Validaator",
+    subtitle: "Vorminda ja valideeri telefoninumbrid SMS saatmiseks",
+    placeholder: "Sisesta telefoninumber (riigikoodiga või ilma)...",
+    format: "Vorminda number",
+    clear: "Tühjenda",
+    result: "Valideerimise tulemus",
+    valid: "✓ Kehtiv telefoninumber",
+    invalid: "✗ Vigane telefoninumber",
+    validDesc: "Number on õigesti vormindatud ja valmis SMS saatmiseks.",
+    invalidDesc: "Number tundub olevat vigane. Palun kontrolli formaati.",
+    formatted: "Vormindatud numbrid",
+    e164: "E.164 formaat (rahvusvaheline)",
+    national: "Riiklik formaat",
+    international: "Rahvusvaheline formaat",
+    countryDetected: "Tuvastatud riik",
+    countryCode: "Riigikood",
+    numberLength: "Numbri pikkus",
+    numberType: "Numbri tüüp",
+    mobile: "Mobiil",
+    fixedLine: "Püsitelefon",
+    unknown: "Teadmata",
+    tips: "Vormindamise näpunäited",
+    tip1: "E.164 on rahvusvahelise SMS standardformaat: +[riigikood][number]",
+    tip2: "Kaasa alati riigikood rahvusvaheliseks saatmiseks",
+    tip3: "Eemalda numbritest tühikud, kriipsud ja sulud",
+    tip4: "SMS saatmiseks on vajalikud mobiilnumbrid",
+    examples: "Näited",
+    exampleUS: "USA: +1 415 555 0123 või 4155550123",
+    exampleUK: "UK: +44 20 7946 0958 või 02079460958",
+    exampleEE: "Eesti: +372 5123 4567 või 51234567",
+    paste: "Kleebi number",
+    copy: "Kopeeri",
+    copied: "✓ Kopeeritud!",
+  },
+  ru: {
+    title: "Форматировщик и Валидатор Телефонных Номеров",
+    subtitle: "Форматируйте и проверяйте телефонные номера для SMS доставки",
+    placeholder: "Введите телефонный номер (с кодом страны или без)...",
+    format: "Форматировать номер",
+    clear: "Очистить",
+    result: "Результат проверки",
+    valid: "✓ Валидный номер телефона",
+    invalid: "✗ Невалидный номер телефона",
+    validDesc: "Номер правильно отформатирован и готов к отправке SMS.",
+    invalidDesc: "Номер кажется невалидным. Пожалуйста, проверьте формат.",
+    formatted: "Отформатированные номера",
+    e164: "Формат E.164 (международный)",
+    national: "Национальный формат",
+    international: "Международный формат",
+    countryDetected: "Определена страна",
+    countryCode: "Код страны",
+    numberLength: "Длина номера",
+    numberType: "Тип номера",
+    mobile: "Мобильный",
+    fixedLine: "Стационарный",
+    unknown: "Неизвестно",
+    tips: "Советы по форматированию",
+    tip1: "E.164 - стандартный формат для международных SMS: +[код страны][номер]",
+    tip2: "Всегда включайте код страны для международной доставки",
+    tip3: "Удаляйте пробелы, тире и скобки из номеров",
+    tip4: "Для отправки SMS требуются мобильные номера",
+    examples: "Примеры",
+    exampleUS: "США: +1 415 555 0123 или 4155550123",
+    exampleUK: "UK: +44 20 7946 0958 или 02079460958",
+    exampleEE: "Эстония: +372 5123 4567 или 51234567",
+    paste: "Вставить номер",
+    copy: "Копировать",
+    copied: "✓ Скопировано!",
+  },
+  es: {
+    title: "Formateador y Validador de Números Telefónicos",
+    subtitle: "Formatea y valida números telefónicos para entrega SMS",
+    placeholder: "Ingresa número telefónico (con o sin código de país)...",
+    format: "Formatear número",
+    clear: "Limpiar",
+    result: "Resultado de validación",
+    valid: "✓ Número telefónico válido",
+    invalid: "✗ Número telefónico inválido",
+    validDesc: "Este número está correctamente formateado y listo para entrega SMS.",
+    invalidDesc: "Este número parece ser inválido. Por favor verifica el formato.",
+    formatted: "Números formateados",
+    e164: "Formato E.164 (internacional)",
+    national: "Formato nacional",
+    international: "Formato internacional",
+    countryDetected: "País detectado",
+    countryCode: "Código de país",
+    numberLength: "Longitud del número",
+    numberType: "Tipo de número",
+    mobile: "Móvil",
+    fixedLine: "Línea fija",
+    unknown: "Desconocido",
+    tips: "Consejos de formateo",
+    tip1: "E.164 es el formato estándar para SMS internacional: +[código país][número]",
+    tip2: "Siempre incluye el código de país para entrega internacional",
+    tip3: "Elimina espacios, guiones y paréntesis de los números",
+    tip4: "Se requieren números móviles para entrega SMS",
+    examples: "Ejemplos",
+    exampleUS: "EE.UU.: +1 415 555 0123 o 4155550123",
+    exampleUK: "Reino Unido: +44 20 7946 0958 o 02079460958",
+    exampleEE: "Estonia: +372 5123 4567 o 51234567",
+    paste: "Pegar número",
+    copy: "Copiar",
+    copied: "✓ ¡Copiado!",
+  },
+  de: {
+    title: "Telefonnummer-Formatierer und Validator",
+    subtitle: "Formatieren und validieren Sie Telefonnummern für SMS-Zustellung",
+    placeholder: "Telefonnummer eingeben (mit oder ohne Ländervorwahl)...",
+    format: "Nummer formatieren",
+    clear: "Löschen",
+    result: "Validierungsergebnis",
+    valid: "✓ Gültige Telefonnummer",
+    invalid: "✗ Ungültige Telefonnummer",
+    validDesc: "Diese Nummer ist korrekt formatiert und bereit für SMS-Zustellung.",
+    invalidDesc: "Diese Nummer scheint ungültig zu sein. Bitte überprüfen Sie das Format.",
+    formatted: "Formatierte Nummern",
+    e164: "E.164-Format (international)",
+    national: "Nationales Format",
+    international: "Internationales Format",
+    countryDetected: "Erkanntes Land",
+    countryCode: "Ländervorwahl",
+    numberLength: "Nummernlänge",
+    numberType: "Nummerntyp",
+    mobile: "Mobil",
+    fixedLine: "Festnetz",
+    unknown: "Unbekannt",
+    tips: "Formatierungstipps",
+    tip1: "E.164 ist das Standardformat für internationale SMS: +[Ländervorwahl][Nummer]",
+    tip2: "Immer Ländervorwahl für internationale Zustellung einschließen",
+    tip3: "Leerzeichen, Bindestriche und Klammern aus Nummern entfernen",
+    tip4: "Mobilnummern sind für SMS-Zustellung erforderlich",
+    examples: "Beispiele",
+    exampleUS: "USA: +1 415 555 0123 oder 4155550123",
+    exampleUK: "Großbritannien: +44 20 7946 0958 oder 02079460958",
+    exampleEE: "Estland: +372 5123 4567 oder 51234567",
+    paste: "Nummer einfügen",
+    copy: "Kopieren",
+    copied: "✓ Kopiert!",
+  },
+  fr: {
+    title: "Formateur et Validateur de Numéros de Téléphone",
+    subtitle: "Formatez et validez les numéros de téléphone pour la livraison SMS",
+    placeholder: "Entrez le numéro de téléphone (avec ou sans indicatif pays)...",
+    format: "Formater le numéro",
+    clear: "Effacer",
+    result: "Résultat de validation",
+    valid: "✓ Numéro de téléphone valide",
+    invalid: "✗ Numéro de téléphone invalide",
+    validDesc: "Ce numéro est correctement formaté et prêt pour la livraison SMS.",
+    invalidDesc: "Ce numéro semble être invalide. Veuillez vérifier le format.",
+    formatted: "Numéros formatés",
+    e164: "Format E.164 (international)",
+    national: "Format national",
+    international: "Format international",
+    countryDetected: "Pays détecté",
+    countryCode: "Indicatif pays",
+    numberLength: "Longueur du numéro",
+    numberType: "Type de numéro",
+    mobile: "Mobile",
+    fixedLine: "Ligne fixe",
+    unknown: "Inconnu",
+    tips: "Conseils de formatage",
+    tip1: "E.164 est le format standard pour les SMS internationaux : +[indicatif pays][numéro]",
+    tip2: "Toujours inclure l'indicatif pays pour la livraison internationale",
+    tip3: "Supprimer les espaces, tirets et parenthèses des numéros",
+    tip4: "Les numéros mobiles sont requis pour la livraison SMS",
+    examples: "Exemples",
+    exampleUS: "USA : +1 415 555 0123 ou 4155550123",
+    exampleUK: "Royaume-Uni : +44 20 7946 0958 ou 02079460958",
+    exampleEE: "Estonie : +372 5123 4567 ou 51234567",
+    paste: "Coller le numéro",
+    copy: "Copier",
+    copied: "✓ Copié !",
+  },
+  lv: {
+    title: "Tālruņa Numura Formatētājs un Validātors",
+    subtitle: "Formatējiet un validējiet tālruņa numurus SMS piegādei",
+    placeholder: "Ievadiet tālruņa numuru (ar vai bez valsts koda)...",
+    format: "Formatēt numuru",
+    clear: "Notīrīt",
+    result: "Validācijas rezultāts",
+    valid: "✓ Derīgs tālruņa numurs",
+    invalid: "✗ Nederīgs tālruņa numurs",
+    validDesc: "Šis numurs ir pareizi formatēts un gatavs SMS piegādei.",
+    invalidDesc: "Šis numurs šķiet nederīgs. Lūdzu, pārbaudiet formātu.",
+    formatted: "Formatēti numuri",
+    e164: "E.164 formāts (starptautisks)",
+    national: "Nacionālais formāts",
+    international: "Starptautiskais formāts",
+    countryDetected: "Noteikta valsts",
+    countryCode: "Valsts kods",
+    numberLength: "Numura garums",
+    numberType: "Numura tips",
+    mobile: "Mobilais",
+    fixedLine: "Fiksēts",
+    unknown: "Nezināms",
+    tips: "Formatēšanas padomi",
+    tip1: "E.164 ir standarta formāts starptautiskiem SMS: +[valsts kods][numurs]",
+    tip2: "Vienmēr iekļaujiet valsts kodu starptautiskai piegādei",
+    tip3: "Noņemiet atstarpes, domuzīmes un iekavas no numuriem",
+    tip4: "SMS piegādei ir nepieciešami mobilie numuri",
+    examples: "Piemēri",
+    exampleUS: "ASV: +1 415 555 0123 vai 4155550123",
+    exampleUK: "Lielbritānija: +44 20 7946 0958 vai 02079460958",
+    exampleEE: "Igaunija: +372 5123 4567 vai 51234567",
+    paste: "Ielīmēt numuru",
+    copy: "Kopēt",
+    copied: "✓ Nokopēts!",
+  },
+  lt: {
+    title: "Telefono Numerio Formatavimo ir Tikrinimo Įrankis",
+    subtitle: "Formatuokite ir tikrinkite telefono numerius SMS pristatymui",
+    placeholder: "Įveskite telefono numerį (su arba be šalies kodu)...",
+    format: "Formatuoti numerį",
+    clear: "Išvalyti",
+    result: "Tikrinimo rezultatas",
+    valid: "✓ Tinkamas telefono numeris",
+    invalid: "✗ Netinkamas telefono numeris",
+    validDesc: "Šis numeris tinkamai suformatuotas ir paruoštas SMS pristatymui.",
+    invalidDesc: "Šis numeris atrodo netinkamas. Prašome patikrinti formatą.",
+    formatted: "Suformatuoti numeriai",
+    e164: "E.164 formatas (tarptautinis)",
+    national: "Nacionalinis formatas",
+    international: "Tarptautinis formatas",
+    countryDetected: "Aptikta šalis",
+    countryCode: "Šalies kodas",
+    numberLength: "Numerio ilgis",
+    numberType: "Numerio tipas",
+    mobile: "Mobilus",
+    fixedLine: "Stacionarus",
+    unknown: "Nežinomas",
+    tips: "Formatavimo patarimai",
+    tip1: "E.164 yra standartinis tarptautinių SMS formatas: +[šalies kodas][numeris]",
+    tip2: "Visada įtraukite šalies kodą tarptautiniam pristatymui",
+    tip3: "Pašalinkite tarpus, brūkšnelius ir skliaustus iš numerių",
+    tip4: "SMS pristatymui reikalingi mobilūs numeriai",
+    examples: "Pavyzdžiai",
+    exampleUS: "JAV: +1 415 555 0123 arba 4155550123",
+    exampleUK: "JK: +44 20 7946 0958 arba 02079460958",
+    exampleEE: "Estija: +372 5123 4567 arba 51234567",
+    paste: "Įklijuoti numerį",
+    copy: "Kopijuoti",
+    copied: "✓ Nukopijuota!",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div class="formatter-container">
+  <div class="formatter-header">
+    <h2 class="formatter-title">{t.title}</h2>
+    <p class="formatter-subtitle">{t.subtitle}</p>
+  </div>
+
+  <div class="formatter-body">
+    <div class="input-section">
+      <div class="input-wrapper">
+        <input
+          type="tel"
+          id="phoneInput"
+          class="phone-input"
+          placeholder={t.placeholder}
+          autocomplete="tel"
+        />
+        <button id="pasteBtn" class="btn-paste" title={t.paste}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" fill="currentColor"/>
+            <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+      <div class="input-actions">
+        <button id="formatBtn" class="btn-format">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill="currentColor"/>
+          </svg>
+          {t.format}
+        </button>
+        <button id="clearBtn" class="btn-secondary">{t.clear}</button>
+      </div>
+    </div>
+
+    <div id="resultsSection" class="results-section" style="display: none;">
+      <div id="statusCard" class="status-card">
+        <div class="status-icon">
+          <svg id="statusIcon" width="48" height="48" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="status-content">
+          <h3 id="statusTitle">{t.valid}</h3>
+          <p id="statusDesc">{t.validDesc}</p>
+        </div>
+      </div>
+
+      <div class="formatted-section">
+        <h3>{t.formatted}</h3>
+        <div class="formatted-grid">
+          <div class="formatted-card">
+            <div class="formatted-label">{t.e164}</div>
+            <div class="formatted-value-wrapper">
+              <div id="e164Value" class="formatted-value">+1234567890</div>
+              <button class="btn-copy" data-copy="e164" title={t.copy}>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                  <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" fill="currentColor"/>
+                  <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="formatted-card">
+            <div class="formatted-label">{t.national}</div>
+            <div class="formatted-value-wrapper">
+              <div id="nationalValue" class="formatted-value">(123) 456-7890</div>
+              <button class="btn-copy" data-copy="national" title={t.copy}>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                  <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" fill="currentColor"/>
+                  <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="formatted-card">
+            <div class="formatted-label">{t.international}</div>
+            <div class="formatted-value-wrapper">
+              <div id="internationalValue" class="formatted-value">+1 123 456 7890</div>
+              <button class="btn-copy" data-copy="international" title={t.copy}>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                  <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" fill="currentColor"/>
+                  <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">{t.countryDetected}</span>
+            <span id="countryName" class="info-value">United States</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{t.countryCode}</span>
+            <span id="countryCodeVal" class="info-value">+1</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{t.numberLength}</span>
+            <span id="numberLength" class="info-value">10</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">{t.numberType}</span>
+            <span id="numberType" class="info-value">{t.mobile}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips-section">
+        <h3>{t.tips}</h3>
+        <ul class="tips-list">
+          <li>{t.tip1}</li>
+          <li>{t.tip2}</li>
+          <li>{t.tip3}</li>
+          <li>{t.tip4}</li>
+        </ul>
+      </div>
+
+      <div class="examples-section">
+        <h3>{t.examples}</h3>
+        <ul class="examples-list">
+          <li>{t.exampleUS}</li>
+          <li>{t.exampleUK}</li>
+          <li>{t.exampleEE}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .formatter-container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+  .formatter-header { text-align: center; margin-bottom: 2rem; }
+  .formatter-title { font-size: 2rem; font-weight: 700; color: var(--text-primary, #1a1a1a); margin-bottom: 0.5rem; }
+  .formatter-subtitle { font-size: 1.125rem; color: var(--text-secondary, #666); }
+  .formatter-body { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+  .input-wrapper { position: relative; display: flex; align-items: center; }
+  .phone-input { flex: 1; padding: 1rem; padding-right: 3rem; font-size: 1.125rem; font-weight: 500; font-family: 'Courier New', monospace; border: 2px solid #e5e7eb; border-radius: 12px; transition: border-color 0.2s; }
+  .phone-input:focus { outline: none; border-color: #26c6da; }
+  .btn-paste { position: absolute; right: 0.5rem; padding: 0.5rem; background: transparent; border: none; color: #6b7280; cursor: pointer; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+  .btn-paste:hover { background: #f3f4f6; color: #374151; }
+  .input-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+  .btn-format { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%); color: white; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-format:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(38,198,218,0.3); }
+  .btn-secondary { padding: 0.875rem 1.5rem; background: #f3f4f6; color: #374151; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+  .btn-secondary:hover { background: #e5e7eb; }
+  .results-section { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  .status-card { display: flex; align-items: center; gap: 1.5rem; padding: 2rem; border-radius: 12px; border: 2px solid; }
+  .status-card.valid { background: #ecfdf5; border-color: #10b981; }
+  .status-card.invalid { background: #fee2e2; border-color: #ef4444; }
+  .status-icon { flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%; }
+  .status-card.valid .status-icon { color: #10b981; }
+  .status-card.invalid .status-icon { color: #ef4444; }
+  .status-content h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .status-card.valid h3 { color: #065f46; }
+  .status-card.invalid h3 { color: #991b1b; }
+  .status-content p { color: #6b7280; line-height: 1.6; }
+  .formatted-section h3, .info-section h3, .tips-section h3, .examples-section h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; }
+  .formatted-grid { display: grid; gap: 1rem; }
+  .formatted-card { padding: 1.25rem; background: #f9fafb; border-radius: 12px; border: 1px solid #e5e7eb; }
+  .formatted-label { font-size: 0.875rem; color: #6b7280; font-weight: 600; margin-bottom: 0.5rem; }
+  .formatted-value-wrapper { display: flex; align-items: center; justify-content: space-between; }
+  .formatted-value { font-size: 1.25rem; font-weight: 700; font-family: 'Courier New', monospace; color: #1f2937; }
+  .btn-copy { padding: 0.5rem; background: transparent; border: none; color: #6b7280; cursor: pointer; border-radius: 6px; transition: background 0.2s, color 0.2s; }
+  .btn-copy:hover { background: white; color: #26c6da; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .info-item { display: flex; justify-content: space-between; padding: 1rem; background: #f9fafb; border-radius: 8px; }
+  .info-label { font-size: 0.875rem; color: #6b7280; font-weight: 500; }
+  .info-value { font-size: 1rem; font-weight: 700; color: #1f2937; }
+  .tips-section, .examples-section { padding: 1.5rem; background: #f0f9ff; border-radius: 12px; }
+  .tips-list, .examples-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tips-list li, .examples-list li { padding-left: 1.5rem; position: relative; color: #0369a1; font-size: 0.875rem; }
+  .tips-list li::before { content: "✓"; position: absolute; left: 0; color: #0ea5e9; font-weight: 700; }
+  .examples-list li::before { content: "•"; position: absolute; left: 0; color: #0ea5e9; font-weight: 700; font-size: 1.25rem; }
+  @media (max-width: 768px) {
+    .formatter-container { padding: 1rem; }
+    .formatter-body { padding: 1.5rem; }
+    .input-actions { flex-direction: column; }
+    .info-grid { grid-template-columns: 1fr; }
+    .status-card { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<script define:vars={{ lang, translations }}>
+  const t = translations[lang] || translations.en;
+  const COUNTRY_CODES = {'1':'United States / Canada','7':'Russia / Kazakhstan','20':'Egypt','27':'South Africa','30':'Greece','31':'Netherlands','32':'Belgium','33':'France','34':'Spain','36':'Hungary','39':'Italy','40':'Romania','41':'Switzerland','43':'Austria','44':'United Kingdom','45':'Denmark','46':'Sweden','47':'Norway','48':'Poland','49':'Germany','51':'Peru','52':'Mexico','53':'Cuba','54':'Argentina','55':'Brazil','56':'Chile','57':'Colombia','58':'Venezuela','60':'Malaysia','61':'Australia','62':'Indonesia','63':'Philippines','64':'New Zealand','65':'Singapore','66':'Thailand','81':'Japan','82':'South Korea','84':'Vietnam','86':'China','90':'Turkey','91':'India','92':'Pakistan','93':'Afghanistan','94':'Sri Lanka','95':'Myanmar','98':'Iran','212':'Morocco','213':'Algeria','216':'Tunisia','218':'Libya','220':'Gambia','221':'Senegal','222':'Mauritania','223':'Mali','224':'Guinea','225':'Ivory Coast','226':'Burkina Faso','227':'Niger','228':'Togo','229':'Benin','230':'Mauritius','231':'Liberia','232':'Sierra Leone','233':'Ghana','234':'Nigeria','235':'Chad','236':'Central African Republic','237':'Cameroon','238':'Cape Verde','239':'Sao Tome and Principe','240':'Equatorial Guinea','241':'Gabon','242':'Republic of the Congo','243':'Democratic Republic of the Congo','244':'Angola','245':'Guinea-Bissau','248':'Seychelles','249':'Sudan','250':'Rwanda','251':'Ethiopia','252':'Somalia','253':'Djibouti','254':'Kenya','255':'Tanzania','256':'Uganda','257':'Burundi','258':'Mozambique','260':'Zambia','261':'Madagascar','262':'Reunion','263':'Zimbabwe','264':'Namibia','265':'Malawi','266':'Lesotho','267':'Botswana','268':'Eswatini','269':'Comoros','291':'Eritrea','297':'Aruba','298':'Faroe Islands','299':'Greenland','350':'Gibraltar','351':'Portugal','352':'Luxembourg','353':'Ireland','354':'Iceland','355':'Albania','356':'Malta','357':'Cyprus','358':'Finland','359':'Bulgaria','370':'Lithuania','371':'Latvia','372':'Estonia','373':'Moldova','374':'Armenia','375':'Belarus','376':'Andorra','377':'Monaco','380':'Ukraine','381':'Serbia','382':'Montenegro','385':'Croatia','386':'Slovenia','387':'Bosnia and Herzegovina','389':'North Macedonia','420':'Czech Republic','421':'Slovakia','501':'Belize','502':'Guatemala','503':'El Salvador','504':'Honduras','505':'Nicaragua','506':'Costa Rica','507':'Panama','509':'Haiti','591':'Bolivia','592':'Guyana','593':'Ecuador','595':'Paraguay','597':'Suriname','598':'Uruguay','670':'East Timor','673':'Brunei','675':'Papua New Guinea','676':'Tonga','677':'Solomon Islands','678':'Vanuatu','679':'Fiji','680':'Palau','685':'Samoa','686':'Kiribati','687':'New Caledonia','689':'French Polynesia','850':'North Korea','852':'Hong Kong','853':'Macau','855':'Cambodia','856':'Laos','880':'Bangladesh','886':'Taiwan','960':'Maldives','961':'Lebanon','962':'Jordan','963':'Syria','964':'Iraq','965':'Kuwait','966':'Saudi Arabia','967':'Yemen','968':'Oman','970':'Palestine','971':'United Arab Emirates','972':'Israel','973':'Bahrain','974':'Qatar','975':'Bhutan','976':'Mongolia','977':'Nepal','992':'Tajikistan','993':'Turkmenistan','994':'Azerbaijan','995':'Georgia','996':'Kyrgyzstan','998':'Uzbekistan'};
+
+  function cleanPhoneNumber(input) { return input.replace(/[\s\-\(\)\.\+]/g, ''); }
+
+  function detectCountryCode(number) {
+    if (number.startsWith('00')) number = number.substring(2);
+    for (let len = 3; len >= 1; len--) {
+      const code = number.substring(0, len);
+      if (COUNTRY_CODES[code]) return { code: '+' + code, country: COUNTRY_CODES[code], nationalNumber: number.substring(len) };
+    }
+    return null;
+  }
+
+  function formatPhone(number) {
+    const cleaned = cleanPhoneNumber(number);
+    let withPlus = cleaned.startsWith('+') ? cleaned : cleaned.startsWith('00') ? '+' + cleaned.substring(2) : '+' + cleaned;
+    const detected = detectCountryCode(withPlus.substring(1));
+    if (!detected) return { isValid: false, e164: withPlus, national: cleaned, international: withPlus, country: t.unknown, countryCode: '?', numberLength: cleaned.length, type: t.unknown };
+    const e164 = `+${detected.code.substring(1)}${detected.nationalNumber}`;
+    let national = detected.nationalNumber;
+    if (national.length >= 10) national = `(${national.substring(0,3)}) ${national.substring(3,6)}-${national.substring(6)}`;
+    else if (national.length >= 7) national = `${national.substring(0,3)}-${national.substring(3)}`;
+    let international = `${detected.code} ${detected.nationalNumber}`;
+    if (detected.nationalNumber.length >= 10) international = `${detected.code} ${detected.nationalNumber.substring(0,3)} ${detected.nationalNumber.substring(3,6)} ${detected.nationalNumber.substring(6)}`;
+    const totalDigits = detected.nationalNumber.length;
+    return { isValid: totalDigits >= 7 && totalDigits <= 15, e164, national, international, country: detected.country, countryCode: detected.code, numberLength: totalDigits, type: totalDigits < 9 ? t.unknown : t.mobile };
+  }
+
+  const phoneInput = document.getElementById('phoneInput');
+  const formatBtn = document.getElementById('formatBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const pasteBtn = document.getElementById('pasteBtn');
+  const resultsSection = document.getElementById('resultsSection');
+  const statusCard = document.getElementById('statusCard');
+  const statusIcon = document.getElementById('statusIcon');
+  const statusTitle = document.getElementById('statusTitle');
+  const statusDesc = document.getElementById('statusDesc');
+  const e164Value = document.getElementById('e164Value');
+  const nationalValue = document.getElementById('nationalValue');
+  const internationalValue = document.getElementById('internationalValue');
+  const countryName = document.getElementById('countryName');
+  const countryCodeVal = document.getElementById('countryCodeVal');
+  const numberLength = document.getElementById('numberLength');
+  const numberType = document.getElementById('numberType');
+
+  function displayResults(result) {
+    resultsSection.style.display = 'flex';
+    statusCard.className = `status-card ${result.isValid ? 'valid' : 'invalid'}`;
+    statusTitle.textContent = result.isValid ? t.valid : t.invalid;
+    statusDesc.textContent = result.isValid ? t.validDesc : t.invalidDesc;
+    statusIcon.innerHTML = result.isValid
+      ? '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill="currentColor"/>'
+      : '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" fill="currentColor"/>';
+    e164Value.textContent = result.e164;
+    nationalValue.textContent = result.national;
+    internationalValue.textContent = result.international;
+    countryName.textContent = result.country;
+    countryCodeVal.textContent = result.countryCode;
+    numberLength.textContent = result.numberLength;
+    numberType.textContent = result.type;
+  }
+
+  formatBtn.addEventListener('click', () => {
+    const input = phoneInput.value.trim();
+    if (!input) return;
+    displayResults(formatPhone(input));
+  });
+
+  clearBtn.addEventListener('click', () => {
+    phoneInput.value = '';
+    resultsSection.style.display = 'none';
+  });
+
+  pasteBtn.addEventListener('click', async () => {
+    try { const text = await navigator.clipboard.readText(); phoneInput.value = text; phoneInput.focus(); } catch(e) {}
+  });
+
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const map = { e164: e164Value, national: nationalValue, international: internationalValue };
+      const el = map[btn.dataset.copy];
+      if (!el) return;
+      try {
+        await navigator.clipboard.writeText(el.textContent);
+        const orig = btn.innerHTML;
+        btn.innerHTML = t.copied;
+        setTimeout(() => btn.innerHTML = orig, 2000);
+      } catch(e) {}
+    });
+  });
+
+  phoneInput.addEventListener('keypress', e => { if (e.key === 'Enter') formatBtn.click(); });
+</script>

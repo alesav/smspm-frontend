@@ -1,0 +1,95 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import PhoneFormatterComponent from '../../../components/tools/PhoneFormatter.astro';
+import Footer from '../../../components/Footer.astro';
+
+const lang = 'et';
+const title = 'Tasuta Telefoninumbri Vormindaja SMS jaoks | SMSPM';
+const description = 'Vorminda ja valideeri telefoninumbrid E.164 rahvusvaheliseks standardiks. Teisenda kiiresti iga telefoninumbri formaat usaldusväärseks SMS saatmiseks.';
+const keywords = ["telefoninumbri vormindaja","e164 vormindaja","telefoni validaator"];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Phone Number Formatter",
+  "description": description,
+  "url": "https://smspm.com/et/tools/phone-formatter",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "SMSPM",
+    "url": "https://smspm.com"
+  }
+};
+---
+
+<Layout title={title} description={description}>
+  <head>
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href="https://smspm.com/et/tools/phone-formatter" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools/phone-formatter" />
+    <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools/phone-formatter" />
+    <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools/phone-formatter" />
+    <link rel="alternate" hreflang="es" href="https://smspm.com/es/tools/phone-formatter" />
+    <link rel="alternate" hreflang="de" href="https://smspm.com/de/tools/phone-formatter" />
+    <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools/phone-formatter" />
+    <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools/phone-formatter" />
+    <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools/phone-formatter" />
+    <link rel="alternate" hreflang="x-default" href="https://smspm.com/en/tools/phone-formatter" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://smspm.com/et/tools/phone-formatter" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+
+  <Navigation />
+
+  <main class="tool-page">
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Telefoninumbri <span class="gradient-text">Vormindaja</span>
+        </h1>
+        <p class="hero-description">
+          Vorminda ja valideeri telefoninumbrid E.164 standardiks SMS saatmiseks. Toetab rahvusvahelisi formaate 200+ riigist.
+        </p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+        <PhoneFormatterComponent lang={lang} />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .tool-page { min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .hero-section { padding: 6rem 0 4rem; text-align: center; }
+  .hero-title { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; color: #1a1a1a; }
+  .gradient-text { background: linear-gradient(135deg, #26c6da 0%, #1e88e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-description { font-size: 1.25rem; color: #666; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+  .tool-section { padding: 2rem 0 4rem; }
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .hero-description { font-size: 1rem; }
+  }
+</style>

@@ -1,0 +1,1122 @@
+---
+/**
+ * Unicode / GSM SMS Checker Component
+ * Interactive tool for checking SMS encoding compatibility
+ */
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+// Translations
+const translations: Record<string, any> = {
+  en: {
+    title: "Unicode / GSM SMS Checker",
+    subtitle: "Instantly check if your message uses GSM-7 or Unicode encoding",
+    placeholder: "Type or paste your SMS message here to check encoding...",
+    analyzeButton: "Analyze Text",
+    clear: "Clear",
+    result: "Analysis Result",
+    gsmCompatible: "✓ GSM-7 Compatible",
+    gsmDesc: "Your message uses only GSM-7 characters. Most cost-effective option.",
+    unicodeRequired: "⚠ Unicode Required",
+    unicodeDesc: "Your message contains non-GSM characters and requires Unicode encoding (70 chars/SMS vs 160 for GSM-7).",
+    nonGsmChars: "Non-GSM Characters Found",
+    position: "Position",
+    character: "Character",
+    unicode: "Unicode",
+    suggestion: "GSM Alternative",
+    replace: "Replace",
+    replaceAll: "Replace All Non-GSM",
+    characterBreakdown: "Character Breakdown",
+    basicGsm: "Basic GSM (1 char each)",
+    extendedGsm: "Extended GSM (2 chars each)",
+    unicodeChars: "Unicode Characters",
+    messageStats: "Message Statistics",
+    totalChars: "Total Characters",
+    gsmLength: "GSM Length",
+    encoding: "Encoding Type",
+    smsCount: "SMS Count",
+    charsPerSms: "Chars per SMS",
+    recommendation: "Recommendation",
+    useGsm: "✓ Use GSM-7 encoding for maximum cost efficiency",
+    convertToGsm: "⚠ Convert to GSM-7 to reduce costs by up to 56%",
+    whyUnicode: "Why Unicode?",
+    whyUnicodeText: "Unicode encoding is triggered when your text contains characters outside the GSM 7-bit character set, such as:",
+    whyList1: "• Emojis (😊, 👍, ❤️)",
+    whyList2: "• Non-Latin alphabets (Cyrillic, Arabic, Chinese, etc.)",
+    whyList3: "• Smart quotes (\" \" \' \')",
+    whyList4: "• Em/en dashes (— –)",
+    whyList5: "• Special symbols (™ © ® ° × ÷)",
+    tips: "Optimization Tips",
+    tip1: "Replace smart quotes with standard quotes to save space",
+    tip2: "Use hyphens (-) instead of em dashes (—) for GSM compatibility",
+    tip3: "Convert ellipsis (…) to three dots (...)",
+    tip4: "Remove emojis or replace with text equivalents",
+  },
+  et: {
+    title: "Unicode / GSM SMS Kontrollija",
+    subtitle: "Kontrolli koheselt, kas sõnum kasutab GSM-7 või Unicode kodeeringut",
+    placeholder: "Kirjuta või kleebi oma SMS-sõnum siia kodeeringu kontrollimiseks...",
+    analyzeButton: "Analüüsi tekst",
+    clear: "Tühjenda",
+    result: "Analüüsi tulemus",
+    gsmCompatible: "✓ GSM-7 ühilduv",
+    gsmDesc: "Sõnum kasutab ainult GSM-7 tähemärke. Kõige kuluefektiivsem valik.",
+    unicodeRequired: "⚠ Unicode nõutav",
+    unicodeDesc: "Sõnum sisaldab mitte-GSM tähemärke ja vajab Unicode kodeeringut (70 tähemärki/SMS vs 160 GSM-7 jaoks).",
+    nonGsmChars: "Leitud mitte-GSM tähemärgid",
+    position: "Positsioon",
+    character: "Tähemärk",
+    unicode: "Unicode",
+    suggestion: "GSM alternatiiv",
+    replace: "Asenda",
+    replaceAll: "Asenda kõik mitte-GSM",
+    characterBreakdown: "Tähemärkide jaotus",
+    basicGsm: "Põhiline GSM (1 tähemärk)",
+    extendedGsm: "Laiendatud GSM (2 tähemärki)",
+    unicodeChars: "Unicode tähemärgid",
+    messageStats: "Sõnumi statistika",
+    totalChars: "Kokku tähemärke",
+    gsmLength: "GSM pikkus",
+    encoding: "Kodeeringu tüüp",
+    smsCount: "SMS-ide arv",
+    charsPerSms: "Tähemärke SMS-i kohta",
+    recommendation: "Soovitus",
+    useGsm: "✓ Kasuta GSM-7 kodeeringut maksimaalse kuluefektiivsuse jaoks",
+    convertToGsm: "⚠ Teisenda GSM-7-ks, et vähendada kulusid kuni 56%",
+    whyUnicode: "Miks Unicode?",
+    whyUnicodeText: "Unicode kodeering aktiveerub, kui tekst sisaldab tähemärke väljaspool GSM 7-biti tähestikku, nagu:",
+    whyList1: "• Emotikonid (😊, 👍, ❤️)",
+    whyList2: "• Mitte-ladina tähestikud (kirillitsa, araabia, hiina jne)",
+    whyList3: "• Nutikad jutumärgid (\" \" \' \')",
+    whyList4: "• Em/en kriipsud (— –)",
+    whyList5: "• Erisümbolid (™ © ® ° × ÷)",
+    tips: "Optimeerimise näpunäited",
+    tip1: "Asenda nutikad jutumärgid standardsete jutumärkidega ruumi säästmiseks",
+    tip2: "Kasuta sidekriipse (-) em kriipsude (—) asemel GSM ühilduvuse jaoks",
+    tip3: "Teisenda ellips (…) kolmeks punktiks (...)",
+    tip4: "Eemalda emotikonid või asenda tekstiga",
+  },
+  ru: {
+    title: "Проверка Unicode / GSM SMS",
+    subtitle: "Мгновенно проверьте, использует ли сообщение кодировку GSM-7 или Unicode",
+    placeholder: "Введите или вставьте SMS-сообщение для проверки кодировки...",
+    analyzeButton: "Анализировать текст",
+    clear: "Очистить",
+    result: "Результат анализа",
+    gsmCompatible: "✓ Совместимо с GSM-7",
+    gsmDesc: "Сообщение использует только символы GSM-7. Самый экономичный вариант.",
+    unicodeRequired: "⚠ Требуется Unicode",
+    unicodeDesc: "Сообщение содержит не-GSM символы и требует кодировки Unicode (70 символов/SMS против 160 для GSM-7).",
+    nonGsmChars: "Найдены не-GSM символы",
+    position: "Позиция",
+    character: "Символ",
+    unicode: "Unicode",
+    suggestion: "GSM альтернатива",
+    replace: "Заменить",
+    replaceAll: "Заменить все не-GSM",
+    characterBreakdown: "Разбивка символов",
+    basicGsm: "Базовый GSM (1 символ)",
+    extendedGsm: "Расширенный GSM (2 символа)",
+    unicodeChars: "Unicode символы",
+    messageStats: "Статистика сообщения",
+    totalChars: "Всего символов",
+    gsmLength: "Длина GSM",
+    encoding: "Тип кодировки",
+    smsCount: "Количество SMS",
+    charsPerSms: "Символов на SMS",
+    recommendation: "Рекомендация",
+    useGsm: "✓ Используйте кодировку GSM-7 для максимальной экономии",
+    convertToGsm: "⚠ Конвертируйте в GSM-7, чтобы снизить затраты до 56%",
+    whyUnicode: "Почему Unicode?",
+    whyUnicodeText: "Кодировка Unicode активируется, когда текст содержит символы вне набора GSM 7-bit, такие как:",
+    whyList1: "• Эмодзи (😊, 👍, ❤️)",
+    whyList2: "• Нелатинские алфавиты (кириллица, арабский, китайский и т.д.)",
+    whyList3: "• Умные кавычки (\" \" \' \')",
+    whyList4: "• Длинные тире (— –)",
+    whyList5: "• Специальные символы (™ © ® ° × ÷)",
+    tips: "Советы по оптимизации",
+    tip1: "Замените умные кавычки на стандартные для экономии места",
+    tip2: "Используйте дефисы (-) вместо длинных тире (—) для совместимости с GSM",
+    tip3: "Преобразуйте многоточие (…) в три точки (...)",
+    tip4: "Удалите эмодзи или замените текстовыми эквивалентами",
+  },
+  es: {
+    title: "Verificador Unicode / GSM SMS",
+    subtitle: "Verifica instantáneamente si tu mensaje usa codificación GSM-7 o Unicode",
+    placeholder: "Escribe o pega tu mensaje SMS aquí para verificar la codificación...",
+    analyzeButton: "Analizar texto",
+    clear: "Limpiar",
+    result: "Resultado del análisis",
+    gsmCompatible: "✓ Compatible con GSM-7",
+    gsmDesc: "Tu mensaje usa solo caracteres GSM-7. Opción más rentable.",
+    unicodeRequired: "⚠ Unicode requerido",
+    unicodeDesc: "Tu mensaje contiene caracteres no-GSM y requiere codificación Unicode (70 caracteres/SMS vs 160 para GSM-7).",
+    nonGsmChars: "Caracteres no-GSM encontrados",
+    position: "Posición",
+    character: "Carácter",
+    unicode: "Unicode",
+    suggestion: "Alternativa GSM",
+    replace: "Reemplazar",
+    replaceAll: "Reemplazar todos no-GSM",
+    characterBreakdown: "Desglose de caracteres",
+    basicGsm: "GSM básico (1 carácter)",
+    extendedGsm: "GSM extendido (2 caracteres)",
+    unicodeChars: "Caracteres Unicode",
+    messageStats: "Estadísticas del mensaje",
+    totalChars: "Total de caracteres",
+    gsmLength: "Longitud GSM",
+    encoding: "Tipo de codificación",
+    smsCount: "Cantidad de SMS",
+    charsPerSms: "Caracteres por SMS",
+    recommendation: "Recomendación",
+    useGsm: "✓ Usa codificación GSM-7 para máxima eficiencia de costos",
+    convertToGsm: "⚠ Convierte a GSM-7 para reducir costos hasta 56%",
+    whyUnicode: "¿Por qué Unicode?",
+    whyUnicodeText: "La codificación Unicode se activa cuando el texto contiene caracteres fuera del conjunto GSM 7-bit, como:",
+    whyList1: "• Emojis (😊, 👍, ❤️)",
+    whyList2: "• Alfabetos no latinos (cirílico, árabe, chino, etc.)",
+    whyList3: "• Comillas inteligentes (\" \" \' \')",
+    whyList4: "• Guiones largos (— –)",
+    whyList5: "• Símbolos especiales (™ © ® ° × ÷)",
+    tips: "Consejos de optimización",
+    tip1: "Reemplaza comillas inteligentes con comillas estándar para ahorrar espacio",
+    tip2: "Usa guiones (-) en lugar de guiones largos (—) para compatibilidad GSM",
+    tip3: "Convierte puntos suspensivos (…) a tres puntos (...)",
+    tip4: "Elimina emojis o reemplaza con equivalentes de texto",
+  },
+  de: {
+    title: "Unicode / GSM SMS Prüfer",
+    subtitle: "Prüfen Sie sofort, ob Ihre Nachricht GSM-7 oder Unicode-Codierung verwendet",
+    placeholder: "Geben Sie Ihre SMS-Nachricht hier ein oder fügen Sie sie ein, um die Codierung zu prüfen...",
+    analyzeButton: "Text analysieren",
+    clear: "Löschen",
+    result: "Analyseergebnis",
+    gsmCompatible: "✓ GSM-7 kompatibel",
+    gsmDesc: "Ihre Nachricht verwendet nur GSM-7-Zeichen. Kostengünstigste Option.",
+    unicodeRequired: "⚠ Unicode erforderlich",
+    unicodeDesc: "Ihre Nachricht enthält Nicht-GSM-Zeichen und erfordert Unicode-Codierung (70 Zeichen/SMS vs 160 für GSM-7).",
+    nonGsmChars: "Nicht-GSM-Zeichen gefunden",
+    position: "Position",
+    character: "Zeichen",
+    unicode: "Unicode",
+    suggestion: "GSM-Alternative",
+    replace: "Ersetzen",
+    replaceAll: "Alle Nicht-GSM ersetzen",
+    characterBreakdown: "Zeichenaufschlüsselung",
+    basicGsm: "Basis-GSM (1 Zeichen)",
+    extendedGsm: "Erweitertes GSM (2 Zeichen)",
+    unicodeChars: "Unicode-Zeichen",
+    messageStats: "Nachrichtenstatistik",
+    totalChars: "Gesamtzeichen",
+    gsmLength: "GSM-Länge",
+    encoding: "Codierungstyp",
+    smsCount: "SMS-Anzahl",
+    charsPerSms: "Zeichen pro SMS",
+    recommendation: "Empfehlung",
+    useGsm: "✓ Verwenden Sie GSM-7-Codierung für maximale Kosteneffizienz",
+    convertToGsm: "⚠ Konvertieren Sie zu GSM-7, um Kosten um bis zu 56% zu reduzieren",
+    whyUnicode: "Warum Unicode?",
+    whyUnicodeText: "Unicode-Codierung wird ausgelöst, wenn der Text Zeichen außerhalb des GSM 7-Bit-Zeichensatzes enthält, wie:",
+    whyList1: "• Emojis (😊, 👍, ❤️)",
+    whyList2: "• Nicht-lateinische Alphabete (Kyrillisch, Arabisch, Chinesisch usw.)",
+    whyList3: "• Typographische Anführungszeichen (\" \" \' \')",
+    whyList4: "• Geviert-/Halbgeviertstriche (— –)",
+    whyList5: "• Sonderzeichen (™ © ® ° × ÷)",
+    tips: "Optimierungstipps",
+    tip1: "Ersetzen Sie typographische Anführungszeichen durch Standard-Anführungszeichen, um Platz zu sparen",
+    tip2: "Verwenden Sie Bindestriche (-) statt Geviertstriche (—) für GSM-Kompatibilität",
+    tip3: "Konvertieren Sie Auslassungspunkte (…) zu drei Punkten (...)",
+    tip4: "Entfernen Sie Emojis oder ersetzen Sie sie durch Textäquivalente",
+  },
+  fr: {
+    title: "Vérificateur Unicode / GSM SMS",
+    subtitle: "Vérifiez instantanément si votre message utilise l'encodage GSM-7 ou Unicode",
+    placeholder: "Tapez ou collez votre message SMS ici pour vérifier l'encodage...",
+    analyzeButton: "Analyser le texte",
+    clear: "Effacer",
+    result: "Résultat de l'analyse",
+    gsmCompatible: "✓ Compatible GSM-7",
+    gsmDesc: "Votre message utilise uniquement des caractères GSM-7. Option la plus rentable.",
+    unicodeRequired: "⚠ Unicode requis",
+    unicodeDesc: "Votre message contient des caractères non-GSM et nécessite l'encodage Unicode (70 caractères/SMS vs 160 pour GSM-7).",
+    nonGsmChars: "Caractères non-GSM trouvés",
+    position: "Position",
+    character: "Caractère",
+    unicode: "Unicode",
+    suggestion: "Alternative GSM",
+    replace: "Remplacer",
+    replaceAll: "Remplacer tous non-GSM",
+    characterBreakdown: "Répartition des caractères",
+    basicGsm: "GSM de base (1 caractère)",
+    extendedGsm: "GSM étendu (2 caractères)",
+    unicodeChars: "Caractères Unicode",
+    messageStats: "Statistiques du message",
+    totalChars: "Total de caractères",
+    gsmLength: "Longueur GSM",
+    encoding: "Type d'encodage",
+    smsCount: "Nombre de SMS",
+    charsPerSms: "Caractères par SMS",
+    recommendation: "Recommandation",
+    useGsm: "✓ Utilisez l'encodage GSM-7 pour une efficacité maximale des coûts",
+    convertToGsm: "⚠ Convertissez en GSM-7 pour réduire les coûts jusqu'à 56%",
+    whyUnicode: "Pourquoi Unicode ?",
+    whyUnicodeText: "L'encodage Unicode est déclenché lorsque le texte contient des caractères en dehors du jeu GSM 7-bit, tels que:",
+    whyList1: "• Emojis (😊, 👍, ❤️)",
+    whyList2: "• Alphabets non latins (cyrillique, arabe, chinois, etc.)",
+    whyList3: "• Guillemets typographiques (\" \" \' \')",
+    whyList4: "• Tirets cadratin/demi-cadratin (— –)",
+    whyList5: "• Symboles spéciaux (™ © ® ° × ÷)",
+    tips: "Conseils d'optimisation",
+    tip1: "Remplacez les guillemets typographiques par des guillemets standard pour économiser de l'espace",
+    tip2: "Utilisez des traits d'union (-) au lieu de tirets cadratin (—) pour la compatibilité GSM",
+    tip3: "Convertissez les points de suspension (…) en trois points (...)",
+    tip4: "Supprimez les emojis ou remplacez-les par des équivalents textuels",
+  },
+  lv: {
+    title: "Unicode / GSM SMS Pārbaudītājs",
+    subtitle: "Uzreiz pārbaudiet, vai ziņojums izmanto GSM-7 vai Unicode kodējumu",
+    placeholder: "Ierakstiet vai ielīmējiet SMS ziņojumu šeit, lai pārbaudītu kodējumu...",
+    analyzeButton: "Analizēt tekstu",
+    clear: "Notīrīt",
+    result: "Analīzes rezultāts",
+    gsmCompatible: "✓ GSM-7 saderīgs",
+    gsmDesc: "Ziņojums izmanto tikai GSM-7 rakstzīmes. Visekonomiskākā opcija.",
+    unicodeRequired: "⚠ Unicode nepieciešams",
+    unicodeDesc: "Ziņojums satur ne-GSM rakstzīmes un prasa Unicode kodējumu (70 rakstzīmes/SMS pret 160 GSM-7).",
+    nonGsmChars: "Atrasti ne-GSM simboli",
+    position: "Pozīcija",
+    character: "Rakstzīme",
+    unicode: "Unicode",
+    suggestion: "GSM alternatīva",
+    replace: "Aizstāt",
+    replaceAll: "Aizstāt visus ne-GSM",
+    characterBreakdown: "Rakstzīmju sadalījums",
+    basicGsm: "Pamata GSM (1 rakstzīme)",
+    extendedGsm: "Paplašināts GSM (2 rakstzīmes)",
+    unicodeChars: "Unicode rakstzīmes",
+    messageStats: "Ziņojuma statistika",
+    totalChars: "Kopā rakstzīmes",
+    gsmLength: "GSM garums",
+    encoding: "Kodējuma tips",
+    smsCount: "SMS skaits",
+    charsPerSms: "Rakstzīmes uz SMS",
+    recommendation: "Ieteikums",
+    useGsm: "✓ Izmantojiet GSM-7 kodējumu maksimālai izmaksu efektivitātei",
+    convertToGsm: "⚠ Pārveidojiet uz GSM-7, lai samazinātu izmaksas līdz 56%",
+    whyUnicode: "Kāpēc Unicode?",
+    whyUnicodeText: "Unicode kodējums tiek aktivizēts, kad teksts satur rakstzīmes ārpus GSM 7-bit kopas, piemēram:",
+    whyList1: "• Emocijzīmes (😊, 👍, ❤️)",
+    whyList2: "• Ne-latīņu alfabēti (kirilica, arābu, ķīniešu utt.)",
+    whyList3: "• Viedās pēdiņas (\" \" \' \')",
+    whyList4: "• Garas domuzīmes (— –)",
+    whyList5: "• Speciālie simboli (™ © ® ° × ÷)",
+    tips: "Optimizācijas padomi",
+    tip1: "Aizstājiet viedās pēdiņas ar standarta pēdiņām, lai ietaupītu vietu",
+    tip2: "Izmantojiet defises (-) nevis garas domuzīmes (—) GSM saderībai",
+    tip3: "Pārveidojiet daudzpunktus (…) uz trim punktiem (...)",
+    tip4: "Noņemiet emocijzīmes vai aizstājiet ar teksta ekvivalentiem",
+  },
+  lt: {
+    title: "Unicode / GSM SMS Tikrintuvas",
+    subtitle: "Akimirksniu patikrinkite, ar pranešimas naudoja GSM-7 ar Unicode kodavimą",
+    placeholder: "Įveskite arba įklijuokite SMS pranešimą čia, kad patikrintumėte kodavimą...",
+    analyzeButton: "Analizuoti tekstą",
+    clear: "Išvalyti",
+    result: "Analizės rezultatas",
+    gsmCompatible: "✓ GSM-7 suderinamas",
+    gsmDesc: "Pranešimas naudoja tik GSM-7 simbolius. Ekonomiškiausia parinktis.",
+    unicodeRequired: "⚠ Unicode reikalingas",
+    unicodeDesc: "Pranešimas turi ne-GSM simbolių ir reikalauja Unicode kodavimo (70 simbolių/SMS prieš 160 GSM-7).",
+    nonGsmChars: "Rasti ne-GSM simboliai",
+    position: "Pozicija",
+    character: "Simbolis",
+    unicode: "Unicode",
+    suggestion: "GSM alternatyva",
+    replace: "Pakeisti",
+    replaceAll: "Pakeisti visus ne-GSM",
+    characterBreakdown: "Simbolių paskirstymas",
+    basicGsm: "Pagrindinis GSM (1 simbolis)",
+    extendedGsm: "Išplėstinis GSM (2 simboliai)",
+    unicodeChars: "Unicode simboliai",
+    messageStats: "Pranešimo statistika",
+    totalChars: "Iš viso simbolių",
+    gsmLength: "GSM ilgis",
+    encoding: "Kodavimo tipas",
+    smsCount: "SMS kiekis",
+    charsPerSms: "Simbolių per SMS",
+    recommendation: "Rekomendacija",
+    useGsm: "✓ Naudokite GSM-7 kodavimą maksimaliam kaštų efektyvumui",
+    convertToGsm: "⚠ Konvertuokite į GSM-7, kad sumažintumėte kaštus iki 56%",
+    whyUnicode: "Kodėl Unicode?",
+    whyUnicodeText: "Unicode kodavimas aktyvuojamas, kai tekstas turi simbolių už GSM 7-bit rinkinio, tokių kaip:",
+    whyList1: "• Jaustukai (😊, 👍, ❤️)",
+    whyList2: "• Ne lotyniški alfabetai (kirilica, arabų, kinų ir kt.)",
+    whyList3: "• Išmaniosios kabutės (\" \" \' \')",
+    whyList4: "• Ilgos brūkšniai (— –)",
+    whyList5: "• Specialūs simboliai (™ © ® ° × ÷)",
+    tips: "Optimizavimo patarimai",
+    tip1: "Pakeiskite išmaniąsias kabutes standartinėmis kabutėmis, kad sutaupytumėte vietos",
+    tip2: "Naudokite brūkšnelius (-) vietoj ilgų brūkšnių (—) GSM suderinamumui",
+    tip3: "Konvertuokite daugtaškį (…) į tris taškus (...)",
+    tip4: "Pašalinkite jaustukus arba pakeiskite tekstiniais ekvivalentais",
+  },
+};
+
+const t = translations[lang] || translations.en;
+---
+
+<div class="checker-container">
+  <div class="checker-header">
+    <h2 class="checker-title">{t.title}</h2>
+    <p class="checker-subtitle">{t.subtitle}</p>
+  </div>
+
+  <div class="checker-body">
+    <!-- Input Section -->
+    <div class="input-section">
+      <textarea
+        id="inputText"
+        class="checker-input"
+        placeholder={t.placeholder}
+        rows="6"
+      ></textarea>
+      
+      <div class="input-actions">
+        <button id="analyzeBtn" class="btn-analyze">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" fill="currentColor"/>
+            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill="currentColor"/>
+          </svg>
+          {t.analyzeButton}
+        </button>
+        <button id="clearBtn" class="btn-secondary">{t.clear}</button>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="resultsSection" class="results-section" style="display: none;">
+      <!-- Encoding Status -->
+      <div id="statusCard" class="status-card">
+        <div class="status-icon">
+          <svg id="statusIcon" width="48" height="48" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="status-content">
+          <h3 id="statusTitle">{t.gsmCompatible}</h3>
+          <p id="statusDesc">{t.gsmDesc}</p>
+        </div>
+      </div>
+
+      <!-- Non-GSM Characters Table -->
+      <div id="nonGsmSection" class="non-gsm-section" style="display: none;">
+        <div class="section-header">
+          <h3>{t.nonGsmChars}</h3>
+          <button id="replaceAllBtn" class="btn-replace-all">{t.replaceAll}</button>
+        </div>
+        <div class="table-wrapper">
+          <table class="char-table">
+            <thead>
+              <tr>
+                <th>{t.position}</th>
+                <th>{t.character}</th>
+                <th>{t.unicode}</th>
+                <th>{t.suggestion}</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="charTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Character Breakdown -->
+      <div class="breakdown-section">
+        <h3>{t.characterBreakdown}</h3>
+        <div class="breakdown-grid">
+          <div class="breakdown-card basic">
+            <div class="breakdown-icon">●</div>
+            <div class="breakdown-label">{t.basicGsm}</div>
+            <div id="basicCount" class="breakdown-value">0</div>
+          </div>
+          <div class="breakdown-card extended">
+            <div class="breakdown-icon">◐</div>
+            <div class="breakdown-label">{t.extendedGsm}</div>
+            <div id="extendedCount" class="breakdown-value">0</div>
+          </div>
+          <div class="breakdown-card unicode">
+            <div class="breakdown-icon">◯</div>
+            <div class="breakdown-label">{t.unicodeChars}</div>
+            <div id="unicodeCount" class="breakdown-value">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Stats -->
+      <div class="stats-section">
+        <h3>{t.messageStats}</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">{t.totalChars}</span>
+            <span id="totalCharsVal" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{t.gsmLength}</span>
+            <span id="gsmLengthVal" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{t.encoding}</span>
+            <span id="encodingVal" class="stat-value">GSM-7</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{t.smsCount}</span>
+            <span id="smsCountVal" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{t.charsPerSms}</span>
+            <span id="charsPerSmsVal" class="stat-value">160</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendation -->
+      <div id="recommendationBox" class="recommendation-box"></div>
+
+      <!-- Tips -->
+      <div class="tips-section">
+        <h3>{t.tips}</h3>
+        <ul class="tips-list">
+          <li>{t.tip1}</li>
+          <li>{t.tip2}</li>
+          <li>{t.tip3}</li>
+          <li>{t.tip4}</li>
+        </ul>
+        
+        <div class="why-section">
+          <h4>{t.whyUnicode}</h4>
+          <p>{t.whyUnicodeText}</p>
+          <ul class="why-list">
+            <li>{t.whyList1}</li>
+            <li>{t.whyList2}</li>
+            <li>{t.whyList3}</li>
+            <li>{t.whyList4}</li>
+            <li>{t.whyList5}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .checker-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .checker-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .checker-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 0.5rem;
+  }
+
+  .checker-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary, #666);
+  }
+
+  .checker-body {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .checker-input {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    resize: vertical;
+    font-family: 'Courier New', monospace;
+    transition: border-color 0.2s;
+  }
+
+  .checker-input:focus {
+    outline: none;
+    border-color: #26c6da;
+  }
+
+  .input-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .btn-analyze {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-analyze:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 198, 218, 0.3);
+  }
+
+  .btn-secondary {
+    padding: 0.875rem 1.5rem;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background: #e5e7eb;
+  }
+
+  .results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .status-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid;
+  }
+
+  .status-card.gsm {
+    background: #ecfdf5;
+    border-color: #10b981;
+  }
+
+  .status-card.unicode {
+    background: #fef3c7;
+    border-color: #f59e0b;
+  }
+
+  .status-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .status-card.gsm .status-icon {
+    color: #10b981;
+  }
+
+  .status-card.unicode .status-icon {
+    color: #f59e0b;
+  }
+
+  .status-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .status-card.gsm h3 {
+    color: #065f46;
+  }
+
+  .status-card.unicode h3 {
+    color: #92400e;
+  }
+
+  .status-content p {
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  .non-gsm-section {
+    padding: 1.5rem;
+    background: #fef3c7;
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #92400e;
+  }
+
+  .btn-replace-all {
+    padding: 0.5rem 1rem;
+    background: white;
+    color: #d97706;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid #fbbf24;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-replace-all:hover {
+    background: #fffbeb;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .char-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .char-table th {
+    background: #f9fafb;
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .char-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.875rem;
+  }
+
+  .char-display {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .unicode-code {
+    color: #6b7280;
+    font-size: 0.75rem;
+  }
+
+  .suggestion {
+    color: #059669;
+    font-weight: 600;
+  }
+
+  .btn-replace {
+    padding: 0.375rem 0.75rem;
+    background: #10b981;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-replace:hover {
+    background: #059669;
+  }
+
+  .breakdown-section h3,
+  .stats-section h3,
+  .tips-section h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .breakdown-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .breakdown-card.basic {
+    background: #d1fae5;
+    border: 2px solid #10b981;
+  }
+
+  .breakdown-card.extended {
+    background: #dbeafe;
+    border: 2px solid #3b82f6;
+  }
+
+  .breakdown-card.unicode {
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+  }
+
+  .breakdown-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .breakdown-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+
+  .breakdown-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .breakdown-card.basic .breakdown-value {
+    color: #065f46;
+  }
+
+  .breakdown-card.extended .breakdown-value {
+    color: #1e40af;
+  }
+
+  .breakdown-card.unicode .breakdown-value {
+    color: #92400e;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .stat-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  .recommendation-box {
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  .recommendation-box.gsm {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .recommendation-box.unicode {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .tips-section {
+    padding: 1.5rem;
+    background: #f0f9ff;
+    border-radius: 12px;
+  }
+
+  .tips-list,
+  .why-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tips-list li,
+  .why-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: #0369a1;
+    font-size: 0.875rem;
+  }
+
+  .tips-list li::before,
+  .why-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0ea5e9;
+    font-weight: 700;
+  }
+
+  .why-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #bae6fd;
+  }
+
+  .why-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0c4a6e;
+    margin-bottom: 0.75rem;
+  }
+
+  .why-section p {
+    color: #0369a1;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .checker-container {
+      padding: 1rem;
+    }
+
+    .checker-body {
+      padding: 1.5rem;
+    }
+
+    .input-actions {
+      flex-direction: column;
+    }
+
+    .breakdown-grid,
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .status-card {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script define:vars={{ lang, translations }}>
+  const t = translations[lang] || translations.en;
+  
+  // GSM charset
+  const GSM_7BIT_BASIC = '@£$¥èéùìòÇ\nØø\rÅåΔ_ΦΓΛΩΠΨΣΘΞÆæßÉ !"#¤%&\'()*+,-./0123456789:;<=>?¡ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÑÜ§¿abcdefghijklmnopqrstuvwxyzäöñüà';
+  const GSM_7BIT_EXTENDED = '|^€{}[]~\\';
+  
+  const UNICODE_TO_GSM = {
+    "\u201C": '"', "\u201D": '"', "\u2018": "'", "\u2019": "'",
+    '—': '-', '–': '-', '…': '...',
+    '•': '*', '°': 'o', '×': 'x', '÷': '/',
+    '™': '(TM)', '©': '(c)', '®': '(R)'
+  };
+  
+  function analyzeText(text) {
+    let basicCount = 0, extendedCount = 0, unicodeCount = 0;
+    let gsmLength = 0;
+    const nonGsmChars = [];
+    
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      
+      if (GSM_7BIT_BASIC.includes(char)) {
+        basicCount++;
+        gsmLength++;
+      } else if (GSM_7BIT_EXTENDED.includes(char)) {
+        extendedCount++;
+        gsmLength += 2;
+      } else {
+        unicodeCount++;
+        const charCode = char.charCodeAt(0);
+        const unicodeStr = 'U+' + charCode.toString(16).toUpperCase().padStart(4, '0');
+        const suggestion = UNICODE_TO_GSM[char] || '-';
+        nonGsmChars.push({ char, position: i + 1, unicode: unicodeStr, suggestion });
+      }
+    }
+    
+    const isGsm = unicodeCount === 0;
+    const encoding = isGsm ? 'GSM-7' : 'Unicode';
+    const charLimit = isGsm ? (gsmLength <= 160 ? 160 : 153) : (text.length <= 70 ? 70 : 67);
+    const smsCount = text.length === 0 ? 0 : Math.ceil((isGsm ? gsmLength : text.length) / charLimit);
+    
+    return {
+      basicCount, extendedCount, unicodeCount, gsmLength,
+      isGsm, encoding, smsCount, charLimit, nonGsmChars, text
+    };
+  }
+  
+  const inputText = document.getElementById('inputText');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const resultsSection = document.getElementById('resultsSection');
+  const statusCard = document.getElementById('statusCard');
+  const statusIcon = document.getElementById('statusIcon');
+  const statusTitle = document.getElementById('statusTitle');
+  const statusDesc = document.getElementById('statusDesc');
+  const nonGsmSection = document.getElementById('nonGsmSection');
+  const charTableBody = document.getElementById('charTableBody');
+  const replaceAllBtn = document.getElementById('replaceAllBtn');
+  const basicCount = document.getElementById('basicCount');
+  const extendedCount = document.getElementById('extendedCount');
+  const unicodeCount = document.getElementById('unicodeCount');
+  const totalCharsVal = document.getElementById('totalCharsVal');
+  const gsmLengthVal = document.getElementById('gsmLengthVal');
+  const encodingVal = document.getElementById('encodingVal');
+  const smsCountVal = document.getElementById('smsCountVal');
+  const charsPerSmsVal = document.getElementById('charsPerSmsVal');
+  const recommendationBox = document.getElementById('recommendationBox');
+  
+  function displayResults(analysis) {
+    resultsSection.style.display = 'flex';
+    
+    // Status card
+    statusCard.className = `status-card ${analysis.isGsm ? 'gsm' : 'unicode'}`;
+    statusTitle.textContent = analysis.isGsm ? t.gsmCompatible : t.unicodeRequired;
+    statusDesc.textContent = analysis.isGsm ? t.gsmDesc : t.unicodeDesc;
+    
+    if (analysis.isGsm) {
+      statusIcon.innerHTML = '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill="currentColor"/>';
+    } else {
+      statusIcon.innerHTML = '<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" fill="currentColor"/>';
+    }
+    
+    // Non-GSM chars table
+    if (!analysis.isGsm && analysis.nonGsmChars.length > 0) {
+      nonGsmSection.style.display = 'block';
+      charTableBody.innerHTML = analysis.nonGsmChars.map(item => `
+        <tr>
+          <td>${item.position}</td>
+          <td>
+            <div class="char-display">${item.char}</div>
+            <div class="unicode-code">${item.unicode}</div>
+          </td>
+          <td>${item.unicode}</td>
+          <td class="suggestion">${item.suggestion}</td>
+          <td>
+            ${item.suggestion !== '-' ? `
+              <button class="btn-replace" data-char="${item.char}" data-replacement="${item.suggestion}">
+                ${t.replace}
+              </button>
+            ` : ''}
+          </td>
+        </tr>
+      `).join('');
+      
+      document.querySelectorAll('.btn-replace').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const char = btn.dataset.char;
+          const replacement = btn.dataset.replacement;
+          inputText.value = inputText.value.replace(new RegExp(char, 'g'), replacement);
+          analyzeBtn.click();
+          
+          if (typeof umami !== 'undefined') {
+            umami.track('Character Replaced', { from: char, to: replacement });
+          }
+        });
+      });
+    } else {
+      nonGsmSection.style.display = 'none';
+    }
+    
+    // Breakdown
+    basicCount.textContent = analysis.basicCount;
+    extendedCount.textContent = analysis.extendedCount;
+    unicodeCount.textContent = analysis.unicodeCount;
+    
+    // Stats
+    totalCharsVal.textContent = analysis.text.length;
+    gsmLengthVal.textContent = analysis.gsmLength;
+    encodingVal.textContent = analysis.encoding;
+    smsCountVal.textContent = analysis.smsCount;
+    charsPerSmsVal.textContent = analysis.charLimit;
+    
+    // Recommendation
+    recommendationBox.className = `recommendation-box ${analysis.isGsm ? 'gsm' : 'unicode'}`;
+    recommendationBox.textContent = analysis.isGsm ? t.useGsm : t.convertToGsm;
+  }
+  
+  analyzeBtn.addEventListener('click', () => {
+    const text = inputText.value;
+    if (!text) return;
+    
+    const analysis = analyzeText(text);
+    displayResults(analysis);
+    
+    if (typeof umami !== 'undefined') {
+      umami.track('Encoding Checked', {
+        encoding: analysis.encoding,
+        unicodeChars: analysis.unicodeCount,
+        messages: analysis.smsCount
+      });
+    }
+  });
+  
+  clearBtn.addEventListener('click', () => {
+    inputText.value = '';
+    resultsSection.style.display = 'none';
+  });
+  
+  replaceAllBtn.addEventListener('click', () => {
+    let text = inputText.value;
+    for (const [from, to] of Object.entries(UNICODE_TO_GSM)) {
+      text = text.replace(new RegExp(from, 'g'), to);
+    }
+    inputText.value = text;
+    analyzeBtn.click();
+    
+    if (typeof umami !== 'undefined') {
+      umami.track('Replace All Used');
+    }
+  });
+</script>

@@ -1,0 +1,51 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import UnicodeGsmCheckerComponent from '../../../components/tools/UnicodeGsmChecker.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Kostenloser Unicode / GSM SMS Checker | SMSPM';
+const description = "Prüfen Sie sofort die SMS-Codierungskompatibilität. Identifizieren Sie Nicht-GSM-Zeichen und konvertieren Sie zu GSM-7 für Kosteneinsparungen.";
+const keywords = ["gsm sms prüfer","unicode sms prüfer"];
+---
+
+<Layout title={title} description={description}>
+  <head>
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href="https://smspm.com/de/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="es" href="https://smspm.com/es/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="de" href="https://smspm.com/de/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools/unicode-gsm-checker" />
+    <link rel="alternate" hreflang="x-default" href="https://smspm.com/en/tools/unicode-gsm-checker" />
+  </head>
+  <Navigation />
+  <main class="tool-page">
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Unicode / GSM <span class="gradient-text">SMS Prüfer</span></h1>
+        <p class="hero-description">Prüfen Sie sofort die SMS-Codierungskompatibilität. Identifizieren Sie Nicht-GSM-Zeichen und konvertieren Sie zu GSM-7 für Kosteneinsparungen.</p>
+      </div>
+    </section>
+    <section class="tool-section">
+      <div class="container">
+        <UnicodeGsmCheckerComponent lang="de" />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .tool-page { min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .hero-section { padding: 6rem 0 4rem; text-align: center; }
+  .hero-title { font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; }
+  .gradient-text { background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-description { font-size: 1.25rem; color: #666; max-width: 800px; margin: 0 auto; }
+  .tool-section { padding: 2rem 0 4rem; }
+  @media (max-width: 768px) { .hero-title { font-size: 2rem; } }
+</style>
