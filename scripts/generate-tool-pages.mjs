@@ -4,12 +4,23 @@
  * Generates SEO-optimized tool pages in all 8 languages
  */
 
-import { writeFileSync, mkdirSync, existsSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Compute average price once at generation time
+let averagePrice = 0.045;
+try {
+  const pricelist = JSON.parse(readFileSync(join(__dirname, '../pricelist.json'), 'utf-8'));
+  const prices = Object.values(pricelist).map(v => v.p).filter(p => typeof p === 'number');
+  averagePrice = prices.length > 0 ? prices.reduce((a, b) => a + b, 0) / prices.length : 0.045;
+  console.log(`Loaded pricelist: ${prices.length} entries, avg price: ${averagePrice.toFixed(4)}`);
+} catch (e) {
+  console.warn('Could not load pricelist, using default price 0.045');
+}
 
 const LANGUAGES = ['en', 'et', 'ru', 'es', 'de', 'fr', 'lv', 'lt'];
 
@@ -94,31 +105,9 @@ import Layout from '../../../layouts/Layout.astro';
 import Navigation from '../../../components/Navigation.astro';
 import SMSCharacterCounterComponent from '../../../components/tools/SMSCharacterCounter.astro';
 import Footer from '../../../components/Footer.astro';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-
-// Load pricelist for average price calculation
-let averagePrice = 0.045;
-try {
-  const pricelistPath = join(process.cwd(), 'pricelist.json');
-  const pricelist = JSON.parse(readFileSync(pricelistPath, 'utf-8'));
-  
-  let totalPrice = 0;
-  let count = 0;
-  for (const country of pricelist.countries) {
-    if (country.providers && country.providers.length > 0) {
-      for (const provider of country.providers) {
-        totalPrice += provider.price;
-        count++;
-      }
-    }
-  }
-  averagePrice = count > 0 ? totalPrice / count : 0.045;
-} catch (e) {
-  console.warn('Could not load pricelist, using default price');
-}
 
 const lang = '${lang}';
+const averagePrice = ${averagePrice.toFixed(6)};
 const title = '${meta.title}';
 const description = "${meta.description}";
 const keywords = ${JSON.stringify(meta.keywords)};

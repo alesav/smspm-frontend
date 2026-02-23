@@ -9,31 +9,9 @@ import Layout from '../../../layouts/Layout.astro';
 import Navigation from '../../../components/Navigation.astro';
 import SMSCharacterCounterComponent from '../../../components/tools/SMSCharacterCounter.astro';
 import Footer from '../../../components/Footer.astro';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-
-// Load pricelist for average price calculation
-let averagePrice = 0.045;
-try {
-  const pricelistPath = join(process.cwd(), 'pricelist.json');
-  const pricelist = JSON.parse(readFileSync(pricelistPath, 'utf-8'));
-  
-  let totalPrice = 0;
-  let count = 0;
-  for (const country of pricelist.countries) {
-    if (country.providers && country.providers.length > 0) {
-      for (const provider of country.providers) {
-        totalPrice += provider.price;
-        count++;
-      }
-    }
-  }
-  averagePrice = count > 0 ? totalPrice / count : 0.045;
-} catch (e) {
-  console.warn('Could not load pricelist, using default price');
-}
 
 const lang = 'de';
+const averagePrice = 0.155017;
 const title = 'Kostenloser SMS Zeichenzähler & Kostenrechner | SMSPM';
 const description = "Berechnen Sie SMS-Länge, Nachrichtensegmente und Kosten sofort. Kostenloses Tool mit Unterstützung für GSM-7 und Unicode-Codierung. Prüfen Sie, ob Ihre Nachricht in eine SMS oder mehrere Teile passt.";
 const keywords = ["sms zeichenzähler","sms längenrechner","gsm unicode prüfer","sms kostenrechner","nachrichtensegment rechner"];
