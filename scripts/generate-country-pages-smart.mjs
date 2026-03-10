@@ -30,8 +30,8 @@ const TRANSLATIONS = {
     ctaTitle: "Ready to Send SMS to ",
     ctaSubtitle:
       "Join thousands of businesses using SMSPM for reliable message delivery",
-    ctaButton: "Start Free Trial",
-    ctaNote: "No credit card required · 50 free messages · Full API access",
+    ctaButton: "Get Started",
+    ctaNote: "Sign up in seconds · No monthly fees · Full API access",
     viewApi: "View API Docs",
     perMessage: "per message",
     pricingFrom: "Pricing from",
@@ -82,9 +82,8 @@ const TRANSLATIONS = {
     ctaTitle: "Kas oled valmis saatma SMS-e sihtkohta ",
     ctaSubtitle:
       "Liitu tuhandete ettevõtetega, kes kasutavad SMSPM-i usaldusväärseks sõnumivahetuseks",
-    ctaButton: "Alusta tasuta prooviperioodi",
-    ctaNote:
-      "Krediitkaarti pole vaja · 50 tasuta sõnumit · Täielik API juurdepääs",
+    ctaButton: "Alusta",
+    ctaNote: "Registreerumine sekunditega · Kuumakseid pole · Täielik API juurdepääs",
     viewApi: "Vaata API dokumentatsiooni",
     perMessage: "sõnumi kohta",
     pricingFrom: "Hind alates",
@@ -136,9 +135,8 @@ const TRANSLATIONS = {
     ctaTitle: "Готовы отправить SMS в ",
     ctaSubtitle:
       "Присоединяйтесь к тысячам компаний, использующих SMSPM для надежной доставки сообщений",
-    ctaButton: "Начать бесплатный период",
-    ctaNote:
-      "Без кредитной карты · 50 бесплатных сообщений · Полный доступ к API",
+    ctaButton: "Начать",
+    ctaNote: "Регистрация за секунды · Без ежемесячной платы · Полный доступ к API",
     viewApi: "Просмотреть документацию API",
     perMessage: "за сообщение",
     pricingFrom: "Цена от",
@@ -190,9 +188,8 @@ const TRANSLATIONS = {
     ctaTitle: "¿Listo para enviar SMS a ",
     ctaSubtitle:
       "Únase a miles de empresas que utilizan SMSPM para una entrega de mensajes confiable",
-    ctaButton: "Iniciar prueba gratuita",
-    ctaNote:
-      "Sin tarjeta de crédito · 50 mensajes gratuitos · Acceso completo a la API",
+    ctaButton: "Empezar",
+    ctaNote: "Regístrate en segundos · Sin cuotas mensuales · Acceso completo a la API",
     viewApi: "Ver documentos de la API",
     perMessage: "por mensaje",
     pricingFrom: "Precios desde",
@@ -244,9 +241,8 @@ const TRANSLATIONS = {
     ctaTitle: "Bereit, SMS zu senden an ",
     ctaSubtitle:
       "Schließen Sie sich Tausenden von Unternehmen an, die SMSPM für eine zuverlässige Nachrichtenübermittlung nutzen",
-    ctaButton: "Kostenlose Testversion starten",
-    ctaNote:
-      "Keine Kreditkarte erforderlich · 50 kostenlose Nachrichten · Voller API-Zugriff",
+    ctaButton: "Jetzt starten",
+    ctaNote: "In Sekunden anmelden · Keine monatlichen Gebühren · Voller API-Zugriff",
     viewApi: "API-Dokumentation ansehen",
     perMessage: "pro Nachricht",
     pricingFrom: "Preise ab",
@@ -298,9 +294,8 @@ const TRANSLATIONS = {
     ctaTitle: "Prêt à envoyer des SMS vers ",
     ctaSubtitle:
       "Rejoignez des milliers d'entreprises qui utilisent SMSPM pour une livraison de messages fiable",
-    ctaButton: "Commencer l'essai gratuit",
-    ctaNote:
-      "Aucune carte de crédit requise · 50 messages gratuits · Accès complet à l'API",
+    ctaButton: "Commencer",
+    ctaNote: "Inscrivez-vous en quelques secondes · Pas de frais mensuels · Accès complet à l'API",
     viewApi: "Voir la documentation API",
     perMessage: "par message",
     pricingFrom: "Tarifs à partir de",
@@ -351,9 +346,8 @@ const TRANSLATIONS = {
     ctaTitle: "Gatavs sūtīt SMS uz ",
     ctaSubtitle:
       "Pievienojieties tūkstošiem uzņēmumu, kas izmanto SMSPM drošai ziņojumu piegādei",
-    ctaButton: "Sākt bezmaksas izmēģinājumu",
-    ctaNote:
-      "Nav nepieciešama kredītkarte · 50 bezmaksas ziņapmaiņas · Pilna piekļuve API",
+    ctaButton: "Sākt",
+    ctaNote: "Reģistrējieties dažu sekunžu laikā · Nav mēneša maksas · Pilna piekļuve API",
     viewApi: "Skatīt API dokumentāciju",
     perMessage: "par ziņu",
     pricingFrom: "Cena no",
@@ -404,9 +398,8 @@ const TRANSLATIONS = {
     ctaTitle: "Esate pasiruošę siųsti SMS į ",
     ctaSubtitle:
       "Prisijunkite prie tūkstančių įmonių, naudojančių SMSPM patikimam pranešimų pristatymui",
-    ctaButton: "Pradėti nemokamą bandomąjį laikotarpį",
-    ctaNote:
-      "Nereikia kredito kortelės · 50 nemokamų pranešimų · Pilna prieiga prie API",
+    ctaButton: "Pradėti",
+    ctaNote: "Užsiregistruokite per kelias sekundes · Jokių mėnesinių mokesčių · Pilna prieiga prie API",
     viewApi: "Peržiūrėti API dokumentaciją",
     perMessage: "už pranešimą",
     pricingFrom: "Kaina nuo",

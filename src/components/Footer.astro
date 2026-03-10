@@ -10,7 +10,9 @@ const { pathname } = Astro.url;
 // Detect language from prop (for SSR pages) or path, default to 'en'
 const langMatch = pathname.match(/^\/([a-z]{2})(\/|$)/);
 const detectedFromPath = langMatch ? langMatch[1] : null;
-const lang = (propLang || detectedFromPath || "en") as keyof typeof translations;
+const lang = (propLang ||
+    detectedFromPath ||
+    "en") as keyof typeof translations;
 
 // Define localized paths - ALL languages including English get language prefix
 const getLocalizedPath = (path: string) => {
@@ -19,7 +21,8 @@ const getLocalizedPath = (path: string) => {
 
 const translations = {
     en: {
-        description: "Global SMS messaging platform trusted by thousands of businesses worldwide.",
+        description:
+            "Global SMS messaging platform trusted by thousands of businesses worldwide.",
         productTitle: "Product",
         pricing: "Pricing",
         coverage: "Coverage Directory",
@@ -32,10 +35,12 @@ const translations = {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
         security: "Security",
+        tools: "Free Tools",
         copyright: "2025 SMSPM. All rights reserved.",
     },
     et: {
-        description: "Globaalne SMS-sõnumite platvorm, mida usaldavad tuhanded ettevõtted üle maailma.",
+        description:
+            "Globaalne SMS-sõnumite platvorm, mida usaldavad tuhanded ettevõtted üle maailma.",
         productTitle: "Toode",
         pricing: "Hinnad",
         coverage: "Katvuse kataloog",
@@ -48,10 +53,12 @@ const translations = {
         privacy: "Privaatsuspoliitika",
         terms: "Kasutustingimused",
         security: "Turvalisus",
+        tools: "Tasuta tööriistad",
         copyright: "2025 SMSPM. Kõik õigused kaitstud.",
     },
     ru: {
-        description: "Глобальная платформа SMS-сообщений, которой доверяют тысячи компаний по всему миру.",
+        description:
+            "Глобальная платформа SMS-сообщений, которой доверяют тысячи компаний по всему миру.",
         productTitle: "Продукт",
         pricing: "Цены",
         coverage: "Справочник покрытия",
@@ -64,10 +71,12 @@ const translations = {
         privacy: "Политика конфиденциальности",
         terms: "Условия использования",
         security: "Безопасность",
+        tools: "Бесплатные инструменты",
         copyright: "2025 SMSPM. Все права защищены.",
     },
     es: {
-        description: "Plataforma global de mensajería SMS de confianza para miles de empresas en todo el mundo.",
+        description:
+            "Plataforma global de mensajería SMS de confianza para miles de empresas en todo el mundo.",
         productTitle: "Producto",
         pricing: "Precios",
         coverage: "Directorio de Cobertura",
@@ -80,10 +89,12 @@ const translations = {
         privacy: "Política de Privacidad",
         terms: "Términos de Servicio",
         security: "Seguridad",
+        tools: "Herramientas gratuitas",
         copyright: "2025 SMSPM. Todos los derechos reservados.",
     },
     de: {
-        description: "Globale SMS-Messaging-Plattform, der Tausende von Unternehmen weltweit vertrauen.",
+        description:
+            "Globale SMS-Messaging-Plattform, der Tausende von Unternehmen weltweit vertrauen.",
         productTitle: "Produkt",
         pricing: "Preise",
         coverage: "Abdeckungsverzeichnis",
@@ -96,10 +107,12 @@ const translations = {
         privacy: "Datenschutz",
         terms: "Nutzungsbedingungen",
         security: "Sicherheit",
+        tools: "Kostenlose Tools",
         copyright: "2025 SMSPM. Alle Rechte vorbehalten.",
     },
     fr: {
-        description: "Plateforme mondiale de messagerie SMS approuvée par des milliers d'entreprises dans le monde.",
+        description:
+            "Plateforme mondiale de messagerie SMS approuvée par des milliers d'entreprises dans le monde.",
         productTitle: "Produit",
         pricing: "Tarifs",
         coverage: "Répertoire de Couverture",
@@ -112,10 +125,12 @@ const translations = {
         privacy: "Politique de Confidentialité",
         terms: "Conditions d'Utilisation",
         security: "Sécurité",
+        tools: "Outils gratuits",
         copyright: "2025 SMSPM. Tous droits réservés.",
     },
     lv: {
-        description: "Globāla SMS ziņojumapmaiņas platforma, kurai uzticas tūkstošiem uzņēmumu visā pasaulē.",
+        description:
+            "Globāla SMS ziņojumapmaiņas platforma, kurai uzticas tūkstošiem uzņēmumu visā pasaulē.",
         productTitle: "Produkts",
         pricing: "Cenas",
         coverage: "Pārklājuma katalogs",
@@ -128,10 +143,12 @@ const translations = {
         privacy: "Privātuma politika",
         terms: "Lietošanas noteikumi",
         security: "Drošība",
+        tools: "Bezmaksas rīki",
         copyright: "2025 SMSPM. Visas tiesības aizsargātas.",
     },
     lt: {
-        description: "Pasaulinė SMS pranešimų platforma, kuria pasitiki tūkstančiai įmonių visame pasaulyje.",
+        description:
+            "Pasaulinė SMS pranešimų platforma, kuria pasitiki tūkstančiai įmonių visame pasaulyje.",
         productTitle: "Produktas",
         pricing: "Kainos",
         coverage: "Aprėpties katalogas",
@@ -144,6 +161,7 @@ const translations = {
         privacy: "Privatumo politika",
         terms: "Naudojimo sąlygos",
         security: "Saugumas",
+        tools: "Nemokami įrankiai",
         copyright: "2025 SMSPM. Visos teisės saugomos.",
     },
 };
@@ -152,22 +170,23 @@ const t = translations[lang] || translations.en;
 
 // URL mapping for localized pricing pages
 const pricingUrls: Record<string, string> = {
-  'en': 'prices',
-  'et': 'sms-hinnad',
-  'ru': 'sms-ceny',
-  'es': 'precios-sms',
-  'de': 'sms-preise',
-  'fr': 'prix-sms',
-  'lv': 'sms-cenas',
-  'lt': 'sms-kainos'
+    en: "prices",
+    et: "sms-hinnad",
+    ru: "sms-ceny",
+    es: "precios-sms",
+    de: "sms-preise",
+    fr: "prix-sms",
+    lv: "sms-cenas",
+    lt: "sms-kainos",
 };
 
 // Generate localized links
-const pricingLink = `/${lang}/${pricingUrls[lang] || 'prices'}`;
+const pricingLink = `/${lang}/${pricingUrls[lang] || "prices"}`;
 const aboutLink = getLocalizedPath("/about");
 const privacyLink = getLocalizedPath("/privacy");
 const termsLink = getLocalizedPath("/terms");
 const securityLink = getLocalizedPath("/security");
+const toolsLink = getLocalizedPath("/tools");
 const docsLink = "https://app.smspm.com/docs";
 const supportLink = "https://smspm.freshdesk.com/support/tickets/new";
 ---
@@ -245,6 +264,13 @@ const supportLink = "https://smspm.freshdesk.com/support/tickets/new";
                             href={pricingLink}
                             class="hover:text-cyan transition-colors duration-150"
                             >{t.coverage}</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={toolsLink}
+                            class="hover:text-cyan transition-colors duration-150"
+                            >{t.tools}</a
                         >
                     </li>
                     <li>

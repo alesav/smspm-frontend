@@ -1,0 +1,343 @@
+---
+/**
+ * Tools Index Page
+ * Language: ru
+ */
+
+import Layout from "../../../layouts/Layout.astro";
+import Navigation from "../../../components/Navigation.astro";
+import Footer from "../../../components/Footer.astro";
+
+const lang = "ru";
+const title = "Бесплатные SMS инструменты и утилиты | SMSPM";
+const description =
+  "Коллекция бесплатных инструментов для SMS-маркетологов и разработчиков. Счетчики символов, форматировщики телефонов и оптимизаторы.";
+const keywords = [
+  "sms инструменты",
+  "счетчик символов sms",
+  "извлекатель телефонов",
+  "форматировщик телефонов",
+];
+
+const tools = [
+  {
+    name: "Счетчик символов SMS",
+    description: "Рассчитайте длину SMS, части и стоимость.",
+    url: "/ru/tools/sms-character-counter",
+    icon: "📊",
+    color: "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)",
+  },
+  {
+    name: "Форматировщик телефонов",
+    description: "Форматируйте номера по стандарту E.164.",
+    url: "/ru/tools/phone-formatter",
+    icon: "📱",
+    color: "linear-gradient(135deg, #26c6da 0%, #1e88e5 100%)",
+  },
+  {
+    name: "Оптимизатор SMS текста",
+    description: "Конвертируйте Unicode в GSM-7 для экономии.",
+    url: "/ru/tools/sms-text-optimizer",
+    icon: "⚡",
+    color: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+  },
+  {
+    name: "Проверка Unicode / GSM",
+    description: "Проверьте кодировку и совместимость SMS.",
+    url: "/ru/tools/unicode-gsm-checker",
+    icon: "🔍",
+    color: "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)",
+  },
+  {
+    name: "Извлекатель телефонов",
+    description: "Извлекайте номера телефонов из любого текста.",
+    url: "/ru/tools/phone-extractor",
+    icon: "✂️",
+    color: "linear-gradient(135deg, #7c4dff 0%, #26c6da 100%)",
+  },
+  {
+    name: "Конвертер регистра текста",
+    description: "Конвертируйте текст в ВЕРХНИЙ, нижний регистр и т.д.",
+    url: "/ru/tools/text-case-converter",
+    icon: "Aa",
+    color: "linear-gradient(135deg, #7c4dff 0%, #536dfe 100%)",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <head>
+    <meta name="keywords" content={keywords.join(", ")} />
+    <link rel="canonical" href="https://smspm.com/ru/tools" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Бесплатные SMS инструменты и утилиты | SMSPM",
+        description:
+          "Коллекция бесплатных инструментов для SMS-маркетологов и разработчиков. Счетчики символов, форматировщики телефонов и оптимизаторы.",
+        url: "https://smspm.com/ru/tools",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            url: "https://smspm.com/ru/tools/sms-character-counter",
+            name: "Счетчик символов SMS",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            url: "https://smspm.com/ru/tools/phone-formatter",
+            name: "Форматировщик телефонов",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            url: "https://smspm.com/ru/tools/sms-text-optimizer",
+            name: "Оптимизатор SMS текста",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            url: "https://smspm.com/ru/tools/unicode-gsm-checker",
+            name: "Проверка Unicode / GSM",
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            url: "https://smspm.com/ru/tools/phone-extractor",
+            name: "Извлекатель телефонов",
+          },
+          {
+            "@type": "ListItem",
+            position: 6,
+            url: "https://smspm.com/ru/tools/text-case-converter",
+            name: "Конвертер регистра текста",
+          },
+        ],
+      })}
+    />
+
+    <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools" />
+    <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools" />
+    <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools" />
+    <link rel="alternate" hreflang="es" href="https://smspm.com/es/tools" />
+    <link rel="alternate" hreflang="de" href="https://smspm.com/de/tools" />
+    <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools" />
+    <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools" />
+    <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://smspm.com/en/tools"
+    />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://smspm.com/ru/tools" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+
+  <Navigation />
+
+  <main class="tools-index">
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Бесплатные SMS <span class="gradient-text">Инструменты</span>
+        </h1>
+        <p class="hero-description">
+          Мощные и бесплатные инструменты для оптимизации ваших SMS-кампаний и
+          улучшения показателей доставки.
+        </p>
+      </div>
+    </section>
+
+    <section class="tools-grid-section">
+      <div class="container">
+        <div class="tools-grid">
+          {
+            tools.map((tool) => (
+              <a href={tool.url} class="tool-card">
+                <div
+                  class="tool-icon-wrapper"
+                  style={{ background: tool.color }}
+                >
+                  <span class="tool-icon">{tool.icon}</span>
+                </div>
+                <div class="tool-content">
+                  <h3 class="tool-name">{tool.name}</h3>
+                  <p class="tool-desc">{tool.description}</p>
+                </div>
+                <div class="tool-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .tools-index {
+    min-height: 100vh;
+    background-color: #f8fafc;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero-section {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #0f172a;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .tools-grid-section {
+    padding: 4rem 0 8rem;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .tool-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e1;
+  }
+
+  .tool-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    color: white;
+  }
+
+  .tool-icon {
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+
+  .tool-content {
+    flex-grow: 1;
+  }
+
+  .tool-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .tool-card:hover .tool-name {
+    color: #7c4dff;
+  }
+
+  .tool-desc {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+  }
+
+  .tool-arrow {
+    margin-left: 1rem;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .tool-card:hover .tool-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: #7c4dff;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hero-section {
+      padding: 6rem 0 3rem;
+    }
+  }
+</style>
