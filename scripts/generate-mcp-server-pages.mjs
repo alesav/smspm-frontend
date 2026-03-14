@@ -50,10 +50,10 @@ const METADATA = {
     keywords: ['smspm mcp', 'sms senden claude ai', 'mcp server sms', 'claude desktop sms', 'ki sms automatisierung'],
   },
   fr: {
-    title: 'Envoyer des SMS depuis Claude AI avec Serveur MCP | SMSPM',
-    description: "Installez le serveur MCP SMSPM et envoyez des SMS directement depuis Claude Desktop. Guide d'installation étape par étape pour l'automatisation SMS par IA.",
+    title: "Envoyer des SMS depuis Claude AI avec Serveur MCP | SMSPM",
+    description: "Installez le serveur MCP SMSPM et envoyez des SMS depuis Claude Desktop. Guide d'installation étape par étape pour l'automatisation SMS par IA.",
     h1: 'Envoyer des SMS depuis Claude AI avec <span class="gradient-text">Serveur MCP</span>',
-    subtitle: 'Connectez SMSPM à Claude Desktop via le Model Context Protocol. Envoyez des SMS en demandant simplement à Claude — sans code.',
+    subtitle: "Connectez SMSPM à Claude Desktop via le Model Context Protocol. Envoyez des SMS en demandant simplement à Claude — sans code.",
     keywords: ['smspm mcp', 'envoyer sms claude ai', 'serveur mcp sms', 'claude desktop sms', 'automatisation sms ia'],
   },
   lv: {
@@ -87,8 +87,8 @@ import MCPServerComponent from '../../../components/tools/MCPServer.astro';
 import Footer from '../../../components/Footer.astro';
 
 const lang = '${lang}';
-const title = '${meta.title}';
-const description = '${meta.description}';
+const title = ${JSON.stringify(meta.title)};
+const description = ${JSON.stringify(meta.description)};
 const keywords = ${JSON.stringify(meta.keywords)};
 
 const structuredData = {
@@ -134,7 +134,7 @@ ${hreflangLinks}
           ${meta.h1}
         </h1>
         <p class="hero-description">
-          ${meta.subtitle}
+          ${meta.subtitle.replace(/'/g, "\\'")}
         </p>
       </div>
     </section>
