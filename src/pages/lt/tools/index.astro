@@ -4,121 +4,74 @@
  * Language: lt
  */
 
-import Layout from "../../../layouts/Layout.astro";
-import Navigation from "../../../components/Navigation.astro";
-import Footer from "../../../components/Footer.astro";
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
 
-const lang = "lt";
-const title = "Nemokami SMS įrankiai ir pagalbinės programos | SMSPM";
-const description =
-  "Nemokamų įrankių kolekcija SMS rinkodaros specialistams ir kūrėjams. SMS simbolių skaitikliai, telefonų formatavimas ir kt.";
-const keywords = [
-  "sms įrankiai",
-  "sms simbolių skaitiklis",
-  "telefonų ištraukiklis",
-  "telefonų formatavimas",
-];
+const lang = 'lt';
+const title = 'Nemokami SMS įrankiai ir pagalbinės programos | SMSPM';
+const description = "Nemokamų įrankių kolekcija SMS rinkodaros specialistams ir kūrėjams. SMS simbolių skaitikliai, telefonų formatavimas ir kt.";
+const keywords = ["sms įrankiai","sms simbolių skaitiklis","telefonų ištraukiklis","telefonų formatavimas"];
 
 const tools = [
   {
-    name: "SMS simbolių skaitiklis",
-    description: "Apskaičiuokite SMS ilgį, dalis ir kainą.",
-    url: "/lt/tools/sms-character-counter",
-    icon: "📊",
-    color: "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)",
+    "name": "SMS simbolių skaitiklis",
+    "description": "Apskaičiuokite SMS ilgį, dalis ir kainą.",
+    "url": "/lt/tools/sms-character-counter",
+    "icon": "📊",
+    "color": "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)"
   },
   {
-    name: "Telefono formatavimas",
-    description: "Formatuokite numerius pagal E.164 standartą.",
-    url: "/lt/tools/phone-formatter",
-    icon: "📱",
-    color: "linear-gradient(135deg, #26c6da 0%, #1e88e5 100%)",
+    "name": "Telefono formatavimas",
+    "description": "Formatuokite numerius pagal E.164 standartą.",
+    "url": "/lt/tools/phone-formatter",
+    "icon": "📱",
+    "color": "linear-gradient(135deg, #26c6da 0%, #1e88e5 100%)"
   },
   {
-    name: "SMS teksto optimizatorius",
-    description: "Keiskite Unicode į GSM-7 kaštų taupymui.",
-    url: "/lt/tools/sms-text-optimizer",
-    icon: "⚡",
-    color: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+    "name": "SMS teksto optimizatorius",
+    "description": "Keiskite Unicode į GSM-7 kaštų taupymui.",
+    "url": "/lt/tools/sms-text-optimizer",
+    "icon": "⚡",
+    "color": "linear-gradient(135deg, #10b981 0%, #059669 100%)"
   },
   {
-    name: "Unicode / GSM tikrintuvas",
-    description: "Tikrinkite SMS kodavimą ir suderinamumą.",
-    url: "/lt/tools/unicode-gsm-checker",
-    icon: "🔍",
-    color: "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)",
+    "name": "Unicode / GSM tikrintuvas",
+    "description": "Tikrinkite SMS kodavimą ir suderinamumą.",
+    "url": "/lt/tools/unicode-gsm-checker",
+    "icon": "🔍",
+    "color": "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)"
   },
   {
-    name: "Telefonų ištraukiklis",
-    description: "Ištraukite telefonų numerius iš bet kokio teksto.",
-    url: "/lt/tools/phone-extractor",
-    icon: "✂️",
-    color: "linear-gradient(135deg, #7c4dff 0%, #26c6da 100%)",
+    "name": "Telefonų ištraukiklis",
+    "description": "Ištraukite telefonų numerius iš bet kokio teksto.",
+    "url": "/lt/tools/phone-extractor",
+    "icon": "✂️",
+    "color": "linear-gradient(135deg, #7c4dff 0%, #26c6da 100%)"
   },
   {
-    name: "Teksto raidžių dydžio keitiklis",
-    description: "Keiskite tekstą į DIDŽIĄSIAS, mažąsias ir kt.",
-    url: "/lt/tools/text-case-converter",
-    icon: "Aa",
-    color: "linear-gradient(135deg, #7c4dff 0%, #536dfe 100%)",
+    "name": "Teksto raidžių dydžio keitiklis",
+    "description": "Keiskite tekstą į DIDŽIĄSIAS, mažąsias ir kt.",
+    "url": "/lt/tools/text-case-converter",
+    "icon": "Aa",
+    "color": "linear-gradient(135deg, #7c4dff 0%, #536dfe 100%)"
   },
+  {
+    "name": "MCP Serveris Claude AI",
+    "description": "Siųskite SMS tiesiogiai iš Claude Desktop su AI.",
+    "url": "/lt/tools/mcp-server",
+    "icon": "🤖",
+    "color": "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)"
+  }
 ];
 ---
 
 <Layout title={title} description={description}>
   <head>
-    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href="https://smspm.com/lt/tools" />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Nemokami SMS įrankiai ir pagalbinės programos | SMSPM",
-        description:
-          "Nemokamų įrankių kolekcija SMS rinkodaros specialistams ir kūrėjams. SMS simbolių skaitikliai, telefonų formatavimas ir kt.",
-        url: "https://smspm.com/lt/tools",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            url: "https://smspm.com/lt/tools/sms-character-counter",
-            name: "SMS simbolių skaitiklis",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            url: "https://smspm.com/lt/tools/phone-formatter",
-            name: "Telefono formatavimas",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            url: "https://smspm.com/lt/tools/sms-text-optimizer",
-            name: "SMS teksto optimizatorius",
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            url: "https://smspm.com/lt/tools/unicode-gsm-checker",
-            name: "Unicode / GSM tikrintuvas",
-          },
-          {
-            "@type": "ListItem",
-            position: 5,
-            url: "https://smspm.com/lt/tools/phone-extractor",
-            name: "Telefonų ištraukiklis",
-          },
-          {
-            "@type": "ListItem",
-            position: 6,
-            url: "https://smspm.com/lt/tools/text-case-converter",
-            name: "Teksto raidžių dydžio keitiklis",
-          },
-        ],
-      })}
-    />
-
+    <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"Nemokami SMS įrankiai ir pagalbinės programos | SMSPM","description":"Nemokamų įrankių kolekcija SMS rinkodaros specialistams ir kūrėjams. SMS simbolių skaitikliai, telefonų formatavimas ir kt.","url":"https://smspm.com/lt/tools","itemListElement":[{"@type":"ListItem","position":1,"url":"https://smspm.com/lt/tools/sms-character-counter","name":"SMS simbolių skaitiklis"},{"@type":"ListItem","position":2,"url":"https://smspm.com/lt/tools/phone-formatter","name":"Telefono formatavimas"},{"@type":"ListItem","position":3,"url":"https://smspm.com/lt/tools/sms-text-optimizer","name":"SMS teksto optimizatorius"},{"@type":"ListItem","position":4,"url":"https://smspm.com/lt/tools/unicode-gsm-checker","name":"Unicode / GSM tikrintuvas"},{"@type":"ListItem","position":5,"url":"https://smspm.com/lt/tools/phone-extractor","name":"Telefonų ištraukiklis"},{"@type":"ListItem","position":6,"url":"https://smspm.com/lt/tools/text-case-converter","name":"Teksto raidžių dydžio keitiklis"},{"@type":"ListItem","position":7,"url":"https://smspm.com/lt/tools/mcp-server","name":"MCP Serveris Claude AI"}]})} />
+    
     <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools" />
     <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools" />
     <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools" />
@@ -127,24 +80,20 @@ const tools = [
     <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools" />
     <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools" />
     <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://smspm.com/en/tools"
-    />
-
+    <link rel="alternate" hreflang="x-default" href="https://smspm.com/en/tools" />
+    
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://smspm.com/lt/tools" />
     <meta property="og:type" content="website" />
-
+    
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   </head>
 
   <Navigation />
-
+  
   <main class="tools-index">
     <section class="hero-section">
       <div class="container">
@@ -152,8 +101,7 @@ const tools = [
           Nemokami SMS <span class="gradient-text">Įrankiai</span>
         </h1>
         <p class="hero-description">
-          Galingi ir nemokami įrankiai, padėsiantys optimizuoti SMS kampanijas
-          ir pagerinti pristatymo rodiklius.
+          Galingi ir nemokami įrankiai, padėsiantys optimizuoti SMS kampanijas ir pagerinti pristatymo rodiklius.
         </p>
       </div>
     </section>
@@ -161,36 +109,22 @@ const tools = [
     <section class="tools-grid-section">
       <div class="container">
         <div class="tools-grid">
-          {
-            tools.map((tool) => (
-              <a href={tool.url} class="tool-card">
-                <div
-                  class="tool-icon-wrapper"
-                  style={{ background: tool.color }}
-                >
-                  <span class="tool-icon">{tool.icon}</span>
-                </div>
-                <div class="tool-content">
-                  <h3 class="tool-name">{tool.name}</h3>
-                  <p class="tool-desc">{tool.description}</p>
-                </div>
-                <div class="tool-arrow">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </a>
-            ))
-          }
+          {tools.map(tool => (
+            <a href={tool.url} class="tool-card">
+              <div class="tool-icon-wrapper" style={{ background: tool.color }}>
+                <span class="tool-icon">{tool.icon}</span>
+              </div>
+              <div class="tool-content">
+                <h3 class="tool-name">{tool.name}</h3>
+                <p class="tool-desc">{tool.description}</p>
+              </div>
+              <div class="tool-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -327,7 +261,7 @@ const tools = [
     .hero-title {
       font-size: 2.5rem;
     }
-
+    
     .tools-grid {
       grid-template-columns: 1fr;
     }

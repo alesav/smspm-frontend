@@ -1,0 +1,642 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const t = {
+  en: {
+    whatIs: 'What is MCP?',
+    whatIsDesc: 'Model Context Protocol (MCP) is an open standard that lets AI assistants like Claude use external tools and services directly inside your conversations.',
+    step1Title: 'Step 1 — Install Node.js',
+    step1Desc: 'Make sure you have Node.js 18 or newer installed.',
+    step2Title: 'Step 2 — Configure Claude Desktop',
+    step2Desc: 'Open your Claude Desktop config file and add the SMSPM server:',
+    configPath: 'Config file location:',
+    step3Title: 'Step 3 — Add your credentials',
+    step3Desc: 'Replace the placeholder values with your real SMSPM Hash and API Token from your account settings.',
+    step4Title: 'Step 4 — Restart Claude Desktop',
+    step4Desc: 'Quit and reopen Claude Desktop. The SMSPM tool will appear automatically.',
+    howToUse: 'How to use it',
+    howToUseDesc: 'Once installed, just ask Claude in plain language:',
+    example1: 'Send an SMS to +37256789045 saying "Your order has shipped"',
+    example2: 'Text +447911123456 — your appointment is tomorrow at 10am',
+    example3: 'Send a message to +15551234567 with the confirmation code 8821',
+    getCredentials: 'Get your Hash & Token',
+    getCredentialsDesc: 'Log in to your SMSPM account, go to Settings → API to copy your Hash and generate a Token.',
+    loginBtn: 'Go to SMSPM Settings',
+    npmBadge: 'Available on npm',
+    githubBadge: 'Open Source on GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Parameters',
+    paramTo: 'Recipient phone in international format (e.g. 37256789045)',
+    paramText: 'The SMS message text',
+    paramFrom: 'Sender name shown to recipient (default: smspm.com)',
+    required: 'required',
+    optional: 'optional',
+  },
+  et: {
+    whatIs: 'Mis on MCP?',
+    whatIsDesc: 'Model Context Protocol (MCP) on avatud standard, mis võimaldab AI-assistentidel nagu Claude kasutada väliseid tööriistu ja teenuseid otse vestluse käigus.',
+    step1Title: 'Samm 1 — Installi Node.js',
+    step1Desc: 'Veendu, et sul on installitud Node.js versioon 18 või uuem.',
+    step2Title: 'Samm 2 — Seadista Claude Desktop',
+    step2Desc: 'Ava Claude Desktop konfiguratsioonifail ja lisa SMSPM server:',
+    configPath: 'Konfiguratsioonifaili asukoht:',
+    step3Title: 'Samm 3 — Lisa oma andmed',
+    step3Desc: 'Asenda kohatäited oma SMSPM Hashi ja API Tokeniga konto seadistustest.',
+    step4Title: 'Samm 4 — Taaskäivita Claude Desktop',
+    step4Desc: 'Sulge ja ava Claude Desktop uuesti. SMSPM tööriist ilmub automaatselt.',
+    howToUse: 'Kuidas kasutada',
+    howToUseDesc: 'Pärast installimist küsi Claudelt lihtsas keeles:',
+    example1: 'Saada SMS numbrile +37256789045 tekstiga "Teie tellimus on saadetud"',
+    example2: 'Saada sõnum numbrile +447911123456 — teie kohtumine on homme kell 10',
+    example3: 'Saada kinnituskood 8821 numbrile +15551234567',
+    getCredentials: 'Hangi Hash ja Token',
+    getCredentialsDesc: 'Logi sisse oma SMSPM kontole, mine Seaded → API, et kopeerida Hash ja genereerida Token.',
+    loginBtn: 'Mine SMSPM seadetesse',
+    npmBadge: 'Saadaval npm-is',
+    githubBadge: 'Avatud lähtekoodiga GitHubis',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Parameetrid',
+    paramTo: 'Sihtkoha telefoninumber rahvusvahelises formaadis (nt 37256789045)',
+    paramText: 'SMS-i tekst',
+    paramFrom: 'Saatja nimi, mida kuvatakse saajale (vaikimisi: smspm.com)',
+    required: 'kohustuslik',
+    optional: 'valikuline',
+  },
+  ru: {
+    whatIs: 'Что такое MCP?',
+    whatIsDesc: 'Model Context Protocol (MCP) — открытый стандарт, позволяющий AI-ассистентам вроде Claude использовать внешние инструменты и сервисы прямо в ходе разговора.',
+    step1Title: 'Шаг 1 — Установите Node.js',
+    step1Desc: 'Убедитесь, что у вас установлена версия Node.js 18 или новее.',
+    step2Title: 'Шаг 2 — Настройте Claude Desktop',
+    step2Desc: 'Откройте конфигурационный файл Claude Desktop и добавьте сервер SMSPM:',
+    configPath: 'Путь к файлу конфигурации:',
+    step3Title: 'Шаг 3 — Добавьте свои данные',
+    step3Desc: 'Замените заполнители своим SMSPM Hash и API Token из настроек аккаунта.',
+    step4Title: 'Шаг 4 — Перезапустите Claude Desktop',
+    step4Desc: 'Закройте и снова откройте Claude Desktop. Инструмент SMSPM появится автоматически.',
+    howToUse: 'Как использовать',
+    howToUseDesc: 'После установки просто спросите Claude на обычном языке:',
+    example1: 'Отправь SMS на +37256789045 с текстом "Ваш заказ отправлен"',
+    example2: 'Напиши на +447911123456 — ваша встреча завтра в 10 утра',
+    example3: 'Отправь код подтверждения 8821 на +15551234567',
+    getCredentials: 'Получить Hash и Token',
+    getCredentialsDesc: 'Войдите в аккаунт SMSPM, перейдите в Настройки → API, чтобы скопировать Hash и сгенерировать Token.',
+    loginBtn: 'Перейти в настройки SMSPM',
+    npmBadge: 'Доступно на npm',
+    githubBadge: 'Открытый код на GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Параметры',
+    paramTo: 'Номер получателя в международном формате (например 37256789045)',
+    paramText: 'Текст SMS-сообщения',
+    paramFrom: 'Имя отправителя, отображаемое получателю (по умолчанию: smspm.com)',
+    required: 'обязательный',
+    optional: 'необязательный',
+  },
+  es: {
+    whatIs: '¿Qué es MCP?',
+    whatIsDesc: 'Model Context Protocol (MCP) es un estándar abierto que permite a asistentes de IA como Claude usar herramientas y servicios externos directamente en tus conversaciones.',
+    step1Title: 'Paso 1 — Instala Node.js',
+    step1Desc: 'Asegúrate de tener Node.js 18 o más reciente instalado.',
+    step2Title: 'Paso 2 — Configura Claude Desktop',
+    step2Desc: 'Abre el archivo de configuración de Claude Desktop y agrega el servidor SMSPM:',
+    configPath: 'Ubicación del archivo de configuración:',
+    step3Title: 'Paso 3 — Agrega tus credenciales',
+    step3Desc: 'Reemplaza los valores de ejemplo con tu Hash y API Token de SMSPM desde la configuración de tu cuenta.',
+    step4Title: 'Paso 4 — Reinicia Claude Desktop',
+    step4Desc: 'Cierra y vuelve a abrir Claude Desktop. La herramienta SMSPM aparecerá automáticamente.',
+    howToUse: 'Cómo usarlo',
+    howToUseDesc: 'Una vez instalado, simplemente pide a Claude en lenguaje natural:',
+    example1: 'Envía un SMS al +37256789045 diciendo "Tu pedido ha sido enviado"',
+    example2: 'Escribe al +447911123456 — tu cita es mañana a las 10am',
+    example3: 'Envía el código de confirmación 8821 al +15551234567',
+    getCredentials: 'Obtén tu Hash y Token',
+    getCredentialsDesc: 'Inicia sesión en tu cuenta SMSPM, ve a Configuración → API para copiar tu Hash y generar un Token.',
+    loginBtn: 'Ir a Configuración de SMSPM',
+    npmBadge: 'Disponible en npm',
+    githubBadge: 'Código abierto en GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Parámetros',
+    paramTo: 'Teléfono del destinatario en formato internacional (ej. 37256789045)',
+    paramText: 'El texto del mensaje SMS',
+    paramFrom: 'Nombre del remitente mostrado al destinatario (por defecto: smspm.com)',
+    required: 'requerido',
+    optional: 'opcional',
+  },
+  de: {
+    whatIs: 'Was ist MCP?',
+    whatIsDesc: 'Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Assistenten wie Claude ermöglicht, externe Tools und Dienste direkt in Gesprächen zu nutzen.',
+    step1Title: 'Schritt 1 — Node.js installieren',
+    step1Desc: 'Stellen Sie sicher, dass Node.js 18 oder neuer installiert ist.',
+    step2Title: 'Schritt 2 — Claude Desktop konfigurieren',
+    step2Desc: 'Öffnen Sie die Claude Desktop Konfigurationsdatei und fügen Sie den SMSPM-Server hinzu:',
+    configPath: 'Speicherort der Konfigurationsdatei:',
+    step3Title: 'Schritt 3 — Zugangsdaten hinzufügen',
+    step3Desc: 'Ersetzen Sie die Platzhalter durch Ihren echten SMSPM Hash und API Token aus den Kontoeinstellungen.',
+    step4Title: 'Schritt 4 — Claude Desktop neu starten',
+    step4Desc: 'Schließen und öffnen Sie Claude Desktop erneut. Das SMSPM-Tool erscheint automatisch.',
+    howToUse: 'Verwendung',
+    howToUseDesc: 'Nach der Installation bitten Sie Claude einfach in natürlicher Sprache:',
+    example1: 'Sende eine SMS an +37256789045 mit dem Text "Ihre Bestellung wurde versendet"',
+    example2: 'Schreibe an +447911123456 — Ihr Termin ist morgen um 10 Uhr',
+    example3: 'Sende den Bestätigungscode 8821 an +15551234567',
+    getCredentials: 'Hash & Token erhalten',
+    getCredentialsDesc: 'Melden Sie sich bei Ihrem SMSPM-Konto an, gehen Sie zu Einstellungen → API, um Ihren Hash zu kopieren und einen Token zu generieren.',
+    loginBtn: 'Zu SMSPM-Einstellungen',
+    npmBadge: 'Verfügbar auf npm',
+    githubBadge: 'Open Source auf GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Parameter',
+    paramTo: 'Empfängertelefon im internationalen Format (z. B. 37256789045)',
+    paramText: 'Der SMS-Nachrichtentext',
+    paramFrom: 'Absendername für den Empfänger (Standard: smspm.com)',
+    required: 'erforderlich',
+    optional: 'optional',
+  },
+  fr: {
+    whatIs: "Qu'est-ce que MCP ?",
+    whatIsDesc: "Le Model Context Protocol (MCP) est un standard ouvert qui permet aux assistants IA comme Claude d'utiliser des outils et services externes directement dans vos conversations.",
+    step1Title: 'Étape 1 — Installer Node.js',
+    step1Desc: "Assurez-vous d'avoir Node.js 18 ou plus récent installé.",
+    step2Title: 'Étape 2 — Configurer Claude Desktop',
+    step2Desc: 'Ouvrez le fichier de configuration de Claude Desktop et ajoutez le serveur SMSPM :',
+    configPath: 'Emplacement du fichier de configuration :',
+    step3Title: 'Étape 3 — Ajouter vos identifiants',
+    step3Desc: 'Remplacez les valeurs par votre Hash SMSPM et votre API Token depuis les paramètres de votre compte.',
+    step4Title: 'Étape 4 — Redémarrer Claude Desktop',
+    step4Desc: "Fermez et rouvrez Claude Desktop. L'outil SMSPM apparaîtra automatiquement.",
+    howToUse: "Comment l'utiliser",
+    howToUseDesc: 'Une fois installé, demandez simplement à Claude en langage naturel :',
+    example1: 'Envoie un SMS au +37256789045 en disant "Votre commande a été expédiée"',
+    example2: 'Écris au +447911123456 — votre rendez-vous est demain à 10h',
+    example3: 'Envoie le code de confirmation 8821 au +15551234567',
+    getCredentials: 'Obtenir votre Hash et Token',
+    getCredentialsDesc: "Connectez-vous à votre compte SMSPM, allez dans Paramètres → API pour copier votre Hash et générer un Token.",
+    loginBtn: 'Aller aux paramètres SMSPM',
+    npmBadge: 'Disponible sur npm',
+    githubBadge: 'Open Source sur GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Paramètres',
+    paramTo: 'Téléphone du destinataire en format international (ex. 37256789045)',
+    paramText: 'Le texte du message SMS',
+    paramFrom: "Nom de l'expéditeur affiché au destinataire (défaut : smspm.com)",
+    required: 'requis',
+    optional: 'optionnel',
+  },
+  lv: {
+    whatIs: 'Kas ir MCP?',
+    whatIsDesc: 'Model Context Protocol (MCP) ir atvērts standarts, kas ļauj AI asistentiem kā Claude izmantot ārējos rīkus un pakalpojumus tieši sarunās.',
+    step1Title: '1. solis — Instalējiet Node.js',
+    step1Desc: 'Pārliecinieties, ka ir instalēts Node.js 18 vai jaunāks.',
+    step2Title: '2. solis — Konfigurējiet Claude Desktop',
+    step2Desc: 'Atveriet Claude Desktop konfigurācijas failu un pievienojiet SMSPM serveri:',
+    configPath: 'Konfigurācijas faila atrašanās vieta:',
+    step3Title: '3. solis — Pievienojiet savus datus',
+    step3Desc: 'Aizstājiet viettura vērtības ar savu SMSPM Hash un API Token no konta iestatījumiem.',
+    step4Title: '4. solis — Restartējiet Claude Desktop',
+    step4Desc: 'Aizveriet un atkārtoti atveriet Claude Desktop. SMSPM rīks parādīsies automātiski.',
+    howToUse: 'Kā izmantot',
+    howToUseDesc: 'Pēc instalēšanas vienkārši pajautājiet Claude dabiskā valodā:',
+    example1: 'Nosūti SMS uz +37256789045 ar tekstu "Jūsu pasūtījums nosūtīts"',
+    example2: 'Raksti uz +447911123456 — jūsu tikšanās ir rīt pulksten 10',
+    example3: 'Nosūti apstiprinājuma kodu 8821 uz +15551234567',
+    getCredentials: 'Iegūt Hash un Token',
+    getCredentialsDesc: 'Piesakieties savā SMSPM kontā, dodieties uz Iestatījumi → API, lai kopētu Hash un ģenerētu Token.',
+    loginBtn: 'Doties uz SMSPM iestatījumiem',
+    npmBadge: 'Pieejams npm',
+    githubBadge: 'Atvērtais kods GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Parametri',
+    paramTo: 'Saņēmēja tālrunis starptautiskā formātā (piem. 37256789045)',
+    paramText: 'SMS ziņojuma teksts',
+    paramFrom: 'Sūtītāja vārds, kas tiek parādīts saņēmējam (noklusējums: smspm.com)',
+    required: 'obligāts',
+    optional: 'neobligāts',
+  },
+  lt: {
+    whatIs: 'Kas yra MCP?',
+    whatIsDesc: 'Model Context Protocol (MCP) yra atviras standartas, leidžiantis AI asistentams kaip Claude naudoti išorinius įrankius ir paslaugas tiesiogiai pokalbiuose.',
+    step1Title: '1 žingsnis — Įdiekite Node.js',
+    step1Desc: 'Įsitikinkite, kad įdiegta Node.js 18 ar naujesnė versija.',
+    step2Title: '2 žingsnis — Sukonfigūruokite Claude Desktop',
+    step2Desc: 'Atidarykite Claude Desktop konfigūracijos failą ir pridėkite SMSPM serverį:',
+    configPath: 'Konfigūracijos failo vieta:',
+    step3Title: '3 žingsnis — Pridėkite savo duomenis',
+    step3Desc: 'Pakeiskite vietos užpildiklius savo SMSPM Hash ir API Token iš paskyros nustatymų.',
+    step4Title: '4 žingsnis — Paleiskite Claude Desktop iš naujo',
+    step4Desc: 'Uždarykite ir vėl atidarykite Claude Desktop. SMSPM įrankis pasirodys automatiškai.',
+    howToUse: 'Kaip naudoti',
+    howToUseDesc: 'Įdiegę tiesiog paprašykite Claude natūralia kalba:',
+    example1: 'Siųsk SMS į +37256789045 su tekstu "Jūsų užsakymas išsiųstas"',
+    example2: 'Rašyk į +447911123456 — jūsų susitikimas rytoj 10 val.',
+    example3: 'Siųsk patvirtinimo kodą 8821 į +15551234567',
+    getCredentials: 'Gauti Hash ir Token',
+    getCredentialsDesc: 'Prisijunkite prie savo SMSPM paskyros, eikite į Nustatymai → API, kad nukopijuotumėte Hash ir sugeneruotumėte Token.',
+    loginBtn: 'Eiti į SMSPM nustatymus',
+    npmBadge: 'Pasiekiama npm',
+    githubBadge: 'Atvirasis kodas GitHub',
+    macPath: 'macOS',
+    winPath: 'Windows',
+    params: 'Parametrai',
+    paramTo: 'Gavėjo telefonas tarptautiniu formatu (pvz. 37256789045)',
+    paramText: 'SMS žinutės tekstas',
+    paramFrom: 'Siuntėjo vardas rodomas gavėjui (numatytasis: smspm.com)',
+    required: 'privalomas',
+    optional: 'neprivalomas',
+  },
+}[lang] ?? {};
+
+const configJson = `{
+  "mcpServers": {
+    "smspm": {
+      "command": "npx",
+      "args": ["smspm-mcp"],
+      "env": {
+        "SMSPM_HASH": "your-hash-here",
+        "SMSPM_TOKEN": "your-token-here"
+      }
+    }
+  }
+}`;
+---
+
+<div class="mcp-tool">
+
+  <!-- What is MCP -->
+  <div class="info-card what-is">
+    <div class="info-icon">🤖</div>
+    <div>
+      <h2 class="info-title">{t.whatIs}</h2>
+      <p class="info-desc">{t.whatIsDesc}</p>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div class="badges">
+    <a href="https://www.npmjs.com/package/smspm-mcp" target="_blank" rel="noopener" class="badge badge-npm">
+      <span class="badge-icon">📦</span> {t.npmBadge}
+    </a>
+    <a href="https://github.com/alesav/smspm-mcp" target="_blank" rel="noopener" class="badge badge-github">
+      <span class="badge-icon">⭐</span> {t.githubBadge}
+    </a>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps">
+
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3 class="step-title">{t.step1Title}</h3>
+        <p class="step-desc">{t.step1Desc}</p>
+        <a href="https://nodejs.org" target="_blank" rel="noopener" class="step-link">nodejs.org →</a>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3 class="step-title">{t.step2Title}</h3>
+        <p class="step-desc">{t.step2Desc}</p>
+        <div class="config-paths">
+          <div class="config-path">
+            <span class="platform-label">{t.macPath}</span>
+            <code class="path-code">~/Library/Application Support/Claude/claude_desktop_config.json</code>
+          </div>
+          <div class="config-path">
+            <span class="platform-label">{t.winPath}</span>
+            <code class="path-code">%APPDATA%\Claude\claude_desktop_config.json</code>
+          </div>
+        </div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">json</span>
+            <button class="copy-btn" data-code={configJson}>Copy</button>
+          </div>
+          <pre class="code-pre"><code>{configJson}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3 class="step-title">{t.step3Title}</h3>
+        <p class="step-desc">{t.step3Desc}</p>
+        <div class="credential-hint">
+          <p>{t.getCredentialsDesc}</p>
+          <a href="https://app.smspm.com" target="_blank" rel="noopener" class="cta-btn">{t.loginBtn}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h3 class="step-title">{t.step4Title}</h3>
+        <p class="step-desc">{t.step4Desc}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- How to use -->
+  <div class="how-to-use">
+    <h2 class="section-title">{t.howToUse}</h2>
+    <p class="section-desc">{t.howToUseDesc}</p>
+    <div class="examples">
+      <div class="example-item">
+        <span class="example-icon">💬</span>
+        <span class="example-text">"{t.example1}"</span>
+      </div>
+      <div class="example-item">
+        <span class="example-icon">💬</span>
+        <span class="example-text">"{t.example2}"</span>
+      </div>
+      <div class="example-item">
+        <span class="example-icon">💬</span>
+        <span class="example-text">"{t.example3}"</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parameters table -->
+  <div class="params-section">
+    <h2 class="section-title">{t.params}</h2>
+    <table class="params-table">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th></th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>toNumber</code></td>
+          <td><span class="badge-required">{t.required}</span></td>
+          <td>{t.paramTo}</td>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td><span class="badge-required">{t.required}</span></td>
+          <td>{t.paramText}</td>
+        </tr>
+        <tr>
+          <td><code>fromNumber</code></td>
+          <td><span class="badge-optional">{t.optional}</span></td>
+          <td>{t.paramFrom}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.getAttribute('data-code') || '';
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      });
+    });
+  });
+</script>
+
+<style>
+  .mcp-tool {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* Info card */
+  .info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, #f0fdff 0%, #f5f0ff 100%);
+    border: 1px solid #c4f0f8;
+    border-radius: 1rem;
+  }
+  .info-icon { font-size: 2rem; flex-shrink: 0; }
+  .info-title { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; }
+  .info-desc { color: #475569; line-height: 1.6; margin: 0; }
+
+  /* Badges */
+  .badges { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .badge:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+  .badge-npm { background: #cb3837; color: white; }
+  .badge-github { background: #24292e; color: white; }
+  .badge-icon { font-size: 1rem; }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 1.5rem; }
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    transition: box-shadow 0.2s;
+  }
+  .step:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .step-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%);
+    color: white;
+    font-weight: 800;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-content { flex: 1; }
+  .step-title { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; }
+  .step-desc { color: #64748b; line-height: 1.6; margin-bottom: 1rem; }
+  .step-link { color: #7c4dff; font-weight: 600; text-decoration: none; }
+  .step-link:hover { text-decoration: underline; }
+
+  /* Config paths */
+  .config-paths { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+  .config-path { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .platform-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    background: #f1f5f9;
+    border-radius: 4px;
+    color: #475569;
+    white-space: nowrap;
+  }
+  .path-code { font-size: 0.8rem; color: #7c4dff; background: #f8f7ff; padding: 0.2rem 0.5rem; border-radius: 4px; }
+
+  /* Code block */
+  .code-block {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+  }
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: #1e293b;
+  }
+  .code-lang { font-size: 0.75rem; color: #94a3b8; font-family: monospace; }
+  .copy-btn {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { background: #334155; color: white; border-color: #64748b; }
+  .code-pre {
+    margin: 0;
+    padding: 1.25rem;
+    background: #0f172a;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+  }
+
+  /* Credential hint */
+  .credential-hint {
+    padding: 1rem 1.25rem;
+    background: #f8f9ff;
+    border: 1px solid #e0e7ff;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .credential-hint p { margin: 0; color: #475569; font-size: 0.95rem; }
+  .cta-btn {
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+
+  /* How to use */
+  .how-to-use, .params-section {
+    padding: 2rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+  }
+  .section-title { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem; }
+  .section-desc { color: #64748b; margin-bottom: 1.5rem; line-height: 1.6; }
+  .examples { display: flex; flex-direction: column; gap: 0.75rem; }
+  .example-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    background: #f8f9ff;
+    border-radius: 0.6rem;
+    border-left: 3px solid #7c4dff;
+  }
+  .example-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .example-text { color: #334155; font-style: italic; line-height: 1.5; }
+
+  /* Params table */
+  .params-table { width: 100%; border-collapse: collapse; }
+  .params-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .params-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 0.95rem;
+  }
+  .params-table tr:last-child td { border-bottom: none; }
+  .params-table code {
+    font-family: monospace;
+    background: #f1f5f9;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: #7c4dff;
+    font-size: 0.9rem;
+  }
+  .badge-required {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: #fef3c7;
+    color: #92400e;
+    white-space: nowrap;
+  }
+  .badge-optional {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: #f1f5f9;
+    color: #64748b;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .step { flex-direction: column; gap: 1rem; }
+    .credential-hint { flex-direction: column; align-items: flex-start; }
+    .badges { flex-direction: column; }
+  }
+</style>

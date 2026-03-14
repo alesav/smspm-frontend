@@ -1,0 +1,89 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import MCPServerComponent from '../../../components/tools/MCPServer.astro';
+import Footer from '../../../components/Footer.astro';
+
+const lang = 'en';
+const title = 'Send SMS from Claude AI with MCP Server | SMSPM';
+const description = 'Install the SMSPM MCP server and send SMS messages directly from Claude Desktop. Step-by-step setup guide for AI-powered SMS automation.';
+const keywords = ["smspm mcp","send sms claude ai","mcp server sms","claude desktop sms","ai sms automation","model context protocol sms"];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": title,
+  "description": description,
+  "url": "https://smspm.com/en/tools/mcp-server",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Install Node.js", "text": "Install Node.js 18 or newer" },
+    { "@type": "HowToStep", "position": 2, "name": "Configure Claude Desktop", "text": "Add SMSPM to claude_desktop_config.json" },
+    { "@type": "HowToStep", "position": 3, "name": "Add credentials", "text": "Set your SMSPM_HASH and SMSPM_TOKEN" },
+    { "@type": "HowToStep", "position": 4, "name": "Restart Claude Desktop", "text": "Restart to activate the MCP server" }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <head>
+    <meta name="keywords" content={keywords.join(', ')} />
+    <link rel="canonical" href="https://smspm.com/en/tools/mcp-server" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools/mcp-server" />
+    <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools/mcp-server" />
+    <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools/mcp-server" />
+    <link rel="alternate" hreflang="es" href="https://smspm.com/es/tools/mcp-server" />
+    <link rel="alternate" hreflang="de" href="https://smspm.com/de/tools/mcp-server" />
+    <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools/mcp-server" />
+    <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools/mcp-server" />
+    <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools/mcp-server" />
+    <link rel="alternate" hreflang="x-default" href="https://smspm.com/en/tools/mcp-server" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://smspm.com/en/tools/mcp-server" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+
+  <Navigation />
+
+  <main class="tool-page">
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Send SMS from Claude AI with <span class="gradient-text">MCP Server</span>
+        </h1>
+        <p class="hero-description">
+          Connect SMSPM to Claude Desktop using the Model Context Protocol. Send SMS messages by simply asking Claude — no code required.
+        </p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+        <MCPServerComponent lang={lang} />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .tool-page { min-height: 100vh; background: #f8fafc; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .hero-section { padding: 6rem 0 4rem; text-align: center; background: white; border-bottom: 1px solid #e2e8f0; }
+  .hero-title { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; color: #0f172a; }
+  .gradient-text { background: linear-gradient(135deg, #26c6da 0%, #7c4dff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-description { font-size: 1.25rem; color: #64748b; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+  .tool-section { padding: 3rem 0 5rem; }
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .hero-description { font-size: 1rem; }
+  }
+</style>

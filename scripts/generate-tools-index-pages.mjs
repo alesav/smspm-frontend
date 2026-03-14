@@ -109,6 +109,22 @@ const TOOLS = [
             lv: { name: 'Teksta reģistra pārveidotājs', desc: 'Pārveidojiet tekstu LIELAJOS BURTOS utt.' },
             lt: { name: 'Teksto raidžių dydžio keitiklis', desc: 'Keiskite tekstą į DIDŽIĄSIAS, mažąsias ir kt.' }
         }
+    },
+    {
+        id: 'mcp-server',
+        path: 'mcp-server',
+        icon: '🤖',
+        color: 'linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)',
+        translations: {
+            en: { name: 'MCP Server for Claude AI', desc: 'Send SMS directly from Claude Desktop via AI.' },
+            et: { name: 'MCP Server Claude AI jaoks', desc: 'Saada SMS otse Claude Desktopist AI kaudu.' },
+            ru: { name: 'MCP Сервер для Claude AI', desc: 'Отправляйте SMS прямо из Claude Desktop через AI.' },
+            es: { name: 'Servidor MCP para Claude AI', desc: 'Envía SMS directamente desde Claude Desktop con IA.' },
+            de: { name: 'MCP-Server für Claude AI', desc: 'SMS direkt aus Claude Desktop per KI senden.' },
+            fr: { name: 'Serveur MCP pour Claude AI', desc: 'Envoyez des SMS depuis Claude Desktop via IA.' },
+            lv: { name: 'MCP Serveris Claude AI', desc: 'Sūtiet SMS tieši no Claude Desktop ar AI.' },
+            lt: { name: 'MCP Serveris Claude AI', desc: 'Siųskite SMS tiesiogiai iš Claude Desktop su AI.' }
+        }
     }
 ];
 

@@ -4,121 +4,74 @@
  * Language: es
  */
 
-import Layout from "../../../layouts/Layout.astro";
-import Navigation from "../../../components/Navigation.astro";
-import Footer from "../../../components/Footer.astro";
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
 
-const lang = "es";
-const title = "Herramientas y utilidades SMS gratuitas | SMSPM";
-const description =
-  "Colección de herramientas gratuitas para desarrolladores y profesionales de marketing SMS. Contadores de caracteres, formateadores y más.";
-const keywords = [
-  "herramientas sms",
-  "contador caracteres sms",
-  "extractor telefonos",
-  "formateador telefonos",
-];
+const lang = 'es';
+const title = 'Herramientas y utilidades SMS gratuitas | SMSPM';
+const description = "Colección de herramientas gratuitas para desarrolladores y profesionales de marketing SMS. Contadores de caracteres, formateadores y más.";
+const keywords = ["herramientas sms","contador caracteres sms","extractor telefonos","formateador telefonos"];
 
 const tools = [
   {
-    name: "Contador de caracteres SMS",
-    description: "Calcula la longitud del SMS, las partes y el costo.",
-    url: "/es/tools/sms-character-counter",
-    icon: "📊",
-    color: "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)",
+    "name": "Contador de caracteres SMS",
+    "description": "Calcula la longitud del SMS, las partes y el costo.",
+    "url": "/es/tools/sms-character-counter",
+    "icon": "📊",
+    "color": "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)"
   },
   {
-    name: "Formateador de teléfono",
-    description: "Formatea números al estándar E.164.",
-    url: "/es/tools/phone-formatter",
-    icon: "📱",
-    color: "linear-gradient(135deg, #26c6da 0%, #1e88e5 100%)",
+    "name": "Formateador de teléfono",
+    "description": "Formatea números al estándar E.164.",
+    "url": "/es/tools/phone-formatter",
+    "icon": "📱",
+    "color": "linear-gradient(135deg, #26c6da 0%, #1e88e5 100%)"
   },
   {
-    name: "Optimizador de texto SMS",
-    description: "Convierte Unicode a GSM-7 para ahorrar costos.",
-    url: "/es/tools/sms-text-optimizer",
-    icon: "⚡",
-    color: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+    "name": "Optimizador de texto SMS",
+    "description": "Convierte Unicode a GSM-7 para ahorrar costos.",
+    "url": "/es/tools/sms-text-optimizer",
+    "icon": "⚡",
+    "color": "linear-gradient(135deg, #10b981 0%, #059669 100%)"
   },
   {
-    name: "Verificador Unicode / GSM",
-    description: "Verifica la codificación y compatibilidad.",
-    url: "/es/tools/unicode-gsm-checker",
-    icon: "🔍",
-    color: "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)",
+    "name": "Verificador Unicode / GSM",
+    "description": "Verifica la codificación y compatibilidad.",
+    "url": "/es/tools/unicode-gsm-checker",
+    "icon": "🔍",
+    "color": "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)"
   },
   {
-    name: "Extractor de teléfonos",
-    description: "Extrae números de teléfono de cualquier texto.",
-    url: "/es/tools/phone-extractor",
-    icon: "✂️",
-    color: "linear-gradient(135deg, #7c4dff 0%, #26c6da 100%)",
+    "name": "Extractor de teléfonos",
+    "description": "Extrae números de teléfono de cualquier texto.",
+    "url": "/es/tools/phone-extractor",
+    "icon": "✂️",
+    "color": "linear-gradient(135deg, #7c4dff 0%, #26c6da 100%)"
   },
   {
-    name: "Convertidorde mayúsculas",
-    description: "Convierte texto a MAYÚSCULAS, minúsculas, etc.",
-    url: "/es/tools/text-case-converter",
-    icon: "Aa",
-    color: "linear-gradient(135deg, #7c4dff 0%, #536dfe 100%)",
+    "name": "Convertidorde mayúsculas",
+    "description": "Convierte texto a MAYÚSCULAS, minúsculas, etc.",
+    "url": "/es/tools/text-case-converter",
+    "icon": "Aa",
+    "color": "linear-gradient(135deg, #7c4dff 0%, #536dfe 100%)"
   },
+  {
+    "name": "Servidor MCP para Claude AI",
+    "description": "Envía SMS directamente desde Claude Desktop con IA.",
+    "url": "/es/tools/mcp-server",
+    "icon": "🤖",
+    "color": "linear-gradient(135deg, #26c6da 0%, #7c4dff 100%)"
+  }
 ];
 ---
 
 <Layout title={title} description={description}>
   <head>
-    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="keywords" content={keywords.join(', ')} />
     <link rel="canonical" href="https://smspm.com/es/tools" />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Herramientas y utilidades SMS gratuitas | SMSPM",
-        description:
-          "Colección de herramientas gratuitas para desarrolladores y profesionales de marketing SMS. Contadores de caracteres, formateadores y más.",
-        url: "https://smspm.com/es/tools",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            url: "https://smspm.com/es/tools/sms-character-counter",
-            name: "Contador de caracteres SMS",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            url: "https://smspm.com/es/tools/phone-formatter",
-            name: "Formateador de teléfono",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            url: "https://smspm.com/es/tools/sms-text-optimizer",
-            name: "Optimizador de texto SMS",
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            url: "https://smspm.com/es/tools/unicode-gsm-checker",
-            name: "Verificador Unicode / GSM",
-          },
-          {
-            "@type": "ListItem",
-            position: 5,
-            url: "https://smspm.com/es/tools/phone-extractor",
-            name: "Extractor de teléfonos",
-          },
-          {
-            "@type": "ListItem",
-            position: 6,
-            url: "https://smspm.com/es/tools/text-case-converter",
-            name: "Convertidorde mayúsculas",
-          },
-        ],
-      })}
-    />
-
+    <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"Herramientas y utilidades SMS gratuitas | SMSPM","description":"Colección de herramientas gratuitas para desarrolladores y profesionales de marketing SMS. Contadores de caracteres, formateadores y más.","url":"https://smspm.com/es/tools","itemListElement":[{"@type":"ListItem","position":1,"url":"https://smspm.com/es/tools/sms-character-counter","name":"Contador de caracteres SMS"},{"@type":"ListItem","position":2,"url":"https://smspm.com/es/tools/phone-formatter","name":"Formateador de teléfono"},{"@type":"ListItem","position":3,"url":"https://smspm.com/es/tools/sms-text-optimizer","name":"Optimizador de texto SMS"},{"@type":"ListItem","position":4,"url":"https://smspm.com/es/tools/unicode-gsm-checker","name":"Verificador Unicode / GSM"},{"@type":"ListItem","position":5,"url":"https://smspm.com/es/tools/phone-extractor","name":"Extractor de teléfonos"},{"@type":"ListItem","position":6,"url":"https://smspm.com/es/tools/text-case-converter","name":"Convertidorde mayúsculas"},{"@type":"ListItem","position":7,"url":"https://smspm.com/es/tools/mcp-server","name":"Servidor MCP para Claude AI"}]})} />
+    
     <link rel="alternate" hreflang="en" href="https://smspm.com/en/tools" />
     <link rel="alternate" hreflang="et" href="https://smspm.com/et/tools" />
     <link rel="alternate" hreflang="ru" href="https://smspm.com/ru/tools" />
@@ -127,24 +80,20 @@ const tools = [
     <link rel="alternate" hreflang="fr" href="https://smspm.com/fr/tools" />
     <link rel="alternate" hreflang="lv" href="https://smspm.com/lv/tools" />
     <link rel="alternate" hreflang="lt" href="https://smspm.com/lt/tools" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://smspm.com/en/tools"
-    />
-
+    <link rel="alternate" hreflang="x-default" href="https://smspm.com/en/tools" />
+    
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://smspm.com/es/tools" />
     <meta property="og:type" content="website" />
-
+    
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   </head>
 
   <Navigation />
-
+  
   <main class="tools-index">
     <section class="hero-section">
       <div class="container">
@@ -152,8 +101,7 @@ const tools = [
           Herramientas SMS <span class="gradient-text">Gratuitas</span>
         </h1>
         <p class="hero-description">
-          Herramientas potentes y gratuitas para ayudarte a optimizar tus
-          campañas de SMS y mejorar las tasas de entrega.
+          Herramientas potentes y gratuitas para ayudarte a optimizar tus campañas de SMS y mejorar las tasas de entrega.
         </p>
       </div>
     </section>
@@ -161,36 +109,22 @@ const tools = [
     <section class="tools-grid-section">
       <div class="container">
         <div class="tools-grid">
-          {
-            tools.map((tool) => (
-              <a href={tool.url} class="tool-card">
-                <div
-                  class="tool-icon-wrapper"
-                  style={{ background: tool.color }}
-                >
-                  <span class="tool-icon">{tool.icon}</span>
-                </div>
-                <div class="tool-content">
-                  <h3 class="tool-name">{tool.name}</h3>
-                  <p class="tool-desc">{tool.description}</p>
-                </div>
-                <div class="tool-arrow">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </a>
-            ))
-          }
+          {tools.map(tool => (
+            <a href={tool.url} class="tool-card">
+              <div class="tool-icon-wrapper" style={{ background: tool.color }}>
+                <span class="tool-icon">{tool.icon}</span>
+              </div>
+              <div class="tool-content">
+                <h3 class="tool-name">{tool.name}</h3>
+                <p class="tool-desc">{tool.description}</p>
+              </div>
+              <div class="tool-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -327,7 +261,7 @@ const tools = [
     .hero-title {
       font-size: 2.5rem;
     }
-
+    
     .tools-grid {
       grid-template-columns: 1fr;
     }
