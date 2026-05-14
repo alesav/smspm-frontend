@@ -132,6 +132,7 @@ const getLanguageUrl = (targetLang: string) => {
 
 const logoLink = `/${lang}`;
 const pricingLink = `/${lang}/${pricingUrls[lang] || "prices"}`;
+const blogLink = `/en/blog`;
 const docsLink = "https://app.smspm.com/docs";
 const supportLink = "https://relio.work/helpdesk/smspmcom";
 const loginLink = `https://app.smspm.com/${lang}/app/login`;
@@ -140,6 +141,7 @@ const registerLink = `https://app.smspm.com/${lang}/app/register`;
 const translations = {
   en: {
     pricing: "Pricing",
+    blog: "Blog",
     docs: "API Docs",
     support: "Support",
     login: "Login",
@@ -147,6 +149,7 @@ const translations = {
   },
   et: {
     pricing: "Hinnad",
+    blog: "Blogi",
     docs: "API-dokumendid",
     support: "Kasutajatugi",
     login: "Logi sisse",
@@ -154,6 +157,7 @@ const translations = {
   },
   ru: {
     pricing: "Цены",
+    blog: "Блог",
     docs: "API Документация",
     support: "Поддержка",
     login: "Вход",
@@ -161,6 +165,7 @@ const translations = {
   },
   es: {
     pricing: "Precios",
+    blog: "Blog",
     docs: "Docs API",
     support: "Soporte",
     login: "Iniciar sesión",
@@ -168,6 +173,7 @@ const translations = {
   },
   de: {
     pricing: "Preise",
+    blog: "Blog",
     docs: "API-Dokumente",
     support: "Support",
     login: "Anmelden",
@@ -175,6 +181,7 @@ const translations = {
   },
   fr: {
     pricing: "Tarifs",
+    blog: "Blog",
     docs: "Docs API",
     support: "Support",
     login: "Connexion",
@@ -182,6 +189,7 @@ const translations = {
   },
   lv: {
     pricing: "Cenas",
+    blog: "Blogs",
     docs: "API dokumenti",
     support: "Atbalsts",
     login: "Pieteikties",
@@ -189,6 +197,7 @@ const translations = {
   },
   lt: {
     pricing: "Kainos",
+    blog: "Tinklaraštis",
     docs: "API dokumentai",
     support: "Pagalba",
     login: "Prisijungti",
@@ -223,6 +232,15 @@ const t = translations[lang] || translations.en;
           class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-sm xl:text-[15px] relative group"
         >
           {t.pricing}
+          <span
+            class="absolute bottom-[-4px] left-0 right-0 h-0.5 bg-gradient-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+          ></span>
+        </a>
+        <a
+          href={blogLink}
+          class="text-dynamic-secondary hover:text-cyan transition-colors duration-150 font-medium text-sm xl:text-[15px] relative group"
+        >
+          {t.blog}
           <span
             class="absolute bottom-[-4px] left-0 right-0 h-0.5 bg-gradient-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
           ></span>
@@ -415,6 +433,12 @@ const t = translations[lang] || translations.en;
             class="mobile-menu-link text-dynamic-primary hover:text-cyan transition-colors duration-150 font-medium text-lg py-3 border-b border-dynamic-secondary"
           >
             {t.pricing}
+          </a>
+          <a
+            href={blogLink}
+            class="mobile-menu-link text-dynamic-primary hover:text-cyan transition-colors duration-150 font-medium text-lg py-3 border-b border-dynamic-secondary"
+          >
+            {t.blog}
           </a>
           <a
             href={docsLink}
