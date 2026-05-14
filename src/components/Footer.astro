@@ -183,6 +183,7 @@ const pricingUrls: Record<string, string> = {
 // Generate localized links
 const pricingLink = `/${lang}/${pricingUrls[lang] || "prices"}`;
 const aboutLink = getLocalizedPath("/about");
+const blogLink = `/en/blog`;
 const privacyLink = getLocalizedPath("/privacy");
 const termsLink = getLocalizedPath("/terms");
 const securityLink = getLocalizedPath("/security");
@@ -299,7 +300,7 @@ const supportLink = "https://relio.work/helpdesk/smspmcom";
                     </li>
                     <li>
                         <a
-                            href="#blog"
+                            href={blogLink}
                             class="hover:text-cyan transition-colors duration-150"
                             >{t.blog}</a
                         >

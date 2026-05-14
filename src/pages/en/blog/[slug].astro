@@ -1,24 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Navigation from '../../../components/Navigation.astro';
 import Footer from '../../../components/Footer.astro';
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection('blog', ({ id, data }) => {
-    return id.startsWith('en/') && !data.draft;
-  });
+const { slug } = Astro.params;
+const lang = 'en';
 
-  return allPosts.map((post) => ({
-    params: { slug: post.id.replace(/^en\//, '').replace(/\.md$/, '') },
-    props: { post },
-  }));
+// Find post by slug across en/ collection entries
+const allPosts = await getCollection('blog', ({ id, data }) => {
+  return id.startsWith('en/') && !data.draft;
+});
+
+const post = allPosts.find(
+  (p) => p.id.replace(/^en\//, '').replace(/\.md$/, '') === slug
+);
+
+if (!post) {
+  return Astro.redirect('/en/blog');
 }
 
-const { post } = Astro.props;
 const { Content } = await post.render();
-
-const lang = 'en';
 
 const formatDate = (date: Date) =>
   date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
