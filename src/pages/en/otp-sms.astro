@@ -1,0 +1,452 @@
+---
+/**
+ * OTP SMS landing page
+ * Target keywords: otp sms (5,000/mo, Low comp), otp sms api (500/mo, Medium comp)
+ */
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+const title = "OTP SMS API — Send One-Time Passwords via SMS | SMSPM";
+const description = "Send OTP verification codes via SMS to 190+ countries. SMSPM's REST API delivers one-time passwords in under 3 seconds. Pay per SMS, no monthly fees.";
+const canonical = "https://smspm.com/en/otp-sms";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SMSPM OTP SMS API",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "DeveloperApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "provider": { "@type": "Organization", "name": "SMSPM", "url": "https://smspm.com" }
+};
+
+const faqs = [
+  {
+    q: "How fast are OTP SMS messages delivered?",
+    a: "SMSPM routes OTP messages through direct carrier connections. Average delivery time is under 3 seconds for online handsets in major markets. Response time from the API is under 200ms."
+  },
+  {
+    q: "Can SMSPM send OTP to international numbers?",
+    a: "Yes — SMSPM covers 190+ countries with direct carrier routes. You send to a single API endpoint; SMSPM handles routing to the local carrier automatically."
+  },
+  {
+    q: "What sender ID should I use for OTP messages?",
+    a: "For best results, use a short alphanumeric sender like your app or company name (e.g. 'MyApp'). Some countries require a numeric sender ID — check the coverage page for country-specific rules."
+  },
+  {
+    q: "How many characters should an OTP SMS be?",
+    a: "Keep your OTP message under 160 characters (GSM-7) to send as a single SMS part. A typical 'Your code is 847392. Valid 10 min.' message is well within one part."
+  },
+  {
+    q: "Do I need to store OTP codes server-side?",
+    a: "Yes — always. Never send the code back to the client or store it in browser storage. Keep it server-side (Redis or database) with a short TTL (5–10 minutes) and delete it after a successful verification."
+  }
+];
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <head>
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    })} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+  </head>
+
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+
+    <!-- Hero -->
+    <section class="py-16 lg:py-24 relative overflow-hidden">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">
+            OTP SMS API
+          </span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            Send OTP Codes via SMS<br/><span class="gradient-text">in Under 3 Seconds</span>
+          </h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+            Deliver one-time passwords to users in 190+ countries. Simple REST API, direct carrier routes, under 200ms API response time. No SDK required.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Get API Access Free
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://app.smspm.com/docs" class="btn btn-secondary">API Documentation</a>
+          </div>
+          <!-- Mini live demo -->
+          <div class="max-w-sm mx-auto feature-card rounded-2xl border border-dynamic-primary p-4 text-left">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan to-blue-500 flex items-center justify-center text-white text-xs font-bold">M</div>
+              <div>
+                <div class="text-xs font-semibold text-dynamic-primary">MyApp</div>
+                <div class="text-xs text-dynamic-tertiary">Just now</div>
+              </div>
+              <div class="ml-auto text-xs text-green-500 font-medium">✓ Delivered</div>
+            </div>
+            <p class="text-sm text-dynamic-primary">Your MyApp verification code is: <strong>847392</strong>. Valid for 10 minutes. Do not share this code.</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <!-- How OTP Works - Visual Flow -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            How OTP SMS Works
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Five simple steps from login attempt to verification.
+          </p>
+          <div class="space-y-6">
+            <div class="flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-cyan/20 border-2 border-cyan flex items-center justify-center flex-shrink-0 font-bold text-cyan">1</div>
+              <div>
+                <h3 class="font-bold text-dynamic-primary text-lg mb-2">User Initiates Login or Action</h3>
+                <p class="text-dynamic-secondary">User enters their phone number and attempts to log in or confirm a sensitive action (payment, password change, etc.).</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-cyan/20 border-2 border-cyan flex items-center justify-center flex-shrink-0 font-bold text-cyan">2</div>
+              <div>
+                <h3 class="font-bold text-dynamic-primary text-lg mb-2">Server Generates Secure Code</h3>
+                <p class="text-dynamic-secondary">Your backend generates a random 6-8 digit code using cryptographically secure randomness and stores it server-side (Redis or database) with a 5–10 minute expiry.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-cyan/20 border-2 border-cyan flex items-center justify-center flex-shrink-0 font-bold text-cyan">3</div>
+              <div>
+                <h3 class="font-bold text-dynamic-primary text-lg mb-2">SMSPM Delivers SMS</h3>
+                <p class="text-dynamic-secondary">Your app calls SMSPM's API with the phone number and code. SMSPM routes the message through direct carrier connections and delivers it in under 3 seconds.</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-cyan/20 border-2 border-cyan flex items-center justify-center flex-shrink-0 font-bold text-cyan">4</div>
+              <div>
+                <h3 class="font-bold text-dynamic-primary text-lg mb-2">User Receives & Enters Code</h3>
+                <p class="text-dynamic-secondary">Message arrives on user's phone instantly. User reads it and enters the 6-digit code into your app (typically in an input field that auto-focuses).</p>
+              </div>
+            </div>
+            <div class="flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-cyan/20 border-2 border-cyan flex items-center justify-center flex-shrink-0 font-bold text-cyan">5</div>
+              <div>
+                <h3 class="font-bold text-dynamic-primary text-lg mb-2">Server Validates & Grants Access</h3>
+                <p class="text-dynamic-secondary">Your backend compares the user-submitted code with the stored code. If they match and not expired, delete the code and grant access. If failed, reject and allow retry (with rate limiting).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phone Number Validation -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-6">
+              Validate Phone Numbers Before Sending OTP
+            </h2>
+            <p class="text-dynamic-secondary mb-6 leading-relaxed">
+              Before you send an OTP SMS, make sure the phone number is valid and formatted correctly. Invalid numbers waste credits, annoy users, and generate failed delivery reports.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-dynamic-secondary"><strong>Validate format:</strong> Accept E.164 format (+37256789045) to ensure international compatibility</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-dynamic-secondary"><strong>Reject obviously bad numbers:</strong> Filter out numbers with too few digits, non-numeric characters, or blocked country codes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-dynamic-secondary"><strong>Rate limit per phone:</strong> Allow only 3–5 OTP requests per phone number per hour to prevent abuse</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-cyan flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 20 20"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-dynamic-secondary"><strong>Strip common formatting:</strong> Convert +1 (234) 567-8901 → +12345678901 before sending</span>
+              </li>
+            </ul>
+            <a href="/en/tools/phone-formatter" class="btn btn-secondary">Use Our Phone Formatter Tool →</a>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8 bg-dynamic-secondary/5">
+            <div class="text-sm text-dynamic-secondary mb-4 font-mono">
+              <div class="mb-3"><span class="text-red-400">❌</span> <strong>Invalid formats:</strong></div>
+              <div class="text-xs mb-4 space-y-1">
+                <div>1234567890 (no country code)</div>
+                <div>+1-234-567-8901 (dashes and special chars)</div>
+                <div>+1 234 567 8901 (spaces)</div>
+                <div>0234567890 (leading zero, not E.164)</div>
+              </div>
+            </div>
+            <div class="text-sm text-dynamic-secondary font-mono">
+              <div class="mb-3"><span class="text-green-500">✅</span> <strong>Valid format (E.164):</strong></div>
+              <div class="text-xs mb-4 space-y-1">
+                <div>+12345678901</div>
+                <div>+37256789045</div>
+                <div>+86-10-1234-5678 → +861012345678</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code snippet -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 class="text-2xl lg:text-3xl font-extrabold text-dynamic-primary mb-4">Send OTP in 10 Lines of Code</h2>
+            <p class="text-dynamic-secondary mb-6 leading-relaxed">SMSPM's API works with any language. Below is a complete OTP send with a cryptographically secure code. Swap the credentials and go.</p>
+            <ul class="space-y-2 mb-6">
+              {["No SDK or library required", "Works from any backend (Node, Python, PHP, Go...)", "Delivery confirmation via webhook", "190+ countries, one endpoint"].map(i => (
+                <li class="flex items-center gap-2 text-sm text-dynamic-secondary">
+                  <svg class="w-4 h-4 text-cyan flex-shrink-0" fill="none" viewBox="0 0 16 16"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {i}
+                </li>
+              ))}
+            </ul>
+            <a href="/en/blog/otp-sms-guide" class="text-cyan text-sm hover:underline">Full OTP implementation guide →</a>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="ml-2 text-xs text-dynamic-tertiary">JavaScript — send-otp.js</span>
+            </div>
+            <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`import { randomInt } from 'crypto';
+
+// 1. Generate a secure 6-digit OTP
+const code = String(randomInt(100000, 999999));
+
+// 2. Store it server-side with expiry
+await redis.set(\`otp:\${phone}\`, code, { EX: 600 });
+
+// 3. Send via SMSPM
+const params = new URLSearchParams({
+  hash:       process.env.SMSPM_HASH,
+  token:      process.env.SMSPM_TOKEN,
+  toNumber:   phone,         // +37256789045
+  fromNumber: 'MyApp',
+  text:       \`Your code: \${code}. Valid 10 min.\`
+});
+
+const { status } = await fetch(
+  \`https://api.smspm.com?\${params}\`
+).then(r => r.json());
+
+// status === 'success' means API accepted
+// Use DLR webhook to confirm delivery`}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features grid -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto text-center mb-14">
+          <h2 class="text-3xl font-extrabold text-dynamic-primary mb-4">Everything You Need for Production OTP</h2>
+          <p class="text-dynamic-secondary">Beyond just sending — a complete delivery infrastructure.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            { icon: "⚡", title: "Sub-200ms API Response", desc: "The API accepts your send request and returns a message ID in under 200ms. Delivery to handset is typically under 3 seconds." },
+            { icon: "🌍", title: "190+ Countries", desc: "Direct carrier routes to 190+ countries. One API call handles routing — no need to manage per-country providers." },
+            { icon: "📊", title: "Delivery Reports", desc: "Receive webhook callbacks when messages are delivered, failed, or expire. Know exactly which OTPs reached the handset." },
+            { icon: "🔒", title: "No Shared Queues", desc: "Your OTP traffic is not mixed with low-priority bulk SMS queues. Transactional messages get priority routing." },
+            { icon: "💰", title: "Pay Per SMS", desc: "No monthly fee, no minimum. Credits never expire. Most EU OTP sends cost under €0.05 per message." },
+            { icon: "📖", title: "Full Docs & Examples", desc: "Code examples in JavaScript, Python, PHP, cURL. Integration guide with rate limiting, retry logic, and Redis patterns." }
+          ].map(f => (
+            <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+              <div class="text-3xl mb-3">{f.icon}</div>
+              <h3 class="font-bold text-dynamic-primary mb-2">{f.title}</h3>
+              <p class="text-dynamic-secondary text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Considerations -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            SMS OTP Security: Vulnerabilities & Best Practices
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            SMS OTP is convenient but not bulletproof. Here's what you need to know.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="feature-card rounded-3xl border-2 border-orange-500/30 bg-orange-500/5 p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-4">⚠️ Known Vulnerabilities</h3>
+              <ul class="space-y-3 text-dynamic-secondary text-sm">
+                <li><strong>SIM Swapping:</strong> Attackers convince telecom to port your phone to their SIM, intercepting SMS codes. Targets: high-value accounts, celebrities.</li>
+                <li><strong>Interception on Roaming:</strong> International roaming can route SMS through unfamiliar networks; risk of man-in-the-middle (though rare).</li>
+                <li><strong>Phishing:</strong> Users can be tricked into entering OTP codes on fake login pages that record them.</li>
+                <li><strong>Network-Based Attacks:</strong> 2G networks (GSM) are vulnerable to IMSI catchers in some regions. Modern 4G/5G is more secure.</li>
+                <li><strong>Slow Delivery:</strong> Network congestion can delay SMS; codes expire while in transit, forcing re-sends.</li>
+              </ul>
+            </div>
+            <div class="feature-card rounded-3xl border-2 border-green-500/30 bg-green-500/5 p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-4">✅ Best Practices to Mitigate Risk</h3>
+              <ul class="space-y-3 text-dynamic-secondary text-sm">
+                <li><strong>Always use SMS + secondary method:</strong> Email confirmation, security questions, or authenticator app as a fallback.</li>
+                <li><strong>Rate-limit OTP requests:</strong> Block users requesting >5 codes per hour to slow down brute force attacks.</li>
+                <li><strong>Short expiry (5–10 min):</strong> Code must expire quickly; don't store codes in client-side storage.</li>
+                <li><strong>One-time use:</strong> Delete code immediately after successful verification; don't reuse.</li>
+                <li><strong>Log login attempts:</strong> Track and alert users of suspicious login locations or devices.</li>
+                <li><strong>Consider TOTP for high-risk accounts:</strong> Offer authenticator apps (Google Authenticator, Authy) as an alternative to SMS.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-6 bg-blue-500/5 border border-blue-500/30 rounded-xl">
+            <p class="text-dynamic-secondary text-sm"><strong>Bottom line:</strong> SMS OTP is still secure for most use cases (banking, e-commerce, SaaS). It's convenient and user-friendly. But for ultra-high-security scenarios (crypto wallets, admin accounts), recommend TOTP or hardware keys as primary 2FA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTP vs TOTP vs Push -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            OTP SMS vs TOTP vs Push Authentication
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Choose the right 2FA method for your users.
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="border-b-2 border-dynamic-primary">
+                  <th class="text-left py-3 px-4 font-bold text-dynamic-primary">Method</th>
+                  <th class="text-center py-3 px-4 font-bold text-dynamic-primary">SMS OTP</th>
+                  <th class="text-center py-3 px-4 font-bold text-dynamic-primary">TOTP<br/>(Google Auth, Authy)</th>
+                  <th class="text-center py-3 px-4 font-bold text-dynamic-primary">Push Notifications</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Requires Internet</td>
+                  <td class="py-4 px-4 text-center">❌</td>
+                  <td class="py-4 px-4 text-center">❌</td>
+                  <td class="py-4 px-4 text-center">✅</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">User Experience</td>
+                  <td class="py-4 px-4 text-center">Simple, familiar</td>
+                  <td class="py-4 px-4 text-center">Medium (separate app)</td>
+                  <td class="py-4 px-4 text-center">One-tap confirm</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Recovery if Lost</td>
+                  <td class="py-4 px-4 text-center">Backup SMS code</td>
+                  <td class="py-4 px-4 text-center">Backup codes only</td>
+                  <td class="py-4 px-4 text-center">Backup codes only</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Security Level</td>
+                  <td class="py-4 px-4 text-center">Medium (SIM swap risk)</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">High (device-based)</td>
+                  <td class="py-4 px-4 text-center">High (real-time approval)</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Cost</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">€0.02–0.10 per OTP</td>
+                  <td class="py-4 px-4 text-center">Free (user's device)</td>
+                  <td class="py-4 px-4 text-center">Low (in-app push)</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Best For</td>
+                  <td class="py-4 px-4 text-center">First login, password reset</td>
+                  <td class="py-4 px-4 text-center">High-security accounts</td>
+                  <td class="py-4 px-4 text-center">Frictionless 2FA</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Adoption Rate</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">90%+ (everyone has SMS)</td>
+                  <td class="py-4 px-4 text-center">40-60% (requires setup)</td>
+                  <td class="py-4 px-4 text-center">30-50% (requires app)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-8 p-6 bg-dynamic-secondary rounded-xl border border-dynamic-primary">
+            <p class="text-dynamic-secondary text-sm"><strong>Recommendation:</strong> Use SMS OTP as the default to maximize adoption. Offer TOTP as an optional upgrade for users who want extra security. For critical financial actions (transfers, password changes), require SMS + TOTP.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-10 text-center">Frequently Asked Questions</h2>
+          <div class="space-y-4">
+            {faqs.map(faq => (
+              <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                <h3 class="font-bold text-dynamic-primary mb-2">{faq.q}</h3>
+                <p class="text-dynamic-secondary text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-12">
+          <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Ready to Send OTP SMS?</h2>
+          <p class="text-dynamic-secondary mb-8">Create a free account, get test credits, and have your first OTP sending in under 15 minutes.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">Get Started Free</a>
+            <a href="/en/2fa-sms" class="btn btn-secondary">See 2FA SMS Guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(38,198,218,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>

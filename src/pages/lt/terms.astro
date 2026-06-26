@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'lt';
+const alternateUrls = getAlternateUrls('terms');
 ---
 
-<Layout title="Paslaugų teikimo sąlygos - SMSPM" description="Perskaitykite SMSPM paslaugų teikimo sąlygas, kad suprastumėte savo teises ir pareigas naudojantis mūsų SMS šliuzo platforma.">
+<Layout title="Paslaugų teikimo sąlygos - SMSPM" description="Perskaitykite SMSPM paslaugų teikimo sąlygas, kad suprastumėte savo teises ir pareigas naudojantis mūsų SMS šliuzo platforma." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

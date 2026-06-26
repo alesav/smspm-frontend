@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'es';
+const alternateUrls = getAlternateUrls('privacy');
 ---
 
-<Layout title="Política de Privacidad - SMSPM" description="Descubra cómo SMSPM protege su privacidad y maneja sus datos personales en cumplimiento con GDPR.">
+<Layout title="Política de Privacidad - SMSPM" description="Descubra cómo SMSPM protege su privacidad y maneja sus datos personales en cumplimiento con GDPR." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

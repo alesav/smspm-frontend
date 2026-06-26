@@ -1,0 +1,468 @@
+---
+/**
+ * SMS Gateway API landing page
+ * Target keyword: sms gateway api (5,000/mo, Medium competition — Tier 2)
+ */
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+const title = "SMS Gateway API — Send SMS Programmatically | SMSPM";
+const description = "SMSPM's SMS gateway API routes messages to 190+ countries via direct carrier connections. Simple REST API, under 200ms response, 99.9% uptime SLA. No SDK required.";
+const canonical = "https://smspm.com/en/sms-gateway-api";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SMSPM SMS Gateway API",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "DeveloperApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "provider": { "@type": "Organization", "name": "SMSPM", "url": "https://smspm.com" }
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Send an SMS Using SMSPM Gateway API",
+  "description": "Step-by-step guide to sending SMS messages programmatically using SMSPM's REST API",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Get API Credentials",
+      "text": "Sign up for a free SMSPM account at smspm.com/register. Copy your API hash and token from the dashboard."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Prepare Phone Number",
+      "text": "Ensure the recipient phone number is in E.164 format (e.g., +37256789045). Use SMSPM's Phone Formatter tool to convert any format."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Compose Message",
+      "text": "Write your SMS message (max 160 characters for GSM-7, 70 for Unicode). Use our SMS Character Counter tool to check length."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Call the API",
+      "text": "Make a GET or POST request to https://api.smspm.com with your credentials, recipient number, sender ID, and message text."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Handle Response",
+      "text": "The API returns status (success/error), messageId, and cost. Store the messageId for tracking. Set up a webhook to receive delivery reports."
+    }
+  ]
+};
+
+const languageTabs = [
+  {
+    lang: "JavaScript",
+    code: `const params = new URLSearchParams({
+  hash:       process.env.SMSPM_HASH,
+  token:      process.env.SMSPM_TOKEN,
+  toNumber:   '+37256789045', // E.164
+  fromNumber: 'MyApp',        // Sender ID
+  text:       'Hello from SMSPM Gateway!'
+});
+const res = await fetch(\`https://api.smspm.com?\${params}\`);
+const { status, messageId } = await res.json();`
+  },
+  {
+    lang: "Python",
+    code: `import os, requests
+
+result = requests.get('https://api.smspm.com', params={
+    'hash':       os.environ['SMSPM_HASH'],
+    'token':      os.environ['SMSPM_TOKEN'],
+    'toNumber':   '+37256789045',
+    'fromNumber': 'MyApp',
+    'text':       'Hello from SMSPM Gateway!',
+}, timeout=10).json()
+
+print(result['status'], result['messageId'])`
+  },
+  {
+    lang: "PHP",
+    code: `$params = http_build_query([
+    'hash'       => getenv('SMSPM_HASH'),
+    'token'      => getenv('SMSPM_TOKEN'),
+    'toNumber'   => '+37256789045',
+    'fromNumber' => 'MyApp',
+    'text'       => 'Hello from SMSPM Gateway!',
+]);
+$ch = curl_init('https://api.smspm.com?' . $params);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = json_decode(curl_exec($ch), true);
+echo $result['status'];`
+  },
+  {
+    lang: "cURL",
+    code: `curl "https://api.smspm.com?\\
+  hash=YOUR_HASH&\\
+  token=YOUR_TOKEN&\\
+  toNumber=%2B37256789045&\\
+  fromNumber=MyApp&\\
+  text=Hello+from+SMSPM+Gateway"`
+  }
+];
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <head>
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+  </head>
+
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+
+    <!-- Hero -->
+    <section class="py-16 lg:py-24 relative overflow-hidden">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">
+            SMS Gateway API
+          </span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            SMS Gateway API with<br/><span class="gradient-text">Direct Carrier Routing</span>
+          </h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+            SMSPM routes your messages through direct connections to mobile carriers in 190+ countries. One REST API endpoint. Under 200ms API response. 99.9% uptime SLA.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Get API Credentials
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://app.smspm.com/docs" class="btn btn-secondary">Full API Reference</a>
+          </div>
+          <!-- SLA badges -->
+          <div class="flex flex-wrap gap-4 justify-center">
+            {["99.9% Uptime SLA", "< 200ms API Response", "190+ Countries", "Direct Carrier Routes", "No SDK Required"].map(b => (
+              <span class="inline-flex px-4 py-1.5 bg-dynamic-primary border border-dynamic-primary rounded-full text-xs font-medium text-dynamic-secondary">
+                ✓ {b}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <!-- How gateway works -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-4">How an SMS Gateway API Works</h2>
+          <p class="text-dynamic-secondary leading-relaxed mb-6">
+            An SMS gateway is a service that accepts message requests from your application and delivers them to mobile carrier networks worldwide. Instead of integrating with hundreds of individual carrier APIs (which is not practical), you integrate once with the gateway and it handles routing.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+            {[
+              { step: "1", title: "Your App Sends", desc: "Your backend calls https://api.smspm.com with the message, recipient number, and credentials." },
+              { step: "2", title: "SMSPM Routes", desc: "SMSPM selects the optimal route to the recipient's carrier based on country, cost, and reliability." },
+              { step: "3", title: "Carrier Delivers", desc: "The local mobile carrier delivers the SMS to the recipient's handset." },
+              { step: "4", title: "DLR Callback", desc: "SMSPM sends a delivery report (delivered/failed) to your webhook URL." },
+            ].map(s => (
+              <div class="feature-card rounded-2xl border border-dynamic-primary p-5 text-center">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-cyan to-blue-500 flex items-center justify-center text-white font-bold text-sm mx-auto mb-3">{s.step}</div>
+                <h3 class="font-bold text-dynamic-primary text-sm mb-2">{s.title}</h3>
+                <p class="text-dynamic-secondary text-xs leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code examples -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-3">API Examples in Every Language</h2>
+          <p class="text-dynamic-secondary mb-8">The SMSPM API is a simple GET or POST to one endpoint. No SDK required — works from any language that can make HTTP requests.</p>
+          <div class="space-y-6">
+            {languageTabs.map(tab => (
+              <div class="feature-card rounded-2xl border border-dynamic-primary overflow-hidden">
+                <div class="flex items-center gap-2 px-5 py-3 border-b border-dynamic-primary bg-dynamic-secondary/20">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                  <span class="ml-2 text-xs font-semibold text-dynamic-secondary">{tab.lang}</span>
+                </div>
+                <div class="p-5">
+                  <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{tab.code}</code></pre>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="text-sm text-dynamic-secondary mt-4">All examples assume credentials are in environment variables. Replace <code class="text-cyan bg-cyan/10 px-1 rounded">YOUR_HASH</code> and <code class="text-cyan bg-cyan/10 px-1 rounded">YOUR_TOKEN</code> from your <a href="https://app.smspm.com/docs" class="text-cyan hover:underline">API dashboard</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- API reference quick overview -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-8">API Quick Reference</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-dynamic-primary">
+                  <th class="text-left py-3 px-4 text-dynamic-primary font-bold">Parameter</th>
+                  <th class="text-left py-3 px-4 text-dynamic-primary font-bold">Required</th>
+                  <th class="text-left py-3 px-4 text-dynamic-primary font-bold">Description</th>
+                </tr>
+              </thead>
+              <tbody class="text-dynamic-secondary">
+                {[
+                  ["hash", "Yes", "Your account hash (from API dashboard)"],
+                  ["token", "Yes", "Your account token (from API dashboard)"],
+                  ["toNumber", "Yes", "Recipient phone in E.164 format (+37256789045)"],
+                  ["fromNumber", "Yes", "Sender ID — alphanumeric (MyApp) or numeric"],
+                  ["text", "Yes", "Message body — UTF-8 encoded, max 160 chars per GSM-7 part"],
+                  ["callbackUrl", "No", "Webhook URL to receive delivery reports (DLR)"],
+                ].map(row => (
+                  <tr class="border-b border-dynamic-primary">
+                    <td class="py-3 px-4 font-mono text-cyan">{row[0]}</td>
+                    <td class="py-3 px-4">{row[1]}</td>
+                    <td class="py-3 px-4">{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-6 feature-card rounded-xl border border-dynamic-primary p-5">
+            <p class="text-xs font-semibold text-dynamic-tertiary mb-3">Example success response</p>
+            <pre class="text-xs text-dynamic-secondary"><code>{`{
+  "status":    "success",
+  "messageId": "msg_abc123xyz",
+  "parts":     1,
+  "cost":      0.042,
+  "currency":  "EUR"
+}`}</code></pre>
+          </div>
+          <p class="text-sm text-dynamic-secondary mt-4">
+            <a href="https://app.smspm.com/docs" class="text-cyan hover:underline">Full API reference →</a> — all parameters, error codes, DLR payload schema, and rate limit documentation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary text-center mb-10">Gateway Features</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: "🔀", title: "Automatic Routing", desc: "SMSPM selects the best carrier route per destination automatically — you don't manage per-country providers." },
+              { icon: "📊", title: "Delivery Reports", desc: "Per-message DLR callbacks to your webhook. Know exactly which messages delivered, failed, or are pending." },
+              { icon: "⏱️", title: "< 200ms API Response", desc: "The API acknowledges your send request in under 200ms. No blocking wait — fire and forget or async." },
+              { icon: "📋", title: "Message ID Tracking", desc: "Every send returns a unique message ID. Query status later or correlate with DLR callbacks for full audit trail." },
+              { icon: "🌐", title: "E.164 Number Handling", desc: "Send to any valid E.164 international number. Use our Phone Formatter tool to normalize numbers before sending." },
+              { icon: "💳", title: "Per-Use Pricing", desc: "No subscription. Credits top up on demand and never expire. Pay only for what you send." },
+            ].map(f => (
+              <div class="feature-card rounded-2xl border border-dynamic-primary p-5">
+                <div class="text-2xl mb-2">{f.icon}</div>
+                <h3 class="font-bold text-dynamic-primary mb-1 text-sm">{f.title}</h3>
+                <p class="text-dynamic-secondary text-xs leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Codes Reference -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            HTTP Status Codes & Error Reference
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Understanding API responses helps you handle errors gracefully.
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="border-b-2 border-dynamic-primary">
+                  <th class="text-left py-3 px-4 font-bold text-dynamic-primary w-1/4">HTTP Code</th>
+                  <th class="text-left py-3 px-4 font-bold text-dynamic-primary w-1/4">Status Field</th>
+                  <th class="text-left py-3 px-4 font-bold text-dynamic-primary w-1/2">Meaning & Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["200", "success", "Message accepted and queued for delivery. messageId returned — use for tracking."],
+                  ["200", "invalid_phone", "Phone number format invalid (not E.164). Use Phone Formatter tool to normalize."],
+                  ["200", "low_balance", "Account balance insufficient. Top up credits at smspm.com/billing before retry."],
+                  ["200", "destination_blocked", "This destination country is blocked for your account or temporarily unavailable."],
+                  ["200", "invalid_sender", "Sender ID (fromNumber) not valid for destination. Use numeric sender ID or request alphanumeric support."],
+                  ["400", "invalid_params", "Missing or malformed required parameter (hash, token, toNumber, text). Check parameter names and encoding."],
+                  ["401", "auth_failed", "Hash or token invalid. Verify credentials in your dashboard. Do not commit credentials to version control."],
+                  ["429", "rate_limit", "Too many requests per second from your IP. Backoff exponentially (1s, 2s, 4s...) before retry."],
+                  ["500", "server_error", "SMSPM server error (rare). Retry after 5–10 seconds with exponential backoff."],
+                ].map(row => (
+                  <tr class="border-b border-dynamic-primary">
+                    <td class="py-3 px-4 font-mono text-cyan font-semibold">{row[0]}</td>
+                    <td class="py-3 px-4 font-mono text-dynamic-secondary">{row[1]}</td>
+                    <td class="py-3 px-4 text-dynamic-secondary">{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-6 p-6 bg-blue-500/10 border border-blue-500/30 rounded-xl">
+            <p class="text-sm text-dynamic-secondary"><strong>Best practice:</strong> Always check the `status` field in the JSON response, not just the HTTP code. A 200 OK doesn't mean the message sent — it means the API processed your request. `status: "success"` means the message is queued.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rate Limits & Best Practices -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            Rate Limits & Scalability
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            SMSPM's API is designed for high-volume throughput. Here are the limits and best practices.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-6">Rate Limits</h3>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Per-IP Limit</p>
+                  <p class="text-xs text-dynamic-tertiary">100 requests/second per unique IP address</p>
+                </div>
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Per-Account Limit</p>
+                  <p class="text-xs text-dynamic-tertiary">1,000 requests/second (contact support for higher)</p>
+                </div>
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Burst Allowance</p>
+                  <p class="text-xs text-dynamic-tertiary">Up to 10,000 requests in a 1-second window (then throttled)</p>
+                </div>
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Timeout</p>
+                  <p class="text-xs text-dynamic-tertiary">30-second request timeout. Use async/webhooks for batch sending.</p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-6">Best Practices</h3>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Async/Non-Blocking</p>
+                  <p class="text-xs text-dynamic-tertiary">Don't wait for API response in your request handler. Fire off the SMS request and handle it asynchronously.</p>
+                </div>
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Batch Sending</p>
+                  <p class="text-xs text-dynamic-tertiary">For 1,000+ messages, use a queue (Celery, RabbitMQ, SQS) to spread sends over time, not all at once.</p>
+                </div>
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Exponential Backoff</p>
+                  <p class="text-xs text-dynamic-tertiary">On 429 (rate limit), retry with backoff: 1s, 2s, 4s, 8s. Don't hammer the API immediately.</p>
+                </div>
+                <div>
+                  <p class="text-sm text-dynamic-secondary font-semibold mb-1">Webhook for DLR</p>
+                  <p class="text-xs text-dynamic-tertiary">Use delivery report webhooks instead of polling for status. Lower latency, lower cost.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+              <p class="text-sm font-semibold text-dynamic-primary mb-2">💡 Example: Async Batch Sending (Python)</p>
+              <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`import asyncio
+import aiohttp
+
+async def send_sms_batch(phone_list):
+    async with aiohttp.ClientSession() as session:
+        tasks = [
+            send_sms_async(session, phone)
+            for phone in phone_list
+        ]
+        # Send up to 10 at a time (respects rate limit)
+        results = await asyncio.gather(*tasks)
+    return results
+
+async def send_sms_async(session, phone):
+    params = {'hash': ..., 'toNumber': phone, ...}
+    async with session.get(
+        'https://api.smspm.com',
+        params=params,
+        timeout=10
+    ) as resp:
+        return await resp.json()`}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related pages -->
+    <section class="py-8 border-t border-dynamic-primary">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h3 class="text-xs font-bold text-dynamic-tertiary mb-4 uppercase tracking-wider">Related</h3>
+          <div class="flex flex-wrap gap-3">
+            {[
+              { href: "/en/otp-sms", label: "OTP SMS API" },
+              { href: "/en/transactional-sms", label: "Transactional SMS" },
+              { href: "/en/sms-notifications", label: "SMS Notifications" },
+              { href: "/en/blog/sms-api-php", label: "PHP SMS Guide" },
+              { href: "/en/blog/sms-api-python", label: "Python SMS Guide" },
+              { href: "/en/prices", label: "Pricing by Country" },
+            ].map(l => (
+              <a href={l.href} class="text-sm text-cyan hover:underline">{l.label} →</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-10">
+          <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Start Using the SMS Gateway API</h2>
+          <p class="text-dynamic-secondary mb-8">Free account with test credits. API credentials available immediately after signup.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">Get API Access</a>
+            <a href="https://app.smspm.com/docs" class="btn btn-secondary">Read the Docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(38,198,218,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>

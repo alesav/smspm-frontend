@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smspm.com/sitemap-index.xml

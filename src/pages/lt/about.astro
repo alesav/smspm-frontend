@@ -2,13 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'lt';
 
 const t = {
   "badge": "Kas mes esame",
-  "title1": "Įgaliname pasaulinę",
-  "title2": "komunikaciją",
+  "title1": "Mes esame SMS stuburas daugiau nei 2 000 įmonių",
+  "title2": "190 šalių",
   "subtitle": "SMSPM teikia aukštos kokybės SMS šliuzo sprendimus įmonėms, kurioms reikia patikimumo, greičio ir pasaulinio pasiekiamumo. Įsikūrę Estijoje, Europos skaitmeniniame centre, jungiam jus su klientais daugiau nei 190 šalių.",
   "companyTitle": "Įmonės informacija",
   "legalEntity": "Juridinis asmuo",
@@ -23,7 +24,7 @@ const t = {
 };
 ---
 
-<Layout title={t.metaTitle} description={t.metaDescription}>
+<Layout title={t.metaTitle} description={t.metaDescription} lang={lang} alternateUrls={getAlternateUrls('about')}>
     <Navigation lang={lang} />
     <main class="pt-[120px] pb-20">
         <section class="hero-section py-16 lg:py-24 overflow-hidden relative">

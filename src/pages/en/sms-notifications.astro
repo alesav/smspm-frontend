@@ -1,0 +1,632 @@
+---
+/**
+ * SMS Notifications landing page
+ * Target keyword: sms notifications (5,000/mo, Low competition)
+ */
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+const title = "SMS Notifications for Business | Automated Alerts & Updates | SMSPM";
+const description = "Send automated SMS notifications to customers worldwide. Order confirmations, shipping updates, appointment reminders, and alerts via SMSPM's reliable API. 190+ countries, 99.9% delivery.";
+const canonical = "https://smspm.com/en/sms-notifications";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SMSPM SMS Notifications",
+  "description": description,
+  "url": canonical,
+  "applicationCategory": "BusinessApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Pay per SMS, no monthly fee" },
+  "provider": { "@type": "Organization", "name": "SMSPM", "url": "https://smspm.com" }
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an SMS notification?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An SMS notification is an automated text message sent to a customer's phone in response to a specific event or action. Examples include order confirmations, shipping updates, appointment reminders, payment alerts, and security notifications. SMS notifications typically arrive within seconds and have a 98% open rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use SMS for notifications instead of email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SMS has a 98% open rate compared to email's 20-30%, and messages are typically read within 3 minutes. SMS bypasses spam filters, doesn't require email client setup, and works on every phone globally. SMS is ideal for time-sensitive alerts that must be seen immediately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do SMS notifications compare to push notifications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SMS reaches all customers regardless of app installation, works without app permissions, and has higher delivery rates. Push notifications require app installation and user opt-in, but can include rich media and interactive buttons. SMS is the universal fallback for urgent, guaranteed delivery notifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do SMS notifications take to deliver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most SMS notifications are delivered within 1-3 seconds via direct carrier routes. SMSPM guarantees delivery in under 200ms average response time with a 99.9% delivery rate across 190+ countries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best practices for SMS notifications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Send notifications only when necessary, use clear action-oriented language, include tracking links when relevant, provide an opt-out mechanism (SMS laws require this), avoid excessive frequency to prevent user annoyance, and personalize messages with customer names or order details when possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track SMS notification delivery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SMSPM provides delivery reports (DLR) for every message. You receive real-time webhooks confirming delivery status, allowing you to retry failed messages or track end-to-end delivery for compliance and troubleshooting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do SMS notifications cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SMSPM uses pay-per-SMS pricing with no monthly fees or minimums. Most EU notifications cost under €0.05 per SMS, with pricing varying by destination country. See our pricing page for per-country rates."
+      }
+    }
+  ]
+};
+
+const useCases = [
+  {
+    icon: "📦",
+    title: "Order Confirmations",
+    description: "Instantly confirm purchases with a branded SMS. Reduce support tickets asking 'did my order go through?' by 60-80%.",
+    example: "Order #12345 confirmed! Estimated delivery: 15 Jun. Track: smspm.com/track/abc"
+  },
+  {
+    icon: "🚚",
+    title: "Shipping Updates",
+    description: "Notify customers when their package ships, reaches a hub, is out for delivery, and when it's delivered.",
+    example: "Your parcel is out for delivery today. Driver arrives between 2–6 PM. No need to be home."
+  },
+  {
+    icon: "📅",
+    title: "Appointment Reminders",
+    description: "Cut no-shows by up to 40% with SMS reminders 24 hours and 1 hour before appointments.",
+    example: "Reminder: your appointment at City Clinic is tomorrow at 10:30 AM. Reply CANCEL to reschedule."
+  },
+  {
+    icon: "💳",
+    title: "Payment Alerts",
+    description: "Notify customers of successful payments, failed charges, and upcoming renewals — before they become support issues.",
+    example: "Payment of €49 received. Receipt: billing.example.com/inv-2025-0042"
+  },
+  {
+    icon: "🔐",
+    title: "Security Alerts",
+    description: "Alert users of new login locations, password changes, and account modifications in real time.",
+    example: "New login to your account from London, UK. Not you? Secure your account: example.com/security"
+  },
+  {
+    icon: "⚠️",
+    title: "System & Ops Alerts",
+    description: "Send infrastructure alerts, downtime notifications, and on-call escalations directly to mobile — no app required.",
+    example: "ALERT: API response time > 2s on prod-eu-1. Auto-scaled to 8 instances. Monitor: ops.example.com"
+  }
+];
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <head>
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+
+    <!-- Hero -->
+    <section class="py-16 lg:py-24 overflow-hidden relative">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">
+            SMS Notifications
+          </span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            Keep Customers Informed<br/>with <span class="gradient-text">Automated SMS</span>
+          </h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+            Send order confirmations, shipping updates, appointment reminders, and alerts to customers in 190+ countries. SMS has 98% open rates — your notifications actually get read.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Start Sending Free
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://app.smspm.com/docs" class="btn btn-secondary">View API Docs</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <!-- Definition Section -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl lg:text-3xl font-bold text-dynamic-primary mb-4">
+            What is an SMS Notification?
+          </h2>
+          <p class="text-dynamic-secondary text-lg leading-relaxed mb-6">
+            An SMS notification is an automated text message sent directly to a customer's phone in response to a specific event or action. Unlike emails that sit in inboxes, SMS messages appear instantly on the lock screen and are typically read within 3 minutes.
+          </p>
+          <p class="text-dynamic-secondary text-lg leading-relaxed">
+            SMS notifications bypass spam filters, don't require app installation, and work on every phone globally. They're used for time-sensitive alerts: order confirmations, shipping updates, appointment reminders, payment confirmations, security alerts, and operational notifications. With a 98% open rate and no reliance on internet connectivity, SMS is the most reliable way to ensure your message gets through.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-12 border-y border-dynamic-primary">
+      <div class="container mx-auto px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+          <div>
+            <div class="text-3xl lg:text-4xl font-extrabold gradient-text mb-1">98%</div>
+            <div class="text-sm text-dynamic-secondary">SMS Open Rate</div>
+          </div>
+          <div>
+            <div class="text-3xl lg:text-4xl font-extrabold gradient-text mb-1">&lt;3 min</div>
+            <div class="text-sm text-dynamic-secondary">Average Read Time</div>
+          </div>
+          <div>
+            <div class="text-3xl lg:text-4xl font-extrabold gradient-text mb-1">190+</div>
+            <div class="text-sm text-dynamic-secondary">Countries Covered</div>
+          </div>
+          <div>
+            <div class="text-3xl lg:text-4xl font-extrabold gradient-text mb-1">99.9%</div>
+            <div class="text-sm text-dynamic-secondary">Delivery Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4">
+            Every Notification Your Business Needs
+          </h2>
+          <p class="text-dynamic-secondary text-lg">
+            From transactional alerts to operational monitoring — send the right message at the right moment.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {useCases.map(uc => (
+            <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+              <div class="text-4xl mb-4">{uc.icon}</div>
+              <h3 class="text-lg font-bold text-dynamic-primary mb-3">{uc.title}</h3>
+              <p class="text-dynamic-secondary text-sm mb-4 leading-relaxed">{uc.description}</p>
+              <div class="bg-dynamic-secondary rounded-xl p-3 border border-dynamic-primary">
+                <p class="text-xs text-dynamic-secondary font-mono leading-relaxed">{uc.example}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration / Code -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="inline-flex px-4 py-1 bg-cyan/10 border border-cyan/30 rounded-full text-xs text-cyan font-semibold mb-4">
+              Simple API
+            </span>
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-6">
+              Send Your First Notification in 5 Minutes
+            </h2>
+            <p class="text-dynamic-secondary mb-6 leading-relaxed">
+              SMSPM's REST API works with any language. No SDK required — just a GET or POST request with your credentials and message. Works from any backend: Node.js, Python, PHP, Ruby, Go, or plain cURL.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {["Simple GET/POST REST API", "JSON responses with message IDs", "Delivery report webhooks (DLR)", "Multi-language SDK examples in docs"].map(item => (
+                <li class="flex items-center gap-3 text-dynamic-secondary">
+                  <svg class="w-5 h-5 text-cyan flex-shrink-0" fill="none" viewBox="0 0 20 20"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="https://app.smspm.com/docs" class="btn btn-primary">Read the API Docs</a>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="ml-2 text-xs text-dynamic-tertiary">JavaScript</span>
+            </div>
+            <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`const params = new URLSearchParams({
+  hash: process.env.SMSPM_HASH,
+  token: process.env.SMSPM_TOKEN,
+  toNumber: customer.phone,   // E.164 format
+  fromNumber: 'MyShop',       // Sender ID
+  text: \`Order #\${order.id} confirmed!
+Expected delivery: \${order.eta}.
+Track: \${order.trackingUrl}\`
+});
+
+const res = await fetch(
+  \`https://api.smspm.com?\${params}\`
+);
+const { status, messageId } = await res.json();
+console.log(status, messageId); // success, msg_xxx`}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why SMS for Notifications -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            Why SMS for Notifications?
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">Email is great for newsletters. Push requires an app install. SMS is the universal fallback that just works.</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-14 h-14 rounded-2xl bg-cyan/10 border border-cyan/30 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-7 h-7 text-cyan" fill="none" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 5v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="font-bold text-dynamic-primary mb-2">Instant Delivery</h3>
+              <p class="text-dynamic-secondary text-sm">Messages arrive within seconds and are read within 3 minutes on average. No spam folders, no notification fatigue filters.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-14 h-14 rounded-2xl bg-cyan/10 border border-cyan/30 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-7 h-7 text-cyan" fill="none" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="font-bold text-dynamic-primary mb-2">No App Required</h3>
+              <p class="text-dynamic-secondary text-sm">Reach every customer regardless of whether they've installed your app or enabled push notifications. Works on every phone worldwide.</p>
+            </div>
+            <div class="text-center">
+              <div class="w-14 h-14 rounded-2xl bg-cyan/10 border border-cyan/30 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-7 h-7 text-cyan" fill="none" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="font-bold text-dynamic-primary mb-2">Proven ROI</h3>
+              <p class="text-dynamic-secondary text-sm">Order notification SMS reduces support contact rate by 40-60%. Appointment reminders cut no-shows by up to 40%. The cost pays itself back quickly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SMS vs Push Notifications Comparison -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            SMS Notifications vs Push Notifications
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Both channels have their place. Here's how they compare.
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="border-b-2 border-dynamic-primary">
+                  <th class="text-left py-3 px-4 font-bold text-dynamic-primary">Feature</th>
+                  <th class="text-center py-3 px-4 font-bold text-cyan">SMS</th>
+                  <th class="text-center py-3 px-4 font-bold text-dynamic-secondary">Push Notifications</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Requires App Installation</td>
+                  <td class="py-4 px-4 text-center">❌ No</td>
+                  <td class="py-4 px-4 text-center">✅ Yes</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Delivery Rate</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">99.9%</td>
+                  <td class="py-4 px-4 text-center">85-95%</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Open Rate</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">98%</td>
+                  <td class="py-4 px-4 text-center">30-50%</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Average Read Time</td>
+                  <td class="py-4 px-4 text-center">3 minutes</td>
+                  <td class="py-4 px-4 text-center">30 seconds</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Internet Required</td>
+                  <td class="py-4 px-4 text-center">❌ No (works on 2G)</td>
+                  <td class="py-4 px-4 text-center">✅ Yes</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Rich Media Support</td>
+                  <td class="py-4 px-4 text-center">Limited (text only)</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">✅ Yes (images, buttons)</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Cost</td>
+                  <td class="py-4 px-4 text-center text-cyan font-semibold">€0.02–0.10</td>
+                  <td class="py-4 px-4 text-center">Lower per message</td>
+                </tr>
+                <tr class="border-b border-dynamic-primary">
+                  <td class="py-4 px-4 font-semibold text-dynamic-primary">Best For</td>
+                  <td class="py-4 px-4 text-center">Urgent, guaranteed-read alerts</td>
+                  <td class="py-4 px-4 text-center">In-app engagement</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-8 p-6 bg-dynamic-secondary rounded-xl border border-dynamic-primary">
+            <p class="text-dynamic-secondary text-sm"><strong>TL;DR:</strong> Use SMS for notifications that <em>must</em> be seen (orders, payments, security). Use push for engagement and rich interactions. Many successful businesses use both.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- When to Send SMS Notifications -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            When to Send SMS Notifications
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Timing and relevance are everything. Know when SMS is the right choice.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="feature-card rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+              <div class="text-3xl mb-3">✅</div>
+              <h3 class="font-bold text-dynamic-primary mb-3 text-lg">Send SMS When:</h3>
+              <ul class="space-y-3 text-dynamic-secondary text-sm">
+                <li>• <strong>Order placed or confirmed</strong> — instant confirmation reduces "did it go through?" support tickets</li>
+                <li>• <strong>Payment failed</strong> — customer needs to update card details immediately</li>
+                <li>• <strong>Shipping update</strong> — delivery time, location changes, or out-for-delivery alerts</li>
+                <li>• <strong>Appointment reminder</strong> — 24 hours and 1 hour before (proven to reduce no-shows by 40%)</li>
+                <li>• <strong>Account security alert</strong> — new login, password change, suspicious activity</li>
+                <li>• <strong>Password reset or 2FA</strong> — authentication codes must be delivered instantly</li>
+                <li>• <strong>Time-sensitive offer</strong> — flash sale or limited-time code</li>
+                <li>• <strong>Urgent operational alert</strong> — SLA breach, infrastructure issue, or downtime notification</li>
+              </ul>
+            </div>
+            <div class="feature-card rounded-3xl border border-dynamic-primary/30 bg-dynamic-secondary/5 p-8">
+              <div class="text-3xl mb-3">⏸️</div>
+              <h3 class="font-bold text-dynamic-primary mb-3 text-lg">Avoid SMS When:</h3>
+              <ul class="space-y-3 text-dynamic-secondary text-sm">
+                <li>• <strong>Newsletter or bulk marketing</strong> — use email (lower cost, higher tolerance for volume)</li>
+                <li>• <strong>Non-urgent information</strong> — general updates that don't need immediate action</li>
+                <li>• <strong>Promotional content without value</strong> — pure ads annoy customers and increase churn</li>
+                <li>• <strong>Messages during off-hours</strong> — respect time zones; schedule for business hours</li>
+                <li>• <strong>Redundant notifications</strong> — don't repeat the same alert twice in a row</li>
+                <li>• <strong>Customer hasn't opted in</strong> — legal requirement in most countries (GDPR, TCPA, etc.)</li>
+                <li>• <strong>Rich media is essential</strong> — if you need images or buttons, push or email works better</li>
+                <li>• <strong>Conversation required</strong> — complex customer service needs live chat or email threads</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Success Stories -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4">
+            Trusted by 2,000+ Businesses
+          </h2>
+          <p class="text-dynamic-secondary text-lg">
+            See how companies across e-commerce, fintech, and SaaS use SMSPM to stay connected with their customers.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+            <p class="text-dynamic-secondary mb-6 text-sm leading-relaxed italic">
+              "SMSPM's order confirmation SMS reduced our support tickets by 65% in the first month. Customers love getting instant confirmation — it builds confidence."
+            </p>
+            <div class="pt-4 border-t border-dynamic-primary">
+              <p class="font-semibold text-dynamic-primary text-sm">Sarah M.</p>
+              <p class="text-dynamic-secondary text-xs">Head of Ops, E-commerce (Fashion)</p>
+            </div>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+            <p class="text-dynamic-secondary mb-6 text-sm leading-relaxed italic">
+              "We switched from Twilio to SMSPM and cut our SMS costs by 40% while keeping the same delivery quality. The API is just as easy to use."
+            </p>
+            <div class="pt-4 border-t border-dynamic-primary">
+              <p class="font-semibold text-dynamic-primary text-sm">Marcus K.</p>
+              <p class="text-dynamic-secondary text-xs">CTO, SaaS Platform</p>
+            </div>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+            <p class="text-dynamic-secondary mb-6 text-sm leading-relaxed italic">
+              "Appointment reminders via SMSPM dropped our no-show rate from 28% to 18% in three months. The ROI was immediate."
+            </p>
+            <div class="pt-4 border-t border-dynamic-primary">
+              <p class="font-semibold text-dynamic-primary text-sm">Dr. James P.</p>
+              <p class="text-dynamic-secondary text-xs">Clinic Manager, Healthcare</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing CTA -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-12">
+          <h2 class="text-2xl lg:text-3xl font-bold text-dynamic-primary mb-4">
+            Start Sending SMS Notifications Today
+          </h2>
+          <p class="text-dynamic-secondary mb-2">
+            Pay per message. No monthly fees. No minimum spend. Transparent per-country pricing.
+          </p>
+          <p class="text-dynamic-tertiary text-sm mb-8">Most EU notifications cost under €0.05 per SMS. <a href="/en/prices" class="text-cyan hover:underline">See full pricing →</a></p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Get Started Free
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/en/prices" class="btn btn-secondary">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Pages -->
+    <section class="py-16 border-y border-dynamic-primary">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-xl font-bold text-dynamic-primary mb-6">Related Resources</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="/en/otp-sms" class="p-4 rounded-xl border border-dynamic-primary hover:border-cyan hover:bg-cyan/5 transition-all">
+              <h4 class="font-semibold text-dynamic-primary mb-1">OTP SMS & Verification Codes</h4>
+              <p class="text-sm text-dynamic-secondary">Learn how to send one-time passwords and 2FA codes reliably.</p>
+            </a>
+            <a href="/en/2fa-sms" class="p-4 rounded-xl border border-dynamic-primary hover:border-cyan hover:bg-cyan/5 transition-all">
+              <h4 class="font-semibold text-dynamic-primary mb-1">Two-Factor Authentication via SMS</h4>
+              <p class="text-sm text-dynamic-secondary">Implement SMS 2FA with security best practices and alternatives.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-6">
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group" open>
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>What is an SMS notification?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                An SMS notification is an automated text message sent to a customer's phone in response to a specific event or action. Examples include order confirmations, shipping updates, appointment reminders, payment alerts, and security notifications. SMS notifications typically arrive within seconds and have a 98% open rate.
+              </div>
+            </details>
+
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group">
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>Why use SMS for notifications instead of email?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                SMS has a 98% open rate compared to email's 20-30%, and messages are typically read within 3 minutes. SMS bypasses spam filters, doesn't require email client setup, and works on every phone globally. SMS is ideal for time-sensitive alerts that must be seen immediately.
+              </div>
+            </details>
+
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group">
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>How do SMS notifications compare to push notifications?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                SMS reaches all customers regardless of app installation, works without app permissions, and has higher delivery rates. Push notifications require app installation and user opt-in, but can include rich media and interactive buttons. SMS is the universal fallback for urgent, guaranteed delivery notifications. We have a detailed comparison table above.
+              </div>
+            </details>
+
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group">
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>How long do SMS notifications take to deliver?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                Most SMS notifications are delivered within 1-3 seconds via direct carrier routes. SMSPM guarantees delivery in under 200ms average response time with a 99.9% delivery rate across 190+ countries.
+              </div>
+            </details>
+
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group">
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>What are the best practices for SMS notifications?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                Send notifications only when necessary, use clear action-oriented language, include tracking links when relevant, provide an opt-out mechanism (SMS laws require this), avoid excessive frequency to prevent user annoyance, and personalize messages with customer names or order details when possible.
+              </div>
+            </details>
+
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group">
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>Can I track SMS notification delivery?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                Yes, SMSPM provides delivery reports (DLR) for every message. You receive real-time webhooks confirming delivery status, allowing you to retry failed messages or track end-to-end delivery for compliance and troubleshooting. Learn more in our <a href="/en/sms-delivery-report" class="text-cyan hover:underline">SMS delivery report guide</a>.
+              </div>
+            </details>
+
+            <details class="feature-card rounded-xl border border-dynamic-primary p-6 cursor-pointer group">
+              <summary class="flex items-center justify-between font-bold text-dynamic-primary text-lg">
+                <span>How much do SMS notifications cost?</span>
+                <span class="group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-4 text-dynamic-secondary text-sm leading-relaxed border-t border-dynamic-primary pt-4">
+                SMSPM uses pay-per-SMS pricing with no monthly fees or minimums. Most EU notifications cost under €0.05 per SMS, with pricing varying by destination country. <a href="/en/prices" class="text-cyan hover:underline">See our pricing page</a> for per-country rates.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba(38, 198, 218, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>

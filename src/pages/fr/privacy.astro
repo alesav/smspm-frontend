@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'fr';
+const alternateUrls = getAlternateUrls('privacy');
 ---
 
-<Layout title="Politique de Confidentialité - SMSPM" description="Découvrez comment SMSPM protège votre vie privée et traite vos données personnelles conformément au RGPD.">
+<Layout title="Politique de Confidentialité - SMSPM" description="Découvrez comment SMSPM protège votre vie privée et traite vos données personnelles conformément au RGPD." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getLocalizedAlternateUrls, PRICES_SLUGS } from "../../utils/hreflang";
 import {
     getCountryCodeByName,
     getCountryConfig,
@@ -9,6 +10,7 @@ import {
 import { fetchPricingData } from "../../utils/kv-pricing";
 
 const lang = 'de';
+const alternateUrls = getLocalizedAlternateUrls(PRICES_SLUGS);
 
 // Import localization data
 const metadataRaw = await import("../../../data/country-metadata.js");
@@ -205,7 +207,7 @@ const countries = Array.from(countriesMap.entries())
 const totalCountries = countries.length;
 ---
 
-<Layout title={t.title} description={t.description}>
+<Layout title={t.title} description={t.description} lang={lang} alternateUrls={alternateUrls}>
     <Navigation />
 
     <main class="pt-[120px] pb-20">

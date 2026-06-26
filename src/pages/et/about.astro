@@ -2,14 +2,15 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'et';
 
 const translations = {
   et: {
     badge: "Kes me oleme",
-    title1: "Võimaldame globaalset",
-    title2: "kommunikatsiooni",
+    title1: "Oleme SMS-selgroog rohkem kui 2 000 ettevõtte jaoks",
+    title2: "190 riigis",
     subtitle: "SMSPM pakub kõrge jõudlusega SMS-lüüsi lahendusi ettevõtetele, kes nõuavad usaldusväärsust, kiirust ja globaalset haaret. Asume Eestis, Euroopa digitaalses keskuses, ja ühendame teid klientidega üle 190 riigis.",
     companyTitle: "Ettevõtte üksikasjad",
     legalEntity: "Juriidiline isik",
@@ -27,7 +28,7 @@ const translations = {
 const t = translations[lang];
 ---
 
-<Layout title={t.metaTitle} description={t.metaDescription}>
+<Layout title={t.metaTitle} description={t.metaDescription} lang={lang} alternateUrls={getAlternateUrls('about')}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

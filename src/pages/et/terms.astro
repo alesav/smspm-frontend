@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'et';
+const alternateUrls = getAlternateUrls('terms');
 ---
 
-<Layout title="Teenuse tingimused - SMSPM" description="Lugege SMSPM-i teenuse tingimusi, et mõista oma õigusi ja kohustusi meie SMS-lüüsi platvormi kasutamisel.">
+<Layout title="Teenuse tingimused - SMSPM" description="Lugege SMSPM-i teenuse tingimusi, et mõista oma õigusi ja kohustusi meie SMS-lüüsi platvormi kasutamisel." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

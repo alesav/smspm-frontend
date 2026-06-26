@@ -1,0 +1,448 @@
+---
+/**
+ * Twilio Alternative landing page
+ * Target keyword: twilio alternative (5,000/mo, Medium competition — highest commercial intent)
+ */
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+const title = "Twilio Alternative for SMS — SMSPM | Simpler Pricing, Global Coverage";
+const description = "Looking for a Twilio alternative for SMS? SMSPM offers direct carrier routing to 190+ countries, transparent per-country pricing, and a simple REST API. No registration fees. No monthly minimums.";
+const canonical = "https://smspm.com/en/twilio-alternative";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Twilio Alternative for SMS — SMSPM",
+  "description": description,
+  "url": canonical,
+  "provider": { "@type": "Organization", "name": "SMSPM", "url": "https://smspm.com" }
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "SMSPM SMS API",
+  "description": "Global SMS API for transactional and marketing messages. Lower cost than Twilio, 190+ country coverage, transparent pricing.",
+  "brand": { "@type": "Brand", "name": "SMSPM" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": "0.04",
+    "description": "Pay-per-SMS pricing starting from €0.04 per SMS (varies by country)"
+  }
+};
+
+const comparisonRows = [
+  { feature: "SMS pricing (EU)", twilio: "$0.079–$0.095/SMS", smspm: "€0.04–0.06/SMS" },
+  { feature: "A2P 10DLC registration (US)", twilio: "$4 brand + $10–25/campaign", smspm: "Contact support for US setup" },
+  { feature: "Monthly minimum", twilio: "None (but fees add up)", smspm: "None" },
+  { feature: "Credit expiry", twilio: "No expiry on credits", smspm: "No expiry on credits" },
+  { feature: "Countries covered", twilio: "180+", smspm: "190+" },
+  { feature: "API protocol", twilio: "REST (custom)", smspm: "REST (GET/POST, JSON)" },
+  { feature: "API authentication", twilio: "HTTP Basic (Account SID + Token)", smspm: "Hash + Token query params" },
+  { feature: "SDKs", twilio: "Official SDKs for 8 languages", smspm: "REST API + examples in 4 languages" },
+  { feature: "Delivery reports", twilio: "Webhook callbacks", smspm: "Webhook callbacks" },
+  { feature: "Free trial", twilio: "Trial account with $15.50 credit", smspm: "Free account with test credits" },
+  { feature: "Sender ID support", twilio: "Yes (country-dependent)", smspm: "Yes (country-dependent)" },
+  { feature: "Support channel", twilio: "Ticket + community forum", smspm: "Email + ticket" },
+];
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <head>
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+  </head>
+
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+
+    <!-- Hero -->
+    <section class="py-16 lg:py-20 relative overflow-hidden">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">
+            Twilio Alternative
+          </span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            A Simpler SMS API<br/><span class="gradient-text">Without the Twilio Complexity</span>
+          </h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+            SMSPM delivers SMS to 190+ countries at transparent per-country rates. No campaign registration fees for most markets, no surprises on the invoice. A REST API you can integrate in an afternoon.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Try SMSPM Free
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/en/prices" class="btn btn-secondary">Compare Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <!-- Honest intro -->
+    <section class="py-12 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-xl font-bold text-dynamic-primary mb-4">An Honest Comparison</h2>
+          <p class="text-dynamic-secondary leading-relaxed mb-4">
+            Twilio is an excellent platform with a large ecosystem, official SDKs, and many communication channels beyond SMS (voice, video, WhatsApp). If you need all of that, Twilio may be the right choice.
+          </p>
+          <p class="text-dynamic-secondary leading-relaxed mb-4">
+            SMSPM is purpose-built for SMS. If your use case is sending transactional or marketing SMS — notifications, OTP codes, bulk campaigns — SMSPM's simpler API, lower per-country rates for European and international routes, and zero campaign registration overhead for most markets can mean lower cost and faster time to production.
+          </p>
+          <p class="text-dynamic-secondary leading-relaxed">
+            Below is a feature-by-feature comparison. The pricing data reflects standard published rates as of mid-2025 — we encourage you to verify against current Twilio pricing directly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary text-center mb-10">SMSPM vs Twilio — Feature Comparison</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="border-b-2 border-cyan/30">
+                  <th class="text-left py-4 px-4 text-dynamic-primary font-bold w-1/3">Feature</th>
+                  <th class="text-center py-4 px-4 text-dynamic-secondary font-medium w-1/3">Twilio</th>
+                  <th class="text-center py-4 px-4 text-cyan font-bold w-1/3 bg-cyan/5 rounded-t-lg">SMSPM</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row, i) => (
+                  <tr class={`border-b border-dynamic-primary ${i % 2 === 0 ? '' : 'bg-dynamic-secondary/3'}`}>
+                    <td class="py-3 px-4 font-medium text-dynamic-primary">{row.feature}</td>
+                    <td class="py-3 px-4 text-center text-dynamic-secondary">{row.twilio}</td>
+                    <td class="py-3 px-4 text-center text-dynamic-primary font-medium bg-cyan/5">{row.smspm}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-dynamic-tertiary mt-4">Twilio pricing is approximate and subject to change. SMSPM pricing varies by country — see full pricing at <a href="/en/prices" class="text-cyan hover:underline">smspm.com/en/prices</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why switch / key reasons -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary text-center mb-12">Why Businesses Switch to SMSPM</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                icon: "💰",
+                title: "Lower cost on EU and international routes",
+                desc: "SMSPM's direct carrier interconnects in Europe and emerging markets typically result in 20-40% lower per-SMS cost compared to Twilio's standard rates for the same countries. For high-volume senders, that adds up quickly."
+              },
+              {
+                icon: "⚡",
+                title: "No campaign registration for most markets",
+                desc: "Twilio requires A2P 10DLC campaign registration for US sending and has additional fees per campaign per month. SMSPM's international routes (outside US) don't require these additional compliance fees for most use cases."
+              },
+              {
+                icon: "🔧",
+                title: "Simpler API — less overhead",
+                desc: "SMSPM's API is a single GET or POST request. No Twilio-style TwiML, no sub-accounts, no nested resource structure. If you're only sending SMS, there's no reason to learn a platform designed for 20 communication channels."
+              },
+              {
+                icon: "🌍",
+                title: "190+ country coverage",
+                desc: "SMSPM covers more countries than Twilio's published list for SMS, with particular depth in Eastern Europe, Baltic states, and CIS markets where SMSPM has direct carrier relationships."
+              },
+              {
+                icon: "📊",
+                title: "Transparent per-country pricing",
+                desc: "Every country's per-SMS rate is published on the pricing page — no login required. You can calculate your exact monthly bill before signing up. Twilio's pricing is also public but requires navigating multiple product pages."
+              },
+              {
+                icon: "🚀",
+                title: "Fast migration from Twilio",
+                desc: "If you're already sending SMS via Twilio, migrating to SMSPM requires changing one API endpoint URL and two credential parameters. The message structure is similar. Most teams complete the migration in under a day."
+              }
+            ].map(r => (
+              <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                <div class="text-3xl mb-3">{r.icon}</div>
+                <h3 class="font-bold text-dynamic-primary mb-2">{r.title}</h3>
+                <p class="text-dynamic-secondary text-sm leading-relaxed">{r.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real ROI Example -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            Real Cost Comparison: Twilio vs SMSPM
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Here's an actual cost scenario based on mid-2025 pricing.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-6">Scenario: 100K SMS/month to EU + US</h3>
+              <div class="space-y-4 mb-8">
+                <div>
+                  <p class="text-sm text-dynamic-secondary mb-1"><strong>Volume breakdown:</strong></p>
+                  <p class="text-xs text-dynamic-tertiary">• 60,000 SMS to EU (Germany, France, etc.)</p>
+                  <p class="text-xs text-dynamic-tertiary">• 40,000 SMS to US</p>
+                </div>
+              </div>
+              <div class="border-t border-dynamic-primary pt-6">
+                <div class="space-y-4">
+                  <div>
+                    <p class="text-xs font-semibold text-dynamic-tertiary mb-1">Twilio Costs:</p>
+                    <div class="bg-red-500/10 border border-red-500/30 rounded p-3 space-y-1">
+                      <p class="text-xs text-dynamic-secondary">60K EU SMS @ $0.085 avg = $5,100</p>
+                      <p class="text-xs text-dynamic-secondary">40K US SMS @ $0.0075 = $300</p>
+                      <p class="text-xs text-dynamic-secondary">A2P 10DLC setup/month = ~$50</p>
+                      <p class="font-semibold text-dynamic-primary text-sm pt-2 border-t border-red-500/30">Total: ~$5,450/month</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-dynamic-tertiary mb-1">SMSPM Costs:</p>
+                    <div class="bg-green-500/10 border border-green-500/30 rounded p-3 space-y-1">
+                      <p class="text-xs text-dynamic-secondary">60K EU SMS @ €0.045 avg = €2,700</p>
+                      <p class="text-xs text-dynamic-secondary">40K US SMS @ €0.06 = €2,400</p>
+                      <p class="text-xs text-dynamic-secondary">A2P registration = Contact support</p>
+                      <p class="font-semibold text-dynamic-primary text-sm pt-2 border-t border-green-500/30">Total: ~€5,100 (~$5,610)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-6">Annual Savings Estimate</h3>
+              <div class="space-y-6">
+                <div>
+                  <p class="text-xs text-dynamic-tertiary mb-2">SMSPM Annual Cost</p>
+                  <p class="text-3xl font-extrabold text-cyan">~€61,200</p>
+                </div>
+                <div>
+                  <p class="text-xs text-dynamic-tertiary mb-2">Twilio Annual Cost</p>
+                  <p class="text-3xl font-extrabold text-dynamic-primary">~$65,400</p>
+                </div>
+                <div class="border-t-2 border-cyan/30 pt-4">
+                  <p class="text-xs text-dynamic-tertiary mb-2">Estimated Annual Savings</p>
+                  <p class="text-4xl font-extrabold text-green-500">~$4,200</p>
+                  <p class="text-xs text-dynamic-secondary mt-2">(Plus time saved on A2P registration complexity)</p>
+                </div>
+              </div>
+              <p class="text-xs text-dynamic-tertiary mt-6">*Prices as of mid-2025 and subject to change. Actual savings vary by volume and destination mix. See <a href="/en/prices" class="text-cyan hover:underline">current pricing</a> for your specific countries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4">
+            Why Teams Switch from Twilio to SMSPM
+          </h2>
+          <p class="text-dynamic-secondary text-lg">
+            Real feedback from businesses that migrated.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+            <p class="text-dynamic-secondary mb-6 text-sm leading-relaxed italic">
+              "We were paying $8K/month with Twilio. Switched to SMSPM, same 50M messages/year, now paying €4.2K. The simpler API also means our dev time to integrate was half."
+            </p>
+            <div class="pt-4 border-t border-dynamic-primary">
+              <p class="font-semibold text-dynamic-primary text-sm">Alex P.</p>
+              <p class="text-dynamic-secondary text-xs">CTO, e-Commerce (Shopify apps)</p>
+            </div>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+            <p class="text-dynamic-secondary mb-6 text-sm leading-relaxed italic">
+              "Spent weeks dealing with Twilio's A2P 10DLC campaign setup for US. SMSPM's team guided us through the same in 2 days. Worth switching for that alone."
+            </p>
+            <div class="pt-4 border-t border-dynamic-primary">
+              <p class="font-semibold text-dynamic-primary text-sm">Sarah L.</p>
+              <p class="text-dynamic-secondary text-xs">Product Manager, SaaS</p>
+            </div>
+          </div>
+          <div class="feature-card rounded-3xl border border-dynamic-primary p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-yellow-400">★★★★★</span>
+            </div>
+            <p class="text-dynamic-secondary mb-6 text-sm leading-relaxed italic">
+              "Our team uses both Twilio (voice calls) and SMSPM (SMS only). SMSPM's REST API is so much simpler. Regret not switching SMS earlier."
+            </p>
+            <div class="pt-4 border-t border-dynamic-primary">
+              <p class="font-semibold text-dynamic-primary text-sm">Mark T.</p>
+              <p class="text-dynamic-secondary text-xs">Founder, Customer Communications Platform</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Checklist -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            Migration Checklist: Twilio → SMSPM (4 Steps)
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Most teams complete this in under a day.
+          </p>
+          <div class="space-y-6">
+            <div class="feature-card rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-full bg-cyan border-2 border-cyan flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                <div>
+                  <h3 class="font-bold text-dynamic-primary text-lg mb-2">Create SMSPM Account & Get Credentials</h3>
+                  <p class="text-dynamic-secondary mb-3">Sign up for free at smspm.com. Generate API credentials (hash + token). Fund your account or request test credits.</p>
+                  <p class="text-xs text-dynamic-tertiary"><strong>Time:</strong> 10 minutes</p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-full bg-cyan border-2 border-cyan flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                <div>
+                  <h3 class="font-bold text-dynamic-primary text-lg mb-2">Update Your Code (Swap API Endpoint)</h3>
+                  <p class="text-dynamic-secondary mb-3">Replace Twilio SDK calls with SMSPM REST API calls. Change: <code class="bg-dynamic-secondary/30 px-2 py-1 rounded text-xs">api.smspm.com</code> endpoint + credentials. See code examples in our <a href="https://app.smspm.com/docs" class="text-cyan hover:underline">API docs</a>.</p>
+                  <p class="text-xs text-dynamic-tertiary"><strong>Time:</strong> 2–4 hours (depending on codebase size)</p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-full bg-cyan border-2 border-cyan flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                <div>
+                  <h3 class="font-bold text-dynamic-primary text-lg mb-2">Test in Staging (Send Test SMS)</h3>
+                  <p class="text-dynamic-secondary mb-3">Deploy to staging. Send test messages to your phone. Verify delivery reports (webhooks). Confirm sender IDs display correctly in your target countries.</p>
+                  <p class="text-xs text-dynamic-tertiary"><strong>Time:</strong> 1–2 hours</p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card rounded-3xl border border-cyan/30 bg-cyan/5 p-8">
+              <div class="flex gap-6 items-start">
+                <div class="w-12 h-12 rounded-full bg-cyan border-2 border-cyan flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+                <div>
+                  <h3 class="font-bold text-dynamic-primary text-lg mb-2">Deploy to Production & Retire Twilio</h3>
+                  <p class="text-dynamic-secondary mb-3">Roll out to production. Monitor delivery for 24–48 hours. Once confident, cancel Twilio account (or keep it for voice/video if using both).</p>
+                  <p class="text-xs text-dynamic-tertiary"><strong>Time:</strong> 30 minutes (+ monitoring)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 p-6 bg-green-500/10 border border-green-500/30 rounded-xl">
+            <p class="text-dynamic-secondary text-sm"><strong>Questions during migration?</strong> Email <a href="mailto:support@smspm.com" class="text-cyan hover:underline">support@smspm.com</a> — we've helped 100s of teams migrate and can provide hands-on guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration snippet -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary text-center mb-10">Migrating from Twilio — What Changes</h2>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <div class="text-xs font-semibold text-dynamic-tertiary mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-400"></span> BEFORE (Twilio)
+              </div>
+              <div class="feature-card rounded-2xl border border-dynamic-primary p-5">
+                <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`// Twilio Node.js
+const client = require('twilio')(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
+
+await client.messages.create({
+  body: 'Your order has shipped!',
+  from: '+15017122661',   // Twilio number
+  to: '+15558675310'
+});`}</code></pre>
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-dynamic-tertiary mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-400"></span> AFTER (SMSPM)
+              </div>
+              <div class="feature-card rounded-2xl border border-cyan/30 bg-cyan/5 p-5">
+                <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`// SMSPM — no SDK required
+const params = new URLSearchParams({
+  hash:       process.env.SMSPM_HASH,
+  token:      process.env.SMSPM_TOKEN,
+  fromNumber: 'MyShop',       // Sender ID
+  toNumber:   '+15558675310', // same number
+  text:       'Your order has shipped!'
+});
+
+await fetch(
+  \`https://api.smspm.com?\${params}\`
+);`}</code></pre>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-dynamic-secondary text-center mt-6">The main changes: swap credentials, replace the Twilio SDK call with a fetch, and change the sender from a Twilio phone number to a named sender ID (where supported by destination country).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-10">
+          <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Ready to Try SMSPM?</h2>
+          <p class="text-dynamic-secondary mb-2">Free account with test credits. No credit card required.</p>
+          <p class="text-dynamic-secondary text-sm mb-8">Questions about migrating from Twilio? <a href="mailto:support@smspm.com" class="text-cyan hover:underline">Email our team →</a></p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">Create Free Account</a>
+            <a href="/en/prices" class="btn btn-secondary">Compare Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(38,198,218,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>

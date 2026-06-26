@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'fr';
+const alternateUrls = getAlternateUrls('terms');
 ---
 
-<Layout title="Conditions d'Utilisation - SMSPM" description="Lisez les Conditions d'Utilisation de SMSPM pour comprendre vos droits et obligations lors de l'utilisation de notre plateforme de passerelle SMS.">
+<Layout title="Conditions d'Utilisation - SMSPM" description="Lisez les Conditions d'Utilisation de SMSPM pour comprendre vos droits et obligations lors de l'utilisation de notre plateforme de passerelle SMS." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

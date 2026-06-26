@@ -2,13 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'de';
 
 const t = {
   "badge": "Wer wir sind",
-  "title1": "Globale",
-  "title2": "Kommunikation ermöglichen",
+  "title1": "Wir sind das SMS-Rückgrat von mehr als 2.000 Unternehmen",
+  "title2": "in 190 Ländern",
   "subtitle": "SMSPM bietet hochleistungsfähige SMS-Gateway-Lösungen für Unternehmen, die Zuverlässigkeit, Geschwindigkeit und globale Reichweite fordern. Mit Sitz in Estland, dem digitalen Zentrum Europas, verbinden wir Sie mit Kunden in über 190 Ländern.",
   "companyTitle": "Firmendetails",
   "legalEntity": "Rechtsform",
@@ -23,7 +24,7 @@ const t = {
 };
 ---
 
-<Layout title={t.metaTitle} description={t.metaDescription}>
+<Layout title={t.metaTitle} description={t.metaDescription} lang={lang} alternateUrls={getAlternateUrls('about')}>
     <Navigation lang={lang} />
     <main class="pt-[120px] pb-20">
         <section class="hero-section py-16 lg:py-24 overflow-hidden relative">

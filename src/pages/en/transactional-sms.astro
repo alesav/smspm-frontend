@@ -1,0 +1,376 @@
+---
+/**
+ * Transactional SMS landing page
+ * Target keyword: transactional sms (500/mo, Low competition — Tier 2)
+ */
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+const title = "Transactional SMS — Automated Alerts & Notifications | SMSPM";
+const description = "Send transactional SMS messages — order confirmations, payment alerts, shipping updates, and account notifications — at scale via SMSPM's REST API. 190+ countries, 99.9% delivery.";
+const canonical = "https://smspm.com/en/transactional-sms";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are transactional SMS GDPR-compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transactional SMS (triggered by customer action) generally don't require prior consent under GDPR, but you must still handle personal data lawfully and provide an opt-out mechanism. Always consult your legal team and review GDPR Article 6 (lawful basis) for your use case."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between transactional and marketing SMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transactional SMS are triggered by customer actions (order confirmation, OTP) and typically don't require prior opt-in. Marketing SMS are sender-initiated broadcasts and require explicit opt-in consent. The line can blur — consult regulations for your market."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an opt-out link in transactional SMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Best practice: yes, include a way for users to opt out or manage SMS preferences, even for transactional messages. This improves user experience and helps with compliance in jurisdictions like GDPR and TCPA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast are transactional SMS delivered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SMSPM delivers transactional SMS in under 3 seconds on average via direct carrier routes to 190+ countries. API response time is under 200ms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I track delivery of transactional SMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SMSPM provides delivery reports (DLR) via webhook callbacks. You'll know the exact status of each message (delivered, failed, bounced, etc.)."
+      }
+    }
+  ]
+};
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <head>
+    <link rel="canonical" href={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+  </head>
+
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+
+    <!-- Hero -->
+    <section class="py-16 lg:py-20 relative overflow-hidden">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">
+            Transactional SMS
+          </span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            Automated SMS That Customers<br/><span class="gradient-text">Actually Expect to Receive</span>
+          </h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+            Transactional SMS — triggered by a customer action — has 98% open rates and the highest engagement of any digital channel. SMSPM delivers them to 190+ countries in seconds.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Start Sending Free
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://app.smspm.com/docs" class="btn btn-secondary">API Documentation</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <!-- What is transactional SMS -->
+    <section class="py-14 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-4">What Is Transactional SMS?</h2>
+          <p class="text-dynamic-secondary leading-relaxed mb-4">
+            A transactional SMS is sent automatically when a specific customer action or system event occurs — not as part of a marketing broadcast, but as a direct response to something the customer did. Because the customer initiated the interaction, these messages are expected and welcomed.
+          </p>
+          <p class="text-dynamic-secondary leading-relaxed mb-4">
+            Common examples include: order confirmation after checkout, shipping notification when a package ships, OTP code after a login attempt, payment receipt after a charge, and appointment reminder the day before a booking.
+          </p>
+          <p class="text-dynamic-secondary leading-relaxed">
+            Transactional SMS is typically exempt from the opt-in consent requirements that apply to marketing SMS, because the message is a direct response to the customer's own action. However, regulations vary by country — review GDPR and local telecoms rules for your markets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use cases grid -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+          <h2 class="text-3xl font-extrabold text-dynamic-primary mb-4">Common Transactional SMS Use Cases</h2>
+          <p class="text-dynamic-secondary">Each of these is a triggered message — sent by your system in response to a specific event.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {[
+            {
+              category: "E-commerce",
+              color: "from-cyan to-blue-500",
+              items: [
+                { event: "Customer places order", message: "Order #4521 confirmed. Delivery in 2–4 days. Track: shop.com/track/4521" },
+                { event: "Package shipped", message: "Your parcel is on its way! DHL tracking: 1Z999AA10123456784" },
+                { event: "Delivery attempted", message: "Delivery attempt failed. Rescheduled for tomorrow 9–12. Reply CHANGE to update." },
+              ]
+            },
+            {
+              category: "Authentication",
+              color: "from-purple-500 to-pink-500",
+              items: [
+                { event: "Login attempt", message: "Your verification code is 847392. Valid 10 min. Do not share it." },
+                { event: "Password changed", message: "Your password was changed. If this wasn't you, contact support immediately." },
+                { event: "New device login", message: "New sign-in from Berlin, DE. Not you? Secure your account: myapp.com/security" },
+              ]
+            },
+            {
+              category: "Finance",
+              color: "from-green-500 to-emerald-600",
+              items: [
+                { event: "Payment received", message: "Payment of €149 confirmed. Invoice: billing.com/inv-2025-441" },
+                { event: "Card declined", message: "Payment failed for your subscription. Update card: billing.com/update" },
+                { event: "Upcoming renewal", message: "Your subscription renews in 3 days (€49). Manage: account.com/billing" },
+              ]
+            },
+            {
+              category: "Appointments & Services",
+              color: "from-orange-400 to-red-500",
+              items: [
+                { event: "Booking confirmed", message: "Appointment confirmed: City Clinic, 15 Jun at 10:30. Reply CANCEL to reschedule." },
+                { event: "Reminder 24h before", message: "Reminder: Your appointment tomorrow at 10:30 AM. Reply CONFIRM or CANCEL." },
+                { event: "Staff assigned", message: "Dr. Roberts will see you tomorrow. Clinic address: 12 Park St, London." },
+              ]
+            },
+          ].map(group => (
+            <div class="feature-card rounded-3xl border border-dynamic-primary overflow-hidden">
+              <div class={`p-4 bg-gradient-to-r ${group.color}`}>
+                <h3 class="font-bold text-white">{group.category}</h3>
+              </div>
+              <div class="p-6 space-y-5">
+                {group.items.map(item => (
+                  <div>
+                    <p class="text-xs text-dynamic-tertiary font-medium mb-1">Trigger: {item.event}</p>
+                    <div class="bg-dynamic-secondary/30 rounded-xl px-4 py-3 border border-dynamic-primary">
+                      <p class="text-sm text-dynamic-primary font-mono leading-relaxed">{item.message}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-2xl font-extrabold text-dynamic-primary mb-4">Integrate in One Afternoon</h2>
+            <p class="text-dynamic-secondary mb-6 leading-relaxed">SMSPM's REST API takes a single GET or POST request. The same send function works for order confirmations, OTP codes, payment alerts — any transactional trigger in your system.</p>
+            <ul class="space-y-3">
+              {[
+                "Works from any language — Node.js, Python, PHP, Ruby, Go",
+                "Delivery report webhooks included — know when messages arrive",
+                "Sender ID support for branded messages ('YourShop' instead of a number)",
+                "Full documentation with copy-paste examples",
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-dynamic-secondary">
+                  <svg class="w-4 h-4 text-cyan mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 16 16"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="feature-card rounded-2xl border border-dynamic-primary p-5">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="ml-2 text-xs text-dynamic-tertiary">Python — send transactional SMS</span>
+            </div>
+            <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`import os, requests
+
+def send_transactional_sms(to, text, sender='MyShop'):
+    r = requests.get('https://api.smspm.com', params={
+        'hash':       os.environ['SMSPM_HASH'],
+        'token':      os.environ['SMSPM_TOKEN'],
+        'toNumber':   to,
+        'fromNumber': sender,
+        'text':       text,
+    }, timeout=10)
+    r.raise_for_status()
+    return r.json()['status'] == 'success'
+
+# Order confirmation
+send_transactional_sms(
+    to='+37256789045',
+    text='Order #4521 confirmed! '
+         'Delivery: 15–17 Jun. '
+         'Track: shop.com/track/4521'
+)`}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transactional vs Marketing note -->
+    <section class="py-14">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-xl font-extrabold text-dynamic-primary mb-4">Transactional vs Marketing SMS — What's the Difference?</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-dynamic-primary">
+                  <th class="text-left py-3 px-3 text-dynamic-primary font-bold">Aspect</th>
+                  <th class="text-left py-3 px-3 text-cyan font-bold">Transactional SMS</th>
+                  <th class="text-left py-3 px-3 text-dynamic-secondary font-medium">Marketing SMS</th>
+                </tr>
+              </thead>
+              <tbody class="text-dynamic-secondary">
+                {[
+                  ["Trigger", "Customer action or system event", "Sender-initiated broadcast"],
+                  ["Opt-in required", "Usually not (varies by country)", "Yes — explicit opt-in required"],
+                  ["Opt-out mechanism", "Best practice to include", "Mandatory in most jurisdictions"],
+                  ["Expected by recipient", "Yes", "Sometimes"],
+                  ["Open rate", "98%+", "70–90%"],
+                  ["Typical content", "Order #, tracking code, OTP, amount", "Offers, discounts, announcements"],
+                  ["Time of send", "Immediate, triggered", "Scheduled, batch"],
+                ].map(row => (
+                  <tr class="border-b border-dynamic-primary">
+                    <td class="py-3 px-3 font-medium text-dynamic-primary">{row[0]}</td>
+                    <td class="py-3 px-3">{row[1]}</td>
+                    <td class="py-3 px-3">{row[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-dynamic-tertiary mt-3">This is a general guide. Consult local regulations (GDPR, TCPA, TRAI etc.) for your specific markets before sending.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GDPR & Compliance -->
+    <section class="py-20 bg-blue-500/5 border-y border-blue-500/20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            Transactional SMS & GDPR Compliance
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Transactional SMS are generally less regulated than marketing SMS, but you must still follow the law.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="feature-card rounded-3xl border border-blue-500/30 p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-4">✅ Generally Compliant (GDPR + TCPA)</h3>
+              <ul class="space-y-3 text-dynamic-secondary text-sm">
+                <li>• <strong>Order confirmations</strong> — customer initiated action</li>
+                <li>• <strong>Delivery notifications</strong> — customer expects this</li>
+                <li>• <strong>OTP / 2FA codes</strong> — security-critical, customer requested</li>
+                <li>• <strong>Payment receipts</strong> — transaction confirmation</li>
+                <li>• <strong>Account notifications</strong> — e.g., password reset (customer requested)</li>
+              </ul>
+            </div>
+            <div class="feature-card rounded-3xl border border-blue-500/30 p-8">
+              <h3 class="font-bold text-dynamic-primary text-lg mb-4">⚠️ Requires Care / Legal Review</h3>
+              <ul class="space-y-3 text-dynamic-secondary text-sm">
+                <li>• <strong>Appointment reminders</strong> — generally OK, but confirm consent</li>
+                <li>• <strong>Account expiry warnings</strong> — depends on terms of service</li>
+                <li>• <strong>Upsell or product recommendations</strong> — may require opt-in</li>
+                <li>• <strong>Regulatory notifications</strong> (e.g., ToS changes) — jurisdiction-specific</li>
+                <li>• <strong>Any SMS to US numbers</strong> — TCPA has strict rules; always verify consent</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="feature-card rounded-2xl border border-dynamic-primary p-6 flex gap-4 items-start">
+              <div class="text-2xl flex-shrink-0">📋</div>
+              <div>
+                <h4 class="font-bold text-dynamic-primary mb-2">GDPR Checklist for Transactional SMS</h4>
+                <ul class="space-y-2 text-dynamic-secondary text-sm">
+                  <li>✓ <strong>Lawful basis:</strong> Usually Article 6(1)(b) — "contract" or "customer request"</li>
+                  <li>✓ <strong>Privacy policy:</strong> Disclose SMS sending to users (in your privacy notice)</li>
+                  <li>✓ <strong>Opt-out mechanism:</strong> Include "Reply STOP to unsubscribe" (good practice, legally required in some regions)</li>
+                  <li>✓ <strong>Data retention:</strong> Delete message logs after reasonable period (suggest 30–90 days for audit)</li>
+                  <li>✓ <strong>Data processing agreement:</strong> Ensure SMSPM (your SMS vendor) has a DPA in place ✓ (SMSPM has DPA available)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="feature-card rounded-2xl border border-dynamic-primary p-6 flex gap-4 items-start">
+              <div class="text-2xl flex-shrink-0">🇺🇸</div>
+              <div>
+                <h4 class="font-bold text-dynamic-primary mb-2">TCPA (US) Key Rules</h4>
+                <ul class="space-y-2 text-dynamic-secondary text-sm">
+                  <li>✓ <strong>Prior express consent required</strong> for any SMS to US numbers (even transactional)</li>
+                  <li>✓ <strong>Clear opt-in:</strong> User must explicitly agree to SMS; pre-checked boxes don't count</li>
+                  <li>✓ <strong>Opt-out mechanism:</strong> "Reply STOP" must work immediately; honor within 48 hours</li>
+                  <li>✓ <strong>No affiliate transfers:</strong> If you share SMS lists, you need fresh consent from each user</li>
+                  <li>✓ <strong>Safe harbors:</strong> Transactional SMS (OTP, receipts) generally have more flexibility</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-orange-500/10 border border-orange-500/30 rounded-xl">
+            <p class="text-dynamic-secondary text-sm"><strong>⚠️ Not Legal Advice:</strong> This is general guidance, not legal advice. Regulations vary by country and use case. Always consult your legal team before sending transactional SMS, especially for US audiences or sensitive data. SMSPM is not liable for compliance violations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-12">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-10">
+          <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Start Sending Transactional SMS</h2>
+          <p class="text-dynamic-secondary mb-2">Pay per message. No monthly fees. 190+ countries.</p>
+          <p class="text-dynamic-tertiary text-sm mb-8">Most EU transactional SMS costs under €0.05 per message. <a href="/en/prices" class="text-cyan hover:underline">View pricing →</a></p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">Get Started Free</a>
+            <a href="/en/sms-notifications" class="btn btn-secondary">See Notification Examples</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(38,198,218,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>

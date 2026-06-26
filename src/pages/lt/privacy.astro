@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'lt';
+const alternateUrls = getAlternateUrls('privacy');
 ---
 
-<Layout title="Privatumo politika - SMSPM" description="Sužinokite, kaip SMSPM apsaugo jūsų privatumą ir tvarko asmens duomenis laikydamasis BDAR.">
+<Layout title="Privatumo politika - SMSPM" description="Sužinokite, kaip SMSPM apsaugo jūsų privatumą ir tvarko asmens duomenis laikydamasis BDAR." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

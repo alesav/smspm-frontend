@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'lt';
+const alternateUrls = getAlternateUrls('security');
 ---
 
-<Layout title="Saugumas - SMSPM | Pasaulinė SMS infrastruktūra" description="Sužinokite apie išsamias SMSPM saugumo priemones, įskaitant šifravimą, API saugumą ir BDAR atitiktį.">
+<Layout title="Saugumas - SMSPM | Pasaulinė SMS infrastruktūra" description="Sužinokite apie išsamias SMSPM saugumo priemones, įskaitant šifravimą, API saugumą ir BDAR atitiktį." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

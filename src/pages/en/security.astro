@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'en';
+const alternateUrls = getAlternateUrls('security');
 ---
 
-<Layout title="Security - SMSPM | Global SMS Infrastructure" description="Learn about SMSPM's comprehensive security measures including encryption, API security, and GDPR compliance.">
+<Layout title="Security - SMSPM | Global SMS Infrastructure" description="Learn about SMSPM's comprehensive security measures including encryption, API security, and GDPR compliance." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

@@ -1,4 +1,7 @@
 ---
+// Pre-render for all languages (static generation)
+export const prerender = true;
+
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
@@ -7,6 +10,7 @@ import {
     getCountryConfig,
 } from "../../utils/country-data";
 import { fetchPricingData } from "../../utils/kv-pricing";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 export async function getStaticPaths() {
     return [
@@ -208,7 +212,7 @@ const countries = Array.from(countriesMap.entries())
 const totalCountries = countries.length;
 ---
 
-<Layout title={t.title} description={t.description}>
+<Layout title={t.title} description={t.description} lang={lang} alternateUrls={getAlternateUrls('countries')}>
     <Navigation />
 
     <main class="pt-[120px] pb-20">

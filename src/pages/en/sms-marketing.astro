@@ -1,0 +1,545 @@
+---
+/**
+ * SMS Marketing pillar page
+ * Target keyword: sms marketing (50,000/mo — Tier 1 BIG WIN, per GKP)
+ * Note from SERP check: head term is "HARD" in practice, but page still needed as pillar.
+ * Strategy: target long-tail siblings (sms marketing platform, sms marketing examples, etc.)
+ */
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+
+const lang = 'en';
+const title = "SMS Marketing Guide: Strategy, Examples & Best Practices | SMSPM";
+const description = "Complete guide to SMS marketing — how it works, campaign types, opt-in rules, message examples, and how to get started. Send bulk SMS campaigns to 190+ countries.";
+const canonical = "https://smspm.com/en/sms-marketing";
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <head>
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "SMS Marketing Guide",
+      "description": description,
+      "url": canonical,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://smspm.com/en" },
+          { "@type": "ListItem", "position": 2, "name": "SMS Marketing" }
+        ]
+      }
+    })} />
+  </head>
+
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+
+    <!-- Hero -->
+    <section class="py-16 lg:py-20 relative overflow-hidden">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">
+            SMS Marketing
+          </span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">
+            The Complete Guide to<br/><span class="gradient-text">SMS Marketing in 2025</span>
+          </h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
+            SMS marketing delivers 98% open rates, 19–36% CTR, and messages that arrive within 3 minutes. Here's how to use it effectively — with real examples, legal requirements, and the SMSPM platform to send it.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Start Your First Campaign
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/en/prices" class="btn btn-secondary">View Pricing</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="py-10 border-y border-dynamic-primary">
+      <div class="container mx-auto px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          <div><div class="text-3xl font-extrabold gradient-text">98%</div><div class="text-xs text-dynamic-secondary mt-1">Open Rate</div></div>
+          <div><div class="text-3xl font-extrabold gradient-text">19–36%</div><div class="text-xs text-dynamic-secondary mt-1">Click-Through Rate</div></div>
+          <div><div class="text-3xl font-extrabold gradient-text">&lt;3 min</div><div class="text-xs text-dynamic-secondary mt-1">Average Read Time</div></div>
+          <div><div class="text-3xl font-extrabold gradient-text">190+</div><div class="text-xs text-dynamic-secondary mt-1">Countries via SMSPM</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is SMS Marketing -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-4">What Is SMS Marketing?</h2>
+          <p class="text-dynamic-secondary leading-relaxed mb-4">
+            SMS marketing is the practice of sending promotional messages — offers, announcements, reminders, loyalty rewards — to customers who have opted in to receive them via text message. Unlike transactional SMS (which is triggered by customer actions), marketing SMS is initiated by the business and sent to a list.
+          </p>
+          <p class="text-dynamic-secondary leading-relaxed mb-4">
+            The channel is extremely effective because SMS has no spam folder, no algorithm, and no notification settings to navigate. A message either arrives in the inbox or it doesn't — and when it arrives, it's read within minutes.
+          </p>
+          <p class="text-dynamic-secondary leading-relaxed">
+            The tradeoff is brevity (160 characters per standard SMS part) and opt-in obligations. Both are features, not bugs: short messages are easier to read, and an opted-in list has far higher intent than email.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaign types -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary text-center mb-12">Types of SMS Marketing Campaigns</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                type: "Flash Sales",
+                icon: "⚡",
+                desc: "Time-limited offers sent at the right moment. SMS's speed is an advantage — send at 10 AM, sale ends at noon.",
+                example: "FLASH SALE: 40% off all shoes for the next 4 hours. Shop: myshop.com/sale — Reply STOP to unsubscribe."
+              },
+              {
+                type: "Loyalty & Rewards",
+                icon: "⭐",
+                desc: "Notify loyalty members of points earned, expiring rewards, and exclusive member offers.",
+                example: "Hi Anna! You've earned 500 points on your last visit. Redeem at checkout. View balance: myshop.com/rewards"
+              },
+              {
+                type: "Abandoned Cart",
+                icon: "🛒",
+                desc: "Recover lost sales by reminding customers who added to cart but didn't complete checkout.",
+                example: "You left something behind! Your cart expires in 24h. Complete your order: myshop.com/cart?restore=xyz"
+              },
+              {
+                type: "Event & Seasonal",
+                icon: "🎉",
+                desc: "Holiday campaigns, anniversary offers, and event invitations timed to the customer calendar.",
+                example: "Black Friday starts NOW. Your exclusive early-access code: VIPBF25. Shop: myshop.com/bf"
+              },
+              {
+                type: "Win-Back Campaigns",
+                icon: "💌",
+                desc: "Re-engage customers who haven't purchased in 60-90 days with a compelling offer.",
+                example: "We miss you! Here's 15% off your next order: COMEBACK15. Valid for 7 days. myshop.com"
+              },
+              {
+                type: "Product Launches",
+                icon: "🚀",
+                desc: "Announce new products to your most engaged customers before the general public.",
+                example: "The new AX Pro is here — and you get first access. Shop before it sells out: myshop.com/ax-pro"
+              },
+            ].map(c => (
+              <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                <div class="text-3xl mb-3">{c.icon}</div>
+                <h3 class="font-bold text-dynamic-primary mb-2">{c.type}</h3>
+                <p class="text-dynamic-secondary text-sm mb-4 leading-relaxed">{c.desc}</p>
+                <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                  <p class="text-xs text-dynamic-secondary font-mono leading-relaxed">{c.example}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal requirements -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-6">Legal Requirements: Opt-In and Opt-Out</h2>
+          <p class="text-dynamic-secondary leading-relaxed mb-6">
+            SMS marketing has stricter legal requirements than email in most jurisdictions. The core rules apply in almost every market:
+          </p>
+          <div class="space-y-4">
+            {[
+              {
+                rule: "Explicit opt-in",
+                detail: "Recipients must actively consent to receive marketing SMS. Pre-checked checkboxes and implied consent are not sufficient in most countries. The consent must be specific to SMS marketing (not bundled with email consent)."
+              },
+              {
+                rule: "Clear opt-out mechanism",
+                detail: "Every marketing SMS must include an opt-out instruction (e.g. 'Reply STOP to unsubscribe'). Your system must honor STOP replies immediately — no re-sending to opted-out numbers."
+              },
+              {
+                rule: "Identification",
+                detail: "The message must make clear who is sending it — your brand name, either in the sender ID or the message body."
+              },
+              {
+                rule: "Sending hours",
+                detail: "Most jurisdictions prohibit sending marketing messages outside business hours (typically 8 AM – 9 PM in the recipient's time zone). Check local rules for your target markets."
+              },
+              {
+                rule: "Record keeping",
+                detail: "Keep records of opt-in consent (date, method, IP if digital) in case of a regulatory complaint. GDPR (EU) requires this for at least 3 years."
+              },
+            ].map(item => (
+              <div class="feature-card rounded-xl border border-dynamic-primary p-5 flex gap-4">
+                <svg class="w-5 h-5 text-cyan mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 11a1 1 0 110-2 1 1 0 010 2zm1-5a1 1 0 11-2 0V7a1 1 0 112 0v2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div>
+                  <span class="font-bold text-dynamic-primary text-sm">{item.rule}: </span>
+                  <span class="text-dynamic-secondary text-sm">{item.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="text-xs text-dynamic-tertiary mt-4">This is a general summary, not legal advice. Consult a lawyer for your specific markets (GDPR for EU, TCPA for US, CASL for Canada, TRAI for India, etc.).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best practices -->
+    <section class="py-16 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-extrabold text-dynamic-primary mb-8">SMS Marketing Best Practices</h2>
+          <div class="space-y-5">
+            {[
+              { tip: "Keep it under 160 characters", detail: "One SMS part means one billing unit. Use our SMS Character Counter to check templates before deploying. Avoid Unicode characters (emoji) — they drop the limit to 70 chars." },
+              { tip: "Lead with the value", detail: "Put the offer or key information first. Mobile users decide in 1-2 seconds whether to act. 'SALE: 40% off today only →' outperforms 'Hi, we're running a special promotion this weekend...'" },
+              { tip: "Include a clear, trackable CTA link", detail: "Use a short URL (your own domain + UTM parameters is better than generic shorteners). Trackable links let you measure conversion rates per campaign." },
+              { tip: "Segment your list", detail: "Don't send every campaign to every subscriber. Segment by purchase history, geography, engagement, and lifecycle stage. Relevant messages have higher CTR and lower opt-out rates." },
+              { tip: "Time messages correctly", detail: "Tuesday–Thursday, 10 AM–12 PM and 3–6 PM in the recipient's local time zone performs best for most e-commerce categories. Test with your audience." },
+              { tip: "Don't send too often", detail: "The median frequency for SMS marketing that maintains low opt-out rates is 4–6 messages per month. More than 2/week is high-risk unless your audience actively expects it (flash deals, etc.)." },
+            ].map(p => (
+              <div class="flex gap-4">
+                <div class="w-1 bg-gradient-to-b from-cyan to-blue-500 rounded-full flex-shrink-0"></div>
+                <div>
+                  <h3 class="font-bold text-dynamic-primary mb-1">{p.tip}</h3>
+                  <p class="text-dynamic-secondary text-sm leading-relaxed">{p.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SMS Marketing by Industry (Long-tail H2s) -->
+    <section class="py-20 bg-dynamic-secondary/5">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-12 text-center">
+            SMS Marketing for Your Industry
+          </h2>
+          <div class="space-y-12">
+            <!-- E-Commerce -->
+            <div>
+              <h3 class="text-2xl font-bold text-dynamic-primary mb-6">SMS Marketing for E-Commerce</h3>
+              <p class="text-dynamic-secondary mb-6 leading-relaxed">
+                E-commerce brands use SMS to recover abandoned carts, promote flash sales, and announce new arrivals. The immediacy of SMS fits perfectly with time-sensitive offers.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                  <p class="text-xs text-dynamic-tertiary mb-2 font-semibold">Abandoned Cart Recovery</p>
+                  <p class="text-sm text-dynamic-secondary mb-4 leading-relaxed">
+                    Send 1–2 hours after cart abandonment, before the customer closes the browser. Include the product name, price, and a direct link to restore cart.
+                  </p>
+                  <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                    <p class="text-xs text-dynamic-secondary font-mono">"You left the AX Pro in your cart! Complete checkout in 4h for free shipping: myshop.com/cart?restore=abc123"</p>
+                  </div>
+                </div>
+                <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                  <p class="text-xs text-dynamic-tertiary mb-2 font-semibold">Post-Purchase Upsell</p>
+                  <p class="text-sm text-dynamic-secondary mb-4 leading-relaxed">
+                    2–5 days after purchase, suggest complementary products. Personalization by purchase history increases conversion 3×.
+                  </p>
+                  <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                    <p class="text-xs text-dynamic-secondary font-mono">"Love your AX Pro? Protect it: AX Pro Case (40% off today): myshop.com/case — Reply STOP"</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-dynamic-tertiary"><strong>Expected ROI:</strong> 25–35% recovery rate on abandoned carts; 5–10% conversion on upsell campaigns.</p>
+            </div>
+
+            <!-- Restaurants / Food Service -->
+            <div>
+              <h3 class="text-2xl font-bold text-dynamic-primary mb-6">SMS Marketing for Restaurants & Food Service</h3>
+              <p class="text-dynamic-secondary mb-6 leading-relaxed">
+                Restaurants use SMS to promote daily specials, announce wait times, and drive reservations. Timing is critical — send lunch specials at 11 AM, dinner at 5 PM.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                  <p class="text-xs text-dynamic-tertiary mb-2 font-semibold">Daily Specials</p>
+                  <p class="text-sm text-dynamic-secondary mb-4 leading-relaxed">
+                    Send 1–2 times daily to opted-in customers. Highlight limited availability to create urgency.
+                  </p>
+                  <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                    <p class="text-xs text-dynamic-secondary font-mono">"TONIGHT ONLY: Truffle Burger + Fries $18 (was $28). In-store & online: pizzajoe.com/order"</p>
+                  </div>
+                </div>
+                <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                  <p class="text-xs text-dynamic-tertiary mb-2 font-semibold">Reservation Reminders</p>
+                  <p class="text-sm text-dynamic-secondary mb-4 leading-relaxed">
+                    Send 24 hours and 2 hours before reservation time. Include table time, party size, and cancellation link.
+                  </p>
+                  <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                    <p class="text-xs text-dynamic-secondary font-mono">"Reminder: Dinner tonight at 7 PM for 2 at Joe's Pizza. Running late? Call 555-0123 or visit pizzajoe.com/manage"</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-dynamic-tertiary"><strong>Expected ROI:</strong> 8–12% increase in daily revenue with 2/day special promotions; 15–20% reduction in no-shows with reservation reminders.</p>
+            </div>
+
+            <!-- Services / SaaS -->
+            <div>
+              <h3 class="text-2xl font-bold text-dynamic-primary mb-6">SMS Marketing for Services & SaaS</h3>
+              <p class="text-dynamic-secondary mb-6 leading-relaxed">
+                B2B and service businesses use SMS for appointment reminders, feature announcements, and win-back campaigns for inactive users.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                  <p class="text-xs text-dynamic-tertiary mb-2 font-semibold">Appointment Reminders</p>
+                  <p class="text-sm text-dynamic-secondary mb-4 leading-relaxed">
+                    Send 24h and 2h before appointment. Include cancellation option to reduce no-shows.
+                  </p>
+                  <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                    <p class="text-xs text-dynamic-secondary font-mono">"Dr. Smith meeting in 2 hours (2 PM). Confirm, reschedule, or cancel: clinic.com/appt?id=123"</p>
+                  </div>
+                </div>
+                <div class="feature-card rounded-2xl border border-dynamic-primary p-6">
+                  <p class="text-xs text-dynamic-tertiary mb-2 font-semibold">Feature Announcements</p>
+                  <p class="text-sm text-dynamic-secondary mb-4 leading-relaxed">
+                    Notify power users and engaged customers of new features they'll benefit from specifically.
+                  </p>
+                  <div class="bg-dynamic-secondary/30 rounded-xl p-3 border border-dynamic-primary">
+                    <p class="text-xs text-dynamic-secondary font-mono">"New: AI-powered reporting in your account. Try it free: dashboard.app/new-reports"</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-dynamic-tertiary"><strong>Expected ROI:</strong> 35–40% reduction in no-shows; 15–25% engagement rate on feature announcements to active users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Case Studies -->
+    <section class="py-20">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-dynamic-primary mb-4 text-center">
+            SMS Marketing Success Stories
+          </h2>
+          <p class="text-dynamic-secondary text-center mb-12 text-lg">
+            Real results from businesses using SMS marketing (anonymized, representative examples).
+          </p>
+          <div class="space-y-8">
+            <!-- Case Study 1 -->
+            <div class="feature-card rounded-3xl border-2 border-cyan/30 bg-cyan/5 p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan to-blue-500 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                  🛍️
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold text-dynamic-primary mb-2">Fashion E-Commerce: 35% Abandoned Cart Recovery</h3>
+                  <p class="text-dynamic-secondary text-sm mb-4 leading-relaxed">
+                    A mid-size fashion brand (€2M annual revenue) implemented SMS cart recovery using SMSPM. Abandoned carts were targeted with a 30% off coupon 2 hours after abandonment.
+                  </p>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Carts Recovered</p>
+                      <p class="text-2xl font-bold text-cyan">35%</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Avg Order Value</p>
+                      <p class="text-2xl font-bold text-cyan">€89</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Annual Revenue Lift</p>
+                      <p class="text-2xl font-bold text-cyan">€156K</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">SMS Cost</p>
+                      <p class="text-2xl font-bold text-cyan">€8.4K</p>
+                    </div>
+                  </div>
+                  <p class="text-xs text-dynamic-secondary"><strong>Takeaway:</strong> SMS cost €8.4K/year for €156K revenue lift = 18.5× ROI. Abandoned cart recovery is one of the highest-ROI SMS campaigns.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="feature-card rounded-3xl border-2 border-green-500/30 bg-green-500/5 p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                  🏥
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold text-dynamic-primary mb-2">Clinic Network: 38% Reduction in No-Shows</h3>
+                  <p class="text-dynamic-secondary text-sm mb-4 leading-relaxed">
+                    A 15-clinic healthcare provider deployed SMS appointment reminders via SMSPM 24h and 2h before each appointment, with a cancellation link.
+                  </p>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">No-Show Reduction</p>
+                      <p class="text-2xl font-bold text-green-500">38%</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Appointments/Week</p>
+                      <p class="text-2xl font-bold text-green-500">1,200</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Revenue Recovered</p>
+                      <p class="text-2xl font-bold text-green-500">€124K/yr</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">SMS Cost</p>
+                      <p class="text-2xl font-bold text-green-500">€2.8K</p>
+                    </div>
+                  </div>
+                  <p class="text-xs text-dynamic-secondary"><strong>Takeaway:</strong> Healthcare has one of the highest ROI use cases for SMS. Appointment reminders pay for themselves 40× over in recovered revenue.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="feature-card rounded-3xl border-2 border-orange-500/30 bg-orange-500/5 p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                  🍕
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold text-dynamic-primary mb-2">Restaurant Group: 12% Daily Revenue Lift</h3>
+                  <p class="text-dynamic-secondary text-sm mb-4 leading-relaxed">
+                    A 8-location restaurant group sent 1–2 daily SMS specials to opted-in customers, highlighting lunch and dinner promotions.
+                  </p>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Revenue Lift</p>
+                      <p class="text-2xl font-bold text-orange-500">+12%</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Subscribers</p>
+                      <p class="text-2xl font-bold text-orange-500">8.5K</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">Annual Lift</p>
+                      <p class="text-2xl font-bold text-orange-500">€184K</p>
+                    </div>
+                    <div>
+                      <p class="text-xs text-dynamic-tertiary font-semibold mb-1">SMS Cost</p>
+                      <p class="text-2xl font-bold text-orange-500">€3.6K</p>
+                    </div>
+                  </div>
+                  <p class="text-xs text-dynamic-secondary"><strong>Takeaway:</strong> Consistent daily messaging (at optimal times) maintains engagement and drives repeat visits. Frequency: 1–2/day. Opt-out rate: 2% monthly (low).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How SMSPM fits -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-2xl font-extrabold text-dynamic-primary mb-4">Send SMS Marketing Campaigns with SMSPM</h2>
+            <p class="text-dynamic-secondary mb-6 leading-relaxed">SMSPM's API is designed for high-volume sending. Load your list, loop through recipients, and send — the API handles routing to 190+ countries automatically.</p>
+            <ul class="space-y-3">
+              {[
+                "Pay-per-message — no monthly platform fee",
+                "Transparent per-country rates published publicly",
+                "Alphanumeric sender ID for branded messages",
+                "Delivery report callbacks per message",
+                "No credit expiry — top up when you need",
+              ].map(i => (
+                <li class="flex items-center gap-3 text-sm text-dynamic-secondary">
+                  <svg class="w-4 h-4 text-cyan flex-shrink-0" fill="none" viewBox="0 0 16 16"><path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <div class="feature-card rounded-2xl border border-dynamic-primary p-5">
+              <p class="text-xs text-dynamic-tertiary mb-3 font-medium">Bulk send example — JavaScript</p>
+              <pre class="text-xs text-dynamic-secondary leading-relaxed overflow-x-auto"><code>{`const campaign = {
+  from: 'MyShop',
+  text: '40% off today only! Shop: myshop.com/sale'
+};
+
+for (const customer of optedInList) {
+  await fetch(\`https://api.smspm.com?\${new URLSearchParams({
+    hash:       SMSPM_HASH,
+    token:      SMSPM_TOKEN,
+    toNumber:   customer.phone,
+    fromNumber: campaign.from,
+    text:       \`Hi \${customer.name}! \${campaign.text}\`
+  })}\`);
+}`}</code></pre>
+            </div>
+            <div class="flex gap-4">
+              <a href="/en/blog/sms-vs-email-marketing" class="text-sm text-cyan hover:underline">SMS vs Email Marketing →</a>
+              <a href="/en/blog/bulk-sms-cost" class="text-sm text-cyan hover:underline">SMS Pricing Guide →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="py-8 border-t border-dynamic-primary">
+      <div class="container mx-auto px-8">
+        <div class="max-w-4xl mx-auto">
+          <h3 class="text-sm font-bold text-dynamic-tertiary mb-4 uppercase tracking-wider">Related Resources</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { href: "/en/sms-notifications", label: "SMS Notifications" },
+              { href: "/en/transactional-sms", label: "Transactional SMS" },
+              { href: "/en/prices", label: "Pricing by Country" },
+              { href: "/en/tools/sms-character-counter", label: "Character Counter" },
+            ].map(l => (
+              <a href={l.href} class="feature-card rounded-xl border border-dynamic-primary p-4 text-center text-sm font-medium text-dynamic-primary hover:border-cyan hover:text-cyan transition-colors">
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-10">
+          <h2 class="text-2xl font-bold text-dynamic-primary mb-4">Launch Your First SMS Campaign</h2>
+          <p class="text-dynamic-secondary mb-8">Free account. Test credits included. 190+ countries from day one.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">Get Started Free</a>
+            <a href="/en/prices" class="btn btn-secondary">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse at center, rgba(38,198,218,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>

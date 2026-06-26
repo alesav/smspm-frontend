@@ -4,19 +4,19 @@
  * This script generates all country pages with dynamic pricing from KV storage
  */
 
-import { writeFileSync, mkdirSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { writeFileSync, mkdirSync, existsSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Country configurations
 const countries = {
-  'gb': { name: 'United Kingdom', slug: 'send-sms-united-kingdom' },
-  'de': { name: 'Germany', slug: 'send-sms-germany' },
-  'fr': { name: 'France', slug: 'send-sms-france' },
-  'es': { name: 'Spain', slug: 'send-sms-spain' },
+  gb: { name: "United Kingdom", slug: "send-sms-united-kingdom" },
+  de: { name: "Germany", slug: "send-sms-germany" },
+  fr: { name: "France", slug: "send-sms-france" },
+  es: { name: "Spain", slug: "send-sms-spain" },
 };
 
 // Template for country pages (excluding Estonia which is already created)
@@ -210,7 +210,7 @@ const structuredData = {
       
       <div class="footer-bottom border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p class="footer-copyright text-gray-400 text-sm mb-4 md:mb-0">
-          © 2025 SMSPM. All rights reserved.
+          © 2026 SMSPM. All rights reserved.
         </p>
         <div class="footer-badges flex items-center gap-6">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-800 text-gray-300 border border-gray-700">
@@ -260,8 +260,8 @@ const structuredData = {
 
 // Generate all country pages
 function generateAllCountryPages() {
-  const pagesDir = join(__dirname, '../src/pages/en/country');
-  
+  const pagesDir = join(__dirname, "../src/pages/en/country");
+
   // Ensure directory exists
   if (!existsSync(pagesDir)) {
     mkdirSync(pagesDir, { recursive: true });
@@ -270,7 +270,7 @@ function generateAllCountryPages() {
   Object.entries(countries).forEach(([countryCode, { name, slug }]) => {
     const template = generateCountryPageTemplate(countryCode, name);
     const filepath = join(pagesDir, `${slug}.astro`);
-    
+
     try {
       writeFileSync(filepath, template);
       console.log(`✅ Generated: ${slug}.astro`);
@@ -281,6 +281,6 @@ function generateAllCountryPages() {
 }
 
 // Run the generator
-console.log('🚀 Generating country pages...');
+console.log("🚀 Generating country pages...");
 generateAllCountryPages();
-console.log('✅ All country pages generated successfully!');
+console.log("✅ All country pages generated successfully!");

@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'et';
+const alternateUrls = getAlternateUrls('security');
 ---
 
-<Layout title="Turvalisus - SMSPM | Globaalne SMS infrastruktuur" description="Õppige tundma SMSPM-i põhjalikke turvameetmeid, sealhulgas krüpteerimist, API turvalisust ja GDPR vastavust.">
+<Layout title="Turvalisus - SMSPM | Globaalne SMS infrastruktuur" description="Õppige tundma SMSPM-i põhjalikke turvameetmeid, sealhulgas krüpteerimist, API turvalisust ja GDPR vastavust." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">

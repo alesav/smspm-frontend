@@ -2,11 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { getAlternateUrls } from "../../utils/hreflang";
 
 const lang = 'ru';
+const alternateUrls = getAlternateUrls('privacy');
 ---
 
-<Layout title="Политика конфиденциальности - SMSPM" description="Узнайте, как SMSPM защищает вашу конфиденциальность и обрабатывает персональные данные в соответствии с GDPR.">
+<Layout title="Политика конфиденциальности - SMSPM" description="Узнайте, как SMSPM защищает вашу конфиденциальность и обрабатывает персональные данные в соответствии с GDPR." lang={lang} alternateUrls={alternateUrls}>
     <Navigation lang={lang} />
 
     <main class="pt-[120px] pb-20">
