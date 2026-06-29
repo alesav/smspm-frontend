@@ -336,7 +336,7 @@ const t = translations[lang] || translations.en;
         <div class="flex items-center gap-3 flex-shrink-0">
           <div class="text-center ag-price-old">
             <div class="text-xs ag-muted line-through">
-              €{country.startingPrice.toFixed(3)}
+              €{(country.startingPrice ?? country.providers[0]?.price ?? 0).toFixed(3)}
             </div>
             <div class="text-xs ag-muted">commercial</div>
           </div>
