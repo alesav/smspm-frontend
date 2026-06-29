@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import Footer from '../../../components/Footer.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ id, data }) => {
+    return id.startsWith('et/') && !data.draft;
+  });
+  return allPosts.map((post) => ({
+    params: { slug: post.id.replace(/^et\//, '').replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const lang = 'et';
+
+const { Content } = await post.render();
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('et', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout
+  title={`${post.data.title} - SMSPM Blog`}
+  description={post.data.description}
+  lang={lang}
+>
+  <Navigation lang={lang} />
+
+  <main class="pt-[120px] pb-20">
+    <div class="container mx-auto px-8 pt-8">
+      <a href="/et/blog" class="inline-flex items-center gap-2 text-dynamic-secondary hover:text-cyan transition-colors text-sm font-medium">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Tagasi blogi
+      </a>
+    </div>
+
+    <section class="py-12 lg:py-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto">
+          <div class="flex flex-wrap gap-2 mb-6">
+            {post.data.tags.map((tag) => (
+              <span class="px-3 py-1 bg-cyan/10 text-cyan text-xs font-semibold rounded-full border border-cyan/20">
+                #{tag}
+              </span>
+            ))}
+          </div>
+          <h1 class="text-3xl lg:text-5xl font-extrabold text-dynamic-primary leading-tight mb-6">
+            {post.data.title}
+          </h1>
+          <p class="text-lg text-dynamic-secondary leading-relaxed mb-8">
+            {post.data.description}
+          </p>
+          <div class="flex items-center gap-4 pb-8 border-b border-dynamic-primary">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#26c6da] to-[#1e88e5] flex items-center justify-center text-white font-bold text-sm">
+              {post.data.author.charAt(0)}
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-dynamic-primary">{post.data.author}</p>
+              <p class="text-xs text-dynamic-tertiary">{formatDate(post.data.pubDate)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container mx-auto px-8">
+        <div class="max-w-3xl mx-auto prose-blog">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 mt-16">
+      <div class="container mx-auto px-8">
+        <div class="max-w-2xl mx-auto text-center feature-card rounded-3xl border border-dynamic-primary p-12">
+          <h2 class="text-2xl lg:text-3xl font-bold text-dynamic-primary mb-4">
+            Alusta SMS-ide saatmist täna
+          </h2>
+          <p class="text-dynamic-secondary mb-8">
+            Liitu tuhandete ettevõtetega, kes kasutavad SMSPM-i oma klientideni jõudmiseks üle maailma.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://app.smspm.com/app/register" class="btn btn-primary">
+              Alusta tasuta
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7 3L15 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/et/blog" class="btn btn-secondary">Tagasi blogi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .prose-blog { color: var(--text-primary); line-height: 1.8; font-size: 1.05rem; }
+  .prose-blog :global(h2) { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 1rem; }
+  .prose-blog :global(h3) { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2rem; margin-bottom: 0.75rem; }
+  .prose-blog :global(p) { color: var(--text-secondary); margin-bottom: 1.25rem; }
+  .prose-blog :global(ul), .prose-blog :global(ol) { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .prose-blog :global(li) { margin-bottom: 0.5rem; }
+  .prose-blog :global(a) { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+  .prose-blog :global(a:hover) { opacity: 0.8; }
+  .prose-blog :global(strong) { color: var(--text-primary); font-weight: 600; }
+  .prose-blog :global(code) { background: var(--bg-tertiary); border: 1px solid var(--border-primary); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; color: var(--cyan); }
+  .prose-blog :global(pre) { background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: 12px; padding: 1.5rem; overflow-x: auto; margin-bottom: 1.5rem; }
+  .prose-blog :global(pre code) { background: none; border: none; padding: 0; color: var(--text-primary); }
+  .prose-blog :global(blockquote) { border-left: 3px solid var(--cyan); padding-left: 1.25rem; margin: 1.5rem 0; color: var(--text-secondary); font-style: italic; }
+  .prose-blog :global(hr) { border: none; border-top: 1px solid var(--border-primary); margin: 2rem 0; }
+  .prose-blog :global(table) { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  .prose-blog :global(th), .prose-blog :global(td) { padding: 0.6rem 1rem; border: 1px solid var(--border-primary); }
+  .prose-blog :global(th) { background: var(--bg-secondary); font-weight: 600; color: var(--text-primary); }
+</style>

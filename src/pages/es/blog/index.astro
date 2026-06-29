@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import Footer from '../../../components/Footer.astro';
+
+export const prerender = true;
+
+const lang = 'es';
+const allPosts = await getCollection('blog', ({ id, data }) => id.startsWith('es/') && !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const formatDate = (date: Date) => date.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout title="Blog - SMSPM | Guías de SMS Marketing" description="Guías de expertos, consejos e insights sobre SMS marketing y comunicación empresarial del equipo SMSPM." lang={lang}>
+  <Navigation lang={lang} />
+  <main class="pt-[120px] pb-20">
+    <section class="py-16 lg:py-20 overflow-hidden relative">
+      <div class="container mx-auto px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="inline-flex px-6 py-2 bg-cyan/10 border border-cyan/30 rounded-full text-sm text-cyan font-semibold mb-6">Blog SMSPM</span>
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-dynamic-primary">Insights &amp; <span class="gradient-text">Guías SMS</span></h1>
+          <p class="text-xl text-dynamic-secondary leading-relaxed">Consejos de expertos sobre SMS marketing, entregabilidad y crecimiento con mensajería móvil.</p>
+        </div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+    <section class="py-8">
+      <div class="container mx-auto px-8">
+        {posts.length === 0 ? (
+          <p class="text-center text-dynamic-secondary py-20">Aún no hay artículos. Vuelve pronto.</p>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {posts.map((post) => {
+              const slug = post.id.replace(/^es\//, '').replace(/\.md$/, '');
+              return (
+                <a href={`/es/blog/${slug}`} class="blog-card feature-card rounded-3xl border border-dynamic-primary bg-dynamic-primary overflow-hidden group flex flex-col">
+                  {post.data.image && (<div class="overflow-hidden"><img src={post.data.image} alt={post.data.title} class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" /></div>)}
+                  <div class="p-8 flex flex-col flex-1">
+                    <div class="flex flex-wrap gap-2 mb-4">{post.data.tags.map((tag) => (<span class="px-3 py-1 bg-cyan/10 text-cyan text-xs font-semibold rounded-full border border-cyan/20">#{tag}</span>))}</div>
+                    <h2 class="text-xl font-bold text-dynamic-primary mb-3 leading-snug group-hover:text-cyan transition-colors">{post.data.title}</h2>
+                    <p class="text-dynamic-secondary text-sm leading-relaxed flex-1">{post.data.description}</p>
+                    <div class="mt-6 flex items-center justify-between">
+                      <span class="text-xs text-dynamic-tertiary">{formatDate(post.data.pubDate)}</span>
+                      <span class="text-cyan text-sm font-semibold flex items-center gap-1">Leer más <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 400px; background: radial-gradient(ellipse at center, rgba(38, 198, 218, 0.08) 0%, transparent 70%); pointer-events: none; }
+  .blog-card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; text-decoration: none; }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(38, 198, 218, 0.15); border-color: var(--cyan); }
+</style>
