@@ -1,5 +1,7 @@
 ---
 // Navigation Component
+import { findBlogTranslations } from "../utils/hreflang";
+
 interface Props {
   lang?: string; // Allow passing language from parent
 }
@@ -123,6 +125,34 @@ const getLanguageUrl = (targetLang: string) => {
     // Fallback: just change language but keep structure
     const pathWithoutLang = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
     return `/${targetLang}${pathWithoutLang}`;
+  }
+
+  if (pathname.includes("/blog/")) {
+    // Extract the slug from /{lang}/blog/{slug}
+    const blogMatch = pathname.match(/\/blog\/([^/]+)/);
+    const currentSlug = blogMatch ? blogMatch[1] : null;
+
+    if (currentSlug) {
+      // Switching to the language we're already on — stay on this exact post
+      if (targetLang === lang) {
+        return pathname;
+      }
+
+      const blogTranslations = findBlogTranslations(currentSlug);
+      const targetSlug = blogTranslations?.[targetLang as keyof typeof blogTranslations];
+
+      if (targetSlug) {
+        return `/${targetLang}/blog/${targetSlug}`;
+      }
+
+      // No translation of this specific post in the target language —
+      // send to the blog index for that language rather than a slug
+      // that doesn't exist there.
+      return `/${targetLang}/blog`;
+    }
+
+    // Blog index page itself (no slug) — just swap language prefix
+    return `/${targetLang}/blog`;
   }
 
   // For any other page, try to preserve the path structure

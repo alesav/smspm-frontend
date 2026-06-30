@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Navigation from '../../../components/Navigation.astro';
 import Footer from '../../../components/Footer.astro';
+import { getBlogAlternateUrls } from '../../../utils/hreflang';
 
 export const prerender = true;
 
@@ -16,11 +17,13 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const lang = 'es';
+const { slug } = Astro.params;
+const alternateUrls = getBlogAlternateUrls(slug as string);
 const { Content } = await post.render();
 const formatDate = (date: Date) => date.toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<Layout title={`${post.data.title} - Blog SMSPM`} description={post.data.description} lang={lang}>
+<Layout title={`${post.data.title} - Blog SMSPM`} description={post.data.description} lang={lang} alternateUrls={alternateUrls}>
   <Navigation lang={lang} />
   <main class="pt-[120px] pb-20">
     <div class="container mx-auto px-8 pt-8">

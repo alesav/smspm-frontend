@@ -101,7 +101,7 @@ The app needs Send SMS, Phone State, and Notifications permissions, plus a batte
   <img
     src="/blog/android-gateway/android-gateway-app-permissions.webp"
     alt="Android permissions dialog for the SMSPM Gateway app requesting Send SMS, Phone State, and Notifications permissions"
-    width="500" height="700"
+    width="250" height="350"
     loading="lazy"
   />
   <figcaption>Granting Send SMS, Phone State, and Notifications permissions to the SMSPM Gateway app on Android.</figcaption>
@@ -128,7 +128,7 @@ Enter the code in the app and tap **Pair device**. The dashboard detects the pai
   <img
     src="/blog/android-gateway/android-gateway-app-running-on-phone.webp"
     alt="Android phone running the SMSPM Gateway app in the background, paired and ready to send SMS through the phone's SIM card"
-    width="500" height="700"
+    width="250" height="350"
     loading="lazy"
   />
   <figcaption>The SMSPM Gateway app running on a paired Android phone, ready to send SMS in the background.</figcaption>
