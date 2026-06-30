@@ -1,9 +1,20 @@
 ---
-title: "Android SMS Gateway: Send SMS from Your Phone (€0.01) — Free Setup"
-description: "Android SMS gateway — turn any Android phone into a personal SMS sender. Route via your own SIM card, pay just €0.01 per message, and let recipients see your real number instead of 'Authmsg'."
+title: "Android SMS Gateway: Send SMS from Your Phone for €0.01"
+description: "Android SMS gateway — turn any phone into a personal SMS sender. €0.01 per message, your own SIM, real number shown to recipients"
 pubDate: 2025-07-01
 author: "SMSPM Team"
-tags: ["android-gateway", "sms-gateway", "bulk-sms", "sms-api", "sim-card", "small-business", "firebase", "cost-saving", "guide"]
+tags:
+  [
+    "android-gateway",
+    "sms-gateway",
+    "bulk-sms",
+    "sms-api",
+    "sim-card",
+    "small-business",
+    "firebase",
+    "cost-saving",
+    "guide",
+  ]
 draft: false
 ---
 
@@ -20,6 +31,7 @@ From the recipient's perspective, the SMS arrives from a real, callable phone nu
 An SMS sender ID is the label that appears on the recipient's phone where the sender's name would be — for example "YourBrand" instead of a phone number. Mobile operators have been steadily stripping these alphanumeric sender IDs from incoming SMS traffic. A message you send as "YourBrand" often arrives as "Info" or a generic label — depending on the operator and country. This is accelerating, not slowing down.
 
 When you route through the Android SMS gateway, the recipient sees your SIM card's number — a real mobile number they can:
+
 - Call back directly
 - Save to their contacts
 - Reply to (replies go to the phone's inbox)
@@ -30,20 +42,31 @@ For local businesses sending appointment reminders, delivery notifications, or p
 
 The cost difference between routing through an Android SMS gateway and going through a commercial SMS provider is significant. Here's the direct comparison:
 
-| Route | Cost per SMS |
-|---|---|
+| Route                    | Cost per SMS                      |
+| ------------------------ | --------------------------------- |
 | SMSPM commercial gateway | €0.02 – €0.45 (carrier-dependent) |
-| Android Gateway | **€0.01 flat** |
+| Android Gateway          | **€0.01 flat**                    |
 
 The €0.01 is SMSPM's platform fee — it covers infrastructure, push delivery via FCM, and routing logic. **Your SIM card charges are separate and depend on your mobile plan.** In most countries, standard mobile plans include a large monthly SMS allowance (1,000 is typical) — so in practice, you often pay only the €0.01 platform fee per message.
 
 **Example:** 1,000 SMS to a Turkish carrier via commercial gateway at €0.12 each = **€120**. Via Android SMS gateway with a plan that includes 1,000 free SMS = **€10**. That's 92% less. See the per-country rate on our [SMS pricing page](/en/prices) for the commercial baseline.
+
+<figure>
+  <img
+    src="/blog/android-gateway/android-gateway-cost-comparison.webp"
+    alt="Cost comparison chart showing €0.01 per SMS via Android SMS gateway versus €0.02 to €0.45 per SMS via commercial SMS providers"
+    width="800" height="190"
+    loading="lazy"
+  />
+  <figcaption>Android gateway vs commercial SMS pricing — a single SIM card with a free-SMS plan routes messages at €0.01 each, while commercial providers charge €0.02–€0.45 per message.</figcaption>
+</figure>
 
 ## You Can Start for Free
 
 SMSPM has no monthly fee and no minimum spend. [Create a free account](https://app.smspm.com/app/register), top up with as little as you want, and you can test the Android Gateway immediately. The setup takes about 5 minutes.
 
 The only thing you need:
+
 - An Android phone running Android 8.0 or higher (most phones from 2017 onwards qualify)
 - A SIM card in it
 - The SMSPM Gateway app (APK download from your dashboard → Devices page)
@@ -55,17 +78,58 @@ Here's how to set up your Android phone as an SMS gateway with SMSPM. The whole 
 **Step 1 — Download and install the app**  
 Go to your SMSPM dashboard → Devices, and download the SMSPM Gateway APK. Install it on the Android phone you want to use as a gateway.
 
-**Step 2 — Grant permissions**  
+**Step 2 — Grant permissions**
 The app needs Send SMS, Phone State, and Notifications permissions, plus a battery optimisation exemption so it stays alive in the background. On Xiaomi/MIUI phones, go to Settings → Apps → SMSPM Gateway → Battery → No restrictions.
 
-**Step 3 — Generate a pairing code**  
+<figure>
+  <img
+    src="/blog/android-gateway/android-gateway-app-permissions.webp"
+    alt="Android permissions dialog for the SMSPM Gateway app requesting Send SMS, Phone State, and Notifications permissions"
+    width="800" height="1778"
+    loading="lazy"
+  />
+  <figcaption>Granting Send SMS, Phone State, and Notifications permissions to the SMSPM Gateway app on Android.</figcaption>
+</figure>
+
+**Step 3 — Generate a pairing code**
 In your dashboard → Devices, click **Generate pairing code**. A 6-digit code appears, valid for 15 minutes.
 
-**Step 4 — Pair the phone**  
+<figure>
+  <img
+    src="/blog/android-gateway/android-gateway-dashboard-devices-pairing-code.webp"
+    alt="SMSPM dashboard Devices page with the Generate pairing code button highlighted, showing how to pair a new Android phone as an SMS gateway"
+    width="800" height="350"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <figcaption>The SMSPM dashboard → Devices page, with the Generate pairing code button highlighted.</figcaption>
+</figure>
+
+**Step 4 — Pair the phone**
 Enter the code in the app and tap **Pair device**. The dashboard detects the pairing automatically and shows your device.
 
-**Step 5 — Set up routing**  
+<figure>
+  <img
+    src="/blog/android-gateway/android-gateway-app-running-on-phone.webp"
+    alt="Android phone running the SMSPM Gateway app in the background, paired and ready to send SMS through the phone's SIM card"
+    width="800" height="1028"
+    loading="lazy"
+  />
+  <figcaption>The SMSPM Gateway app running on a paired Android phone, ready to send SMS in the background.</figcaption>
+</figure>
+
+**Step 5 — Set up routing**
 Go to your dashboard → Prices. For each carrier you want to route through your phone, find it in the table and change the Route dropdown from "SMSPM (default)" to your phone. The change takes effect immediately.
+
+<figure>
+  <img
+    src="/blog/android-gateway/android-gateway-route-dropdown-prices.webp"
+    alt="Per-carrier SMS route dropdown on the SMSPM Prices page, showing the Android gateway route option alongside the SMSPM default commercial route"
+    width="800" height="219"
+    loading="lazy"
+  />
+  <figcaption>Per-carrier Route dropdown on the SMSPM Prices page, showing the Android gateway route alongside the default commercial route.</figcaption>
+</figure>
 
 **Step 6 — Send**  
 Send SMS normally via the dashboard or API. Messages matching your phone's route are automatically pushed to the device and sent from your SIM.
@@ -129,7 +193,11 @@ The charge is on dispatch, not delivery — same as all SMS providers. If fallba
         "@id": "https://smspm.com/en/blog/android-gateway-send-sms-from-your-phone/"
       },
       "inLanguage": "en",
-      "keywords": "android sms gateway, sms gateway, bulk sms, sms api, sim card, small business, firebase, cost saving"
+      "keywords": "android sms gateway, sms gateway, bulk sms, sms api, sim card, small business, firebase, cost saving",
+      "image": [
+        "https://smspm.com/blog/android-gateway/android-gateway-dashboard-devices-pairing-code.webp",
+        "https://smspm.com/blog/android-gateway/android-gateway-cost-comparison.webp"
+      ]
     },
     {
       "@type": "FAQPage",

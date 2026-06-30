@@ -167,4 +167,19 @@ const formatDate = (date: Date) =>
     font-style: italic;
   }
   .prose-blog :global(hr) { border: none; border-top: 1px solid var(--border-primary); margin: 2rem 0; }
+  .prose-blog :global(figure) { margin: 2rem 0; }
+  .prose-blog :global(figure img) {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+  }
+  .prose-blog :global(figcaption) {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
 </style>
