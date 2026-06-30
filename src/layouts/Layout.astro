@@ -122,6 +122,9 @@ const {
         document.documentElement.classList.remove('theme-loading');
       })();
     </script>
+    
+    <!-- Named slot for page-specific <head> meta tags (article:modified_time, etc.) -->
+    <slot name="head" />
   </head>
   <body class="theme-loading">
     <slot />

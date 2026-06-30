@@ -2,7 +2,8 @@
 title: "Android SMS Gateway: Send SMS from Your Phone for €0.01"
 description: "Android SMS gateway — turn any phone into a personal SMS sender. €0.01 per message, your own SIM, real number shown to recipients"
 pubDate: 2025-07-01
-author: "SMSPM Team"
+dateModified: 2026-06-30
+author: "Aleks Sav from SMSPM"
 tags:
   [
     "android-gateway",
@@ -61,8 +62,22 @@ The €0.01 is SMSPM's platform fee — it covers infrastructure, push delivery 
   <figcaption>Android gateway vs commercial SMS pricing — a single SIM card with a free-SMS plan routes messages at €0.01 each, while commercial providers charge €0.02–€0.45 per message.</figcaption>
 </figure>
 
-## You Can Start for Free
+## A Practical Use Case: Mixing In-Network and Cross-Network Routing
 
+In a lot of countries, mobile plans include a large or unlimited SMS allowance — but only for messages sent **within the same carrier's network**. Texting a number on another carrier still gets charged per message, or isn't covered at all.
+
+This is exactly the situation the Android Gateway is built for. Instead of routing all your traffic through one phone, you can set it up per carrier:
+
+- Connect a phone with a SIM from **Carrier A** and route only Carrier A's traffic through it — those messages land in your free in-network allowance, so you're only paying SMSPM's €0.01 platform fee.
+- Leave every other carrier (B, C, D…) on SMSPM's standard commercial gateway, where pricing is transparent and per-carrier regardless of network.
+
+If a large share of your recipients happen to be on one specific carrier, this alone can cut your effective cost per message significantly — without having to chase down a SIM for every operator in the country.
+
+It also scales: SMSPM lets you connect more than one device, and each carrier route can point to a different phone. So if you have SIMs on two different networks, you can pair two phones and assign Carrier A's traffic to Phone 1 and Carrier B's traffic to Phone 2 — each one billing against its own carrier's in-network allowance, while anything outside those two carriers still falls back to the commercial gateway automatically.
+
+Setup is the same per-carrier routing described above (Prices → Route column) — you're just doing it carrier-by-carrier instead of all-or-nothing.
+
+## You Can Start for Free
 SMSPM has no monthly fee and no minimum spend. [Create a free account](https://app.smspm.com/app/register), top up with as little as you want, and you can test the Android Gateway immediately. The setup takes about 5 minutes.
 
 The only thing you need:
@@ -85,7 +100,7 @@ The app needs Send SMS, Phone State, and Notifications permissions, plus a batte
   <img
     src="/blog/android-gateway/android-gateway-app-permissions.webp"
     alt="Android permissions dialog for the SMSPM Gateway app requesting Send SMS, Phone State, and Notifications permissions"
-    width="800" height="1778"
+    width="500" height="700"
     loading="lazy"
   />
   <figcaption>Granting Send SMS, Phone State, and Notifications permissions to the SMSPM Gateway app on Android.</figcaption>
@@ -112,7 +127,7 @@ Enter the code in the app and tap **Pair device**. The dashboard detects the pai
   <img
     src="/blog/android-gateway/android-gateway-app-running-on-phone.webp"
     alt="Android phone running the SMSPM Gateway app in the background, paired and ready to send SMS through the phone's SIM card"
-    width="800" height="1028"
+    width="500" height="700"
     loading="lazy"
   />
   <figcaption>The SMSPM Gateway app running on a paired Android phone, ready to send SMS in the background.</figcaption>
@@ -145,6 +160,9 @@ If you disable fallback, the message waits in a retry queue for up to 24 hours, 
 **Can I connect multiple phones?**  
 Yes — as many as you like. Each carrier route can be assigned to a specific device.
 
+**Can I route different carriers to different phones?**  
+Yes. This is a common setup if your mobile plans include free SMS only within their own network — pair one phone per carrier and assign that carrier's route to its matching device. Traffic to carriers you haven't connected a phone for falls back to SMSPM's commercial gateway automatically.
+
 **Does this work with dual-SIM phones?**  
 Yes, using whichever SIM is set as default for SMS in Android settings.
 
@@ -170,14 +188,14 @@ The charge is on dispatch, not delivery — same as all SMS providers. If fallba
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://smspm.com/en/blog/android-gateway-send-sms-from-your-phone/#article",
+      "@id": "https://smspm.com/en/blog/android-sms-gateway-send-sms-from-phone/#article",
       "headline": "Android SMS Gateway: Send SMS from Your Phone (€0.01) — Free Setup",
       "description": "Android SMS gateway — turn any Android phone into a personal SMS sender. Route via your own SIM card, pay just €0.01 per message, and let recipients see your real number instead of 'Authmsg'.",
       "datePublished": "2025-07-01",
-      "dateModified": "2026-06-29",
+      "dateModified": "2026-06-30",
       "author": {
         "@type": "Organization",
-        "name": "SMSPM Team",
+        "name": "Aleks Sav from SMSPM",
         "url": "https://smspm.com/"
       },
       "publisher": {
@@ -190,7 +208,7 @@ The charge is on dispatch, not delivery — same as all SMS providers. If fallba
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://smspm.com/en/blog/android-gateway-send-sms-from-your-phone/"
+        "@id": "https://smspm.com/en/blog/android-sms-gateway-send-sms-from-phone/"
       },
       "inLanguage": "en",
       "keywords": "android sms gateway, sms gateway, bulk sms, sms api, sim card, small business, firebase, cost saving",
@@ -201,7 +219,7 @@ The charge is on dispatch, not delivery — same as all SMS providers. If fallba
     },
     {
       "@type": "FAQPage",
-      "@id": "https://smspm.com/en/blog/android-gateway-send-sms-from-your-phone/#faq",
+      "@id": "https://smspm.com/en/blog/android-sms-gateway-send-sms-from-phone/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -209,6 +227,14 @@ The charge is on dispatch, not delivery — same as all SMS providers. If fallba
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes — as many as you like. Each carrier route can be assigned to a specific device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I route different carriers to different phones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. This is a common setup if your mobile plans include free SMS only within their own network — pair one phone per carrier and assign that carrier's route to its matching device. Traffic to carriers you haven't connected a phone for falls back to SMSPM's commercial gateway automatically."
           }
         },
         {

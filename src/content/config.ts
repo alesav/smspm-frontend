@@ -15,6 +15,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    dateModified: z.coerce.date().optional(),
     author: z.string().default('SMSPM Team'),
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),
