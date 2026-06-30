@@ -62,7 +62,7 @@ The €0.01 is SMSPM's platform fee — it covers infrastructure, push delivery 
   <figcaption>Android gateway vs commercial SMS pricing — a single SIM card with a free-SMS plan routes messages at €0.01 each, while commercial providers charge €0.02–€0.45 per message.</figcaption>
 </figure>
 
-## A Practical Use Case: Mixing In-Network and Cross-Network Routing
+## A Practical Use Case: Mixing In-Network and Cross-Network Routing.
 
 In a lot of countries, mobile plans include a large or unlimited SMS allowance — but only for messages sent **within the same carrier's network**. Texting a number on another carrier still gets charged per message, or isn't covered at all.
 
@@ -78,6 +78,7 @@ It also scales: SMSPM lets you connect more than one device, and each carrier ro
 Setup is the same per-carrier routing described above (Prices → Route column) — you're just doing it carrier-by-carrier instead of all-or-nothing.
 
 ## You Can Start for Free
+
 SMSPM has no monthly fee and no minimum spend. [Create a free account](https://app.smspm.com/app/register), top up with as little as you want, and you can test the Android Gateway immediately. The setup takes about 5 minutes.
 
 The only thing you need:
